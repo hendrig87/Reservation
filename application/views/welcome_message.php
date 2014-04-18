@@ -62,16 +62,111 @@
 		border: 1px solid #D0D0D0;
 		-webkit-box-shadow: 0 0 8px #D0D0D0;
 	}
+        input
+        {
+            padding: 5px;
+            min-width: 20px;
+        }
+        select
+        {
+            width: 100px;
+            padding: 5px;
+        }
+        
+        .checkForm
+        
+        {
+            font-weight:bold;
+            font-size: 18px;
+              
+        }
+        
+        
 	</style>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+        <link rel="stylesheet" href="/resources/demos/style.css" />
+        <script>
+            $(function() {
+                $( "#datepicker1" ).datepicker({ dateFormat: "yy-mm-dd" });
+
+            });
+            $(function() {
+                $( "#datepicker2" ).datepicker({ dateFormat: "yy-mm-dd" });
+            });
+
+        </script>
 </head>
 <body>
-
+<?php
+        $adultsNumber = 5;
+        $children = 5;
+        ?>
 <div id="container">
 	<h1>Welcome to Online Reservation System</h1>
 
 	<div id="body">
 	
-            <p>We are coming very soon. Just keep your eyes open. :)</p>
+           <div class ="checkForm">
+        <form method ="post" action="checkout.php">
+            <table>
+                <tr>
+                    <td class="tabledata">
+                        Check In 
+                    </td>
+                    <td class="tabledata">
+                        <input type="text" name="dfrom" id="datepicker1" placeholder="From" required value="<?php if (isset($fromDate)) {
+            echo $fromDate;
+        } else {
+            echo "";
+        } ?>" />
+                    </td>
+                    <td class="tabledata">
+                        Adults 
+                    </td>
+                    <td class="tabledata">
+                        <select name="adults">
+
+                            <?php
+                            for ($i = 1; $i <= $adultsNumber; $i++) {
+                                echo "<option value=" . $i . ">" . $i . "</option>";
+                            }
+                            ?>
+                        </select>
+                    </td>
+                </tr>
+                <br/>
+                <tr>
+                    <td class="tabledata">
+                        Check Out
+                    </td>
+                    <td class="tabledata">
+                        <input type="text" name="dto" id="datepicker2" placeholder="To" value="<?php if (isset($fromDate)) {
+                                echo $fromDate;
+                            } else {
+                                echo "";
+                                } ?>" required="true"/>
+                    </td>
+                    <td class="tabledata">
+                        Children
+                    </td>
+                    <td class="tabledata">    
+                        <select name="children" required>
+
+                            <?php
+                            for ($i = 1; $i <= $children; $i++) {
+                                echo "<option value=" . $i . ">" . $i . "</option>";
+                            }
+                            ?>
+                        </select>
+                    </td>
+                    <td class="tabledata">
+                        <input type ="submit" value="Submit" id ="submit">
+                    </td>
+            </table>
+        </form>
+        </div>
         </div>
 
 	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds</p>
