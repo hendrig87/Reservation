@@ -14,15 +14,18 @@
 
 	<div id="body">
             <h3>Please fill the form below to Reset Password</h3>
+            <p id="sucessmsg">
+            <?php if($this->session->flashdata('message')){echo $this->session->flashdata('message');}
+              echo validation_errors(); ?> </p>
            <div class ="checkForm">
-        <?php echo form_open_multipart('login/register'); ?>
+        <?php echo form_open_multipart('login/email'); ?>
             <table style="text-align:center">
                 <tr>
                     <td class="tabledata">
                         Email:
                     </td>
                     <td class="tabledata">
-                        <input type="text" name="userName" class="textbox" placeholder="Email" required />
+                        <input type="text" name="userEmail" class="textbox" placeholder="Email" required />
                     </td>
                 </tr>
                     

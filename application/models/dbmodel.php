@@ -30,6 +30,31 @@ class Dbmodel extends CI_Model {
          $this->db->insert('user_info', $data);
     }
     
+     public function get_selected_user($useremail){
+       $this->db->where('user_email', $useremail );
+        $query = $this->db->get('user_info');
+        return $query->result();
+    }
+    public function update_emailed_user($to, $token){
+        $data = array(
+            'user_auth_key'=>$token);
+        $this->db->where('user_email', $to);
+        $this->db->update('user_info', $data);
+    }
+    public function update_user_password($token, $userPassword){
+        $data = array(
+            'user_pass'=> md5($userPassword));
+        $this->db->where('user_auth_key', $token);
+        $this->db->update('user_info', $data);
+    }
+    function find_user_auth_key($token) {       
+        $this->db->where('user_auth_key', $token );
+        $query = $this->db->get('user_info');
+        return $query->result();
+    }  
+    
+    
+    
  
     
  }

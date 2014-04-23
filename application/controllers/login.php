@@ -106,10 +106,99 @@ else
 	}
  
  public function forgotPassword(){
+     $this->load->library('session');
+     if(!$this->session->userdata('logged_in')){
         $this->load->view('login/forgotPassword');            
-   
+     }
+     else{
+         $this->session->set_flashdata('message', 'Incorrect Email');
+          redirect('login/forgotPassword');
+     }
        
     }
+ 
+ 
+ public function email(){
+        
+       if(isset($_POST['userEmail'])) 
+        $useremail= $_POST['userEmail'];
+       
+        $username =  $this->dbmodel->get_selected_user($useremail);
+        
+        foreach ($username as $dbemail){
+            $to = $dbemail->user_email;
+        }
+        if ($to==$useremail) {                                       
+               $token= $this->getRandomString(10);                          
+                $this->dbmodel->update_emailed_user($to, $token);  
+                $this->test($token);
+                
+                $this->mailresetlink($to, $token);
+                
+               
+            } else {
+                $this->session->set_flashdata('message', 'Please type valid Email Address');
+                redirect("login/forgotPassword");
+            }
+    }
+    
+    public function test($token){
+        
+        $data['query'] = $this->dbmodel->find_user_auth_key($token);
+        $this->load->view('login/messageSent',$data);
+    }
+    
+    function getRandomString($length) 
+	   {
+    $validCharacters = "ABCDEFGHIJKLMNPQRSTUXYVWZ123456789";
+    $validCharNumber = strlen($validCharacters);
+    $result = "";
+
+    for ($i = 0; $i < $length; $i++) {
+        $index = mt_rand(0, $validCharNumber - 1);
+        $result .= $validCharacters[$index];
+    }
+    return $result;
+    
+    
+           } 
+           
+ function mailresetlink($to,$token){
+     
+ }
+ 
+  public function resetPassword() {
+            $this->load->view("login/resetPassword", $data);
+            
+          
+         
+    }        
+ public function setpassword(){
+     
+   
+   $password= $_POST['user_pass'];
+        $token = $_POST['tokenid'];
+       
+        $confirmPassword =  $_POST['user_confirm_pass'];
+        if ($password==$confirmPassword) {                                       
+               
+            $userPassword=  $this->input->post('user_pass');
+            
+                $this->dbmodel->update_user_password($token, $userPassword);  
+                
+                $this->session->set_flashdata('message', 'Your password has been changed successfully');
+                redirect('login', 'refresh');
+               
+            } else {
+                
+                $this->session->set_flashdata('message', 'Password didnot match');
+               redirect('login/forgotPassword', 'refresh');
+            }
+            
+      
+ }
+ 
+ 
  
  
  
