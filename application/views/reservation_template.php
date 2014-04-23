@@ -1,6 +1,7 @@
 <div id="container">
 	<h1>Welcome to Online Reservation System</h1>
-
+        <a href="http://localhost/reservation/index.php/login/registrationForm">Register</a>
+        <a href="http://localhost/reservation/index.php/login/loginForm">Login</a>
 	<div id="body">
 	
            <div class ="checkForm">
