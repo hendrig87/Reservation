@@ -1,40 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>Welcome to Online Reservation System</title>
-        <link type="text/css" rel="stylesheet" href="<?php echo base_url()."contents/styles/stylesheet.css"; ?>"/>
-	
-        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-        <link rel="stylesheet" href="/resources/demos/style.css" />
-        <script>
-            $(function() {
-                $( "#datepicker1" ).datepicker({ dateFormat: "yy-mm-dd" });
-
-            });
-            $(function() {
-                $( "#datepicker2" ).datepicker({ dateFormat: "yy-mm-dd" });
-            });
-
-        </script>
-</head>
-<body>
-<?php
-        $adultsNumber = 5;
-        $children = 5;
-        ?>
-<<<<<<< HEAD
 <div id="container">
 	<h1>Welcome to Online Reservation System</h1>
-        <a href="http://localhost/reservation/index.php/login/registrationForm">Register</a>
-        <a href="http://localhost/reservation/index.php/login/loginForm">Login</a>
-        
+
 	<div id="body">
 	
            <div class ="checkForm">
-        <form method ="post" action="checkout.php">
+        <form method ="post" action="http://salyani.com.np">
             <table>
                 <tr>
                     <td class="tabledata">
@@ -96,9 +66,3 @@
 
 	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds</p>
 </div>
-=======
-    <?php $this->load->view('reservation_template'); ?>
->>>>>>> 2a805ba0c880c8f38c639e32393469bd14dbeb02
-
-</body>
-</html>
