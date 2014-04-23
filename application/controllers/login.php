@@ -5,6 +5,7 @@ class Login extends CI_Controller {
  function __construct()
  {
    parent::__construct();  
+        $this->load->library('session');
         $this->load->model('dbmodel');
         $this->load->helper('url');
         $this->load->helper(array('form', 'url'));
@@ -14,7 +15,7 @@ class Login extends CI_Controller {
 
  public function registrationForm()
  {
-     
+     $this->load->library('session');
         $this->load->view('login/register');
  }
  
@@ -46,8 +47,14 @@ class Login extends CI_Controller {
  
  public function loginForm()
  {
-     
+     $this->load->library('session');
+     if(!$this->session->userdata('logged_in'))
+     {
         $this->load->view('login/login');
+     }
+     else{
+         
+     }
  }
  
  public function validate_user()
@@ -65,32 +72,34 @@ else
    $this->session->sess_expiration = 60*60;
    $this->session->sess_expire_on_close = FALSE;
 }  
-    
+   
                 $this->load->library('form_validation');
-                $this->form_validation->set_rules('userName', 'Username', 'trim|required|xss_clean');
-                $this->form_validation->set_rules('userPass', 'Password', 'trim|required|xss_clean|callback_check_database');
+                $this->form_validation->set_rules('userEmail', 'Username', 'trim|required|xss_clean');
+                $this->form_validation->set_rules('userPass', 'Password', 'trim|required|xss_clean|md5|callback_check_database');
                 if($this->form_validation->run() == FALSE)
                      {
                         $this->loginForm();
+                       
                      }
                 else
                     {
-		$this->load->model('dbmodel');
-		$query = $this->dbmodel->validate();
-		if($query) // if the user's credentials validated...
+                    
+                $email= $this->input->post('userEmail');
+                $pass= $this->input->post('userPass');
+		
+		$query = $this->dbmodel->validate($email, $pass);
+		if($query) // if the user's credentials validated...   
 		{
 			$data = array(
-				'username' => $this->input->post('userName'),
-				'logged_in' => true
-                            
-			);
+				'username' => $this->input->post('userEmail'),
+				'logged_in' => true);
 			echo'<h3>Hurray Login sucessful</h3>';
-			redirect('bnw/index');
+			
 		}
 		else // incorrect username or password
                     {
-                        echo'Username or password incorrect';
-                        redirect('login/loginForm');
+                        $this->session->set_flashdata('message', 'Username or password incorrect');
+                       redirect('login/loginForm');
                         
                     }
                     }
