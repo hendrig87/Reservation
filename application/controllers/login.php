@@ -15,8 +15,13 @@ class Login extends CI_Controller {
 
  public function registrationForm()
  {
-     $this->load->library('session');
+        $this->load->library('session');
+     
+        $this->load->view('template/header');
         $this->load->view('login/register');
+        $this->load->view('template/reservation_template');
+        $this->load->view('template/footer');
+        $this->load->view('template/copyright');
  }
  
  public function register(){
@@ -50,7 +55,11 @@ class Login extends CI_Controller {
      $this->load->library('session');
      if(!$this->session->userdata('logged_in'))
      {
-        $this->load->view('login/login');
+          $this->load->view('template/header');
+          $this->load->view('login/login');
+          $this->load->view('template/reservation_template');
+          $this->load->view('template/footer');
+          $this->load->view('template/copyright');
      }
      else{
          
@@ -86,10 +95,15 @@ else
                     
                 $email= $this->input->post('userEmail');
                 $pass= $this->input->post('userPass');
-		
+		//die($pass);
 		$query = $this->dbmodel->validate($email, $pass);
 		if($query) // if the user's credentials validated...   
 		{
+                   $session_id = $this->session->userdata('session_id');
+                   $a=$this->session->userdata('ip_address');
+                   $b=$this->session->userdata('user_agent');
+                   $c=$this->session->userdata('last_activity');
+                 die($a);
 			$data = array(
 				'username' => $this->input->post('userEmail'),
 				'logged_in' => true);
@@ -98,12 +112,14 @@ else
 		}
 		else // incorrect username or password
                     {
+                  
                         $this->session->set_flashdata('message', 'Username or password incorrect');
                        redirect('login/loginForm');
                         
                     }
                     }
 	}
+        
  
  public function forgotPassword(){
      $this->load->library('session');

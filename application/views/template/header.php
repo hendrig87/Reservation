@@ -19,6 +19,7 @@
             });
 
         </script>
+        
 
 
 </head>
@@ -34,8 +35,8 @@
                     <a href="#">HOME</a>
                     <a href="#">DOCUMENTATION</a>
                     <a href="#">DEVELOPER TOOLS</a>
-                    <a id="signup_link" href="<?Php echo base_url().'index.php/login/registrationForm' ?>">REGISTER</a>
-                    <a id="loginLink" href="<?Php echo base_url().'index.php/login/registrationForm' ?>">LOGIN</a>
+                    <a id="signup_link" href="<?Php echo base_url().'index.php/login/registrationForm' ?>" >REGISTER</a>
+                    <a id="loginLink" href="<?Php echo base_url().'index.php/login/loginForm' ?>">LOGIN</a>
                 </div>
 
 

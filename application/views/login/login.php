@@ -1,15 +1,4 @@
-<!dcotype html>
-<html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url().'contents/styles/styles.css' ?>" />
-         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-         <link rel="stylesheet" href="/resources/demos/style.css" />
-         <title>Online reservation | Login</title>
-    </head>
-    
-    <body>
-        
-     <div id="container">
+     <div id="login">
 	<h1>Welcome to Online Reservation System</h1>
 
 	<div id="body">
@@ -25,7 +14,7 @@
                         Email:
                     </td>
                     <td class="tabledata">
-                        <input type="email" name="userName" class="textbox" placeholder="Email" required value="<?php echo ""; ?>" />
+                        <input type="email" name="userEmail" class="textbox" placeholder="Email" required value="<?php echo ""; ?>" />
                     </td>
                 </tr>
                 
@@ -38,8 +27,9 @@
                     </td>
                 </tr>    
                 <tr>
-                    <td colspan="2" >
-                       <input type="submit" id="submitMe" value="Login" style="width: 300px; padding: 5px; font-size: 1.5em; margin: 0 auto;">
+                    <td></td>
+                    <td >
+                       <input type="submit" id="submitMe" value="Login" style="width: 280px; padding: 5px; font-size: 1.5em; margin: 0 auto;">
                     
      
                     </td>
@@ -56,14 +46,10 @@
             </table>
         </form>
         </div>
-        </div>
-
-	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds</p>
+        </div>	
 </div>
    
         
         
         
-    </body>
     
-</html>

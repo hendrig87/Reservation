@@ -1,14 +1,6 @@
-<!dcotype html>
-<html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url().'contents/styles/styles.css' ?>" />
-         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-         <link rel="stylesheet" href="/resources/demos/style.css" />
-         <title>Online reservation | Registration</title>
-    </head>
-    <body>
+
         
-     <div id="container">
+     <div id="login">
 	<h1>Welcome to Online Reservation System</h1>
 
 	<div id="body">
@@ -72,12 +64,10 @@
         </div>
         </div>
 
-	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds</p>
+	
 </div>
    
         
         
         
-    </body>
-    
-</html>
+  

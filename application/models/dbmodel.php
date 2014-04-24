@@ -6,9 +6,9 @@ class Dbmodel extends CI_Model {
         $this->load->database();
     }
     
-    function validate() {
-        $this->db->where('user_name', $this->input->post('username'));
-        $this->db->where('user_pass', md5($this->input->post('password')));
+    function validate($email, $pass) {
+        $this->db->where('user_email',$email );
+        $this->db->where('user_pass',$pass );
         $query = $this->db->get('user_info');
 
         if ($query->num_rows == 1) {
