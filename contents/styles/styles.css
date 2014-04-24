@@ -14,7 +14,8 @@ folder login inside view filder also uses these styles
 
 	body {
 		background-color: #fff;
-		margin: 40px;
+		margin: 0px;
+                padding: 0px;
 		font: 13px/20px normal Helvetica, Arial, sans-serif;
 		color: #4F5155;
 	}
@@ -82,6 +83,101 @@ folder login inside view filder also uses these styles
             font-size: 18px;
               
         }
+        
+         #topNavigationWithSlider
+            {
+                background: #00620C url('../images/inventrogb.jpg') fixed; 
+                background-repeat: no-repeat;
+                width: 100%;
+                height: 450px;
+                border-bottom: 2px solid #fff;
+                
+            }
+        #topNavigationDiv
+            {
+                margin: 0 auto 0 auto;
+                height: 40px;
+                background-color: #444;
+                color: #fff;
+                position: fixed;
+                width: 100%;        
+
+            }
+            #topNavigationDiv:hover
+            {
+                opacity: 1;
+            }
+            #topNavigationDiv a
+            {
+                color: #fff;
+                text-decoration: none;
+                margin-right: 20px;
+                opacity: 1;
+                font-weight: bold;            
+            }
+             #topNavigation
+            {
+                padding: 10px;
+                margin: 0 auto 0 auto;
+                width: 80%;
+                text-align:right;
+
+
+            }
+             #logoDiv
+            {
+                width: 10%;
+                float: left;
+
+            }
+            .signupDiv, .loginDiv
+            {
+                width: 25%;
+                margin: 0 auto 0 auto;
+                text-align: center;
+                background-color: #E0E0E0;
+                padding: .5%;
+            }
+        .centerDiv
+            {
+                padding: 10px;
+                margin: 0 auto 0 auto;
+                width: 80%;
+              
+
+            }
+            
+            #sliderDescriptionDiv
+            {
+                padding-top: 200px;
+                text-align: right;
+                
+
+
+            }
+            #sliderDescriptionDiv h2,   #sliderDescriptionDiv p
+            {
+                 color: white;
+            }
+            
+            .sitemap
+            {
+                width: 22%;
+                min-height: 20px;
+                padding: 10px;
+                float:left;
+                text-align: center;
+            }
+            
+            p.footerLeft
+            {
+                float: left;
+                width: 50%;
+                margin: 0px;
+                padding: 0px;
+                
+            }
+            
 /* for login view*/
 .textbox
 {
