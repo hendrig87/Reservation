@@ -28,13 +28,14 @@
 
                 <div id="topNavigation">
                     <div id="logoDiv">
-                        <img src="<?php echo base_url() . "content/images/logo.png"; ?>"/>
+                        <img src="<?php echo base_url() . "contents/images/parkReserve.png"; ?>"/>
 
                     </div>
                     <a href="#">HOME</a>
-                    <a href="#explore">EXPLORE</a>
-                    <a id="signup_link" href="#explore">SIGN UP</a>
-                    <a id="loginLink" href="#explore">LOGIN</a>
+                    <a href="#">DOCUMENTATION</a>
+                    <a href="#">DEVELOPER TOOLS</a>
+                    <a id="signup_link" href="<?Php echo base_url().'index.php/login/registrationForm' ?>">REGISTER</a>
+                    <a id="loginLink" href="<?Php echo base_url().'index.php/login/registrationForm' ?>">LOGIN</a>
                 </div>
 
 

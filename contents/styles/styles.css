@@ -86,18 +86,19 @@ folder login inside view filder also uses these styles
         
          #topNavigationWithSlider
             {
-                background: #00620C url('../images/inventrogb.jpg') fixed; 
+                background: url('../images/booking1.jpg') fixed center; 
                 background-repeat: no-repeat;
                 width: 100%;
                 height: 450px;
                 border-bottom: 2px solid #fff;
                 
             }
+           
         #topNavigationDiv
             {
-                margin: 0 auto 0 auto;
-                height: 40px;
-                background-color: #444;
+                margin: 0px;
+                height: 50px;
+                background-color: black;
                 color: #fff;
                 position: fixed;
                 width: 100%;        
@@ -117,18 +118,23 @@ folder login inside view filder also uses these styles
             }
              #topNavigation
             {
-                padding: 10px;
-                margin: 0 auto 0 auto;
-                width: 80%;
+                padding:5px 50px 5px 50px ;
+                margin:0PX;
                 text-align:right;
-
 
             }
              #logoDiv
             {
-                width: 10%;
+                width: 5%;
                 float: left;
 
+            }
+            #logoDiv img
+            {
+                width: 50px;
+                height: 45px;
+                margin: 0px;
+                padding: 0px;
             }
             .signupDiv, .loginDiv
             {
@@ -160,11 +166,20 @@ folder login inside view filder also uses these styles
                  color: white;
             }
             
+            .container
+            {
+                margin: 10px;
+		border: 1px solid #D0D0D0;
+		-webkit-box-shadow: 0 0 8px #D0D0D0;
+                width: 98.3%;
+                float: left;
+            }
+            
             .sitemap
             {
-                width: 22%;
-                min-height: 20px;
-                padding: 10px;
+                width: 23%;
+                
+                padding: 12px;
                 float:left;
                 text-align: center;
             }
@@ -172,12 +187,26 @@ folder login inside view filder also uses these styles
             p.footerLeft
             {
                 float: left;
+               text-align: center;
                 width: 50%;
                 margin: 0px;
                 padding: 0px;
                 
             }
-            
+            hr.hr-gradient
+{
+    background: -webkit-linear-gradient(to right, #FFFFFF, #6A6868 50%, #FFFFFF);
+    background: -o-linear-gradient(to right, #FFFFFF, #6A6868 50%, #FFFFFF);
+    background: -moz-linear-gradient(to right, #FFFFFF, #6A6868 50%, #FFFFFF);
+    background:  linear-gradient(to right, #FFFFFF, #6A6868 50%, #FFFFFF);
+    background-repeat: no-repeat;
+    border: 0 none;
+    height: 3px;
+    
+}
+
+
+
 /* for login view*/
 .textbox
 {

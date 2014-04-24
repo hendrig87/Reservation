@@ -1,29 +1,19 @@
-
-    <div id="body">
+<div class="container">
+   
     <div class="sitemap">
         <h3>Sitemap</h3>
-        
-        
-        
     </div>
       <div class="sitemap">
-        <h3>Sitemap</h3>
-        
-        
-        
-    </div><div class="sitemap">
-        <h3>Sitemap</h3>
-        
-        
-        
-    </div><div class="sitemap">
-        <h3>Sitemap</h3>
-        
-        
-        
-    </div>  
+        <h3>Sitemap</h3>               
     </div>
+    <div class="sitemap">
+        <h3>Sitemap</h3>                     
+    </div>
+    <div class="sitemap">
+        <h3>Sitemap</h3>                     
+    </div>  
+    
 
-         <div class="clear"></div>
-       
+</div>    
+<div class="clear"></div>     
    
