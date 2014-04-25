@@ -207,7 +207,6 @@ else
  }
  
   public function resetPassword() {
-      $this->dbmodel->update_user_token($token);
              $this->load->view('template/header');
              $this->load->view("login/resetPassword");
              $this->load->view('template/reservation_template');
@@ -228,14 +227,15 @@ else
    
    $password= $_POST['user_pass'];
         $token = $_POST['tokenid'];
-       
+       $useremail = $_POST['userEmail'];
+      // die($useremail);
         $confirmPassword =  $_POST['user_confirm_pass'];
         if ($password==$confirmPassword) {                                       
                
             $userPassword=  $this->input->post('user_pass');
             
-                $this->dbmodel->update_user_password($token, $userPassword);
-                
+                $this->dbmodel->update_user_password($useremail, $userPassword);
+               // $this->dbmodel->update_user_token($token);
                 
                 $this->session->set_flashdata('message', 'Your password has been changed successfully');
                 redirect('welcome/mailSentMessage', 'refresh');

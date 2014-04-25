@@ -10,12 +10,17 @@
                <?php if(isset($_GET['resetPassword']))
                {
                $token = $_GET['resetPassword'];}
-               else {
-               $token=" ";    
+               else {  
                }
+              
+               $email= $this->dbmodel->get_user_email($token);
+               foreach ($email as $data){
+                   $useremail= $data->user_email;
+               }
+               // die($useremail);
                ?>
-    <input type="hidden" name="tokenid" value="<?php echo $token; ?>" />
-    
+   
+    <input type="hidden" name="userEmail" value="<?php echo $useremail; ?>" />
             <table style="text-align:center">
                <tr>
                     <td colspan="2"><h3>Reset Password</h3>
