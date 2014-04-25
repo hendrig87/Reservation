@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Welcome to Online Reservation System</title>
+        <link rel="shortcut icon" href="<?php echo base_url()."contents/images/favicon1.jpg";?>" type="image/x-icon"> 
         <link type="text/css" rel="stylesheet" href="<?php echo base_url()."contents/styles/styles.css";?>"/>
 	
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
@@ -24,7 +25,6 @@
 
 </head>
 <body>
-    <div id="topNavigationWithSlider">
           <div id="topNavigationDiv">
 
                 <div id="topNavigation">

@@ -1,16 +1,18 @@
 
         
      <div id="login">
-	<h1>Welcome to Online Reservation System</h1>
 
 	<div id="body">
-            <h3>Please fill the form below to register</h3>
-            <p id="sucessmsg">
-            <?php if($this->session->flashdata('message')){echo $this->session->flashdata('message');}
-              echo validation_errors(); ?> </p>
+            
            <div class ="checkForm">
         <?php echo form_open_multipart('login/register'); ?>
             <table style="text-align:center">
+                <tr>
+                    <td colspan="2"><h3>Sign up for Reservation</h3>
+            <p id="sucessmsg">
+            <?php if($this->session->flashdata('message')){echo $this->session->flashdata('message');}
+              echo validation_errors(); ?> </p></td>
+                </tr>
                 <tr>
                     <td class="tabledata">
                         User name:
@@ -52,8 +54,9 @@
                     </td>
                 </tr>    
                 <tr>
-                    <td colspan="2" >
-                       <input type="submit" id="submitMe" value="Register" style="width: 160px;">
+                    <td ></td>
+                    <td>
+                       <input type="submit" id="submitMe" value="Sign Up" style="width: 280px; padding: 10px;">
                     
      <!--                  <input type="submit" id="cancelMe" value="Cancel" style="width: 160px;" > -->
                     </td>

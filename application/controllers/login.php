@@ -49,6 +49,11 @@ class Login extends CI_Controller {
                 }
                 
  }
+ function logout() {
+        $this->session->sess_destroy();
+        $this->index();
+        redirect('login', 'refresh');
+    }
  
  public function loginForm()
  {
@@ -123,9 +128,18 @@ else
  
  public function forgotPassword(){
      $this->load->library('session');
-     if(!$this->session->userdata('logged_in')){
-        $this->load->view('login/forgotPassword');            
-     }
+     if(!$this->session->userdata('logged_in'))
+         {
+         
+          $this->load->view('template/header');
+          $this->load->view('login/forgotPassword');
+          $this->load->view('template/reservation_template');
+          $this->load->view('template/footer');
+          $this->load->view('template/copyright'); 
+          //$this->session->set_flashdata('message', 'Instructions to reset your password have been emailed to you. Please check your email and login ');
+          //redirect('login/loginForm', 'refresh');
+               }
+
      else{
          $this->session->set_flashdata('message', 'Incorrect Email');
           redirect('login/forgotPassword');
@@ -161,7 +175,11 @@ else
     public function test($token){
         
         $data['query'] = $this->dbmodel->find_user_auth_key($token);
-        $this->load->view('login/messageSent',$data);
+                $this->load->view('template/header');
+                $this->load->view('login/messageSent',$data);
+                $this->load->view('template/reservation_template');
+                $this->load->view('template/footer');
+                $this->load->view('template/copyright');
     }
     
     function getRandomString($length) 
@@ -184,8 +202,11 @@ else
  }
  
   public function resetPassword() {
-            $this->load->view("login/resetPassword", $data);
-            
+             $this->load->view('template/header');
+             $this->load->view("login/resetPassword");
+             $this->load->view('template/reservation_template');
+             $this->load->view('template/footer');
+             $this->load->view('template/copyright');
           
          
     }        
@@ -200,10 +221,11 @@ else
                
             $userPassword=  $this->input->post('user_pass');
             
-                $this->dbmodel->update_user_password($token, $userPassword);  
+                $this->dbmodel->update_user_password($token, $userPassword);
+                $this->dbmodel->update_user_token($token);
                 
                 $this->session->set_flashdata('message', 'Your password has been changed successfully');
-                redirect('login', 'refresh');
+                redirect('welcome/index', 'refresh');
                
             } else {
                 

@@ -53,7 +53,12 @@ class Dbmodel extends CI_Model {
         return $query->result();
     }  
     
-    
+    function update_user_token($token){
+        $data = array(
+            'user_auth_key'=> " ");
+        $this->db->where('user_auth_key', $token);
+        $this->db->update('user_info', $data);
+    }
     
  
     

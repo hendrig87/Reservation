@@ -1,4 +1,4 @@
-<div>
+<div id="login">
 
 
    <?php if(isset($query)){
@@ -10,10 +10,8 @@
     ?>
             
     
-    <p>click the following link to reset your password <a href="<?php echo base_url();?>index.php/login/resetPassword?resetPassword=<?php echo $token; ?>"> RESET PASSWORD</a></p>
+    <p>click the following link to reset your password <a href="<?php echo base_url();?>index.php/login/resetPassword/?resetPassword=<?php echo $token; ?>"> RESET PASSWORD</a></p>
    
 
 
-</div>
-<div class="clear"></div>
 </div>
