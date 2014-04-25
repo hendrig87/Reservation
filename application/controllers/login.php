@@ -184,6 +184,7 @@ else
                 $this->load->view('template/reservation_template');
                 $this->load->view('template/footer');
                 $this->load->view('template/copyright');
+                
     }
     
     function getRandomString($length) 
@@ -206,6 +207,7 @@ else
  }
  
   public function resetPassword() {
+      $this->dbmodel->update_user_token($token);
              $this->load->view('template/header');
              $this->load->view("login/resetPassword");
              $this->load->view('template/reservation_template');
@@ -233,7 +235,7 @@ else
             $userPassword=  $this->input->post('user_pass');
             
                 $this->dbmodel->update_user_password($token, $userPassword);
-                $this->dbmodel->update_user_token($token);
+                
                 
                 $this->session->set_flashdata('message', 'Your password has been changed successfully');
                 redirect('welcome/mailSentMessage', 'refresh');

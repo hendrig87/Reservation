@@ -1,0 +1,57 @@
+#left
+{
+    float: left;
+      width: 20%;
+}
+#right
+{
+    float: left;
+    width: 70%;
+    margin-left: 50px;
+}
+
+#right table tr td
+{
+   padding: 10px;
+}
+#right input[type="text"] ,select
+{
+    width: 170px;
+    height: 25px;
+}
+#right textarea
+{
+    width: 170px;
+}
+#navigation
+{
+    width: 100%;
+}
+
+#navigation ul li
+{
+   list-style: none; 
+   display: inline-block;
+   margin-bottom: -10px;
+   margin-top: -8px;
+     width: 100%;
+}
+
+
+
+#menu
+{
+    min-height: 30px;
+   border-right: 10px solid #ccc ; 
+   border-top: solid #ccc;
+   border-left: 10px solid transparent #ccc; 
+   border-bottom: solid #ccc;  
+}
+#menu:hover
+{
+ 
+ //  border-top-left-radius: 60px; 
+   border-top-right-radius: 10px; 
+  // border-bottom-left-radius: 60px; 
+   border-bottom-right-radius: 10px;
+}

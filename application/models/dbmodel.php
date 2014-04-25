@@ -49,6 +49,7 @@ class Dbmodel extends CI_Model {
     }
     function find_user_auth_key($token) {       
         $this->db->where('user_auth_key', $token );
+        
         $query = $this->db->get('user_info');
         return $query->result();
     }  
