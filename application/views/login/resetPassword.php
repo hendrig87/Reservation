@@ -7,7 +7,13 @@
             
            <div class ="checkForm">
          <?php echo form_open_multipart('login/setpassword');?>
-               <?php $token = $_GET['resetPassword']; ?>
+               <?php if(isset($_GET['resetPassword']))
+               {
+               $token = $_GET['resetPassword'];}
+               else {
+               $token=" ";    
+               }
+               ?>
     <input type="hidden" name="tokenid" value="<?php echo $token; ?>" />
     
             <table style="text-align:center">
@@ -27,7 +33,7 @@
                 </tr>
                 <tr>
                     <td class="tabledata">
-                        New Password
+                        Confirm Password
                     </td>
                     <td class="tabledata">
                         <input type="password" class="textbox" name="user_confirm_pass" placeholder="Confirm Password" id="confirmPassword" required/>

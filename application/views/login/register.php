@@ -6,9 +6,10 @@
             
            <div class ="checkForm">
         <?php echo form_open_multipart('login/register'); ?>
-            <table style="text-align:center">
+            <table >
+               
                 <tr>
-                    <td colspan="2"><h3>Sign up for Reservation</h3>
+                    <td colspan="2"><h3>Sign up for Reservation &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="myButton" href="<?Php echo base_url().'index.php/welcome/index' ?>" >X</a></h3>
             <p id="sucessmsg">
             <?php if($this->session->flashdata('message')){echo $this->session->flashdata('message');}
               echo validation_errors(); ?> </p></td>

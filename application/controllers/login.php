@@ -129,6 +129,13 @@ else
  public function forgotPassword(){
      $this->load->library('session');
      if(!$this->session->userdata('logged_in'))
+                $this->load->library('form_validation');
+                $this->form_validation->set_rules('userEmail', 'Email', 'trim|required|xss_clean');
+                if($this->form_validation->run() == True)
+                     {
+                        //$this->forgotPassword();
+                     }
+                     else
          {
          
           $this->load->view('template/header');
@@ -136,14 +143,10 @@ else
           $this->load->view('template/reservation_template');
           $this->load->view('template/footer');
           $this->load->view('template/copyright'); 
-          //$this->session->set_flashdata('message', 'Instructions to reset your password have been emailed to you. Please check your email and login ');
-          //redirect('login/loginForm', 'refresh');
+          $this->session->set_flashdata('message', 'Incorrect User Email');
                }
 
-     else{
-         $this->session->set_flashdata('message', 'Incorrect Email');
-          redirect('login/forgotPassword');
-     }
+    
        
     }
  
@@ -164,7 +167,8 @@ else
                 $this->test($token);
                 
                 $this->mailresetlink($to, $token);
-                
+          //$this->session->set_flashdata('message', 'Instructions to reset your password have been emailed to you. Please check your email and login ');
+         // redirect('welcome/mailSentMessage', 'refresh');     
                
             } else {
                 $this->session->set_flashdata('message', 'Please type valid Email Address');
@@ -211,7 +215,14 @@ else
          
     }        
  public function setpassword(){
-     
+  if(!$this->session->userdata('logged_in'))
+                $this->load->library('form_validation');
+                $this->form_validation->set_rules('user_pass', 'Password', 'trim|md5|required|xss_clean');
+                 $this->form_validation->set_rules('user_confirm_pass', 'Password', 'trim|md5|required|xss_clean');
+                if($this->form_validation->run() == false)
+                     {
+                        $this->forgotPassword();
+                     }   
    
    $password= $_POST['user_pass'];
         $token = $_POST['tokenid'];
@@ -225,12 +236,12 @@ else
                 $this->dbmodel->update_user_token($token);
                 
                 $this->session->set_flashdata('message', 'Your password has been changed successfully');
-                redirect('welcome/index', 'refresh');
+                redirect('welcome/mailSentMessage', 'refresh');
                
             } else {
                 
                 $this->session->set_flashdata('message', 'Password didnot match');
-               redirect('login/forgotPassword', 'refresh');
+               redirect('login/resetassword', 'refresh');
             }
             
       
