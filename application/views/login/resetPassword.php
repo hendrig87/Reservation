@@ -7,18 +7,12 @@
             
            <div class ="checkForm">
          <?php echo form_open_multipart('login/setpassword');?>
-               <?php if(isset($_GET['resetPassword']))
-               {
-               $token = $_GET['resetPassword'];}
-               else {  
-               }
-              
-               $email= $this->dbmodel->get_user_email($token);
-               foreach ($email as $data){
+               <?php if(isset($query))
+                   //($query);
+               foreach ($query as $data){
                    $useremail= $data->user_email;
-               }
-               // die($useremail);
-               ?>
+              
+              } else {} ?>
    
     <input type="hidden" name="userEmail" value="<?php echo $useremail; ?>" />
             <table style="text-align:center">
@@ -55,6 +49,9 @@
   
    </table>
         <?php echo form_close(); ?>
+    
+    
+    
         </div>
         </div>	
 </div>

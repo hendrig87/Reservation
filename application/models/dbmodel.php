@@ -35,34 +35,42 @@ class Dbmodel extends CI_Model {
         $query = $this->db->get('user_info');
         return $query->result();
     }
+    
+    
     public function update_emailed_user($to, $token){
         $data = array(
             'user_auth_key'=>$token);
         $this->db->where('user_email', $to);
         $this->db->update('user_info', $data);
     }
-    public function update_user_password($useremail, $userPassword){
+    
+    
+    public function update_user_password($token, $userPassword){
         $data = array(
-            'user_pass'=> ($userPassword));
-        $this->db->where('user_email', $useremail);
+            'user_pass'=>md5($userPassword));
+        $this->db->where('user_email', $token);
         $this->db->update('user_info', $data);
     }
+    
+    
     function find_user_auth_key($token) {       
-        $this->db->where('user_auth_key', $token );
-        
+        $this->db->where('user_auth_key', $token ); 
         $query = $this->db->get('user_info');
         return $query->result();
     }  
-    function get_user_email($token) {  
+    
+    
+    public function get_user_email($a) {  
         $this->db->select('user_email');
-        $this->db->where('user_auth_key', $token );
+        $this->db->where('user_auth_key', $a );
          $data = array(
             'user_auth_key'=> " ");
-        $this->db->where('user_auth_key', $token);
+        
         $this->db->update('user_info', $data);
         $query = $this->db->get('user_info');
         return $query->result();
     } 
+    
     function update_user_token($token){
         $data = array(
             'user_auth_key'=> " ");
