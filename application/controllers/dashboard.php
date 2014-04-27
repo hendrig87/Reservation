@@ -17,7 +17,7 @@ class dashboard extends CI_Controller {
 	
 	public function index()
         {
-         $this->load->view('template/header');
+         $this->load->view('template/headerAfterLogin');
         $this->load->view('dashboard/reservationSystem');
         $this->load->view('dashboard/addNew');
         $this->load->view('template/reservation_template');
