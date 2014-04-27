@@ -17,13 +17,25 @@ class dashboard extends CI_Controller {
 	
 	public function index()
         {
-               $this->load->view('template/header');
+         $this->load->view('template/header');
         $this->load->view('dashboard/reservationSystem');
-        
+        $this->load->view('dashboard/addNew');
         $this->load->view('template/reservation_template');
         $this->load->view('template/footer');
         $this->load->view('template/copyright');
         }
+        
+        
+          function addNewRoomForm()
+    {
+        $this->load->view('template/header');
+             $this->load->view("dashboard/reservationSystem");
+             $this->load->view("dashboard/addNew");
+             
+             $this->load->view('template/reservation_template');
+             $this->load->view('template/footer');
+             $this->load->view('template/copyright');
+    }
                 
         function addRoom(){
            
@@ -95,13 +107,13 @@ class dashboard extends CI_Controller {
         $this->load->view('template/copyright');
         } 
           
-        function roomBooking()
+        function booking()
         {
-             $data['booking']= $this->dashboard_model->booking_room();
-            
-             $this->load->view('template/header',$data);
+               $data['query']= $this->dashboard_model->booking_room();
+            //die($data['query']);
+                $this->load->view('template/header',$data);
         $this->load->view('dashboard/reservationSystem',$data);
-        $this->load->view('dashboard/addNew',$data);
+        $this->load->view('dashboard/roomInformation',$data);
         $this->load->view('template/reservation_template',$data);
         $this->load->view('template/footer',$data);
         $this->load->view('template/copyright',$data);

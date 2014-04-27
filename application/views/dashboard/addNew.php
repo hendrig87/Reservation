@@ -1,11 +1,6 @@
 
 <div id="right">
-    <?php
-    foreach($booking as $book)
-    {
-        echo $book;
-    }
-    ?>
+    
     <h3>Add new Room</h3><hr style="display: block; height: 1px;
     border: 0; border-top: 1px solid #ccc;
     margin: 1em 0; padding: 0;">
@@ -48,7 +43,7 @@
     </tr>
       <tr>
           <td>&nbsp;</td>
-          <td><input type="submit" value="Save" name="submit"><input type="button" value="Save & Continue"></td>
+          <td><a href="<?Php echo base_url().'index.php/dashboard/booking' ?>"><input type="submit" value="Save" name="submit"></a><input type="submit" value="Save & Continue"></td>
           <?php echo form_close(); ?>
     </tr>
 </table>

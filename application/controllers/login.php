@@ -253,16 +253,7 @@ else
  }
  
 
-    function addNewRoomForm()
-    {
-        $this->load->view('template/header');
-             $this->load->view("dashboard/reservationSystem");
-             $this->load->view("dashboard/addNew");
-             
-             $this->load->view('template/reservation_template');
-             $this->load->view('template/footer');
-             $this->load->view('template/copyright');
-    }
+  
  
  
 }

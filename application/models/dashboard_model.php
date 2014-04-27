@@ -20,8 +20,8 @@ public function add_new_room($room_type,$noOfRoom,$price,$description,$img_name)
     
     function booking_room()
         {   
-            $room = $this->db->get('room_registration');
-            return $room->result();
-            var_dump($room);
+            $query = $this->db->get('room_registration');
+            return $query->result();
+          
         }
 }
