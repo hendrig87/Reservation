@@ -7,6 +7,7 @@
             <?php echo $this->session->flashdata('message');
             }
               ?>
+            
     </div>
     <div id="form">
     <table>
