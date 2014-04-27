@@ -78,6 +78,9 @@ class Dbmodel extends CI_Model {
         $this->db->update('user_info', $data);
     }
     
- 
+ public function get_all_users(){
+      $query = $this->db->get('user_info');
+        return $query->result();
+ }
     
  }

@@ -26,6 +26,7 @@ class Login extends CI_Controller {
  
  public function register(){
      $this->load->library('form_validation');
+     $users= $this->dbmodel->get_all_users();
                 $this->form_validation->set_rules('userName', 'Username', 'trim|required|xss_clean');
                 $this->form_validation->set_rules('userFirstName', 'First name', 'trim|required|xss_clean');
                 $this->form_validation->set_rules('userLastName', 'Last name', 'trim|required|xss_clean');
@@ -36,13 +37,40 @@ class Login extends CI_Controller {
                         $this->registrationForm();
                      }
                 else
-                {                  
+                {  
+                         foreach ($users as $user){
+                             $userName= $user->user_name;
+                         }
+            $inputuserName= $_POST['userName'];             
+            if($userName != $inputuserName){             
             $user_name = $this->input->post('userName');
+            }
+ else {
+                $this->session->set_flashdata('message', 'User Name already exsists');
+          redirect('login/registrationForm');
+ }
             $userfname = $this->input->post('userFirstName');   
             $userlname = $this->input->post('userLastName');
-            $useremail = $this->input->post('userEmail');
-            $userpass = $this->input->post('userPass');
-             
+          
+            foreach ($users as $user){
+                             $userEmail= $user->user_email;
+                         }
+           $inputuserEmail= $_POST['userEmail']; 
+           
+            if($userEmail != $inputuserEmail){             
+              $useremail = $this->input->post('userEmail');
+            }
+ else {
+                $this->session->set_flashdata('message', 'User Email already exsists');
+          redirect('login/register');
+ }
+ 
+ if($userEmail==$inputuserEmail && $userName==$inputuserName);
+                 $this->session->set_flashdata('message', 'User Name and Email already exsists');
+          redirect('login/register');
+  
+ 
+               $userpass = $this->input->post('userPass');
             $this->dbmodel->add_new_user($user_name, $userfname, $userlname, $useremail, $userpass);
             
             echo '<h3>Hurray! Successfully Regisered</h3>';
@@ -252,7 +280,7 @@ else
       
  }
  
-<<<<<<< HEAD
+
     function addNewRoomForm()
     {
         $this->load->view('template/header');
@@ -264,17 +292,8 @@ else
              $this->load->view('template/copyright');
     }
  
-=======
  
- function addNewRoomForm()
- {
-            $this->load->view('template/header');
-             $this->load->view("dashboard/reservationSystem");
-             $this->load->view('dashboard/addNew');
-             $this->load->view('template/footer');
-             $this->load->view('template/copyright');
- }
->>>>>>> 831743cf0d2d177e76494de7265e79e36428fbbb
+ 
  
  
  
