@@ -21,14 +21,15 @@
         <tr>
             <td>
                 <div style="float: left; margin-right: 10px;"><img src="<?php echo base_url().'uploads/'.$book->image; ?>" width="50px" height="50px"></div>
-               <div style="font-size: 16px;width: 70%; float: left;"><?php echo $book->room_name ?></div><br>  
-                <div style="width: 70%;font-size: 12px;">( Total Rooms:<?php echo $book->no_of_room; ?> )</div>
+               <div style="font-size: 16px;width: 60%; float: left;"><?php echo $book->room_name ?></div><br>  
+                <div style="width: 100%;font-size: 12px;">( Total Rooms: <?php echo $book->no_of_room; ?> )</div>
                 
             </td> 
             <td><?php echo $book->description; ?></td>
             <td><?php echo $book->price; ?></td>
             <td></td>
-            <td><input type="button" value="Edit"><input type="button" value="Delete"></td>
+        <input type="hidden" value="<?php echo $book->id; ?>"
+            <td><input type="button" value="Edit" name="edit"><input type="button" value="Delete"></td>
             
         </tr>
             
