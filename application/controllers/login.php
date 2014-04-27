@@ -252,6 +252,7 @@ else
       
  }
  
+<<<<<<< HEAD
     function addNewRoomForm()
     {
         $this->load->view('template/header');
@@ -263,6 +264,17 @@ else
              $this->load->view('template/copyright');
     }
  
+=======
+ 
+ function addNewRoomForm()
+ {
+            $this->load->view('template/header');
+             $this->load->view("dashboard/reservationSystem");
+             $this->load->view('dashboard/addNew');
+             $this->load->view('template/footer');
+             $this->load->view('template/copyright');
+ }
+>>>>>>> 831743cf0d2d177e76494de7265e79e36428fbbb
  
  
  
