@@ -28,8 +28,8 @@
             <td><?php echo $book->description; ?></td>
             <td><?php echo $book->price; ?></td>
             <td></td>
-        <input type="hidden" value="<?php echo $book->id; ?>"
-            <td><input type="button" value="Edit" name="edit"><input type="button" value="Delete"></td>
+        
+            <td><input type="hidden" value="<?php echo $book->id; ?>"><input type="button" value="Edit" name="edit"><input type="button" value="Delete"></td>
             
         </tr>
             
