@@ -132,11 +132,13 @@ else
 		$query = $this->dbmodel->validate($email, $pass);
 		if($query) // if the user's credentials validated...   
 		{
+                  $a=  $this->input->ip_address();
+                   
                    $session_id = $this->session->userdata('session_id');
                    $a=$this->session->userdata('ip_address');
                    $b=$this->session->userdata('user_agent');
                    $c=$this->session->userdata('last_activity');
-                 //die($a);
+                 
 			$data = array(
 				'username' => $this->input->post('userEmail'),
 				'logged_in' => true);
