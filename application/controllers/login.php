@@ -12,6 +12,16 @@ class Login extends CI_Controller {
         $this->load->library("pagination");
       
  }
+ 
+ public function index(){
+     $this->load->library('session');
+     
+      $this->load->view('template/header');
+                $this->load->view('template/imageDiv');
+		$this->load->view('template/reservation_template');
+                $this->load->view('template/footer');
+                $this->load->view('template/copyright');
+ }
 
  public function registrationForm()
  {

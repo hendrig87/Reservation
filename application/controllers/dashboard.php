@@ -17,12 +17,21 @@ class dashboard extends CI_Controller {
 	
 	public function index()
         {
-         $this->load->view('template/headerAfterLogin');
+             $this->load->library('session');
+     if(!$this->session->userdata('logged_in'))
+     {
+         redirect('login'); 
+     }
+     else
+     {
+          $this->load->view('template/headerAfterLogin');
         $this->load->view('dashboard/reservationSystem');
         $this->load->view('dashboard/addNew');
         $this->load->view('template/reservation_template');
         $this->load->view('template/footer');
         $this->load->view('template/copyright');
+     }
+        
         }
         
         
