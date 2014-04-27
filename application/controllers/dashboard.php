@@ -15,8 +15,28 @@ class dashboard extends CI_Controller {
         $this->load->library("pagination");
     }
 	
-	
+	public function index()
+        {
+         $this->load->view('template/header');
+        $this->load->view('dashboard/reservationSystem');
+        $this->load->view('dashboard/addNew');
+        $this->load->view('template/reservation_template');
+        $this->load->view('template/footer');
+        $this->load->view('template/copyright');
+        }
         
+        
+          function addNewRoomForm()
+    {
+        $this->load->view('template/header');
+             $this->load->view("dashboard/reservationSystem");
+             $this->load->view("dashboard/addNew");
+             
+             $this->load->view('template/reservation_template');
+             $this->load->view('template/footer');
+             $this->load->view('template/copyright');
+    }
+                
         function addRoom(){
            
           
@@ -55,7 +75,7 @@ class dashboard extends CI_Controller {
         {
             $img_name="";
         }
-        $img_link = base_url().'uploads/'.$img_name;
+        
        
             $room_type = $this->input->post('room_type');
            $noOfRoom = $this->input->post('noOfRoom');
@@ -65,7 +85,7 @@ class dashboard extends CI_Controller {
                
                 
            
-            $data['add_room']= $this->dashboard_model->add_new_room($room_type,$noOfRoom,$price,$description,$img_link);
+            $data['add_room']= $this->dashboard_model->add_new_room($room_type,$noOfRoom,$price,$description,$img_name);
            
            if($data)
            {
@@ -86,7 +106,19 @@ class dashboard extends CI_Controller {
         $this->load->view('template/footer');
         $this->load->view('template/copyright');
         } 
-            
+          
+        function booking()
+        {
+               $data['query']= $this->dashboard_model->booking_room();
+            //die($data['query']);
+                $this->load->view('template/header',$data);
+        $this->load->view('dashboard/reservationSystem',$data);
+        $this->load->view('dashboard/roomInformation',$data);
+        $this->load->view('template/reservation_template',$data);
+        $this->load->view('template/footer',$data);
+        $this->load->view('template/copyright',$data);
+        }
+        
         }
         
         
