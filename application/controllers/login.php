@@ -142,7 +142,7 @@ else
 			$data = array(
 				'username' => $this->input->post('userEmail'),
 				'logged_in' => true);
-			echo'<h3>Hurray Login sucessful</h3>';
+                            redirect('dashboard/index');
 			
 		}
 		else // incorrect username or password
