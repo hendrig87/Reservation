@@ -138,10 +138,11 @@ else
                     
                 $email= $this->input->post('userEmail');
                 $pass= $this->input->post('userPass');
-		//die($pass);
-		$query = $this->dbmodel->validate($email, $pass);
-		if($query) // if the user's credentials validated...   
+		
+		$data['query'] = $this->dbmodel->validate($email, $pass);
+		if($data['query']) // if the user's credentials validated...   
 		{
+                  
                   $a=  $this->input->ip_address();
                    
                    $session_id = $this->session->userdata('session_id');
@@ -152,6 +153,7 @@ else
 			$data = array(
 				'username' => $this->input->post('userEmail'),
 				'logged_in' => true);
+
                             redirect('dashboard/index');
 			
 		}
@@ -159,6 +161,7 @@ else
                     {
                   
                         $this->session->set_flashdata('message', 'Username or password incorrect');
+                        
                        redirect('login/loginForm');
                         
                     }
