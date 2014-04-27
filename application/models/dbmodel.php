@@ -47,7 +47,7 @@ class Dbmodel extends CI_Model {
     
     public function update_user_password($token, $userPassword){
         $data = array(
-            'user_pass'=>md5($userPassword));
+        'user_pass'=>md5($userPassword));
         $this->db->where('user_email', $token);
         $this->db->update('user_info', $data);
     }

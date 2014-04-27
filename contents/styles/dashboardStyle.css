@@ -1,3 +1,9 @@
+#main
+{
+    margin-top: 10px;
+    border-bottom: thin solid #ccc;
+    border-top: thin solid #ccc;
+}
 #left
 {
     float: left;
@@ -16,15 +22,22 @@
 }
 #right input[type="text"] ,select
 {
-    width: 170px;
-    height: 25px;
+    width: 250px;
+    height: 30px;
+    background: #cccccc;
+    border: none;
 }
 #right textarea
 {
-    width: 170px;
+    height: 100px;
+    width: 250px;
+      background: #cccccc;
+    border: none;
 }
+
 #navigation
 {
+    border-right: solid thin #ccc;
     width: 100%;
 }
 
@@ -32,26 +45,49 @@
 {
    list-style: none; 
    display: inline-block;
-   margin-bottom: -10px;
-   margin-top: -8px;
+   margin-bottom: 10px;
+   margin-top: 8px;
      width: 100%;
+        font-size:16px;
 }
 
 
 
-#menu
+
+#form
 {
-    min-height: 30px;
-   border-right: 10px solid #ccc ; 
-   border-top: solid #ccc;
-   border-left: 10px solid transparent #ccc; 
-   border-bottom: solid #ccc;  
+    font-size:14px; 
 }
-#menu:hover
+
+
+#help{
+    font-weight: bolder;
+   
+    text-decoration: none;
+    padding: 0px 7px;
+    border-bottom-left-radius:10px; 
+    border-bottom-right-radius:10px;
+    background: #666666;
+    border-top-left-radius:10px; 
+    border-top-right-radius:10px;
+    color: white;
+}
+
+#adds, #subs
 {
- 
- //  border-top-left-radius: 60px; 
-   border-top-right-radius: 10px; 
-  // border-bottom-left-radius: 60px; 
-   border-bottom-right-radius: 10px;
+    width: 20px;
+    text-align: center;
+    padding-bottom: 3px;
+}
+
+#sucess
+{
+    border: thin solid #ccc;
+    font-weight: bold;
+    padding: 5px;
+}
+
+#clear
+{
+    clear: both;
 }
