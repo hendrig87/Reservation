@@ -128,6 +128,20 @@ class dashboard extends CI_Controller {
         $this->load->view('template/copyright',$data);
         }
         
+         function edit()
+        {
+               $data['query']= $this->dashboard_model->booking_room();
+               $room_id = $this->input->post('room_id');
+               echo $room_id;
+            //die($data['query']);
+                $this->load->view('template/header',$data);
+        $this->load->view('dashboard/reservationSystem',$data);
+        $this->load->view('dashboard/editRoomInfo',$data);
+        $this->load->view('template/reservation_template',$data);
+        $this->load->view('template/footer',$data);
+        $this->load->view('template/copyright',$data);
+        }
+        
         }
         
         

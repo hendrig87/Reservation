@@ -29,7 +29,13 @@
             <td><?php echo $book->price; ?></td>
             <td></td>
         
-            <td><input type="hidden" value="<?php echo $book->id; ?>"><input type="button" value="Edit" name="edit"><input type="button" value="Delete"></td>
+            <td>
+                <?php form_open('dashboard/edit') ?>
+                
+                <a href="<?php echo base_url().'index.php/dashboard/edit'; ?>">Edit</a>
+                <a href="<?php echo base_url().'index.php/dashboard/edit'; ?>">delete</a>
+                
+            </td>
             
         </tr>
             
