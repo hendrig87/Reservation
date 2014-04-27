@@ -34,7 +34,7 @@
                     </div>
                     <a href="#">HOME</a>
                     <a href="#">DOCUMENTATION</a>
-                    <a href="#">DEVELOPER TOOLS</a>
+                    <a href="<?Php echo base_url().'index.php/login/addNewRoomForm' ?>">DEVELOPER TOOLS</a>
                     <a id="signup_link" href="<?Php echo base_url().'index.php/login/registrationForm' ?>" >SIGN UP</a>
                     <a id="loginLink" href="<?Php echo base_url().'index.php/login/loginForm' ?>">LOGIN</a>
                 </div>
