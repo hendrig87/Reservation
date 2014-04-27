@@ -6,15 +6,22 @@ class dashboard_model extends CI_Model {
         $this->load->database();
     }
     
-public function add_new_room($room_type,$noOfRoom,$price,$description,$img_link){
+public function add_new_room($room_type,$noOfRoom,$price,$description,$img_name){
         $data = array(
             'room_name' => $room_type,
             'no_of_room'=> $noOfRoom,
             'price'=> $price,
             'description'=> $description,
-            'image'=> $img_link
+            'image'=> $img_name
                 );
         
          $this->db->insert('room_registration', $data);
     }
+    
+    function booking_room()
+        {   
+            $room = $this->db->get('room_registration');
+            return $room->result();
+            var_dump($room);
+        }
 }
