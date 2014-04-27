@@ -12,7 +12,7 @@
                 <li><a href="<?php echo base_url().'index.php/dashboard/addNewRoomForm'; ?>">Add new room</a></li>
                 <li><a href="<?php echo base_url().'index.php/login/calender'; ?>">Calender</a></li>
                 <li>Booking</li>
-                <li>Room</li>
+                <li><a href="<?php echo base_url().'index.php/dashboard/booking'; ?>">Rooms</a></li>
             </ul>
        
              </li>

@@ -1,13 +1,16 @@
 <div id="right">
-     <h3>Booking</h3><hr style="display: block; height: 1px;
+     <h3>Rooms</h3><hr style="display: block; height: 1px;
     border: 0; border-top: 1px solid #ccc;
     margin: 1em 0; padding: 0;">
-    <table>
+     
+     <div id="room_book">
+    <table width="100%" border="1px">
         <tr>
-            <td>Room</td>
-            <td>Price</td>
-            <td>No. of Room</td>
-            <td>Total Price</td>
+            <th width="20%">Room</th>
+            <th width="30%">Facilities</th>
+            <th width="10%">Price</th>
+            <th width="20%">Available Rooms</th>
+            <th width="20%">Action</th>
     <?php
     if(isset($query))
     {
@@ -17,14 +20,15 @@
             
         <tr>
             <td>
-                 <img src="<?php echo base_url().'uploads/'.$book->image; ?>" width="100px" height="100px">
-            <?php
-            echo $book->room_name; 
-            ?>
-              </td> 
-            <td><?php echo $book->no_of_room; ?></td>
-            <td><?php echo $book->price; ?></td>
+                <div style="float: left; margin-right: 10px;"><img src="<?php echo base_url().'uploads/'.$book->image; ?>" width="50px" height="50px"></div>
+               <div style="font-size: 16px;width: 70%; float: left;"><?php echo $book->room_name ?></div><br>  
+                <div style="width: 70%;font-size: 12px;">( Total Rooms:<?php echo $book->no_of_room; ?> )</div>
+                
+            </td> 
             <td><?php echo $book->description; ?></td>
+            <td><?php echo $book->price; ?></td>
+            <td></td>
+            <td><input type="button" value="Edit"><input type="button" value="Delete"></td>
             
         </tr>
             
@@ -34,5 +38,5 @@
     ?>
         </tr>
     </table>
-    
+     </div>
 </div>

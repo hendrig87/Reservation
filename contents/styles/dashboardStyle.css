@@ -99,7 +99,7 @@
 
 #sucess
 {
-    border: thin solid #ccc;
+ 
     font-weight: bold;
     padding: 5px;
     
@@ -108,4 +108,12 @@
 #clear
 {
     clear: both;
+}
+
+
+
+#room_book th
+{
+  font-size: 16px;
+  text-align: left;
 }
