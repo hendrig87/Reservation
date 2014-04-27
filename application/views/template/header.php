@@ -4,6 +4,13 @@
 	<meta charset="utf-8">
 	<title>Welcome to Online Reservation System</title>
         <link rel="shortcut icon" href="<?php echo base_url()."contents/images/favicon1.jpg";?>" type="image/x-icon"> 
+        <link rel="stylesheet" href="<?php echo base_url()."contents/styles/dashboardStyle.css";?>"> 
+        <link rel="stylesheet" href="<?php echo base_url()."contents/styles/jquery.tinytooltip.css";?>">
+       
+        <script src="<?php echo base_url()."contents/scripts/dashboard.js";?>"></script>
+         <script src="<?php echo base_url()."contents/scripts/jquery.tinytooltip.js";?>"></script>
+          <script src="<?php echo base_url()."contents/scripts/jquery.tinytooltip.min.js";?>"></script>
+        
         <link type="text/css" rel="stylesheet" href="<?php echo base_url()."contents/styles/styles.css";?>"/>
 	
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
@@ -34,7 +41,7 @@
                     </div>
                     <a href="#">HOME</a>
                     <a href="#">DOCUMENTATION</a>
-                    <a href="#">DEVELOPER TOOLS</a>
+                    <a href="<?Php echo base_url().'index.php/login/addNewRoomForm' ?>">DEVELOPER TOOLS</a>
                     <a id="signup_link" href="<?Php echo base_url().'index.php/login/registrationForm' ?>" >SIGN UP</a>
                     <a id="loginLink" href="<?Php echo base_url().'index.php/login/loginForm' ?>">LOGIN</a>
                 </div>

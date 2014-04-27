@@ -41,7 +41,8 @@ class dashboard extends CI_Controller {
             if ($this->upload->do_upload('room_img'))
             {
                 $data = $this->upload->data();
-                $img_name =   $data['file_name'];              
+                $img_name =   $data['file_name']; 
+                
                
             }
             else
@@ -50,7 +51,10 @@ class dashboard extends CI_Controller {
             }
  
         }
-     
+        if(empty($img_name))
+        {
+            $img_name="";
+        }
         $img_link = base_url().'uploads/'.$img_name;
        
             $room_type = $this->input->post('room_type');

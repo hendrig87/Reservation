@@ -1,5 +1,5 @@
 <?php 
-$navigation_menu=array('Add new room', 'Calender', 'Booking');
+
 
 ?>
 <div id="main">
@@ -9,14 +9,15 @@ $navigation_menu=array('Add new room', 'Calender', 'Booking');
         <li><h2>Reservation</h2>
   
             <ul>
-                <li><a href="<?php echo base_url().'index.php/login/addNewRoom' ?>">Add new room</a></li>
-                <li><a href="<?php echo base_url().'index.php/login/calender' ?>">Calender</a></li>
+                <li><a href="<?php echo base_url().'index.php/login/addNewRoomForm'; ?>">Add new room</a></li>
+                <li><a href="<?php echo base_url().'index.php/login/calender'; ?>">Calender</a></li>
                 <li>Booking</li>
+                <li>Room</li>
             </ul>
        
              </li>
              
-             <li><h2>Documentaion</h2></li>     
+             <li><h2>Documentation</h2></li>     
     </ul>
 </div>
 </div>
