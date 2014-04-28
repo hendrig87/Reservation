@@ -43,8 +43,9 @@
     </tr>
       <tr>
           <td>&nbsp;</td>
-          <td><a href="<?Php echo base_url().'index.php/dashboard/booking' ?>"><input type="submit" value="Save" name="submit"></a><input type="submit" value="Save & Continue"></td>
-          <?php echo form_close(); ?>
+          <td><input type="submit" value="Save" name="submit" id="save"><input type="submit" value="Save&Continue" name="submits"></td>
+              <?php form_close() ?>
+          
     </tr>
 </table>
     </div>

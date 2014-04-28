@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<title>Welcome to Online Reservation System</title>
-        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+        <script src="<?php echo base_url()."contents/scripts/jquery.js";?>"></script>
+        
         <link rel="shortcut icon" href="<?php echo base_url()."contents/images/favicon1.jpg";?>" type="image/x-icon"> 
         <link rel="stylesheet" href="<?php echo base_url()."contents/styles/dashboardStyle.css";?>"> 
         <link rel="stylesheet" href="<?php echo base_url()."contents/styles/jquery.tinytooltip.css";?>">

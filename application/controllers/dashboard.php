@@ -21,7 +21,7 @@ class dashboard extends CI_Controller {
            
            $this->load->view('template/headerAfterLogin');
         $this->load->view('dashboard/reservationSystem');
-        $this->load->view('dashboard/addNew');
+        $this->load->view('dashboard/addNewRoom');
         
         $this->load->view('template/footer');
         $this->load->view('template/copyright');
@@ -39,7 +39,7 @@ class dashboard extends CI_Controller {
             $data['username'] = Array($this->session->userdata('logged_in'));
              $this->load->view('template/headerAfterLogin');
              $this->load->view("dashboard/reservationSystem");
-             $this->load->view("dashboard/addNew");
+             $this->load->view("dashboard/addNewRoom");
              
            
              $this->load->view('template/footer');
@@ -54,8 +54,76 @@ class dashboard extends CI_Controller {
        if ($this->session->userdata('logged_in')) {
             $data['username'] = Array($this->session->userdata('logged_in'));    
           
-           
+           if(isset($_POST['submit'])=='Save') { 
         
+        $this->load->library('upload');
+ 
+        if (!empty($_FILES['room_img']['name']))
+        {
+            // Specify configuration for File 1
+            $config['upload_path'] = 'uploads/';
+            $config['allowed_types'] = 'gif|jpg|png';
+                
+ 
+            // Initialize config for File 1
+            $this->upload->initialize($config);
+ 
+            // Upload file 1
+            if ($this->upload->do_upload('room_img'))
+            {
+                $data = $this->upload->data();
+                $img_name =   $data['file_name']; 
+                
+               
+            }
+            else
+            {
+                echo $this->upload->display_errors();
+            }
+ 
+        }
+       
+        if(empty($img_name))
+        {
+            $img_name="";
+        }
+        
+       
+            $room_type = $this->input->post('room_type');
+           $noOfRoom = $this->input->post('noOfRoom');
+           $price = $this->input->post('price');
+           $description = $this->input->post('description');
+        
+               
+           //$data['save_again'] = array('room_type'=>$room_type,'noOfRoom'=>$noOfRoom,'price'=>$price,'description'=>$description);     
+           
+            $data['add_room']= $this->dashboard_model->add_new_room($room_type,$noOfRoom,$price,$description,$img_name);
+            
+           if($data)
+           {
+               $this->session->set_flashdata('message', 'Data sucessfully Added');
+           }
+           else
+           {
+               $this->session->set_flashdata('mess', 'Fill up the required field');
+           }
+            
+           
+            $this->load->library('session');
+     
+       $this->load->view('template/headerAfterLogin');
+        $this->load->view('dashboard/reservationSystem',$data);
+        $this->load->view('dashboard/roomInformation',$data);
+      
+        $this->load->view('template/footer');
+        $this->load->view('template/copyright');
+        redirect('dashboard/roomInfo', 'refresh');
+        }  
+       }
+       elseif($_POST['submits']=='Save&Continue')
+       {
+           die($this->input->post('room_type'));
+           
         $this->load->library('upload');
  
         if (!empty($_FILES['room_img']['name']))
@@ -94,10 +162,10 @@ class dashboard extends CI_Controller {
            $description = $this->input->post('description');
         
                
-                
+           //$data['save_again'] = array('room_type'=>$room_type,'noOfRoom'=>$noOfRoom,'price'=>$price,'description'=>$description);     
            
             $data['add_room']= $this->dashboard_model->add_new_room($room_type,$noOfRoom,$price,$description,$img_name);
-           
+            
            if($data)
            {
                $this->session->set_flashdata('message', 'Data sucessfully Added');
@@ -112,17 +180,21 @@ class dashboard extends CI_Controller {
      
        $this->load->view('template/headerAfterLogin');
         $this->load->view('dashboard/reservationSystem',$data);
-        $this->load->view('dashboard/addNew',$data);
+        $this->load->view('dashboard/addNewRoomForm',$data);
       
         $this->load->view('template/footer');
         $this->load->view('template/copyright');
-        }  
+       
+       }
         else {
             redirect('login', 'refresh');
         }
         } 
           
-        function booking()
+        
+                
+        
+        function roomInfo()
         {
             if ($this->session->userdata('logged_in')) {
             $data['username'] = Array($this->session->userdata('logged_in'));
@@ -219,7 +291,7 @@ class dashboard extends CI_Controller {
             $this->load->library('session');
      
               
-            redirect('dashboard/booking','refresh');
+            redirect('dashboard/roomInfo','refresh');
             }  
         else {
             redirect('login', 'refresh');
@@ -232,7 +304,7 @@ class dashboard extends CI_Controller {
             $data['username'] = Array($this->session->userdata('logged_in'));
             $this->dashboard_model->deleteRoom($id);
             $this->session->set_flashdata('message', 'Data Deleted Sucessfully');
-           redirect('dashboard/booking','refresh');
+           redirect('dashboard/roomInfo','refresh');
            }  
         else {
             redirect('login', 'refresh');

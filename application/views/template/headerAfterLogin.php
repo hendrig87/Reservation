@@ -3,6 +3,11 @@
 <head>
 	<meta charset="utf-8">
 	<title>Welcome to Online Reservation System</title>
+         <script src="<?php echo base_url()."contents/scripts/jquery.js";?>"></script>
+         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+        
         <link rel="shortcut icon" href="<?php echo base_url()."contents/images/favicon1.jpg";?>" type="image/x-icon"> 
         <link rel="stylesheet" href="<?php echo base_url()."contents/styles/dashboardStyle.css";?>"> 
         <link rel="stylesheet" href="<?php echo base_url()."contents/styles/jquery.tinytooltip.css";?>">
@@ -13,9 +18,7 @@
         
         <link type="text/css" rel="stylesheet" href="<?php echo base_url()."contents/styles/styles.css";?>"/>
 	
-        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+       
         <link rel="stylesheet" href="/resources/demos/style.css" />
         <script>
             $(function() {
