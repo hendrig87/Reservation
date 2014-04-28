@@ -20,7 +20,9 @@ public function add_new_room($room_type,$noOfRoom,$price,$description,$img_name)
     
     function booking_room()
         {   
+         $this->db->order_by("id", "desc");
             $query = $this->db->get('room_registration');
+           
             return $query->result();
           
         }

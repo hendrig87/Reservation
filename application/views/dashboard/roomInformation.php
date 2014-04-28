@@ -1,5 +1,13 @@
+<!-- ------------------calling currency_modify helper for currency--------------------------------- -->
+ <?php
+            $this->load->helper('currency'); 
+             $price = currency_type();
+             //var_dump($price);
+?>
+<!-- ------------------finish calling currency_modify helper for currency--------------------------------- -->
 <div id="right">
-     <h3>Rooms</h3><hr style="display: block; height: 1px;
+    
+     <h2>Rooms</h2><hr style="display: block; height: 1px;
     border: 0; border-top: 1px solid #ccc;
     margin: 1em 0; padding: 0;">
      
@@ -26,7 +34,12 @@
                 
             </td> 
             <td><?php echo $book->description; ?></td>
-            <td><?php echo $book->price; ?></td>
+            <td>
+                 <?php foreach($price as $prices) {     ?>
+                <?php echo $prices['bold']; ?>  <?php echo $prices['rs']; ?>    <!--change the currency's type from here -->
+              <?php echo $book->price; ?> </b>
+              <?php }  ?>
+            </td>
             <td></td>
         
             <td>
