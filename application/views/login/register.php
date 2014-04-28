@@ -19,7 +19,7 @@
                         User name:
                     </td>
                     <td class="tabledata">
-                        <input type="text" name="userName" class="textbox" placeholder="Username" required value="<?php echo ""; ?>" />
+                        <input type="text" name="userName" class="textbox" placeholder="Username" required value="<?php echo set_value('userName'); ?>" />
                     </td>
                 </tr>
                 <tr>
@@ -27,7 +27,7 @@
                         First name:
                     </td>
                     <td class="tabledata">
-                       <input type="text" name="userFirstName" class="textbox" placeholder="First Name" required value="<?php echo ""; ?>" /> 
+                       <input type="text" name="userFirstName" class="textbox" placeholder="First Name" required value="<?php echo set_value('userFirstName'); ?>" /> 
                     </td>
                 </tr>
                 <tr>
@@ -35,7 +35,7 @@
                         Last name:
                     </td>
                     <td class="tabledata">
-                        <input type="text" name="userLastName" class="textbox" placeholder="Last Name" required value="<?php echo ""; ?>" />
+                        <input type="text" name="userLastName" class="textbox" placeholder="Last Name" required value="<?php echo set_value('userLastName'); ?>" />
                     </td>
                 </tr>
                 <tr>
@@ -43,7 +43,7 @@
                         Email:
                     </td>
                     <td class="tabledata">
-                       <input type="email" name="userEmail" class="textbox" placeholder="Email" required value="<?php echo ""; ?>" /> 
+                       <input type="email" name="userEmail" class="textbox" placeholder="Email" required value="<?php echo set_value('userEmail'); ?>" /> 
                     </td>
                 </tr>
                 <tr>

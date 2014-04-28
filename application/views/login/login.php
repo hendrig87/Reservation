@@ -17,7 +17,7 @@
                         Email
                     </td>
                     <td class="tabledata">
-                        <input type="email" name="userEmail" class="textbox" placeholder="Email" required value="<?php echo ""; ?>" />
+                        <input type="email" name="userEmail" class="textbox" placeholder="Email" required value="<?php echo set_value('userEmail') ; ?>" />
                     </td>
                 </tr>
                 
@@ -26,7 +26,7 @@
                         Password
                     </td>
                     <td class="tabledata">
-                       <input type="password" name="userPass" class="textbox" placeholder="Password" required value="<?php echo ""; ?>" /> 
+                       <input type="password" name="userPass" class="textbox" placeholder="Password" required value="<?php echo ''; ?>" /> 
                     </td>
                 </tr>    
                 <tr>
