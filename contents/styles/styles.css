@@ -175,16 +175,44 @@ folder login inside view filder also uses these styles
                 width: 98.3%;
                 float: left;
             }
+             .footerContainer
+            {
+                margin: 0px;
+		padding: 0px;
+                background-color: #768d87;
+                width: 100%;
+                float: left;
+                min-height: 50px;
+            }
+            .col-md-3
+            {
+                width: 10%;
+                height: 1px;
+                margin: 0px;
+                padding: 0px;
+                float: left;
+            }
+            
+            
+            
+            
+            
             
             .sitemap
             {
-                width: 23%;
-                
+                 width: 20%;
+              
                 padding: 12px;
                 float:left;
-                text-align: center;
             }
             
+            
+            .sitemap a
+            {
+                color: white;
+                text-decoration: none;
+                
+            }
             p.footerLeft
             {
                 float: left;

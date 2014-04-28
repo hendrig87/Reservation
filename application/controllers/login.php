@@ -19,9 +19,9 @@ class Login extends CI_Controller {
       $this->load->view('template/header');
                 $this->load->view('template/imageDiv');
 		$this->load->view('template/reservation_template');
-                $this->load->view('template/footer');
+                $this->load->view('template/newfooter');
                // $this->load->view('login/test');
-                $this->load->view('template/copyright');
+              //  $this->load->view('template/copyright');
  }
 
  public function registrationForm()
@@ -208,6 +208,7 @@ else
         $data['query'] = $this->dbmodel->find_user_auth_key($token);
                 $this->load->view('template/header');
                 $this->load->view('login/messageSent',$data);
+                 $this->load->view('template/imageDiv');
                 $this->load->view('template/reservation_template');
                 $this->load->view('template/footer');
                 $this->load->view('template/copyright');
