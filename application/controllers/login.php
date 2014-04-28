@@ -19,9 +19,8 @@ class Login extends CI_Controller {
       $this->load->view('template/header');
                 $this->load->view('template/imageDiv');
 		$this->load->view('template/reservation_template');
-                $this->load->view('template/newfooter');
-               // $this->load->view('login/test');
-              //  $this->load->view('template/copyright');
+                $this->load->view('template/footer');
+              
  }
 
  public function registrationForm()
@@ -32,7 +31,6 @@ class Login extends CI_Controller {
         $this->load->view('login/register');
         $this->load->view('template/reservation_template');
         $this->load->view('template/footer');
-        $this->load->view('template/copyright');
  }
  
  public function register(){
@@ -96,8 +94,7 @@ class Login extends CI_Controller {
           $this->load->view('template/header');
           $this->load->view('login/login');
           $this->load->view('template/reservation_template');
-          $this->load->view('template/footer');
-          $this->load->view('template/copyright');
+         $this->load->view('template/footer');
      }
      else{
          redirect('login/loginForm');
@@ -164,8 +161,7 @@ else
           $this->load->view('template/header');
           $this->load->view('login/forgotPassword');
           $this->load->view('template/reservation_template');
-          $this->load->view('template/footer');
-          $this->load->view('template/copyright'); 
+          $this->load->view('template/footer'); 
           //$this->session->set_flashdata('message', 'Instructions to reset your password have been emailed to you. Please check your email and login ');
           //redirect('welcome/mailSentMessage', 'refresh');
                }
@@ -211,7 +207,6 @@ else
                  $this->load->view('template/imageDiv');
                 $this->load->view('template/reservation_template');
                 $this->load->view('template/footer');
-                $this->load->view('template/copyright');
     }
     
     function getRandomString($length) 
@@ -245,14 +240,12 @@ else
              $this->load->view("login/resetPassword", $data);
              $this->load->view('template/reservation_template');
              $this->load->view('template/footer');
-             $this->load->view('template/copyright');
       }
  else {
              $this->load->view('template/header');
              $this->load->view("template/errorMessage");
              $this->load->view('template/reservation_template');
              $this->load->view('template/footer');
-             $this->load->view('template/copyright');
       }
              
          
