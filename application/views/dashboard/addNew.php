@@ -23,12 +23,12 @@
     </tr>
     <tr>
         <td id="alignright"> No. of Rooms:</td>
-        <td><input type="button" value="-" id="subs">&nbsp;<input type="text" style="width: 50px; color: black; text-align: center;" class="onlyNumber" id="noOfRoom" value="1" name="noOfRoom">&nbsp;<input type="button" value="+" id="adds"></td>
+        <td><input type="button" value="-" id="subs">&nbsp;<input type="text" style="width: 50px; color: black; text-align: center;" class="onlyNumber" id="noOfRoom" value="1" name="noOfRoom" maxlength="3">&nbsp;<input type="button" value="+" id="adds"></td>
         <td><a href="" class="example2 r" id="help" onclick="return false;" style="cursor: default;">?</a></td>
     </tr>
     <tr>
-        <td id="alignright"> Price:</td>
-        <td><input type="text" name="price" style="width: 100px; color: black;" class="onlyNumber"  maxlength="3"></td>
+        <td id="alignright"> Price per room:</td>
+        <td><input type="text" name="price" style="width: 100px; color: black;" class="onlyNumber"  maxlength="4"></td>
         <td><a href="" class="example3 r" id="help" onclick="return false;" style="cursor: default;">?</a></td>
     </tr>
     <tr>

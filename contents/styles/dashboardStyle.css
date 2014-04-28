@@ -65,9 +65,10 @@
 }
 
 
-#form 
+#form table tr td
 {
     font-size:14px; 
+    padding: 5px;
     
 }
 
@@ -121,7 +122,7 @@
 }
 
 
-#room_book tr td
+#room_book table tr td
 {
    text-align: left;
   border-bottom: solid thin #ccc;
