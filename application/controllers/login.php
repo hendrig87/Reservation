@@ -146,10 +146,10 @@ else
 		}
 		else // incorrect username or password
                     {
-                    echo 'here';
-                       // $this->session->set_flashdata('message', 'Username or password incorrect');
+                    
+                        $this->session->set_flashdata('message', 'Username or password incorrect');
                         
-                       //redirect('login/loginForm');
+                       redirect('login/loginForm');
                         
                     }
                     }

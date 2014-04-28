@@ -18,7 +18,7 @@ class dashboard extends CI_Controller {
 	public function index(){ 
           if ($this->session->userdata('logged_in')) {
             $data['username'] = Array($this->session->userdata('logged_in'));
-            var_dump($data);
+           
            $this->load->view('template/headerAfterLogin');
         $this->load->view('dashboard/reservationSystem');
         $this->load->view('dashboard/addNew');
@@ -35,17 +35,24 @@ class dashboard extends CI_Controller {
         
           function addNewRoomForm()
     {
-        $this->load->view('template/header');
+          if ($this->session->userdata('logged_in')) {
+            $data['username'] = Array($this->session->userdata('logged_in'));
+             $this->load->view('template/header');
              $this->load->view("dashboard/reservationSystem");
              $this->load->view("dashboard/addNew");
              
              $this->load->view('template/reservation_template');
              $this->load->view('template/footer');
              $this->load->view('template/copyright');
+             }  
+        else {
+            redirect('login', 'refresh');
+        }
     }
                 
         function addRoom(){
-           
+       if ($this->session->userdata('logged_in')) {
+            $data['username'] = Array($this->session->userdata('logged_in'));    
           
            
         
@@ -109,10 +116,16 @@ class dashboard extends CI_Controller {
         $this->load->view('template/reservation_template');
         $this->load->view('template/footer');
         $this->load->view('template/copyright');
+        }  
+        else {
+            redirect('login', 'refresh');
+        }
         } 
           
         function booking()
         {
+            if ($this->session->userdata('logged_in')) {
+            $data['username'] = Array($this->session->userdata('logged_in'));
                $data['query']= $this->dashboard_model->booking_room();
             //die($data['query']);
                 $this->load->view('template/header',$data);
@@ -121,10 +134,16 @@ class dashboard extends CI_Controller {
         $this->load->view('template/reservation_template',$data);
         $this->load->view('template/footer',$data);
         $this->load->view('template/copyright',$data);
+        }  
+        else {
+            redirect('login', 'refresh');
+        }
         }
         
          function edit($id)
         {
+             if ($this->session->userdata('logged_in')) {
+            $data['username'] = Array($this->session->userdata('logged_in'));
               $data['query'] = $this->dashboard_model->findroom($id);
                
               
@@ -135,10 +154,16 @@ class dashboard extends CI_Controller {
         $this->load->view('template/reservation_template',$data);
         $this->load->view('template/footer',$data);
         $this->load->view('template/copyright',$data);
+        }  
+        else {
+            redirect('login', 'refresh');
+        }
         }
         
         function update()
         {
+             if ($this->session->userdata('logged_in')) {
+            $data['username'] = Array($this->session->userdata('logged_in'));
         $this->load->library('upload');
  
         if (!empty($_FILES['room_img']['name']))
@@ -195,14 +220,23 @@ class dashboard extends CI_Controller {
      
               
             redirect('dashboard/booking','refresh');
+            }  
+        else {
+            redirect('login', 'refresh');
+        }
         }
         
         
            public function delete($id) {
-       
+        if ($this->session->userdata('logged_in')) {
+            $data['username'] = Array($this->session->userdata('logged_in'));
             $this->dashboard_model->deleteRoom($id);
             $this->session->set_flashdata('message', 'Data Deleted Sucessfully');
            redirect('dashboard/booking','refresh');
+           }  
+        else {
+            redirect('login', 'refresh');
+        }
         
     }
         
