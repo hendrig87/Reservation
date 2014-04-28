@@ -62,7 +62,7 @@ folder login inside view filder also uses these styles
 	
 	#container{
 		margin: 10px;
-		border: 1px solid #D0D0D0;
+		
 		-webkit-box-shadow: 0 0 8px #D0D0D0;
 	}
         input
@@ -239,9 +239,18 @@ folder login inside view filder also uses these styles
     margin: 0 auto 0 auto;
     border: 1px solid #D0D0D0;
     -webkit-box-shadow: 0 0 8px #D0D0D0;
-    width: 425px;
-    alignment-adjust: central;
+    width: 100%;
+   
     padding: 0px;
+    background-color: #D0D0D0;
+}
+.body
+{
+     margin: 0 auto 0 auto;
+     width: 400px;
+     alignment-adjust: central;
+     padding-left: 20px;
+     background-color: white;
 }
 #EmailSentMessage
 {

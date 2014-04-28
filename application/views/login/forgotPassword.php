@@ -1,6 +1,6 @@
 <div id="login">
 
-	<div id="body">
+	<div class="body">
             
            <div class ="checkForm">
         <?php echo form_open_multipart('login/email'); ?>
