@@ -37,7 +37,7 @@ class dashboard extends CI_Controller {
     {
           if ($this->session->userdata('logged_in')) {
             $data['username'] = Array($this->session->userdata('logged_in'));
-             $this->load->view('template/header');
+             $this->load->view('template/headerAfterLogin');
              $this->load->view("dashboard/reservationSystem");
              $this->load->view("dashboard/addNew");
              
@@ -110,7 +110,7 @@ class dashboard extends CI_Controller {
            
             $this->load->library('session');
      
-        $this->load->view('template/header');
+       $this->load->view('template/headerAfterLogin');
         $this->load->view('dashboard/reservationSystem',$data);
         $this->load->view('dashboard/addNew',$data);
       
@@ -128,7 +128,7 @@ class dashboard extends CI_Controller {
             $data['username'] = Array($this->session->userdata('logged_in'));
                $data['query']= $this->dashboard_model->booking_room();
             //die($data['query']);
-                $this->load->view('template/header',$data);
+         $this->load->view('template/headerAfterLogin');
         $this->load->view('dashboard/reservationSystem',$data);
         $this->load->view('dashboard/roomInformation',$data);
       
@@ -148,7 +148,7 @@ class dashboard extends CI_Controller {
                
               
             //die($data['query']);
-                $this->load->view('template/header',$data);
+            $this->load->view('template/headerAfterLogin');
         $this->load->view('dashboard/reservationSystem',$data);
         $this->load->view('dashboard/editRoomInfo',$data);
        
