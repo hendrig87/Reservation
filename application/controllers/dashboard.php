@@ -22,7 +22,7 @@ class dashboard extends CI_Controller {
            $this->load->view('template/headerAfterLogin');
         $this->load->view('dashboard/reservationSystem');
         $this->load->view('dashboard/addNew');
-        $this->load->view('template/reservation_template');
+        
         $this->load->view('template/footer');
         $this->load->view('template/copyright');
         }  
@@ -41,7 +41,7 @@ class dashboard extends CI_Controller {
              $this->load->view("dashboard/reservationSystem");
              $this->load->view("dashboard/addNew");
              
-             $this->load->view('template/reservation_template');
+           
              $this->load->view('template/footer');
              $this->load->view('template/copyright');
              }  
@@ -113,7 +113,7 @@ class dashboard extends CI_Controller {
         $this->load->view('template/header');
         $this->load->view('dashboard/reservationSystem',$data);
         $this->load->view('dashboard/addNew',$data);
-        $this->load->view('template/reservation_template');
+      
         $this->load->view('template/footer');
         $this->load->view('template/copyright');
         }  
@@ -131,7 +131,7 @@ class dashboard extends CI_Controller {
                 $this->load->view('template/header',$data);
         $this->load->view('dashboard/reservationSystem',$data);
         $this->load->view('dashboard/roomInformation',$data);
-        $this->load->view('template/reservation_template',$data);
+      
         $this->load->view('template/footer',$data);
         $this->load->view('template/copyright',$data);
         }  
@@ -151,7 +151,7 @@ class dashboard extends CI_Controller {
                 $this->load->view('template/header',$data);
         $this->load->view('dashboard/reservationSystem',$data);
         $this->load->view('dashboard/editRoomInfo',$data);
-        $this->load->view('template/reservation_template',$data);
+       
         $this->load->view('template/footer',$data);
         $this->load->view('template/copyright',$data);
         }  

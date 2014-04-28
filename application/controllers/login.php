@@ -57,7 +57,7 @@ class Login extends CI_Controller {
             }
  else {
                 $this->session->set_flashdata('message', 'User Name already exsists');
-          redirect('login/registrationForm');
+          redirect('login/registrationForm', 'refresh');
  }
             $userfname = $this->input->post('userFirstName');   
             $userlname = $this->input->post('userLastName');
@@ -66,13 +66,12 @@ class Login extends CI_Controller {
                              $userEmail= $user->user_email;
                          }
            $inputuserEmail= $_POST['userEmail']; 
-           
             if($userEmail != $inputuserEmail){             
               $useremail = $this->input->post('userEmail');
             }
  else {
                 $this->session->set_flashdata('message', 'User Email already exsists');
-          redirect('login/register');
+          redirect('login/registrationForm', 'refresh');
  }
  
                $userpass = $this->input->post('userPass');
