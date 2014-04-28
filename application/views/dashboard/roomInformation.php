@@ -4,13 +4,13 @@
     margin: 1em 0; padding: 0;">
      
      <div id="room_book">
-    <table width="100%" border="1px">
+    <table width="100%">
         <tr>
-            <th width="20%">Room</th>
+            <th width="25%">Room</th>
             <th width="30%">Facilities</th>
-            <th width="10%">Price</th>
+            <th width="15%">Price</th>
             <th width="20%">Available Rooms</th>
-            <th width="20%">Action</th>
+            <th width="10%">Action</th>
     <?php
     if(isset($query))
     {
@@ -30,10 +30,10 @@
             <td></td>
         
             <td>
-                <?php form_open('dashboard/edit') ?>
                 
-                <a href="<?php echo base_url().'index.php/dashboard/edit'; ?>">Edit</a>
-                <a href="<?php echo base_url().'index.php/dashboard/edit'; ?>">delete</a>
+                
+               <?php echo anchor('dashboard/edit/'.$book->id,'Edit'); ?> / 
+            <?php echo anchor('dashboard/delete/'.$book->id,'Delete'); ?>
                 
             </td>
             

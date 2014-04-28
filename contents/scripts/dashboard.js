@@ -8,6 +8,9 @@
       
       
 $(document).ready(function() {
+    
+   
+    
 	$('a.example4').tinytooltip({message: "Enter the description of room like facilities in it like room contains TV, AC, attached bathroom or not."});
 	
 	$('input.example').tinytooltip({
@@ -89,7 +92,7 @@ $(document).ready(function() {
         
                 
    
-      $("#noOfRoom").keydown(function (event) {
+      $(".onlyNumber").keydown(function (event) {
     var num = event.keyCode;
     if ((num > 95 && num < 106) || (num > 36 && num < 41) || num == 9) {
         return;
@@ -106,23 +109,25 @@ $(document).ready(function() {
 
 
 
-var count = 0;
-
 $("#adds").click(function() {
-    count++;
-    $("#noOfRoom").val(count);
+    var a = $("#noOfRoom").val();
+    a++;
+     if (a>999) {
+        $("#adds").die();
+    }
+    $("#noOfRoom").val(a);
 });
 
 
 
  
 $("#subs").click(function() {
-    var a = $("#noOfRoom").val();
-    if (a<1) {
+    var b = $("#noOfRoom").val();
+    if (b<1) {
         $("#subs").die();
     }
-    count--;
-    $("#noOfRoom").val(count);
+    b--;
+    $("#noOfRoom").val(b);
 });
       
       

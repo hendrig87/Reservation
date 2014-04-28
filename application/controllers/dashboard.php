@@ -50,12 +50,9 @@ class dashboard extends CI_Controller {
            
           
            
-        // Load the library - no config specified here
+        
         $this->load->library('upload');
  
-        // Check if there was a file uploaded - there are other ways to
-        // check this such as checking the 'error' for the file - if error
-        // is 0, you are good to code
         if (!empty($_FILES['room_img']['name']))
         {
             // Specify configuration for File 1
@@ -128,11 +125,11 @@ class dashboard extends CI_Controller {
         $this->load->view('template/copyright',$data);
         }
         
-         function edit()
+         function edit($id)
         {
-               $data['query']= $this->dashboard_model->booking_room();
-               $room_id = $this->input->post('room_id');
-               echo $room_id;
+              $data['query'] = $this->dashboard_model->findroom($id);
+               
+              
             //die($data['query']);
                 $this->load->view('template/header',$data);
         $this->load->view('dashboard/reservationSystem',$data);
@@ -142,6 +139,75 @@ class dashboard extends CI_Controller {
         $this->load->view('template/copyright',$data);
         }
         
+        function update()
+        {
+        $this->load->library('upload');
+ 
+        if (!empty($_FILES['room_img']['name']))
+        {
+            
+            $config['upload_path'] = 'uploads/';
+            $config['allowed_types'] = 'gif|jpg|png';
+                
+ 
+            
+            $this->upload->initialize($config);
+ 
+            
+            if ($this->upload->do_upload('room_img'))
+            {
+                $data = $this->upload->data();
+                $img_name =   $data['file_name']; 
+                
+               
+            }
+            else
+            {
+                echo $this->upload->display_errors();
+            }
+ 
         }
+        if(empty($img_name))
+        {
+            echo "";
+        }
+        
+       $id = $this->input->post('id');
+           $room_type = $this->input->post('room_type');
+           $noOfRoom = $this->input->post('noOfRoom');
+           $price = $this->input->post('price');
+           $description = $this->input->post('description');
+        
+               
+                
+           
+            $data['add_room']= $this->dashboard_model->updateRoom($id,$room_type,$noOfRoom,$price,$description,$img_name);
+           
+           if($data)
+           {
+               $this->session->set_flashdata('message', 'Data sucessfully Added');
+           }
+           else
+           {
+               $this->session->set_flashdata('mess', 'Fill up the required field');
+           }
+            
+           
+            $this->load->library('session');
+     
+              
+            redirect('dashboard/booking','refresh');
+        }
+        
+        
+           public function delete($id) {
+       
+            $this->dashboard_model->deleteRoom($id);
+            $this->session->set_flashdata('message', 'Data Deleted Sucessfully');
+           redirect('dashboard/booking','refresh');
+        
+    }
+        
+}
         
         

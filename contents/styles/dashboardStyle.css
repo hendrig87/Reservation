@@ -14,6 +14,7 @@
     float: left;
     width: 70%;
     margin-left: 50px;
+    min-height: 400px;
 }
 
 #right table tr td
@@ -116,4 +117,12 @@
 {
   font-size: 16px;
   text-align: left;
+  border-bottom: solid thin #ccc;
+}
+
+
+#room_book tr td
+{
+   text-align: left;
+  border-bottom: solid thin #ccc;
 }
