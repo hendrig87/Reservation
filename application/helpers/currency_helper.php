@@ -1,9 +1,6 @@
 <?php
-
-
-function currency_type()
+    
+    function get_currency($data)
     {
-        $price[]=array('bold' => '<b>','rs' => 'Rs.','doller' => '$');
-        return $price;
-       
+         echo 'Rs.'.$data.".00";   
     }

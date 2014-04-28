@@ -99,7 +99,7 @@ class Login extends CI_Controller {
           $this->load->view('template/copyright');
      }
      else{
-         redirect('login/index');
+         redirect('login/loginForm');
      }
  }
  

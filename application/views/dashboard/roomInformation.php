@@ -1,8 +1,7 @@
 <!-- ------------------calling currency_modify helper for currency--------------------------------- -->
  <?php
             $this->load->helper('currency'); 
-             $price = currency_type();
-             //var_dump($price);
+            
 ?>
 <!-- ------------------finish calling currency_modify helper for currency--------------------------------- -->
 <div id="right">
@@ -35,18 +34,13 @@
             </td> 
             <td><?php echo $book->description; ?></td>
             <td>
-                 <?php foreach($price as $prices) {     ?>
-                <?php echo $prices['bold']; ?>  <?php echo $prices['rs']; ?>    <!--change the currency's type from here -->
-              <?php echo $book->price; ?> </b>
-              <?php }  ?>
+                <?php get_currency($book->price); ?> <!-- Sending price of room to currency_helper -->
             </td>
             <td></td>
         
-            <td>
-                
-                
-               <?php echo anchor('dashboard/edit/'.$book->id,'Edit'); ?> / 
-            <?php echo anchor('dashboard/delete/'.$book->id,'Delete'); ?>
+            <td>    
+                <div style="width: 50%;"><?php echo anchor('dashboard/edit/'.$book->id,'<img src="'.  base_url().'contents/images/edit.png" height="20px" width="20px" alt="Edit">'); ?> </div>
+                <div style="width: 50%;"><?php echo anchor('dashboard/delete/'.$book->id,'<img src="'.  base_url().'contents/images/delete.jpg" height="20px" width="20px" alt="Delete">'); ?></div>
                 
             </td>
             
