@@ -18,7 +18,7 @@
     <tr>
         <?php echo form_open_multipart('dashboard/addRoom'); ?>
         <td id="alignright"> Room Type:</td>
-        <td><input type="text" name="room_type" required="required"></td>
+        <td><input type="text" name="room_type"></td>
         <td><a href="" class="example1 r" id="help" onclick="return false;" style="cursor: default;">?</a></td>
     </tr>
     <tr>

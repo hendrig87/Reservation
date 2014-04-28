@@ -60,6 +60,9 @@ class dashboard extends CI_Controller {
  
         if (!empty($_FILES['room_img']['name']))
         {
+            if(($_POST['room_type'])=="")
+            {
+                echo "dfgfdsgs";
             // Specify configuration for File 1
             $config['upload_path'] = 'uploads/';
             $config['allowed_types'] = 'gif|jpg|png';
@@ -80,8 +83,12 @@ class dashboard extends CI_Controller {
             {
                 echo $this->upload->display_errors();
             }
+            }
  
         }
+         
+              // $this->session->set_flashdata('mess', 'Fill up the required field');
+         
        
         if(empty($img_name))
         {
@@ -103,10 +110,7 @@ class dashboard extends CI_Controller {
            {
                $this->session->set_flashdata('message', 'Data sucessfully Added');
            }
-           else
-           {
-               $this->session->set_flashdata('mess', 'Fill up the required field');
-           }
+         
             
            
             $this->load->library('session');
@@ -170,10 +174,7 @@ class dashboard extends CI_Controller {
            {
                $this->session->set_flashdata('message', 'Data sucessfully Added');
            }
-           else
-           {
-               $this->session->set_flashdata('mess', 'Fill up the required field');
-           }
+           
             
            
             $this->load->library('session');
