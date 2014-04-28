@@ -15,24 +15,22 @@ class dashboard extends CI_Controller {
         $this->load->library("pagination");
     }
 	
-	public function index()
-        { 
-            if ($this->session->userdata('logged_in')) {
-                
-                 $this->load->view('template/headerAfterLogin');
+	public function index(){ 
+          if ($this->session->userdata('logged_in')) {
+            $data['username'] = Array($this->session->userdata('logged_in'));
+            var_dump($data);
+           $this->load->view('template/headerAfterLogin');
         $this->load->view('dashboard/reservationSystem');
         $this->load->view('dashboard/addNew');
         $this->load->view('template/reservation_template');
         $this->load->view('template/footer');
         $this->load->view('template/copyright');
-         
-     }
-     else
-     {
-         redirect('login', 'refresh'); 
-     }
-        
+        }  
+        else {
+            redirect('login', 'refresh');
         }
+                    
+  }
         
         
           function addNewRoomForm()

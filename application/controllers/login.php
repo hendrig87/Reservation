@@ -75,15 +75,10 @@ class Login extends CI_Controller {
           redirect('login/register');
  }
  
- if($userEmail==$inputuserEmail && $userName==$inputuserName);
-                 $this->session->set_flashdata('message', 'User Name and Email already exsists');
-          redirect('login/register');
-  
- 
                $userpass = $this->input->post('userPass');
             $this->dbmodel->add_new_user($user_name, $userfname, $userlname, $useremail, $userpass);
             
-            echo '<h3>Hurray! Successfully Regisered</h3>';
+            redirect('login/index');
                 }
                 
  }
@@ -105,13 +100,13 @@ class Login extends CI_Controller {
           $this->load->view('template/copyright');
      }
      else{
-         
+         redirect('login/index');
      }
  }
  
  public function validate_user()
      
-{$this->load->library('session');
+{ $this->load->library('session');
     if(isset($_POST['checkMe']))
     {
     
@@ -127,42 +122,34 @@ else
    
                 $this->load->library('form_validation');
                 $this->form_validation->set_rules('userEmail', 'Username', 'trim|required|xss_clean');
-                $this->form_validation->set_rules('userPass', 'Password', 'trim|required|xss_clean|md5|callback_check_database');
+                $this->form_validation->set_rules('userPass', 'Password', 'trim|required|xss_clean|callback_check_database');
                 if($this->form_validation->run() == FALSE)
-                     {
-                        $this->loginForm();
+                     {   
+                    $this->loginForm();
                        
                      }
                 else
                     {
-                    
-                $email= $this->input->post('userEmail');
-                $pass= $this->input->post('userPass');
+                  $this->load->model('dbmodel');  
 		
-		$data['query'] = $this->dbmodel->validate($email, $pass);
-		if($data['query']) // if the user's credentials validated...   
+		$query = $this->dbmodel->validate();
+                //print_r($query);
+                if($query) // if the user's credentials validated...
+                    
 		{
-                  
-                  $a=  $this->input->ip_address();
-                   
-                   $session_id = $this->session->userdata('session_id');
-                   $a=$this->session->userdata('ip_address');
-                   $b=$this->session->userdata('user_agent');
-                   $c=$this->session->userdata('last_activity');
-                 
-			$data = array(
+                    
+                    $data = array(
 				'username' => $this->input->post('userEmail'),
 				'logged_in' => true);
-
-                            redirect('dashboard/index');
-			
+			$this->session->set_userdata($data);
+			redirect('dashboard/index');
 		}
 		else // incorrect username or password
                     {
-                  
-                        $this->session->set_flashdata('message', 'Username or password incorrect');
+                    echo 'here';
+                       // $this->session->set_flashdata('message', 'Username or password incorrect');
                         
-                       redirect('login/loginForm');
+                       //redirect('login/loginForm');
                         
                     }
                     }
