@@ -33,6 +33,7 @@ class dashboard extends CI_Controller {
                     
   }
         
+ 
         
           function addNewRoomForm()
     {
@@ -50,6 +51,9 @@ class dashboard extends CI_Controller {
             redirect('login', 'refresh');
         }
     }
+    
+    
+        
                 
         function addRoom(){
        if ($this->session->userdata('logged_in')) {

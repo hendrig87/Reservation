@@ -141,4 +141,13 @@ $("#subs").click(function() {
 //sucess message finished
  
   
-});
+  // for booking room
+  
+  
+ });
+  
+  
+  
+  
+  
+  

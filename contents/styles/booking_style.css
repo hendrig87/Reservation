@@ -1,11 +1,15 @@
 #booking
 {
-    min-height: 600px;
+    min-height: 400px;
+    border: thin solid;
+    width: 500px;
 }
 
 #booking_title
 {
     font-weight: bold;
+    text-align: center;
+    border-bottom: solid thin;
 }
 
 #booking_contain
@@ -15,5 +19,5 @@
 
 #booking_action
 {
-    
+    border-top: solid thin;
 }
