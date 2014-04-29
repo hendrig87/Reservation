@@ -68,3 +68,13 @@
 
 	
 </div>
+
+
+
+<div id="booking">
+    <div id="booking_title"></div>
+    <div id="booking_contain"></div>
+    <div id="booking_action"></div>
+    
+    
+</div>

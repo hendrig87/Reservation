@@ -5,6 +5,9 @@
 	<title>Welcome to Online Reservation System</title>
         <script src="<?php echo base_url()."contents/scripts/jquery.js";?>"></script>
         
+        <link rel="stylesheet" href="<?php echo base_url()."contents/styles/booking_style.css";?>"> 
+        
+        
         <link rel="shortcut icon" href="<?php echo base_url()."contents/images/favicon1.jpg";?>" type="image/x-icon"> 
         <link rel="stylesheet" href="<?php echo base_url()."contents/styles/dashboardStyle.css";?>"> 
         <link rel="stylesheet" href="<?php echo base_url()."contents/styles/jquery.tinytooltip.css";?>">
@@ -38,7 +41,7 @@
 
                 <div id="topNavigation">
                     <div id="logoDiv">
-                        <img src="<?php echo base_url() . "contents/images/parkReserve.png"; ?>"/>
+                        <img src="<?php echo base_url() . "contents/images/ParkReserve.png"; ?>"/>
 
                     </div>
                     <a href="#">HOME</a>
