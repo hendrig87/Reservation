@@ -1,7 +1,7 @@
 <div class="footerContainer">
 <div class="col-md-3"></div>
 			<div class="sitemap">
-				<h4>Information</h4>
+				<h3>Information</h3>
 				<p class="caption">
 					<a href="#" >What We Offer</a>
                                         <br>
@@ -11,7 +11,7 @@
 				</p>
 			</div>
 			<div class="sitemap">
-				<h4>Community</h4>
+				<h3>Community</h3>
 				<p class="caption">
                                     <a href="http://www.tech.net.np" target="_blank">Blog</a>
 					<br>
@@ -21,7 +21,7 @@
 				</p>
 			</div>
 			<div class="sitemap">
-				<h4>Reservation</h4>
+				<h3>Reservation</h3>
 				<p class="caption">
 					<a href="#">About</a>
 					<br>
@@ -35,13 +35,13 @@
 				</p>
 			</div>
 			<div class="sitemap">
-				<h4>Follow us on</h4>
+				<h3>Follow us on</h3>
 				<a href="https://www.facebook.com/salyani"><img style="width:30px; height:30px; border-radius: 20px;" src=<?php echo base_url().'contents/images/facebook1.jpg'; ?>  /></span></a>
                                 <a href="#"  /><img style="width:30px; height:30px; border-radius: 20px;" src=<?php echo base_url().'contents/images/google1.jpg'; ?>  /></a>
 				<a href="#"><img style="width:30px; height:30px; border-radius: 20px;" src=<?php echo base_url().'contents/images/twitter.jpg'; ?>  /></span></a>
 				<a href="#"><img style="width:30px; height:30px; border-radius: 20px;" src=<?php echo base_url().'contents/images/in.jpg'; ?>  /></span></a>
 				<div class="row row-gap-medium">
-					<div class="col-md-12 text-muted">&copy; 2014 Reservation</div>
+					<div id="copy">&copy; 2014 Reservation</div>
 				</div>
 			</div>
 </div>

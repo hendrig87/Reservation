@@ -179,7 +179,7 @@ folder login inside view filder also uses these styles
             {
                 margin: 0px;
 		padding: 0px;
-                background-color: #768d87;
+                background-color: #000;
                 width: 100%;
                 float: left;
                 min-height: 50px;
@@ -212,6 +212,18 @@ folder login inside view filder also uses these styles
                 color: white;
                 text-decoration: none;
                 
+            }
+            .sitemap h3
+            {
+                font-weight: bold;
+                color: wheat;
+            }
+            #copy
+            {
+                font-size: 16px;
+                color: wheat;
+                margin: 0px;
+                padding-top: 10px;
             }
             p.footerLeft
             {

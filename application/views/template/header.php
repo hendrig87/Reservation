@@ -38,7 +38,7 @@
 
                 <div id="topNavigation">
                     <div id="logoDiv">
-                        <img src="<?php echo base_url() . "contents/images/parkReserve.png"; ?>"/>
+                        <img src="<?php echo base_url() . "contents/images/ParkReserve.png"; ?>"/>
 
                     </div>
                     <a href="#">HOME</a>
