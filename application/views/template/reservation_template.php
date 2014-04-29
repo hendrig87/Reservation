@@ -4,23 +4,45 @@
   function changeFunc() {
       
       var checkin = document.getElementById("CheckIn").value;
-      alert (checkin);
-       var dataString = 'checkin='+checkin;
-   
+      var checkout = document.getElementById("Checkout").value;
+      var adult = document.getElementById("adults").value;
+      var child = document.getElementById("child").value;
+      //alert (checkin);
+       //var dataString = 'checkin='+checkin+'&checkout='+checkout+'&adult='+adult+'&child='+child;
+     var a = "here";
    
    
  $.ajax({
  type: "POST",
  url: "<?php echo base_url().'index.php/room_booking/post_action' ;?>",
- data: dataString,
+ data: {
+     'checkin' : checkin,
+     'checkout' : checkout,
+     'adult' : adult,
+     'child' : child,
+     'ab' : a
+        },
   success: function(msg) 
         {
+          // document.getElementById("checkForm").innerHTML = "";
             $("#booking_contain").html(msg);
-           
-        }
- 
+            
+              if(!$('#booking').css('display')=='none')
+{  
+           ('#booking').css('display')=='block';
+}
+        
+    }
+
+       
+      //var showme = document.getElementById("booking_contain");
+      //alert (showme);
+                //showme.style.visibility = "visible";
    
  });
+ 
+
+      
   }
 
  </script>
@@ -65,10 +87,11 @@ setInterval("displaytime()", 1000);
         $children = 5;
         ?>
 <div id="container">
+    
 	<div id="body">
 	
            <div class ="checkForm">
-               <form method="post" id="checkin_room">
+               <form method="post" action="#" id="checkin_room">
             <table>
                 <tr>
                     <td class="tabledata">
@@ -98,14 +121,15 @@ setInterval("displaytime()", 1000);
                 <br/>
                 <tr>
                     <td class="tabledata">
-                        Check Out
+                        
                     </td>
                     <td class="tabledata">
-                        <input type="text" name="dto" id="datepicker2" placeholder="To" value="<?php if (isset($fromDate)) {
-                                echo $fromDate;
-                            } else {
-                                echo "";
-                                } ?>" required="true"/>
+                       <div class="clear"></div>
+                <div class="input-prepend input-append">
+                <span class="add-on">Check Out</span>
+                <input name="CheckOut" type="text" style="width:185px; cursor:pointer;" required="required" id="CheckOut" value="">
+                <span class="add-on" style="width:auto;"><img src='<?php echo base_url().'contents/images/ParkReserve.png' ;?>' style="width: 15px; height: 20px;" ></span>
+                </div>
                     </td>
                     <td class="tabledata">
                         Children
@@ -126,11 +150,22 @@ setInterval("displaytime()", 1000);
                     </td>
             </table>
         </form>
+                <?php
+       // foreach($abc as $g)
+       // {
+         //   var_dump($g);
+       // }
+        ?>
         </div>
         </div>
 
 	
 </div>
+
+
+
+
+
 
 
 

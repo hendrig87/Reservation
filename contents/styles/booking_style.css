@@ -1,6 +1,8 @@
 #booking
 {
-    min-height: 400px;
+   
+    display: none;
+    
     border: thin solid;
     width: 500px;
 }
