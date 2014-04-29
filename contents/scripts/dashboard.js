@@ -132,16 +132,13 @@ $("#subs").click(function() {
       
       
 //sucess message 
-$(document).ready(function(){
    setTimeout(function(){
   $("#sucess").fadeOut("slow", function () {
   $("#sucess").remove();
       });
 
 }, 5000);
- });
 //sucess message finished
-    
-
+ 
   
 });

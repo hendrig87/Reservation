@@ -6,13 +6,13 @@
 <div id="left">
 <div id="navigation">
     <ul>
-        <li><h2>Reservation</h2>
+        <li id="show_arrow"><h2>Reservation</h2>
   
             <ul>
-                <li><a href="<?php echo base_url().'index.php/dashboard/addNewRoomForm'; ?>">Add new room</a></li>
-                <li><a href="<?php echo base_url().'index.php/login/calender'; ?>">Calender</a></li>
-                <li>Booking</li>
-                <li><a href="<?php echo base_url().'index.php/dashboard/roomInfo'; ?>">Rooms</a></li>
+                <li id="reservation"><a href="<?php echo base_url().'index.php/dashboard/addNewRoomForm'; ?>">Add new room</a></li>
+                <li id="reservation"><a href="<?php echo base_url().'index.php/dashboard/calender'; ?>">Calender</a></li>
+                <li id="reservation"><a href="<?php echo base_url().'index.php/dashboard/bookingInfo'; ?>">Booking</a></li>
+                <li id="reservation"><a href="<?php echo base_url().'index.php/dashboard/roomInfo'; ?>">Rooms</a></li>
             </ul>
        
              </li>

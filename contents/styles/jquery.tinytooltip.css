@@ -9,7 +9,7 @@
 		display: block;
 		z-index: 3000;
 		position: relative;
-		margin-bottom: -1px;
+		margin-bottom: -7px;
 	}
 .tinytooltip .message {
 	background: #f3eabc;

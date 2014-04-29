@@ -64,9 +64,9 @@
     color: #4F5155;
 }
 
-#navigation ul li ul li
+#navigation ul li 
 {
-    margin-top: -10px;
+    margin-top: -3px;
 }
 
 
@@ -132,4 +132,13 @@
 {
    text-align: left;
   border-bottom: solid thin #ccc;
+}
+
+#edit_room:hover 
+{
+    border: solid thin #ccc;
+}
+#delete_room:hover
+{
+    border: solid thin #ccc;
 }
