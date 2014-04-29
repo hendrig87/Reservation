@@ -27,6 +27,7 @@ class dashboard extends CI_Controller {
         $this->load->view('template/copyright');
         }  
         else {
+            
             redirect('login', 'refresh');
         }
                     
