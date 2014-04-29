@@ -2,26 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-<<<<<<< HEAD
-            <file>file:/C:/wamp/www/Reservation/application/views/dashboard/roomInformation.php</file>
-            <file>file:/C:/wamp/www/Reservation/application/views/dashboard/addNew.php</file>
-            <file>file:/C:/wamp/www/Reservation/application/controllers/dashboard.php</file>
-            <file>file:/C:/wamp/www/Reservation/application/views/dashboard/reservationSystem.php</file>
-            <file>file:/C:/wamp/www/Reservation/contents/scripts/dashboard.js</file>
-            <file>file:/C:/wamp/www/Reservation/application/views/dashboard/editRoomInfo.php</file>
-            <file>file:/C:/wamp/www/Reservation/application/models/dashboard_model.php</file>
-            <file>file:/C:/wamp/www/Reservation/contents/styles/dashboardStyle.css</file>
-=======
-            <file>file:/C:/wamp/www/Reservation/application/controllers/welcome.php</file>
-            <file>file:/C:/wamp/www/Reservation/application/views/login/login.php</file>
-            <file>file:/C:/wamp/www/Reservation/application/controllers/dashboard.php</file>
-            <file>file:/C:/wamp/www/Reservation/application/controllers/login.php</file>
-            <file>file:/C:/wamp/www/Reservation/application/models/dbmodel.php</file>
-            <file>file:/C:/wamp/www/Reservation/system/core/Input.php</file>
-            <file>file:/C:/wamp/www/Reservation/application/views/template/header.php</file>
-            <file>file:/C:/wamp/www/Reservation/application/controllers/pages.php</file>
->>>>>>> ec5ec652029cdb24abd7bff286a6a0925be6b373
-        </group>
+        <group/>
     </open-files>
 </project-private>
