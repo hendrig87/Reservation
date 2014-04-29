@@ -1,6 +1,6 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url().'contents/styles/test.css';?> " />
 <script type="text/javascript">
-var currenttime = "Apr 28, 2014 2:41:06 PM"										
+var currenttime = "Apr 25, 2014 2:41:06 PM"										
 var greeting = " PM";
 var montharray=new Array("January","February","March","April","May","June","July","August","September","October","November","December")
 var numbers = Array("&#2406;", "&#2407;", "&#2408;", "&#2409;", "&#2410;", "&#2411;", "&#2412;", "&#2413;", "&#2414;", "&#2415;");

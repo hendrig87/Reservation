@@ -15,24 +15,32 @@ class Login extends CI_Controller {
  
  public function index(){
      $this->load->library('session');
-     
+     if(!$this->session->userdata('logged_in')){
       $this->load->view('template/header');
                 $this->load->view('template/imageDiv');
 		$this->load->view('template/reservation_template');
                 $this->load->view('login/test');
                 
                 $this->load->view('template/footer');
-              
+     }
+ else {
+         redirect('dashboard/index');   
+     }
  }
 
  public function registrationForm()
  {
+      if(!$this->session->userdata('logged_in')){
         $this->load->library('session');
      
         $this->load->view('template/header');
         $this->load->view('login/register');
         $this->load->view('template/reservation_template');
         $this->load->view('template/footer');
+         }
+ else {
+         redirect('dashboard/index');   
+     }
  }
  
  public function register(){
@@ -85,7 +93,7 @@ class Login extends CI_Controller {
  function logout() {
         $this->session->sess_destroy();
         $this->index();
-        redirect('login', 'refresh');
+        redirect('login/index', 'refresh');
     }
  
  public function loginForm()
@@ -99,7 +107,7 @@ class Login extends CI_Controller {
          $this->load->view('template/footer');
      }
      else{
-         redirect('login/loginForm');
+         redirect('login/index');
      }
  }
  

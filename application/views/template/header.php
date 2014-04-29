@@ -34,8 +34,12 @@
         </script>
         
         <script type="text/javascript">
-$('.div1').hover(function() {$('.div2').show()});
-$('.div2').hover(function() {}, function() {$('.div2').hide()});    
+            $(function() {
+$('li#me').hover(function() {$('.div2').show()});
+$('.div2').hover(function() {}, function() {$('.div2').hide()}});   
+
+
+
 </script>
 
 </head>
@@ -57,7 +61,7 @@ $('.div2').hover(function() {}, function() {$('.div2').hide()});
                       <li><a href="#">DOCUMENTATION</a></li>
                       <li><a href="<?Php echo base_url().'index.php/dashboard/addNewRoomForm' ?>">DEVELOPER TOOLS</a></li>
                       <li><a href="<?Php echo base_url().'index.php/login/registrationForm' ?>" >SIGN UP</a></li>
-                      <li><div class="div1"><a  href="<?Php echo base_url().'index.php/login/loginForm' ?>">LOGIN</a></div></li>
+                      <li id="me"><a  href="<?Php echo base_url().'index.php/login/loginForm' ?>">LOGIN</a></li>
                   </ul>
                     
                     
@@ -68,4 +72,4 @@ $('.div2').hover(function() {}, function() {$('.div2').hide()});
 
 
             </div>
-            
+    <div class="div2"><h1 style="display: hidden;">Hi</h1></div>
