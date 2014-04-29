@@ -33,19 +33,21 @@
 
         </script>
         
-        
+        <script type="text/javascript">
+$('.div1').hover(function() {$('.div2').show()});
+$('.div2').hover(function() {}, function() {$('.div2').hide()});    
+</script>
 
 </head>
 <body>
           <div id="header">
 
-<<<<<<< HEAD
-                <div id="topNavigation">
-                    <div id="logoDiv">
-=======
+
+               
+                   
                 
                     <div id="headerLogo">
->>>>>>> 35e48fd880bd572ab81d31ade8fce7abe388163b
+
                         <img src="<?php echo base_url() . "contents/images/ParkReserve.png"; ?>"/>
 
                     </div>
@@ -55,7 +57,7 @@
                       <li><a href="#">DOCUMENTATION</a></li>
                       <li><a href="<?Php echo base_url().'index.php/dashboard/addNewRoomForm' ?>">DEVELOPER TOOLS</a></li>
                       <li><a href="<?Php echo base_url().'index.php/login/registrationForm' ?>" >SIGN UP</a></li>
-                      <li><a href="<?Php echo base_url().'index.php/login/loginForm' ?>">LOGIN</a></li>
+                      <li><div class="div1"><a  href="<?Php echo base_url().'index.php/login/loginForm' ?>">LOGIN</a></div></li>
                   </ul>
                     
                     

@@ -233,13 +233,12 @@ folder login inside view filder also uses these styles
                 text-decoration: none;
                 
             }
-<<<<<<< HEAD
-=======
+
             .sitemap a:hover
             {
                 color: rgb(111, 150, 216);
             }
->>>>>>> 35e48fd880bd572ab81d31ade8fce7abe388163b
+
             .sitemap h3
             {
                 font-weight: bold;
@@ -287,7 +286,7 @@ folder login inside view filder also uses these styles
      margin: 0 auto 0 auto;
      width: 310px;
      alignment-adjust: central;
-     padding-left: 20px;
+     padding: 15px 0px 15px 30px;
      background-color: white;
 }
 #EmailSentMessage
@@ -337,3 +336,5 @@ folder login inside view filder also uses these styles
     padding: 10px;
     border-radius: 5px;
 }
+
+ 

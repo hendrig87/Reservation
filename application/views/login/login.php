@@ -2,7 +2,7 @@
 
 	<div class="body">
             
-           <div class ="checkForm">
+           
         <?php echo form_open_multipart('login/validate_user'); ?>
             <table >
                 
@@ -38,7 +38,7 @@
                </tr> 
             </table>
         </form>
-        </div>
+        
         </div>	
 </div>
    
