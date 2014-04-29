@@ -33,7 +33,7 @@ class Welcome extends CI_Controller {
                 $this->load->view('template/imageDiv');
 		$this->load->view('template/reservation_template');
                 $this->load->view('template/footer');
-                $this->load->view('template/copyright');
+               
 	}
         public function mailSentMessage(){
                 $this->load->view('template/header');
@@ -41,7 +41,7 @@ class Welcome extends CI_Controller {
                 $this->load->view('template/imageDiv');
 		$this->load->view('template/reservation_template');
                 $this->load->view('template/footer');
-                $this->load->view('template/copyright');
+              
         }
         
 }

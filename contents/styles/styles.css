@@ -50,6 +50,45 @@ folder login inside view filder also uses these styles
 	#body{
 		margin: 0 15px 0 15px;
 	}
+        #header
+        {
+            background-color: #000;
+            width: 100%;
+            margin: 0px;
+            padding: 0px;
+            height: 50px;
+                
+        }
+        
+        #navigation
+        {
+           width: 99.9%;
+            margin: 0px;
+            padding: 15px 0px 0px 0px;
+            text-align: right;
+            height: 35px;
+        }
+        
+        #navigation ul li
+        {
+            list-style-type: none;
+            display: inline;
+            margin: 0px;   
+        }
+        
+        
+        #navigation ul li a
+            {
+                color: #fff;
+                text-decoration: none;
+                margin: 2px;  
+                padding: 15px 5px 15px 5px;
+                
+            }
+        #navigation ul li a:hover
+        {
+            background-color: rgb(111, 150, 216)
+        }
 	
 	p.footer{
 		text-align: right;
@@ -61,8 +100,8 @@ folder login inside view filder also uses these styles
 	}
 	
 	#container{
-		margin: 10px;
-		
+		margin: 1px 0px 1px 0px;
+		background-color: rgb(111, 150, 216);
 		-webkit-box-shadow: 0 0 8px #D0D0D0;
 	}
         input
@@ -89,34 +128,15 @@ folder login inside view filder also uses these styles
                 background: url('../images/getCode.jpg') center; 
                 background-repeat: no-repeat;
                 width: 100%;
-                height: 520px;
-                border-bottom: 2px solid #fff;
+                height: 507px;
+               margin-top: 1px;
                  -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;
                 
             }
            
-        #topNavigationDiv
-            {
-                margin: 0px;
-                height: 50px;
-                background-color: black;
-                color: #fff;
-              
-                width: 100%;        
 
-            }
-            #topNavigationDiv:hover
-            {
-                opacity: 1;
-            }
-            #topNavigationDiv a
-            {
-                color: #fff;
-                text-decoration: none;
-                margin-right: 20px;
-                opacity: 1;
-                font-weight: bold;            
-            }
+           
+            
              #topNavigation
             {
                 padding:5px 50px 5px 50px ;
@@ -124,27 +144,21 @@ folder login inside view filder also uses these styles
                 text-align:right;
 
             }
-             #logoDiv
+             #headerLogo
             {
-                width: 5%;
+                width: 20%;
                 float: left;
+                margin-left: 8%;
 
             }
-            #logoDiv img
+            #headerLogo img
             {
                 width: 50px;
                 height: 45px;
                 margin: 0px;
                 padding: 0px;
             }
-            .signupDiv, .loginDiv
-            {
-                width: 25%;
-                margin: 0 auto 0 auto;
-                text-align: center;
-                background-color: #E0E0E0;
-                padding: .5%;
-            }
+            
         .centerDiv
             {
                 padding: 10px;
@@ -213,6 +227,10 @@ folder login inside view filder also uses these styles
                 text-decoration: none;
                 
             }
+            .sitemap a:hover
+            {
+                color: rgb(111, 150, 216);
+            }
             .sitemap h3
             {
                 font-weight: bold;
@@ -249,7 +267,6 @@ folder login inside view filder also uses these styles
 #login
 {
     margin: 0 auto 0 auto;
-    border: 1px solid #D0D0D0;
     -webkit-box-shadow: 0 0 8px #D0D0D0;
     width: 100%;
    
@@ -259,7 +276,7 @@ folder login inside view filder also uses these styles
 .body
 {
      margin: 0 auto 0 auto;
-     width: 400px;
+     width: 310px;
      alignment-adjust: central;
      padding-left: 20px;
      background-color: white;
