@@ -6,25 +6,23 @@
         <?php echo form_open_multipart('login/email'); ?>
             <table style="text-align:center">
                 <tr>
-                    <td colspan="2"><h3>Forgot Password</h3>
-                        <h5>Enter your email below and instructions to reset your password will be emailed to you:</h5>
+                    <td><h3 style="text-align: center; margin: 0px; padding: 5px;">Forgot Password</h3>
+                        <h5 style="text-align: center; margin: 0px; padding: 5px;">Enter your email below and instructions to reset your password will be emailed to you:</h5>
             <p id="sucessmsg">
             <?php if($this->session->flashdata('message')){echo $this->session->flashdata('message');}
               echo validation_errors(); ?> </p></td>
                 </tr>
                 <tr>
-                    <td class="tabledata">
-                        Email:
-                    </td>
-                    <td class="tabledata">
+                    
+                    <td >
                         <input type="text" name="userEmail" class="textbox" placeholder="Email" required />
                     </td>
                 </tr>
                     
                 <tr>
-                    <td></td>
+                   
                     <td>
-                       <input type="submit" id="submitMe" value="Reset Password" style="width: 280px; padding: 10px;">
+                       <input type="submit" id="submitMe" value="Reset Password" style="width: 275px; padding: 10px;">
                     
      
                     </td>

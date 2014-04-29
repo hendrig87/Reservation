@@ -60,16 +60,21 @@ folder login inside view filder also uses these styles
                 
         }
         
-        #navigation
+        .navigationTop
         {
            width: 99.9%;
             margin: 0px;
-            padding: 15px 0px 0px 0px;
+            padding: 0px;
             text-align: right;
             height: 35px;
         }
+        .navigationTop ul
+        {
+            margin: 0px;
+            padding: 15px 0px 15px 0px;
+        }
         
-        #navigation ul li
+        .navigationTop ul li
         {
             list-style-type: none;
             display: inline;
@@ -77,15 +82,16 @@ folder login inside view filder also uses these styles
         }
         
         
-        #navigation ul li a
+        .navigationTop ul li a
             {
                 color: #fff;
                 text-decoration: none;
                 margin: 2px;  
-                padding: 15px 5px 15px 5px;
+                padding: 0px;
+                padding: 19px 3px 17px 3px;
                 
             }
-        #navigation ul li a:hover
+        .navigationTop ul li a:hover
         {
             background-color: rgb(111, 150, 216)
         }

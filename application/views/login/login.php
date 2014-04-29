@@ -7,7 +7,7 @@
             <table >
                 
                <tr>
-                   <td style="text-align: center" ><h3>Log in</h3>
+                   <td  ><h3 style="text-align: center; margin: 0px; padding: 5px;">Log in</h3>
             <p id="sucessmsg">
             <?php if($this->session->flashdata('message')){echo $this->session->flashdata('message');}
               echo validation_errors(); ?> </p></td>

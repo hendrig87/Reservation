@@ -49,8 +49,8 @@
                         <img src="<?php echo base_url() . "contents/images/ParkReserve.png"; ?>"/>
 
                     </div>
-              <div id="navigation">
-                  <ul class="menu">
+              <div class="navigationTop">
+                  <ul>
                       <li><a href="<?Php echo base_url().'index.php' ?>">HOME</a></li>
                       <li><a href="#">DOCUMENTATION</a></li>
                       <li><a href="<?Php echo base_url().'index.php/dashboard/addNewRoomForm' ?>">DEVELOPER TOOLS</a></li>

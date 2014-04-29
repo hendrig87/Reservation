@@ -35,19 +35,27 @@
 
 </head>
 <body>
-          <div id="topNavigationDiv">
+        <div id="header">
 
-                <div id="topNavigation">
-                    <div id="logoDiv">
+                
+                    <div id="headerLogo">
                         <img src="<?php echo base_url() . "contents/images/ParkReserve.png"; ?>"/>
 
                     </div>
-                    <a href="#">HOME</a>
-                    <a href="#">DOCUMENTATION</a>
-                    <a href="<?Php echo base_url().'index.php/dashboard/addNewRoomForm' ?>">DEVELOPER TOOLS</a>
-                    <a id="loginLink" href="<?Php echo base_url().'index.php/login/logout' ?>">LOG OUT</a>
-                </div>
+              <div class="navigationTop">
+                    <ul class="menu">
+                      <li><a href="<?Php echo base_url().'index.php' ?>">HOME</a></li>
+                      <li><a href="#">DOCUMENTATION</a></li>
+                      <li><a href="<?Php echo base_url().'index.php/dashboard/addNewRoomForm' ?>">DEVELOPER TOOLS</a></li>
+                      <li><a id="loginLink" href="<?Php echo base_url().'index.php/login/logout' ?>">LOG OUT</a></li>
+                    </ul>
+                    
+                    
+                    
+                    
+                    
+             </div>
 
 
-            </div>
+        </div>
             
