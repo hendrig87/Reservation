@@ -32,17 +32,14 @@
             });
 
         </script>
-
+        
         <script type="text/javascript">
-            $(function() {
-                $('li#me').hover(function() {
-                    $('.div2').show()
-                });
-                        $('.div2').hover(function() {}, function() {$('.div2').hide()}});
-
-
-
-        </script>
+            function show_loginForm() 
+            { document.getElementById('loginOnHover').style.visibility="visible";
+            }
+            function hide_loginForm() { document.getElementById('loginOnHover').style.visibility="hidden"; }
+                     </script>
+        
 
     </head>
     <body>
@@ -64,12 +61,13 @@
                         <li><a href="#">DOCUMENTATION</a></li>
                         <li><a href="<?Php echo base_url() . 'index.php/dashboard/addNewRoomForm' ?>">DEVELOPER TOOLS</a></li>
                         <li><a href="<?Php echo base_url() . 'index.php/login/registrationForm' ?>" >SIGN UP</a></li>
-                        <li id="me"><a  href="<?Php echo base_url() . 'index.php/login/loginForm' ?>">LOGIN</a></li>
+                        <li onMouseOver="show_loginForm()" onMouseOut="hide_loginForm()"><a  href="<?Php echo base_url() . 'index.php/login/loginForm' ?>">LOGIN</a></li>
                     </ul>
+               
                 <?php
                 } else {
                     ?>
-                    <ul class="menu">
+                    <ul>
                         <li><a href="<?Php echo base_url() . 'index.php' ?>">HOME</a></li>
                         <li><a href="#">DOCUMENTATION</a></li>
                         <li><a href="<?Php echo base_url() . 'index.php/dashboard/addNewRoomForm' ?>">DEVELOPER TOOLS</a></li>
@@ -87,4 +85,4 @@
 
 
         </div>
-        <div class="div2"><h1 style="display: hidden;">Hi</h1></div>
+       
