@@ -154,7 +154,7 @@ class dashboard extends CI_Controller {
         $this->load->view('dashboard/editRoomInfo',$data);
        
         $this->load->view('template/footer',$data);
-        $this->load->view('template/copyright',$data);
+        
         }  
         else {
             redirect('login', 'refresh');
