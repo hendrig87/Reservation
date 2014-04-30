@@ -71,10 +71,6 @@
                 <input class="input input-large" type="text" placeholder="Nationality" required="required" name="Nationality" >
                 </div>
                 
-                
-                
-                
-                
                 <div class="clear"></div>
                 <div class="input-prepend">
                 <span class="add-on">Contact No.</span>
@@ -88,7 +84,7 @@
                 </div>
             </fieldset>
                     <textarea name="Remarks" placeholder="Remarks & Extra Instructions Like Pickup & Dropoff Information." style="width:330px;height:100px;resize:none;"></textarea>
-            <button type="submit" >Make A Reservation</button>
+            <button type="submit" >Continue</button>
                 </td>
             </tr>
         </table>
