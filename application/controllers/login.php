@@ -17,12 +17,9 @@ class Login extends CI_Controller {
      $this->load->library('session');
      if(!$this->session->userdata('logged_in')){
       $this->load->view('template/header');
-                $this->load->view('template/imageDiv');
-		$this->load->view('template/reservation_template');
-                
-                $this->load->view('login/test');
-                
-                $this->load->view('template/footer');
+          $this->load->view('login/login');
+          $this->load->view('template/reservation_template');
+         $this->load->view('template/footer');
      }
  else {
          redirect('dashboard/index');   

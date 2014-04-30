@@ -19,12 +19,12 @@ class dashboard extends CI_Controller {
           if ($this->session->userdata('logged_in')) {
             $data['username'] = Array($this->session->userdata('logged_in'));
            
-           $this->load->view('template/headerAfterLogin');
+           $this->load->view('template/header');
         $this->load->view('dashboard/reservationSystem');
         $this->load->view('dashboard/addNewRoom');
         
         $this->load->view('template/footer');
-        $this->load->view('template/copyright');
+        
         }  
         else {
             
@@ -39,13 +39,12 @@ class dashboard extends CI_Controller {
     {
           if ($this->session->userdata('logged_in')) {
             $data['username'] = Array($this->session->userdata('logged_in'));
-             $this->load->view('template/headerAfterLogin');
+             $this->load->view('template/header');
              $this->load->view("dashboard/reservationSystem");
-             $this->load->view("dashboard/addNewRoom");
-             
+             $this->load->view("dashboard/addNewRoom");        
            
              $this->load->view('template/footer');
-             $this->load->view('template/copyright');
+             
              }  
         else {
             redirect('login', 'refresh');
@@ -108,12 +107,12 @@ class dashboard extends CI_Controller {
            
             $this->load->library('session');
      
-       $this->load->view('template/headerAfterLogin');
+       $this->load->view('template/header');
         $this->load->view('dashboard/reservationSystem',$data);
         $this->load->view('dashboard/roomInformation',$data);
       
         $this->load->view('template/footer');
-        $this->load->view('template/copyright');
+        
         redirect('dashboard/roomInfo', 'refresh');
         }
       else {
@@ -130,12 +129,12 @@ class dashboard extends CI_Controller {
             $data['username'] = Array($this->session->userdata('logged_in'));
                $data['query']= $this->dashboard_model->booking_room();
             //die($data['query']);
-         $this->load->view('template/headerAfterLogin');
+         $this->load->view('template/header');
         $this->load->view('dashboard/reservationSystem',$data);
         $this->load->view('dashboard/roomInformation',$data);
       
         $this->load->view('template/footer',$data);
-        $this->load->view('template/copyright',$data);
+       
         }  
         else {
             redirect('login', 'refresh');
@@ -150,7 +149,7 @@ class dashboard extends CI_Controller {
                
               
             //die($data['query']);
-            $this->load->view('template/headerAfterLogin');
+            $this->load->view('template/header');
         $this->load->view('dashboard/reservationSystem',$data);
         $this->load->view('dashboard/editRoomInfo',$data);
        
@@ -244,23 +243,23 @@ class dashboard extends CI_Controller {
     
     public function calender()
     {
-         $this->load->view('template/headerAfterLogin');
+         $this->load->view('template/header');
         $this->load->view('dashboard/reservationSystem');
         $this->load->view('dashboard/calender');
        
         $this->load->view('template/footer');
-        $this->load->view('template/copyright');
+        
     }
      
     
      public function bookingInfo()
     {
-         $this->load->view('template/headerAfterLogin');
+         $this->load->view('template/header');
         $this->load->view('dashboard/reservationSystem');
         $this->load->view('dashboard/bookingInfo');
        
         $this->load->view('template/footer');
-        $this->load->view('template/copyright');
+        
     }
         
 }
