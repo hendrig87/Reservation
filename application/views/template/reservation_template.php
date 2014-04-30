@@ -38,8 +38,9 @@
 
 function book()
 {
-    alert ("asdf");
+   
      $(".middleLayer").toggle();
+      $(".popup").hide(1000);
         $(".popup_personal_info").toggle();
      
     }
