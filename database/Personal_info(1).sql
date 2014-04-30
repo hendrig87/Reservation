@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 30, 2014 at 07:45 AM
+-- Generation Time: Apr 30, 2014 at 08:20 AM
 -- Server version: 5.6.12-log
 -- PHP Version: 5.4.12
 
@@ -32,9 +32,6 @@ CREATE TABLE IF NOT EXISTS `personal_info` (
   `address` varchar(300) CHARACTER SET utf8 NOT NULL,
   `occupation` varchar(100) CHARACTER SET utf8 NOT NULL,
   `nationality` varchar(100) CHARACTER SET utf8 NOT NULL,
-  `identity_type` varchar(100) CHARACTER SET utf8 NOT NULL,
-  `identity_no` varchar(100) CHARACTER SET utf8 NOT NULL,
-  `visit_purpose` varchar(400) CHARACTER SET utf8 DEFAULT NULL,
   `contact_no` int(20) NOT NULL,
   `email` varchar(100) CHARACTER SET utf8 NOT NULL,
   `remarks` varchar(500) CHARACTER SET utf8 DEFAULT NULL,
