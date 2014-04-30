@@ -94,9 +94,7 @@ setInterval("displaytime()", 1000);
                <form method="post" action="#" id="checkin_room">
             <table>
                 <tr>
-                    <td class="tabledata">
-                       
-                    </td>
+                    
                     <td class="tabledata">
                       <div class="input-prepend input-append">
                 <span class="add-on">Check In</span>
@@ -104,11 +102,14 @@ setInterval("displaytime()", 1000);
                 <span class="add-on" style="width:auto; "><img src='<?php echo base_url().'contents/images/ParkReserve.png' ;?>' style="width: 15px; height: 20px;" ></span>
                 </div> 
                     </td>
+                    
+                    <td style="width:10px;"></td>
+                    
                     <td class="tabledata">
-                        Adults 
-                    </td>
-                    <td class="tabledata">
-                        <select name="adults" id="adult">
+                        <div class="input-prepend input-append">
+                     <span class="add-on">Adults</span> 
+                                       
+                        <select name="adults" id="adult" style="border-radius:0px 5px 5px 0px;">
 
                             <?php
                             for ($i = 1; $i <= $adultsNumber; $i++) {
@@ -116,13 +117,12 @@ setInterval("displaytime()", 1000);
                             }
                             ?>
                         </select>
+                        </div>
                     </td>
                 </tr>
                 <br/>
                 <tr>
-                    <td class="tabledata">
-                        
-                    </td>
+                   
                     <td class="tabledata">
                        <div class="clear"></div>
                 <div class="input-prepend input-append">
@@ -131,11 +131,14 @@ setInterval("displaytime()", 1000);
                 <span class="add-on" style="width:auto;"><img src='<?php echo base_url().'contents/images/ParkReserve.png' ;?>' style="width: 15px; height: 20px;" ></span>
                 </div>
                     </td>
+                    
+                    <td style="width:10px;"></td>
+                    
                     <td class="tabledata">
-                        Children
-                    </td>
-                    <td class="tabledata">    
-                        <select name="children" required id="child">
+                         <div class="input-prepend input-append">
+                             <span class="add-on">Children</span>
+                       
+                             <select name="children" required id="child" style="border-radius:0px 5px 5px 0px;">
 
                             <?php
                             for ($i = 1; $i <= $children; $i++) {
@@ -143,9 +146,10 @@ setInterval("displaytime()", 1000);
                             }
                             ?>
                         </select>
+                             </div>
                     </td>
-                    <td class="tabledata">
-                        <input type ="button" value="Submit" onclick="javascript:changeFunc();">
+                    <td style="margin-top:-15px;">
+                        <input type ="button" value="Submit" style="margin-top:-25px;" onclick="javascript:changeFunc();">
                       
                     </td>
             </table>
