@@ -17,7 +17,7 @@ DASHBOARD
 
 This controller is concerned with adding rooms, viewing rooms, editing and deleting rooms by the users who are using our product in their websites. 
 
-BOOKING
+ROOM_BOOKING
 
 This controller deals with booking information of a hotel. Different methods here are responsible to add and show check in check out information, personal information payment options and finally to show thanking message to the visitor.
 
