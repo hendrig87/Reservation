@@ -1,5 +1,5 @@
 <div id="loginOnHover" style="visibility: hidden; position: absolute; left: 1009px;
-     top: 49px;" onMouseOver="show_loginForm()" onMouseOut="hide_loginForm()">
+     top: 49px; min-height: 100px;" onMouseOver="show_loginForm()" onMouseOut="hide_loginForm()" >
 <div id="login">
 
 	<div class="body">
@@ -27,7 +27,7 @@
                 </tr>    
                 <tr>
                     <td>
-                       <input type="submit" id="submitMe" value="Login" style="width: 275px; padding: 10px;">
+                       <input type="submit" id="submitMe" value="Login" style="width: 265px; padding: 5px; ">
                     </td>
                 </tr>
                <tr>

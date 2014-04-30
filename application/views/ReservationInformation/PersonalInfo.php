@@ -71,23 +71,7 @@
                 <input class="input input-large" type="text" placeholder="Nationality" required="required" name="Nationality" >
                 </div>
                 
-                <div class="clear"></div>
-                <div class="input-prepend">
-                <span class="add-on">Identity Type</span>
-                <input class="input input-large" type="text" placeholder="Identity Type" required="required" name="VisaNumber" >
-                </div>
                 
-                <div class="clear"></div>
-                <div class="input-prepend">
-                <span class="add-on">Identity No.</span>
-                <input class="input input-large" type="text" placeholder="Identity Number" required="required" name="VisaNumber" >
-                </div>
-                
-                 <div class="clear"></div>
-                <div class="input-prepend">
-                <span class="add-on">Purpose of Visit</span>
-                <input class="input input-large" type="text" placeholder="Purpose of Visit" name="WhyVisit" >
-                </div>
                 
                 
                 
