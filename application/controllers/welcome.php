@@ -29,17 +29,10 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-            $checkin="jsdlfj";
-                    //$_POST['checkin'];
-            $checkout="ksdflj";
-                    //$_POST['checkout'];
-            $adult="sljdlf";
-                    //$_POST['adults'];
-            $child="lsdjfljs";
-             $data['abc'] = array($checkin,$checkout ,$adult, $child);
+           
                 $this->load->view('template/header');
                 $this->load->view('template/imageDiv');
-		$this->load->view('template/reservation_template',$data);
+		$this->load->view('template/reservation_template');
                 $this->load->view('template/footer');
                
 	}

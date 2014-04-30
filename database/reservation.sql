@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 28, 2014 at 12:04 PM
+-- Generation Time: Apr 30, 2014 at 05:01 AM
 -- Server version: 5.6.12-log
 -- PHP Version: 5.4.12
 
@@ -25,6 +25,26 @@ USE `reservation`;
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `hotel_info`
+--
+
+CREATE TABLE IF NOT EXISTS `hotel_info` (
+  `hotel_id` int(11) NOT NULL,
+  `name` varchar(200) NOT NULL,
+  `address` varchar(100) NOT NULL,
+  `contact` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `hotel_info`
+--
+
+INSERT INTO `hotel_info` (`hotel_id`, `name`, `address`, `contact`) VALUES
+(1, 'everest', 'jkdhfka', '687576');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `room_registration`
 --
 
@@ -35,32 +55,17 @@ CREATE TABLE IF NOT EXISTS `room_registration` (
   `price` double NOT NULL,
   `description` text NOT NULL,
   `image` varchar(255) NOT NULL,
+  `hotel_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=62 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=67 ;
 
 --
 -- Dumping data for table `room_registration`
 --
 
-INSERT INTO `room_registration` (`id`, `room_name`, `no_of_room`, `price`, `description`, `image`) VALUES
-(44, 'Luxury', 1, 34, 'dfgsdfgsdg', '2P2Z41.png'),
-(45, 'Luxury', 1, 34, 'dfgsdfgsdg', '2P2Z42.png'),
-(46, 'Luxury', 1, 34, 'dfgsdfgsdg', '2P2Z43.png'),
-(47, 'Deluxe', 1, 23, 'eewterwtwe', ''),
-(48, 'dfasfas', 1, 34, 'asdfsafas', ''),
-(49, '', 1, 0, '', ''),
-(50, '', 1, 0, 'zfggfs', ''),
-(51, '', 1, 0, 'sgdfgsd', ''),
-(52, '', 9, 0, '', ''),
-(53, '', 13, 0, '', ''),
-(54, '', 1, 0, '', ''),
-(55, '', 1, 0, '', ''),
-(56, '', 1, 0, '', ''),
-(57, '', 1, 0, '', 'American-Double-Beef-Cheese-Burger-11.jpg'),
-(58, '', 1, 0, '', '2P2Z44.png'),
-(59, 'a', 1, 0, '', ''),
-(60, '', 1, 0, '', 'American-Double-Beef-Cheese-Burger-12.jpg'),
-(61, '', 1, 0, '', 'American-Double-Beef-Cheese-Burger-13.jpg');
+INSERT INTO `room_registration` (`id`, `room_name`, `no_of_room`, `price`, `description`, `image`, `hotel_id`) VALUES
+(65, 'Deluxe', 10, 800, 'rybsvssfd', '2P2Z4.png', 1),
+(66, 'Luxury', 12, 1000, 'dfh dvsrtruub  dsgd', 'arrow.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -76,6 +81,7 @@ CREATE TABLE IF NOT EXISTS `user_info` (
   `user_email` varchar(20) DEFAULT NULL,
   `user_pass` varchar(64) DEFAULT NULL,
   `user_auth_key` varchar(64) NOT NULL,
+  `hotel_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
@@ -83,12 +89,12 @@ CREATE TABLE IF NOT EXISTS `user_info` (
 -- Dumping data for table `user_info`
 --
 
-INSERT INTO `user_info` (`id`, `user_name`, `user_fname`, `user_lname`, `user_email`, `user_pass`, `user_auth_key`) VALUES
-(3, 'ramji', 'ramu', 'ramu', 'rau@ra.co', 'ae3274d5bfa170ca69bb534be5a22467', ''),
-(4, '\\sa', 'AS', 'A', 'A@akjs.ud', '8c80b057bc0b599b48cbd144558aeada', ''),
-(5, 'admin', 'homnath', 'bagale', 'bhomnath@salyani.com', '21232f297a57a5a743894a0e4a801fc3', '1SYPD8XIWJ'),
-(6, 'sushil', 'shrerha', 'lakfals', 'sushilsth21@gmail.co', '698d51a19d8a121ce581499d7b701668', ''),
-(7, 'ksadfjlsafj', 'sadfkl', 'kldgjsdkl', 'sunil@gmail.com', '912ec803b2ce49e4a541068d495ab570', '');
+INSERT INTO `user_info` (`id`, `user_name`, `user_fname`, `user_lname`, `user_email`, `user_pass`, `user_auth_key`, `hotel_id`) VALUES
+(3, 'ramji', 'ramu', 'ramu', 'rau@ra.co', 'ae3274d5bfa170ca69bb534be5a22467', '', 0),
+(4, '\\sa', 'AS', 'A', 'A@akjs.ud', '8c80b057bc0b599b48cbd144558aeada', '', 0),
+(5, 'admin', 'homnath', 'bagale', 'bhomnath@salyani.com', '21232f297a57a5a743894a0e4a801fc3', '1SYPD8XIWJ', 0),
+(6, 'sushil', 'shrerha', 'lakfals', 'sushilsth21@gmail.co', '698d51a19d8a121ce581499d7b701668', '', 4),
+(7, 'ksadfjlsafj', 'sadfkl', 'kldgjsdkl', 'sunil@gmail.com', '912ec803b2ce49e4a541068d495ab570', '', 1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

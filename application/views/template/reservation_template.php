@@ -3,15 +3,10 @@
 <script type="text/javascript">
   function changeFunc() {
       
-      var checkin = document.getElementById("CheckIn").value;
-      var checkout = document.getElementById("Checkout").value;
-      var adult = document.getElementById("adults").value;
-      var child = document.getElementById("child").value;
-      //alert (checkin);
-       //var dataString = 'checkin='+checkin+'&checkout='+checkout+'&adult='+adult+'&child='+child;
-     var a = "here";
-   
-   
+      var checkin = $("#CheckIn").val();
+      var checkout = $("#CheckOut").val();
+     var adult = $("#adult").val();
+      var child = $("#child").val();
  $.ajax({
  type: "POST",
  url: "<?php echo base_url().'index.php/room_booking/post_action' ;?>",
@@ -20,30 +15,15 @@
      'checkout' : checkout,
      'adult' : adult,
      'child' : child,
-     'ab' : a
         },
   success: function(msg) 
         {
-          // document.getElementById("checkForm").innerHTML = "";
-            $("#booking_contain").html(msg);
+    
+            $("#container").html(msg);
             
-              if(!$('#booking').css('display')=='none')
-{  
-           ('#booking').css('display')=='block';
-}
-        
-    }
-
-       
-      //var showme = document.getElementById("booking_contain");
-      //alert (showme);
-                //showme.style.visibility = "visible";
-   
+        }
  });
- 
-
-      
-  }
+ }
 
  </script>
 
@@ -108,7 +88,7 @@ setInterval("displaytime()", 1000);
                         Adults 
                     </td>
                     <td class="tabledata">
-                        <select name="adults">
+                        <select name="adults" id="adult">
 
                             <?php
                             for ($i = 1; $i <= $adultsNumber; $i++) {
@@ -150,16 +130,25 @@ setInterval("displaytime()", 1000);
                     </td>
             </table>
         </form>
-                <?php
-       // foreach($abc as $g)
-       // {
-         //   var_dump($g);
-       // }
-        ?>
+               
+             
+        
+               
         </div>
         </div>
 
-	
+	  <?php
+        if(isset($abc))
+        {
+            
+        foreach($abc as $key=>$g)
+        {
+           // var_dump($g);
+        echo $g['checkin'];
+        }
+        }
+          
+        ?>
 </div>
 
 
@@ -168,16 +157,10 @@ setInterval("displaytime()", 1000);
 
 
 
-
+<!--
 <div id="booking">
     <div id="booking_title">Room Booking </div>
     <div id="booking_contain">
-        <?php
-        foreach($abc as $g)
-        {
-            var_dump($g);
-        }
-        ?>
         
     </div>
     <div id="booking_action">
@@ -189,3 +172,4 @@ setInterval("displaytime()", 1000);
     
     
 </div>
+-->

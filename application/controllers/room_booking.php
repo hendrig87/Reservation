@@ -16,44 +16,29 @@ class room_booking extends CI_Controller {
     }
 	
 	public function index(){ 
-             $checkin="jsdlfj";
-                    //$_POST['checkin'];
-            $checkout="ksdflj";
-                    //$_POST['checkout'];
-            $adult="sljdlf";
-                    //$_POST['adults'];
-            $child="lsdjfljs";
-             $data['abc'] = array($checkin,$checkout ,$adult, $child);
-            $this->load->view('template/header');
-            $this->load->view('template/imageDiv');
-            $this->load->view('template/reservation_template',$data);
-            $this->load->view('login/test');
-            $this->load->view('template/footer');
-
-        }
-        
-        public function room_book()
-        {
             
-           $this->load->view('template/header');
+            $this->load->view('template/header');
             $this->load->view('template/imageDiv');
             $this->load->view('template/reservation_template');
             $this->load->view('login/test');
             $this->load->view('template/footer');
 
         }
+        
            
         
         function post_action()
         {   
-            $checkin=$_POST['checkin'];
-            $checkout=$_POST['checkout'];
-            $adult=$_POST['adult'];
-            $child=$_POST['child'];
-            $c=$_POST['ab'];
+            $data['abc']=array(
+            'checkin' => $_POST['checkin'],
+            'checkout' => $_POST['checkout'],
+            'adult' => $_POST['adult'],
+            'child' => $_POST['child']
+                    );
             
-           $data['abc'] = array($checkin,$checkout ,$adult, $child,$c);
-           var_dump($data);
+            //var_dump($data['abc']);
+           //$data['abc']= array("checkin"=>$checkin, "checkout"=>$checkout, "adult"=>$adult, "child"=> $child);
+           //print_r ($data->child);
            // $data['username'] = Array($this->session->userdata('logged_in'));
              //  $data['query']= $this->dashboard_model->booking_room();
             //die($data['query']);
