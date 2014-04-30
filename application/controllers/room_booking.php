@@ -29,9 +29,7 @@ class room_booking extends CI_Controller {
         
         function post_action()
         {   
-            
-           
-               $data['query']= $this->dashboard_model->booking_room();
+            $data['query']= $this->dashboard_model->booking_room();
                
             $data['abc']=array(
             'checkin' => $_POST['checkin'],
@@ -39,28 +37,21 @@ class room_booking extends CI_Controller {
             'adult' => $_POST['adult'],
             'child' => $_POST['child']
                     );
-            
-            //var_dump($data['abc']);
-           //$data['abc']= array("checkin"=>$checkin, "checkout"=>$checkout, "adult"=>$adult, "child"=> $child);
-           //print_r ($data->child);
-           // $data['username'] = Array($this->session->userdata('logged_in'));
-             //  $data['query']= $this->dashboard_model->booking_room();
-            //die($data['query']);
-         //$this->load->view('template/headerAfterLogin');
-        //$this->load->view('dashboard/reservationSystem',$data);
-       // $this->load->view('dashboard/roomInformation',$data);
-      
-       // $this->load->view('template/footer',$data);
-        //$this->load->view('template/copyright',$data);
-        
-        
-          
-           
-          
-		
-            $this->load->view('template/reservation_template',$data);
+          $this->load->view('template/reservation_template',$data);
             
           
         }
+        
+        
+        function book_now()
+        {   
+            //$data['query']= $this->dashboard_model->booking_room();
+               $checkin = $_POST['this'];
+          
+          $this->load->view('ReservationInformation/PersonalInfo',$checkin);
+            
+          
+        }
+        
   }
         
