@@ -16,9 +16,9 @@
     <div id="form">
     <table>
     <tr>
-        <?php echo form_open_multipart('hotels/addHotel'); ?>
+        <?php echo form_open_multipart('hotels/addNewHotel'); ?>
         <td id="alignright"> Name of hotel:</td>
-        <td><input type="text" name="hotel_name" value="<?php set_value('hotel_name'); ?>" required /></td>
+        <td><input type="text" name="hotelName" value="<?php set_value('hotelName'); ?>" required /></td>
         <td><a href="" class="help1 r" id="help" onclick="return false;" style="cursor: default;">?</a></td>
     </tr>
     

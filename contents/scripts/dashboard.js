@@ -9,7 +9,9 @@
       
 $(document).ready(function() {
     
-   
+   $('a.help1').tinytooltip({message: "Enter name of your hotel."});
+   $('a.help2').tinytooltip({message: "Enter address of your hotel."});
+   $('a.help3').tinytooltip({message: "Enter contact number of your hotel."});
     
 	$('a.example4').tinytooltip({message: "Enter the description of room like facilities in it like room contains TV, AC, attached bathroom or not."});
 	

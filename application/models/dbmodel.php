@@ -83,5 +83,24 @@ class Dbmodel extends CI_Model {
       $query = $this->db->get('user_info');
         return $query->result();
  }
-    
+ 
+  public function get_user_info($username){
+      $this->db->where('user_email', $username);
+        $query = $this->db->get('user_info');
+        return $query->result();
+ }
+ 
+ public function add_new_hotel($hotel_name, $address, $contact, $user_id){
+     $data = array(
+            'name' => $hotel_name,
+            'address'=> $address,
+            'contact'=> $contact,
+            'user_id'=> $user_id);
+        
+         $this->db->insert('hotel_info', $data);
+ }
+ 
+ 
+ 
+ 
  }
