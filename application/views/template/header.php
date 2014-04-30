@@ -14,6 +14,7 @@
 
 
         <script src="<?php echo base_url() . "contents/scripts/dashboard.js"; ?>"></script>
+         <script src="<?php echo base_url() . "contents/scripts/room_booking.js"; ?>"></script>
         <script src="<?php echo base_url() . "contents/scripts/jquery.tinytooltip.js"; ?>"></script>
         <script src="<?php echo base_url() . "contents/scripts/jquery.tinytooltip.min.js"; ?>"></script>
 
