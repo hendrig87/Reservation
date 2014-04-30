@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/wamp/www/Reservation/application/views/dashboard/test.php</file>
             <file>file:/C:/wamp/www/Reservation/application/controllers/welcome.php</file>
             <file>file:/C:/wamp/www/Reservation/application/controllers/dashboard.php</file>
@@ -11,6 +12,18 @@
             <file>file:/C:/wamp/www/Reservation/application/views/dashboard/bookingInfo.php</file>
             <file>file:/C:/wamp/www/Reservation/application/views/template/reservation_template.php</file>
             <file>file:/C:/wamp/www/Reservation/application/controllers/room_booking.php</file>
+=======
+            <file>file:/C:/wamp/www/Reservation/application/views/template/headerAfterLogin.php</file>
+            <file>file:/C:/wamp/www/Reservation/application/views/login/login.php</file>
+            <file>file:/C:/wamp/www/Reservation/application/controllers/dashboard.php</file>
+            <file>file:/C:/wamp/www/Reservation/application/views/login/forgotPassword.php</file>
+            <file>file:/C:/wamp/www/Reservation/application/controllers/login.php</file>
+            <file>file:/C:/wamp/www/Reservation/README.md</file>
+            <file>file:/C:/wamp/www/Reservation/application/views/template/footer.php</file>
+            <file>file:/C:/wamp/www/Reservation/application/views/template/header.php</file>
+            <file>file:/C:/wamp/www/Reservation/contents/styles/styles.css</file>
+            <file>file:/C:/wamp/www/Reservation/application/views/login/register.php</file>
+>>>>>>> 230f456c3207dce9279b3b8210b7d0710cfaa8e4
         </group>
     </open-files>
 </project-private>
