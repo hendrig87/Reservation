@@ -22,7 +22,7 @@ class Login extends CI_Controller {
           //$this->load->view('login/login');
           $this->load->view('template/reservation_template');
          $this->load->view('template/footer');
-         $this->load->view('login/test');
+         $this->load->view('reservationInformation/personalInfo');
      }
  else {
          redirect('dashboard/index');   
