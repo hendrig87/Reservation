@@ -1,7 +1,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url().'contents/styles/test.css';?> " />
 
 <script src="<?php echo base_url().'contents/scripts/test.js' ?>"></script>
-<table>
+<table border="1">
         	<tr>
                 <td style="width:400px;">
                 <fieldset>
@@ -44,7 +44,7 @@
             
                 
                 </td>
-                <td  style="width:40px;"></td>
+                <td  style="width:40px;">sysysdsdgsd</td>
                 <td style="width:400px;">
                 <fieldset>
             <legend>Personal Information</legend>
@@ -84,7 +84,11 @@
                 </div>
             </fieldset>
                     <textarea name="Remarks" placeholder="Remarks & Extra Instructions Like Pickup & Dropoff Information." style="width:330px;height:100px;resize:none;"></textarea>
-            <button type="submit" >Continue</button>
+            
                 </td>
             </tr>
         </table>
+
+ <div>
+    
+        <input type="submit" value="Continue" onclick="javascript:book();"></div>

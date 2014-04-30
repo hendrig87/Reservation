@@ -275,10 +275,11 @@ if(isset($abc))
     ?>
         </tr>
     </table>
-     </div>
-    <div>
+          <div>
     
         <input type="submit" value="Book Now" onclick="javascript:book();"></div>
+     </div>
+   
     
 </div>
 
