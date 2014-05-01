@@ -18,8 +18,9 @@ public function add_new_room($room_type,$noOfRoom,$price,$description,$img_name)
          $this->db->insert('room_registration', $data);
     }
     
-    function booking_room()
+    function booking_room($hotel_id)
         {   
+        $this->db->where('hotel_id', $hotel_id);
          $this->db->order_by("id", "desc");
             $query = $this->db->get('room_registration');
            

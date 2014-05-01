@@ -90,12 +90,7 @@ class Hotels extends CI_Controller {
 public function hotelListing(){
     
     if ($this->session->userdata('logged_in')) {
-       $username = $this->session->userdata('username'); 
-      $user=  $this->dbmodel->get_user_info($username);
-      foreach ($user as $data){
-          $user_id=$data->id;
-      }
-      $dat['hotelName']=$this->dbmodel->get_user_hotel($user_id);
+      
       $this->load->view('template/header');
       $this->load->view('hotel/hotelListing', $dat);
        
@@ -105,16 +100,8 @@ public function hotelListing(){
       }   
    }
 
-   public function showhotel(){    
-      
-}
+  
 
-public function get_hotel_id(){
-   // if(isset($_POST['hotel_id']));
-$a= $_POST['id'];
-die($a);
-     //$this->load->view('hotel/hotelListing', $a);
-}
 
 
 

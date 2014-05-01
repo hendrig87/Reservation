@@ -1,18 +1,5 @@
 
-<div id="right">
-    
-    <h2>Add new Room</h2><hr style="display: block; height: 1px;
-    border: 0; border-top: 1px solid #ccc;
-    margin: 1em 0; padding: 0;">
-    
-    <div id="sucess"> 
-            <?php if($this->session->flashdata('message')) { ?>
-            <img src="<?php echo base_url() . "contents/images/success.jpg"; ?>" height="15px" width="15px"/>
-            <?php echo $this->session->flashdata('message');
-            }
-              ?>
-            
-    </div>
+
     <div id="form">
     <table>
     <tr>

@@ -38,9 +38,17 @@ class dashboard extends CI_Controller {
           function addNewRoomForm()
     {
           if ($this->session->userdata('logged_in')) {
-            $data['username'] = Array($this->session->userdata('logged_in'));
+              
+           $username = $this->session->userdata('username'); 
+      $user=  $this->dbmodel->get_user_info($username);
+      foreach ($user as $id){
+          $user_id=$id->id;
+      }
+      $data['hotelName']=$this->dbmodel->get_user_hotel($user_id);
+      
              $this->load->view('template/header');
              $this->load->view("dashboard/reservationSystem");
+             $this->load->view('dashboard/hotelSelectionToAddRoom', $data);
              $this->load->view("dashboard/addNewRoom");        
            
              $this->load->view('template/footer');
@@ -120,20 +128,41 @@ class dashboard extends CI_Controller {
         }
         } 
           
-        
+        public function get_hotel_id(){
+   if(isset($_POST['id'])){
+$hotel_id= $_POST['id'];
+   }
+   else
+   {
+       $hotel_id='0';
+   }
+$data['query']= $this->dashboard_model->booking_room($hotel_id);
+
+
+
+ $this->load->view('dashboard/roomInformation',$data);
+//die($a);
+    
+}
                 
         
-        function roomInfo()
+public function roomInfo()
         {
             if ($this->session->userdata('logged_in')) {
-            $data['username'] = Array($this->session->userdata('logged_in'));
-               $data['query']= $this->dashboard_model->booking_room();
-            //die($data['query']);
-         $this->load->view('template/header');
-        $this->load->view('dashboard/reservationSystem',$data);
-        $this->load->view('dashboard/roomInformation',$data);
+                
+        $username = $this->session->userdata('username'); 
+      $user=  $this->dbmodel->get_user_info($username);
+      foreach ($user as $id){
+          $user_id=$id->id;
+      }
+      $data['hotelName']=$this->dbmodel->get_user_hotel($user_id);
       
-        $this->load->view('template/footer',$data);
+         $this->load->view('template/header');
+        $this->load->view('dashboard/reservationSystem');
+        $this->load->view('dashboard/hotelSelection', $data);
+        $this->load->view('dashboard/roomInformation');
+      
+        $this->load->view('template/footer');
        
         }  
         else {
