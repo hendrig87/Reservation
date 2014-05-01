@@ -3,23 +3,22 @@
     var selectBox = document.getElementById("selectBox");
     var selectedValue = selectBox.options[selectBox.selectedIndex].value;
     
-    var dataString = 'hotel_id=' + selectedValue;
-    $a= dataString;
+    var dataString = 'id=' + selectedValue;
+   // $a= dataString;
  //alert($a);
    
-  $.ajax({
-  type: "POST",
-  url: "<?php echo base_url().'index.php/hotels/get_hotel_id' ;?>",
-  data: dataString,
-   success: function(msg) 
-         {
-            
-             $("#hotel").html(msg);
-         }
-  
-    
-  });
-   }
+ $.ajax({
+type: "POST",
+url: "<?php echo base_url().'index.php/hotels/get_hotel_id' ;?>",
+data: dataString,
+ success: function(msgs) 
+       {
+   
+           $("#hotel").html(msgs);
+           
+       }
+});
+}
 
   </script>
     
@@ -41,8 +40,6 @@
 
 
   <div id="hotel">
-      <?php if(isset($id))
-          echo $id;
-          ?>
+      
      
   </div>

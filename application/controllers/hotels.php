@@ -96,6 +96,7 @@ public function hotelListing(){
           $user_id=$data->id;
       }
       $dat['hotelName']=$this->dbmodel->get_user_hotel($user_id);
+      $this->load->view('template/header');
       $this->load->view('hotel/hotelListing', $dat);
        
     }
@@ -110,7 +111,7 @@ public function hotelListing(){
 
 public function get_hotel_id(){
    // if(isset($_POST['hotel_id']));
-$a['id']= $_POST['hotel_id'];
+$a= $_POST['id'];
 die($a);
      //$this->load->view('hotel/hotelListing', $a);
 }
