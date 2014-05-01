@@ -39,7 +39,7 @@ class room_booking extends CI_Controller {
             $data['query']= $this->dashboard_model->booking_room($hotelId);
                
             
-          $this->load->view('template/reservation_template',$data);
+          $this->load->view('template/room_booking',$data);
             
           
         }
