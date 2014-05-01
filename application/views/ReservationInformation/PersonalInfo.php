@@ -1,50 +1,25 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url().'contents/styles/test.css';?> " />
 
 <script src="<?php echo base_url().'contents/scripts/test.js' ?>"></script>
-<table border="1">
+<div style="float: left; margin-top: 20px;">
+    <div id="legend" style="margin-bottom:30px;">Booking Information</div>
+                    <table width="400px">
+                        <tr style="background: #edebeb;font-weight: bold;">
+                            <td style="width:40%;">Rooms</td>
+                            <td style="width:20%;">Booked</td>
+                            <td style="width:20%;">Price</td>
+                            <td style="width:20%;">Sub-Total</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Total Price</td>
+                            <td></td>
+                        </tr>
+                    </table>
+</div>
+<table style="float:left;">
         	<tr>
-                <td style="width:400px;">
-                <fieldset>
-            <legend>Reservation Information</legend>
-
-                <div class="input-prepend input-append">
-                <span class="add-on">Check In</span>
-                <input name="CheckIn" type="text" required="required" style="width:212px; cursor:pointer; border-radius: 0px 5px 5px 0px;" id="CheckIn" value="">
-                
-                </div>
-                
-                <div class="clear"></div>
-                <div class="input-prepend input-append">
-                <span class="add-on">Check Out</span>
-                <input name="CheckOut" type="text" style="width:212px; cursor:pointer; border-radius: 0px 5px 5px 0px;" required="required" id="CheckOut" value="">
-                
-                </div>
-                
-                <div class="clear"></div>
-                <div class="input-prepend">
-                <span class="add-on">Room</span>
-                <select name="Room" style="width:223px;">
-                </select>
-                
-                </div>
-                
-                <div class="clear"></div>
-                <div class="input-prepend">
-                <span class="add-on">No. of Adults</span>
-                <input onkeypress='return isNumberKey(event)' class="input" style="width:35px;" required="required" maxlength="2" type="text" placeholder="Number of Adults" name="NoAdults" >
-                </div>
-                <div class="input-prepend">
-                <span class="add-on">No. of Childs</span>
-                <input onkeypress='return isNumberKey(event)' class="input" style="width:35px;" required="required" maxlength="2" type="text" placeholder="Number of Childs" name="NoChild" >
-                </div>
-              
-                </div>
-                
-            </fieldset>
-            
-                
-                </td>
-                <td  style="width:40px;">sysysdsdgsd</td>
+               
+                <td  style="width:40px;"></td>
                 <td style="width:400px;">
                 <fieldset>
             <legend>Personal Information</legend>

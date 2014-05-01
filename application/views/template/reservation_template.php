@@ -31,21 +31,16 @@
  });
  //
     
-        $(".middleLayer").toggle();
+        $(".middleLayer").show();
         $(".popup").toggle();
     
  }
 
 function book()
 {
-   //alert ("sdjf");
+  
      var dataString = 'this=' + 'this is ajax calling';
   
-  // alert (dataString);
-      
-     // var checkout = $("#CheckOut").val();
-     //var adult = $("#adult").val();
-      //var child = $("#child").val();
  $.ajax({
  type: "POST",
  url: "<?php echo base_url().'index.php/room_booking/book_now' ;?>",
@@ -57,13 +52,16 @@ function book()
             
         }
  });
- 
- 
-     //$(".middleLayer").toggle();
-     // $(".popup").hide(1000);
-        //$(".popup_personal_info").toggle();
-     
+}
+    
+    function hide(obj) {
+    
+    var el = document.getElementById(obj);
+
+        el.style.display = 'none';
+         $(".middleLayer").fadeOut(300);
     }
+  
  </script>
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url().'contents/styles/test.css';?> " />
@@ -203,7 +201,7 @@ if(isset($abc))
     <div>
     <div class="popupTitleBox" >
         <span class="popupTitleText">Booking</span>
-        <span style="float:right;"><a href="#" id="closePopup"> Close </a></span>
+        <span style="float:right;"><a href="#" id="closePopup" onClick="hide('right')" > Close </a></span>
     </div> 
     </div><br>
     
@@ -275,7 +273,7 @@ if(isset($abc))
     ?>
         </tr>
     </table>
-          <div>
+         <div style="text-align: right;">
     
         <input type="submit" value="Book Now" onclick="javascript:book();"></div>
      </div>
