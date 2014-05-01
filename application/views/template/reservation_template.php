@@ -21,6 +21,7 @@
      'checkout' : checkout,
      'adult' : adult,
      'child' : child,
+     'hotelId':"1"
         },
   success: function(msg) 
         {
@@ -61,9 +62,21 @@ function book()
         el.style.display = 'none';
          $(".middleLayer").fadeOut(300);
     }
-  
+ 
+ function calculate()
+ {
+     alert("abc");
+ }
+ function calculate1()
+ {
+     alert("cde");
+ }
+ 
  </script>
 
+ 
+ 
+ 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url().'contents/styles/test.css';?> " />
 <script type="text/javascript">
 var currenttime = "Apr 28, 2014 2:41:06 PM";
@@ -95,8 +108,27 @@ function displaytime(){
 		}
 }
 setInterval("displaytime()", 1000);
+
+
 </script>   
-<script src="<?php echo base_url().'contents/scripts/test.js' ?>"></script>
+
+<script>
+
+$(document).ready(function(){
+  $(".available-room").change(function(){
+    var rooms = $(this).val();
+    var price = $(this).parent().prev('td').children('span.priceTag').text();
+         var total = rooms * price;
+         
+         $(this).parent().next('td').children('span.subTotal').text(total);
+    
+  });
+}); 
+
+</script>
+<script src="<?php echo base_url().'contents/scripts/test.js' ?>">
+
+</script>
 
 
 
@@ -211,7 +243,7 @@ if(isset($abc))
      
     <!-- Information from checkin - $abc -->
     
-    <table style="width: 100%; background: #f3f2f2;">
+    <table class="room-listing-tbl" style="width: 100%; background: #f3f2f2;">
         <tr>
             <td>Checkin Date:<?php echo $abc['checkin'];  ?></td>
             <td>Checkout Date:<?php echo $abc['checkout'];  ?></td>
@@ -233,8 +265,9 @@ if(isset($abc))
     <?php
     if(isset($query))
     {
-        foreach($query as $book)
+        foreach($query as $count=>$book)
     {
+          
     ?>
             
         <tr>
@@ -242,15 +275,17 @@ if(isset($abc))
                 <div style="float: left; margin-right: 10px;"><img src="<?php echo base_url().'uploads/'.$book->image; ?>" width="50px" height="50px"></div>
                <div style="font-size: 16px;width: 60%; float: left;"><?php echo $book->room_name; ?></div><br>  
                
-                
+                <?php echo $count; ?>
             </td> 
             <td><?php echo $book->description; ?></td>
             <td>
                   <?php get_currency($book->price); ?> <!-- Sending price of room to currency_helper -->
             </td>
             <td> 
-               <?php $available_room = $book->no_of_room; ?> 
-                <select style="width: 80px;">
+               <?php $available_room = $book->no_of_room; ?>
+               
+                <select class="available-room" style="width: 80px;" id="room<?php echo $count; ?>">
+                    <option value="0">Select</option>
                       <?php
                             for ($i = 1; $i <= $available_room; $i++) {
                                 echo "<option value=" . $i . ">" . $i . "</option>";
@@ -262,7 +297,7 @@ if(isset($abc))
             </td>
         
             <td>    
-                
+                <span class="subTotal"></span>
             </td>
             
         </tr>
