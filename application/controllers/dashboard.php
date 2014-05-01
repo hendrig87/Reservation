@@ -53,12 +53,12 @@ class dashboard extends CI_Controller {
       
       
    if(isset($_POST['id']))
-$hotel_id= $_POST['id'];
+$dta['query']= $_POST['id'];
 
 
 
-$this->load->view('dashboard/hotelSelectionToAddRoom', $data);
- $this->load->view("dashboard/addNewRoom");      
+//$this->load->view('dashboard/hotelSelectionToAddRoom', $data);
+ $this->load->view("dashboard/addNewRoom", $dta);      
 //die($a);
       }
       else {
@@ -75,6 +75,7 @@ $this->load->view('dashboard/hotelSelectionToAddRoom', $data);
       foreach ($user as $id){
           $user_id=$id->id;
       }
+      
       $data['hotelName']=$this->dbmodel->get_user_hotel($user_id);
       
              $this->load->view('template/header');
@@ -95,9 +96,9 @@ $this->load->view('dashboard/hotelSelectionToAddRoom', $data);
                 
         function addRoom(){
        if ($this->session->userdata('logged_in')) {
-            $data['username'] = Array($this->session->userdata('logged_in'));    
+   
         $this->load->library('upload');
-           
+         
   
         if (!empty($_FILES['room_img']['name']))
         {
