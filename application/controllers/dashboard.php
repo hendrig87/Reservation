@@ -16,14 +16,21 @@ class dashboard extends CI_Controller {
     }
 	
 	public function index(){ 
-          if ($this->session->userdata('logged_in')) {
-            $data['username'] = Array($this->session->userdata('logged_in'));
+         if ($this->session->userdata('logged_in')) {
+              
+           $username = $this->session->userdata('username'); 
+      $user=  $this->dbmodel->get_user_info($username);
+      foreach ($user as $id){
+          $user_id=$id->id;
+      }
+      $data['hotelName']=$this->dbmodel->get_user_hotel($user_id);
+      
+             $this->load->view('template/header');
+             $this->load->view("dashboard/reservationSystem");
+             $this->load->view('dashboard/hotelSelectionToAddRoom', $data);
+            //$this->load->view("dashboard/addNewRoom");        
            
-           $this->load->view('template/header');
-        $this->load->view('dashboard/reservationSystem');
-        $this->load->view('dashboard/addNewRoom');
-        
-        $this->load->view('template/footer');
+             $this->load->view('template/footer');
         
         }  
         else {
@@ -33,7 +40,31 @@ class dashboard extends CI_Controller {
                     
   }
         
- 
+  public function get_user_hotel_id(){
+      if ($this->session->userdata('logged_in')) {
+              
+           $username = $this->session->userdata('username'); 
+      $user=  $this->dbmodel->get_user_info($username);
+      foreach ($user as $id){
+          $user_id=$id->id;
+      }
+      $data['hotelName']=$this->dbmodel->get_user_hotel($user_id);
+      
+      
+      
+   if(isset($_POST['id']))
+$hotel_id= $_POST['id'];
+
+
+
+$this->load->view('dashboard/hotelSelectionToAddRoom', $data);
+ $this->load->view("dashboard/addNewRoom");      
+//die($a);
+      }
+      else {
+          echo 'User not logged in';    
+      }
+}
         
           function addNewRoomForm()
     {
@@ -66,7 +97,8 @@ class dashboard extends CI_Controller {
        if ($this->session->userdata('logged_in')) {
             $data['username'] = Array($this->session->userdata('logged_in'));    
         $this->load->library('upload');
- 
+           
+  
         if (!empty($_FILES['room_img']['name']))
         {
             // Specify configuration for File 1
@@ -104,7 +136,7 @@ class dashboard extends CI_Controller {
            $description = $this->input->post('description');
         
            
-            $data['add_room']= $this->dashboard_model->add_new_room($room_type,$noOfRoom,$price,$description,$img_name);
+            $data['add_room']= $this->dashboard_model->add_new_room($room_type,$noOfRoom,$price,$description,$img_name, $hotel_id);
             
            if($data)
            {

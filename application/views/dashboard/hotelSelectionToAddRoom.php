@@ -9,12 +9,12 @@
    
  $.ajax({
 type: "POST",
-url: "<?php echo base_url().'index.php/dashboard/get_hotel_id' ;?>",
+url: "<?php echo base_url().'index.php/dashboard/get_user_hotel_id' ;?>",
 data: dataString,
- success: function(msgs) 
+ success: function(msg) 
        {
    
-           $("#room_book").html(msgs);
+           $("#right").html(msg);
            
        }
 });
