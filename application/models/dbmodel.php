@@ -100,6 +100,13 @@ class Dbmodel extends CI_Model {
          $this->db->insert('hotel_info', $data);
  }
  
+ public function get_user_hotel($user_id){
+     $this->db->where('user_id', $user_id);
+        $query = $this->db->get('hotel_info');
+        return $query->result();
+     
+ }
+ 
  
  
  
