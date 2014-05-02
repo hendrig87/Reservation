@@ -46,29 +46,29 @@ class Dbmodel extends CI_Model {
         $this->db->where('user_email', $to);
         $this->db->update('user_info', $data);
     }
-     public function update_registered_user_status($user_id, $loginStatus){
+     public function update_registered_user_status($user_email, $loginStatus){
         $data = array(
             'login_status'=>$loginStatus);
-        $this->db->where('login_status', $user_id);
+        $this->db->where('user_email', $user_email);
          $this->db->set('last_login_date', 'NOW()', FALSE);
         $this->db->update('user_info', $data);
     }
     
-    public function update_loggedOut_user_status($user_id, $loginStatus){
+    public function update_loggedOut_user_status($user_email, $loginStatus){
         $data = array(
             'login_status'=>$loginStatus
            );
-        $this->db->where('login_status', $user_id);
+        $this->db->where('user_email', $user_email);
          $this->db->set('last_login_date', 'NOW()', FALSE);
         $this->db->update('user_info', $data);
     }
     
     
-    public function update_LoggedIn_user_status($user_id, $loginStatus){
+    public function update_LoggedIn_user_status($user_email, $loginStatus){
          $data = array(
             'login_status'=>$loginStatus
            );
-        $this->db->where('login_status', $user_id);
+        $this->db->where('user_email', $user_email);
         $this->db->set('last_login_date', 'NOW()', FALSE);
         $this->db->update('user_info', $data);
     }

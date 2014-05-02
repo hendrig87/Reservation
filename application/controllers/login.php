@@ -20,10 +20,8 @@ class Login extends CI_Controller {
       $this->load->view('template/header');
       $this->load->view('login/loginOnHover');
       $this->load->view('template/imageDiv');
-          //$this->load->view('login/login');
           $this->load->view('template/reservation_template');
          $this->load->view('template/footer');
-         //$this->load->view('reservationInformation/personalInfo');
      }
  else {
          redirect('dashboard/index');   
@@ -101,11 +99,12 @@ class Login extends CI_Controller {
       $user=  $this->dbmodel->get_user_info($username);
       foreach ($user as $id){
           $user_id=$id->login_status;
+          $user_email= $id->user_email;
       }
       if($user_id=="Logged In"){
          $loginStatus='Logged Out';
         
-          $this->dbmodel->update_loggedOut_user_status($user_id, $loginStatus);
+          $this->dbmodel->update_loggedOut_user_status($user_email, $loginStatus);
       
       }
         }
@@ -174,22 +173,28 @@ else
       $user=  $this->dbmodel->get_user_info($username);
       foreach ($user as $id){
           $user_id=$id->login_status;
+           $user_email= $id->user_email;
       }
      if($user_id=="Registered"){
          $this->load->view('template/header');
+          $this->load->view('template/welcomeMessage');
+           $this->load->view('template/imageDiv');
+          $this->load->view('template/reservation_template');
+         $this->load->view('template/footer');
          $loginStatus='Logged In';
         
-          $this->dbmodel->update_Registered_user_status($user_id, $loginStatus);
+          $this->dbmodel->update_Registered_user_status($user_email, $loginStatus);
      }
  else {
      $user=  $this->dbmodel->get_user_info($username);
       foreach ($user as $id){
           $user_id=$id->login_status;
+          $user_email=$id->user_email;
       }
      if($user_id=="Logged Out"){
          
          $loginStatus='Logged In';   
-          $this->dbmodel->update_LoggedIn_user_status($user_id, $loginStatus);
+          $this->dbmodel->update_LoggedIn_user_status($user_email, $loginStatus);
      }
          redirect('dashboard/index');
      }
