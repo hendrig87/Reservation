@@ -27,8 +27,8 @@ class dashboard extends CI_Controller {
       
              $this->load->view('template/header');
              $this->load->view("dashboard/reservationSystem");
-             $this->load->view('dashboard/hotelSelectionToAddRoom', $data);
-            //$this->load->view("dashboard/addNewRoom");        
+             
+            $this->load->view("dashboard/addNewRoom", $data);        
            
              $this->load->view('template/footer');
         
