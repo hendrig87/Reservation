@@ -59,7 +59,7 @@
 <?php if (!$this->session->userdata('logged_in')) { ?>
                     <ul>
                         <li><a href="<?Php echo base_url() . 'index.php' ?>">HOME</a></li>
-                        <li><a href="#">DOCUMENTATION</a></li>
+                        <li><a href="<?Php echo base_url() . 'index.php/documentation/index' ?>">DOCUMENTATION</a></li>
                         <li><a href="<?Php echo base_url() . 'index.php/dashboard/addNewRoomForm' ?>">DEVELOPER TOOLS</a></li>
                         <li><a href="<?Php echo base_url() . 'index.php/login/registrationForm' ?>" >SIGN UP</a></li>
                         <li onMouseOver="show_loginForm()" onMouseOut="hide_loginForm()"><a  href="<?Php echo base_url() . 'index.php/login/loginForm' ?>">LOGIN</a></li>
@@ -70,7 +70,7 @@
                     ?>
                     <ul>
                         <li><a href="<?Php echo base_url() . 'index.php' ?>">HOME</a></li>
-                        <li><a href="#">DOCUMENTATION</a></li>
+                        <li><a href="<?Php echo base_url() . 'index.php/documentation/index' ?>">DOCUMENTATION</a></li>
                         <li><a href="<?Php echo base_url() . 'index.php/dashboard/addNewRoomForm' ?>">DEVELOPER TOOLS</a></li>
                         <li><a id="loginLink" href="<?Php echo base_url() . 'index.php/login/logout' ?>">LOG OUT</a></li>
                     </ul> 
