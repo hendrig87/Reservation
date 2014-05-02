@@ -40,31 +40,7 @@ class dashboard extends CI_Controller {
                     
   }
         
-  public function get_user_hotel_id(){
-      if ($this->session->userdata('logged_in')) {
-              
-           $username = $this->session->userdata('username'); 
-      $user=  $this->dbmodel->get_user_info($username);
-      foreach ($user as $id){
-          $user_id=$id->id;
-      }
-      $data['hotelName']=$this->dbmodel->get_user_hotel($user_id);
-      
-      
-      
-   if(isset($_POST['id']))
-$dta['query']= $_POST['id'];
-
-
-
-//$this->load->view('dashboard/hotelSelectionToAddRoom', $data);
- $this->load->view("dashboard/addNewRoom", $dta);      
-//die($a);
-      }
-      else {
-          echo 'User not logged in';    
-      }
-}
+ 
         
           function addNewRoomForm()
     {
@@ -80,8 +56,8 @@ $dta['query']= $_POST['id'];
       
              $this->load->view('template/header');
              $this->load->view("dashboard/reservationSystem");
-             $this->load->view('dashboard/hotelSelectionToAddRoom', $data);
-             $this->load->view("dashboard/addNewRoom");        
+             
+             $this->load->view("dashboard/addNewRoom", $data);        
            
              $this->load->view('template/footer');
              
@@ -99,7 +75,11 @@ $dta['query']= $_POST['id'];
    
         $this->load->library('upload');
          
-  
+  if(($_SERVER['REQUEST_METHOD'] == 'POST'))
+            {
+                $hotel_id = $_POST['selectHotel'];
+                
+            }
         if (!empty($_FILES['room_img']['name']))
         {
             // Specify configuration for File 1
