@@ -1,8 +1,19 @@
-<link rel="stylesheet" href="<?php echo base_url().'contents/styles/pop-up-booking.css'; ?>">
-<link rel="stylesheet" type="text/css" href="<?php echo base_url().'contents/styles/test.css';?> " />
 <script src="<?php echo base_url().'contents/scripts/test.js' ?>"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url().'contents/styles/test.css';?> " />
+
+<script>
+$(document).ready(function(){
+  $(document).ajaxStart(function(){
+    $("#loading").css("display","block");
+  });
+  $(document).ajaxComplete(function(){
+    $("#loading").css("display","none");
+  });
+  });
+</script>
 
 <script type="text/javascript">
+    
   function changeFunc() {
       
       var checkin = $("#CheckIn").val();
@@ -31,10 +42,6 @@
     
         $(".middleLayer").show();
          $(".popup").show();
-         
-         
-        
-    
  }
  
  
@@ -45,9 +52,15 @@
 
         el.style.display = 'none';
          $(".middleLayer").fadeOut(300);
+         
+         
+         $('#right').drags();
     }
  
 </script>
+
+
+
 <script type="text/javascript">
 var currenttime = "Apr 28, 2014 2:41:06 PM";
 
@@ -85,9 +98,6 @@ setInterval("displaytime()", 1000);
 
 
 
-<script src="<?php echo base_url().'contents/scripts/test.js' ?>">
-
-</script>
 
 
 
@@ -194,10 +204,12 @@ setInterval("displaytime()", 1000);
     <hr style="display: block; height: 1px;
     border: 0; border-top: 1px solid #ccc;
     margin: 1em 0; padding: 0;">
-    <img width="30" src="<?php echo base_url()."contents/images/loadingGif.gif"; ?>" alt="loading.."/>
+   
     <!-- Information from checkin - $abc -->
+   
+    
     <div id="replaceMe">
-   <img src="<?php echo base_url()."contents/images/loading1.gif"; ?>" alt="loading.."/>
+        <img width="30" src="<?php echo base_url()."contents/images/loading1.gif"; ?>" alt="loading.." id="loading"/>
     
     </div>
     

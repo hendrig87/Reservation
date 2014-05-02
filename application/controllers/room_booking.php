@@ -46,11 +46,12 @@ class room_booking extends CI_Controller {
         
         
         function book_now()
-        {   
-            //$data['query']= $this->dashboard_model->booking_room();
-               $checkin = $_POST['this'];
-          
-          $this->load->view('ReservationInformation/PersonalInfo',$checkin);
+        {  
+                $hotelId= $_POST['hotelId'];
+           $data['query']= $this->dashboard_model->booking_room($hotelId);
+            $j_son = json_encode($data);
+           echo $j_son;
+          $this->load->view('ReservationInformation/PersonalInfo',$j_son);
             
           
         }

@@ -1,27 +1,49 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url().'contents/styles/test.css';?> " />
 <script src="<?php echo base_url().'contents/scripts/test.js' ?>"></script>
+<script>
 
 
 
-<div style="float: left; margin-top: 20px;">
+</script>
+
+
+
+            <div style="float: left; margin-top: 20px;">
+    
+ 
+    
     <div id="legend" style="margin-bottom:30px;">Booking Information</div>
-                    <table width="400px">
+                    <table width="420px">
                         <tr style="background: #edebeb;font-weight: bold;">
                             <td style="width:40%;">Rooms</td>
                             <td style="width:20%;">Booked</td>
                             <td style="width:20%;">Price</td>
                             <td style="width:20%;">Sub-Total</td>
                         </tr>
+                        
+                         
+                            <tr>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                             </tr>
+                      
+ 
+                             
                         <tr>
                             <td colspan="2">Total Price</td>
                             <td></td>
                         </tr>
                     </table>
 </div>
+                            
+                            
+                            
 <table style="float:left;">
         	<tr>
                
-                <td  style="width:40px;"></td>
+                <td  style="width:20px;"></td>
                 <td style="width:400px;">
                 <fieldset>
             <legend>Personal Information</legend>

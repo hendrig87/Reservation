@@ -1,12 +1,12 @@
-
+  <script src="<?php echo base_url() . "contents/scripts/room_booking.js"; ?>"></script>
 <link rel="stylesheet" href="<?php echo base_url().'contents/styles/pop-up-booking.css'; ?>">
 
 <script>
 function book()
 {
-     var room_name = $("#room-name").html();
+   
      
-     var dataString = 'this=' + 'this is ajax calling';
+     var dataString = 'hotelId=' + '1';
   
  $.ajax({
  type: "POST",
@@ -19,6 +19,8 @@ function book()
             
         }
  });
+ 
+ 
 }
     
     function hide(obj) {
@@ -70,24 +72,8 @@ setInterval("displaytime()", 1000);
 
 </script>   
 
-<script>
-
-$(document).ready(
-        function (){
-  $(".available-room").change(function(){
-   
-     var rooms = $(this).val();
-    var price = $(this).parent().prev('td').children('span.priceTag').text();
-         var total = rooms * price; 
-        
-         $(this).parent().next('td').children('span.subTotal').text(total);
-    
-  });
-}); 
 
 
-
-</script>
 
 
 
@@ -121,7 +107,7 @@ $(document).ready(
     {
        
         
-        foreach($query as $count=>$book)
+        foreach($query as $book)
     {
         
     ?>
@@ -131,7 +117,7 @@ $(document).ready(
                 <div style="float: left; margin-right: 10px;"><img src="<?php echo base_url().'uploads/'.$book->image; ?>" width="50px" height="50px"></div>
                 <div style="font-size: 16px;width: 60%; float: left;" id="room-name"><?php echo $book->room_name; ?></div><br>  
                
-                <?php echo $count; ?>
+                
             </td> 
             <td><?php echo $book->description; ?></td>
             <td>
@@ -140,7 +126,7 @@ $(document).ready(
             <td> 
                <?php $available_room = $book->no_of_room; ?>
                
-                <select class="available-room" style="width: 80px;" id="room<?php echo $count; ?>">
+                <select class="available-room" style="width: 80px;">
                     <option value="0">Select</option>
                       <?php
                             for ($i = 1; $i <= $available_room; $i++) {
