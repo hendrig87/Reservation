@@ -7,7 +7,11 @@ $(document).ready(
          var total = rooms * price; 
         
          $(this).parent().next('td').children('span.subTotal').text(total);
-    
+      
   });
 }); 
+
+
+
+
 

@@ -1,11 +1,24 @@
   <script src="<?php echo base_url() . "contents/scripts/room_booking.js"; ?>"></script>
 <link rel="stylesheet" href="<?php echo base_url().'contents/styles/pop-up-booking.css'; ?>">
+<script>
+$(document).ready(
+        function (){
+  $(".available-room").change(function(){
+   
+            var id = $(this).parent().prev().prev().prev('td').parent().attr('id');
+       alert (id);
+    
+  });
+}); 
+    
+    
+</script>
+
 
 <script>
 function book()
 {
-   
-     
+      
      var dataString = 'hotelId=' + '1';
   
  $.ajax({
@@ -19,9 +32,11 @@ function book()
             
         }
  });
+ }
+ </script>
  
- 
-}
+
+    <script>
     
     function hide(obj) {
    
@@ -109,10 +124,11 @@ setInterval("displaytime()", 1000);
         
         foreach($query as $book)
     {
+            
         
     ?>
             
-        <tr>
+        <tr id=<?php echo $book->id; ?>>
             <td>
                 <div style="float: left; margin-right: 10px;"><img src="<?php echo base_url().'uploads/'.$book->image; ?>" width="50px" height="50px"></div>
                 <div style="font-size: 16px;width: 60%; float: left;" id="room-name"><?php echo $book->room_name; ?></div><br>  
@@ -144,7 +160,7 @@ setInterval("displaytime()", 1000);
             
         </tr>
             
-    <?php           
+    <?php  
     }
     }
     ?>

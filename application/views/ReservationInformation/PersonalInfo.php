@@ -1,14 +1,11 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url().'contents/styles/test.css';?> " />
 <script src="<?php echo base_url().'contents/scripts/test.js' ?>"></script>
-<script>
 
 
 
-</script>
+    
 
-
-
-            <div style="float: left; margin-top: 20px;">
+<div style="float: left; margin-top: 20px;">
     
  
     
@@ -21,14 +18,25 @@
                             <td style="width:20%;">Sub-Total</td>
                         </tr>
                         
-                         
+                         <?php
+if(isset($json))
+{
+   echo $json;
+    $json_output = json_decode($json);
+
+foreach ( $json_output->query as $trend )
+{ ?>
                             <tr>
-                            <td> </td>
-                            <td> </td>
-                            <td> </td>
-                            <td> </td>
+                                <td><span id="room_name"><?php echo "{$trend->room_name}\n"; ?></span> </td>
+                                <td><span id="booked_room"></span> </td>
+                                <td><span id="room_price"><?php echo "{$trend->price}\n"; ?></span> </td>
+                                <td><span id="sub_total"></span> </td>
                              </tr>
-                      
+ <?php }
+}
+
+
+?>                     
  
                              
                         <tr>

@@ -49,8 +49,10 @@ class room_booking extends CI_Controller {
         {  
                 $hotelId= $_POST['hotelId'];
            $data['query']= $this->dashboard_model->booking_room($hotelId);
-            $j_son = json_encode($data);
-           echo $j_son;
+           //echo $data['query'];
+            $j_son['json'] = json_encode($data);
+          // echo $j_son;
+          
           $this->load->view('ReservationInformation/PersonalInfo',$j_son);
             
           
