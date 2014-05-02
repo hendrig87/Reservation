@@ -29,15 +29,17 @@ class room_booking extends CI_Controller {
         
         function post_action()
         {   
-            $data['query']= $this->dashboard_model->booking_room();
-               
             $data['abc']=array(
             'checkin' => $_POST['checkin'],
             'checkout' => $_POST['checkout'],
             'adult' => $_POST['adult'],
             'child' => $_POST['child']
                     );
-          $this->load->view('template/reservation_template',$data);
+            $hotelId= $_POST['hotelId'];
+            $data['query']= $this->dashboard_model->booking_room($hotelId);
+               
+            
+          $this->load->view('template/room_booking',$data);
             
           
         }

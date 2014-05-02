@@ -1,6 +1,8 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url().'contents/styles/test.css';?> " />
-
 <script src="<?php echo base_url().'contents/scripts/test.js' ?>"></script>
+
+
+
 <div style="float: left; margin-top: 20px;">
     <div id="legend" style="margin-bottom:30px;">Booking Information</div>
                     <table width="400px">

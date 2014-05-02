@@ -2,5 +2,5 @@
     
     function get_currency($data)
     {
-         echo 'Rs.'.$data.".00";   
+         echo '<span>Rs.</span>'.'<span class="priceTag">'.$data.'</span>'."<span>.00</span>";   
     }
