@@ -1,22 +1,45 @@
   <script src="<?php echo base_url() . "contents/scripts/room_booking.js"; ?>"></script>
 <link rel="stylesheet" href="<?php echo base_url().'contents/styles/pop-up-booking.css'; ?>">
+
+<script>
+var txtnext = <?php echo $json.';'; ?>
+</script>
+
 <script>
 $(document).ready(
         function (){
             
-            var id;
+            var room_id;
   $(".available-room").change(function(){
    
-            id = $(this).parent().prev().prev().prev('td').parent().attr('id');
+           room_id = $(this).parent().prev().prev().prev('td').parent().attr('id');
             
             
+            var booked = $(this).val();
+            
+            
+           // obj.query[1].no_of_room=booked;
+           
+            for (var i=0; i<txtnext.length; i++) {
+  if (txtnext[i].id == room_id) {
+    txtnext[i].no_of_room = booked;
+    
+    //alert("i should update this");
+    break;
+  }
+  
+}
+
+
     
   });
 }); 
     
     
 </script>
-
+<div id="replace">
+    
+</div>
 
     
 
@@ -92,21 +115,6 @@ setInterval("displaytime()", 1000);
 
 
 </script>   
-
-
-<?php
-echo "<script>";
-echo 'var book= {"bookingjson":';
-echo  $json;
-echo "}";
-
-echo 'alert(book.bookingjson[0].id)';
-
-echo "</script>";
-?>  
-    
-
-
 
 <!--loading currency_helper  -->
 <?php
