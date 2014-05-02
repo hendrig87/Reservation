@@ -3,10 +3,13 @@
 <script>
 $(document).ready(
         function (){
+            
+            var id;
   $(".available-room").change(function(){
    
-            var id = $(this).parent().prev().prev().prev('td').parent().attr('id');
-       alert (id);
+            id = $(this).parent().prev().prev().prev('td').parent().attr('id');
+            
+            
     
   });
 }); 
@@ -15,10 +18,12 @@ $(document).ready(
 </script>
 
 
+    
+
 <script>
 function book()
 {
-      
+     // alert (id);
      var dataString = 'hotelId=' + '1';
   
  $.ajax({
@@ -48,6 +53,7 @@ function book()
  
  
  </script>
+ 
 
  
  
@@ -88,7 +94,17 @@ setInterval("displaytime()", 1000);
 </script>   
 
 
+<?php
+echo "<script>";
+echo 'var book= {"bookingjson":';
+echo  $json;
+echo "}";
 
+echo 'alert(book.bookingjson[0].id)';
+
+echo "</script>";
+?>  
+    
 
 
 
