@@ -43,7 +43,7 @@ function roomBook()
   success: function(msgs) 
         {
     
-            $("#room_book").html(msgs);
+            $("#replaceMe").html(msgs);
             
         }
  });
@@ -116,11 +116,11 @@ function roomBook()
                 </div>
             </fieldset>
                     <textarea name="Remarks" placeholder="Remarks & Extra Instructions Like Pickup & Dropoff Information." style="width:330px;height:100px;resize:none;"></textarea>
-            
+            <input type="submit" value="Continue" onclick="javascript:roomBook();">
                 </td>
             </tr>
         </table>
 
  <div>
     
-        <input type="submit" value="Continue" onclick="javascript:roomBook();"></div>
+        </div>

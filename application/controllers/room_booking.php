@@ -71,6 +71,18 @@ class room_booking extends CI_Controller {
           
         }
         
+        function payment_options()
+        {  
+              $hotelId= $_POST['hotelId'];
+          // $data['query']= $this->dashboard_model->booking_room($hotelId);
+           //echo $data['query'];
+          //  $j_son['json'] = json_encode($data);
+          // echo $j_son;
+          
+          $this->load->view('ReservationInformation/thankYouNote', $hotelId);
+            
+          
+        }
         
   }
         
