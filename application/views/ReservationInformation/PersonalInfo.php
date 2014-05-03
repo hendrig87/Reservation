@@ -31,6 +31,29 @@ var postdata = '<tr><td colspan="2">Total Price</td><td></td></tr></table>';
 $('#firstTr').html(predata + nextdata + postdata);
 
 </script>
+
+<script>
+function roomBook()
+{
+      var dataString = 'hotelId=' + '1';
+ $.ajax({
+ type: "POST",
+ url: "<?php echo base_url().'index.php/room_booking/personal_info' ;?>",
+ data: dataString,
+  success: function(msgs) 
+        {
+    
+            $("#room_book").html(msgs);
+            
+        }
+ });
+ }
+ </script>
+
+
+
+
+
 <div id="meroid">
     
 </div>
@@ -100,4 +123,4 @@ $('#firstTr').html(predata + nextdata + postdata);
 
  <div>
     
-        <input type="submit" value="Continue" onclick="javascript:book();"></div>
+        <input type="submit" value="Continue" onclick="javascript:roomBook();"></div>

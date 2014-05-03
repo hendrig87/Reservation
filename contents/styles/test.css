@@ -820,3 +820,7 @@ button.close{padding:0;cursor:pointer;background:transparent;border:0;-webkit-ap
   height: 16px;
   background-image: url(../images/ParkReserve.png); background-size: 14px 14px;
 }
+.add-on
+{
+    padding: 5px;
+}
