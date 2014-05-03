@@ -36,15 +36,13 @@ folder login inside view filder also uses these styles
 		padding: 14px 15px 10px 15px;
 	}
 
-	code {
+	#code {
 		font-family: Consolas, Monaco, Courier New, Courier, monospace;
-		font-size: 12px;
 		background-color: #f9f9f9;
-		border: 1px solid #D0D0D0;
 		color: #002166;
 		display: block;
-		margin: 14px 0 14px 0;
-		padding: 12px 10px 12px 10px;
+		margin: 0 px;
+		padding: 0px 5px 0px 15px;
 	}
 //th{background-color: #444;
 //color: #fff;}
@@ -342,4 +340,15 @@ folder login inside view filder also uses these styles
 }
 
  //for popup
- 
+ pre
+ { 
+     font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+     margin: 0px;
+     overflow: auto;
+     width: auto;
+     padding: 0px;
+     background-color: #eee; 
+    // width: 650px!ie7;
+    // padding-bottom: 20px!ie7; 
+    max-height: 100px;
+ }

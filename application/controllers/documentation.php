@@ -17,7 +17,7 @@ class Documentation extends CI_Controller {
           
             
         $this->load->view('template/header');
-        $this->load->view('dashboard/reservationSystem');
+        $this->load->view('documentations/documentationNavigation');
         $this->load->view('documentations/document');
         
         $this->load->view('template/footer');
@@ -25,6 +25,19 @@ class Documentation extends CI_Controller {
             
   }
   
+   public function download(){
+$this->load->helper('download');
+
+      $filename= $_GET['download'];
+ $data = file_get_contents("./contents/scripts/".$filename); // Read the file's contents
+$name = $filename;
+
+force_download($name, $data);      
+
+
+exit;
+        
+  }
   
   
   
