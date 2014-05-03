@@ -2,48 +2,50 @@
 <script src="<?php echo base_url().'contents/scripts/test.js' ?>"></script>
 
 
-
+<script>
     
 
+    $('#meroid').html(txtnext[1].no_of_room);
+
+$('#meroidnext').html(txtnext[2].no_of_room);
+var predata='<table width="420px">'+
+        '<tr style="background: #edebeb;font-weight: bold;" >'+
+        '<td style="width:40%;">Rooms</td>'+
+        '<td style="width:20%;">Booked</td>'+
+        '<td style="width:20%;">Price</td>'+
+        '<td style="width:20%;">Sub-Total</td></tr>';
+var nextdata="";
+    for(var i=0;i<=2;i++)
+    {
+        nextdata +='<tr><td><span id="room_name">'+
+                txtnext[i].room_name+'</span> </td><td><span id="booked_room">'+
+                txtnext[i].no_of_room+'</span> </td><td><span id="room_price">'+
+                txtnext[i].price+'</span></td><td><span id="sub_total"></span></td></tr>';
+        
+    
+}
+
+var postdata = '<tr><td colspan="2">Total Price</td><td></td></tr></table>';
+
+
+$('#firstTr').html(predata + nextdata + postdata);
+
+</script>
+<div id="meroid">
+    
+</div>
+<div id="meroidnext">
+    
+</div>
 <div style="float: left; margin-top: 20px;">
     
  
     
     <div id="legend" style="margin-bottom:30px;">Booking Information</div>
-                    <table width="420px">
-                        <tr style="background: #edebeb;font-weight: bold;">
-                            <td style="width:40%;">Rooms</td>
-                            <td style="width:20%;">Booked</td>
-                            <td style="width:20%;">Price</td>
-                            <td style="width:20%;">Sub-Total</td>
-                        </tr>
+                
+    <div id="firstTr">
+    </div>                  
                         
-                         <?php
-if(isset($json))
-{
-   echo $json;
-    $json_output = json_decode($json);
-
-foreach ( $json_output->query as $trend )
-{ ?>
-                            <tr>
-                                <td><span id="room_name"><?php echo "{$trend->room_name}\n"; ?></span> </td>
-                                <td><span id="booked_room"></span> </td>
-                                <td><span id="room_price"><?php echo "{$trend->price}\n"; ?></span> </td>
-                                <td><span id="sub_total"></span> </td>
-                             </tr>
- <?php }
-}
-
-
-?>                     
- 
-                             
-                        <tr>
-                            <td colspan="2">Total Price</td>
-                            <td></td>
-                        </tr>
-                    </table>
 </div>
                             
                             
