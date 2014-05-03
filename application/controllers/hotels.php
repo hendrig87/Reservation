@@ -71,7 +71,7 @@ class Hotels extends CI_Controller {
 
                     
                     $this->session->set_flashdata('message', 'One hotel added sucessfully');
-                    redirect('hotel/index'); 
+                    redirect('hotels/index'); 
                     
                     
                 }
@@ -87,8 +87,20 @@ class Hotels extends CI_Controller {
 }
 
 
+public function hotelListing(){
+    
+    if ($this->session->userdata('logged_in')) {
+      
+      $this->load->view('template/header');
+      $this->load->view('hotel/hotelListing', $dat);
+       
+    }
+ else {
+          echo 'couldnot find any hotel';    
+      }   
+   }
 
-
+  
 
 
 

@@ -8,7 +8,8 @@ class Login extends CI_Controller {
         $this->load->library('session');
         $this->load->model('dbmodel');
         $this->load->helper('url');
-        $this->load->helper(array('form', 'url'));
+        $this->load->helper('date');
+        $this->load->helper(array('form', 'url', 'date'));
         $this->load->library("pagination");
       
  }
@@ -19,10 +20,8 @@ class Login extends CI_Controller {
       $this->load->view('template/header');
       $this->load->view('login/loginOnHover');
       $this->load->view('template/imageDiv');
-          //$this->load->view('login/login');
           $this->load->view('template/reservation_template');
          $this->load->view('template/footer');
-         //$this->load->view('reservationInformation/personalInfo');
      }
  else {
          redirect('dashboard/index');   
@@ -85,17 +84,37 @@ class Login extends CI_Controller {
  }
  
                $userpass = $this->input->post('userPass');
-            $this->dbmodel->add_new_user($user_name, $userfname, $userlname, $useremail, $userpass);
+               $loginStatus="Registered";
+               $loginDate="Not logged in till";
+            $this->dbmodel->add_new_user($user_name, $userfname, $userlname, $useremail, $userpass, $loginStatus, $loginDate);
             
             redirect('login/index');
                 }
                 
  }
  function logout() {
+     if ($this->session->userdata('logged_in')) {
+              
+           $username = $this->session->userdata('username'); 
+      $user=  $this->dbmodel->get_user_info($username);
+      foreach ($user as $id){
+          $user_id=$id->login_status;
+          $user_email= $id->user_email;
+      }
+      if($user_id=="Logged In"){
+         $loginStatus='Logged Out';
+        
+          $this->dbmodel->update_loggedOut_user_status($user_email, $loginStatus);
+      
+      }
+        }
         $this->session->sess_destroy();
         $this->index();
         redirect('login/index', 'refresh');
-    }
+  
+     
+    
+ }
  
  public function loginForm()
  {
@@ -142,7 +161,7 @@ else
 		
 		$query = $this->dbmodel->validate();
                 //print_r($query);
-                if($query) // if the user's credentials validated...
+                if(isset($query)) // if the user's credentials validated...
                     
 		{
                     
@@ -150,7 +169,38 @@ else
 				'username' => $this->input->post('userEmail'),
 				'logged_in' => true);
 			$this->session->set_userdata($data);
-			redirect('dashboard/index');
+                         $username = $this->session->userdata('username'); 
+      $user=  $this->dbmodel->get_user_info($username);
+      foreach ($user as $id){
+          $user_id=$id->login_status;
+           $user_email= $id->user_email;
+      }
+     if($user_id=="Registered"){
+         $this->load->view('template/header');
+          $this->load->view('template/welcomeMessage');
+           $this->load->view('template/imageDiv');
+          $this->load->view('template/reservation_template');
+         $this->load->view('template/footer');
+         $loginStatus='Logged In';
+        
+          $this->dbmodel->update_Registered_user_status($user_email, $loginStatus);
+     }
+ else {
+     $user=  $this->dbmodel->get_user_info($username);
+      foreach ($user as $id){
+          $user_id=$id->login_status;
+          $user_email=$id->user_email;
+      }
+     if($user_id=="Logged Out"){
+         
+         $loginStatus='Logged In';   
+          $this->dbmodel->update_LoggedIn_user_status($user_email, $loginStatus);
+     }
+         redirect('dashboard/index');
+     }
+		
+                
+ 
 		}
 		else // incorrect username or password
                     {

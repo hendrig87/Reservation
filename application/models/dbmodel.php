@@ -20,13 +20,15 @@ class Dbmodel extends CI_Model {
     }
     
     
-    public function add_new_user($user_name, $userfname, $userlname, $useremail, $userpass){
+    public function add_new_user($user_name, $userfname, $userlname, $useremail, $userpass, $loginStatus,$loginDate){
         $data = array(
             'user_name' => $user_name,
             'user_fname'=> $userfname,
             'user_lname'=> $userlname,
             'user_email'=> $useremail,
-            'user_pass'=> $userpass);
+            'user_pass'=> $userpass,
+            'login_status'=> $loginStatus,
+            'last_login_date'=> $loginDate);
         
          $this->db->insert('user_info', $data);
     }
@@ -44,8 +46,32 @@ class Dbmodel extends CI_Model {
         $this->db->where('user_email', $to);
         $this->db->update('user_info', $data);
     }
+     public function update_registered_user_status($user_email, $loginStatus){
+        $data = array(
+            'login_status'=>$loginStatus);
+        $this->db->where('user_email', $user_email);
+         $this->db->set('last_login_date', 'NOW()', FALSE);
+        $this->db->update('user_info', $data);
+    }
+    
+    public function update_loggedOut_user_status($user_email, $loginStatus){
+        $data = array(
+            'login_status'=>$loginStatus
+           );
+        $this->db->where('user_email', $user_email);
+         $this->db->set('last_login_date', 'NOW()', FALSE);
+        $this->db->update('user_info', $data);
+    }
     
     
+    public function update_LoggedIn_user_status($user_email, $loginStatus){
+         $data = array(
+            'login_status'=>$loginStatus
+           );
+        $this->db->where('user_email', $user_email);
+        $this->db->set('last_login_date', 'NOW()', FALSE);
+        $this->db->update('user_info', $data);
+    }
     public function update_user_password($token, $userPassword){
         $data = array(
         'user_pass'=>md5($userPassword));
@@ -98,6 +124,13 @@ class Dbmodel extends CI_Model {
             'user_id'=> $user_id);
         
          $this->db->insert('hotel_info', $data);
+ }
+ 
+ public function get_user_hotel($user_id){
+     $this->db->where('user_id', $user_id);
+        $query = $this->db->get('hotel_info');
+        return $query->result();
+     
  }
  
  

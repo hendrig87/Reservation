@@ -16,14 +16,21 @@ class dashboard extends CI_Controller {
     }
 	
 	public function index(){ 
-          if ($this->session->userdata('logged_in')) {
-            $data['username'] = Array($this->session->userdata('logged_in'));
+         if ($this->session->userdata('logged_in')) {
+              
+           $username = $this->session->userdata('username'); 
+      $user=  $this->dbmodel->get_user_info($username);
+      foreach ($user as $id){
+          $user_id=$id->id;
+      }
+      $data['hotelName']=$this->dbmodel->get_user_hotel($user_id);
+      
+             $this->load->view('template/header');
+             $this->load->view("dashboard/reservationSystem");
+             
+            $this->load->view("dashboard/addNewRoom", $data);        
            
-           $this->load->view('template/header');
-        $this->load->view('dashboard/reservationSystem');
-        $this->load->view('dashboard/addNewRoom');
-        
-        $this->load->view('template/footer');
+             $this->load->view('template/footer');
         
         }  
         else {
@@ -38,10 +45,19 @@ class dashboard extends CI_Controller {
           function addNewRoomForm()
     {
           if ($this->session->userdata('logged_in')) {
-            $data['username'] = Array($this->session->userdata('logged_in'));
+              
+           $username = $this->session->userdata('username'); 
+      $user=  $this->dbmodel->get_user_info($username);
+      foreach ($user as $id){
+          $user_id=$id->id;
+      }
+      
+      $data['hotelName']=$this->dbmodel->get_user_hotel($user_id);
+      
              $this->load->view('template/header');
              $this->load->view("dashboard/reservationSystem");
-             $this->load->view("dashboard/addNewRoom");        
+             
+             $this->load->view("dashboard/addNewRoom", $data);        
            
              $this->load->view('template/footer');
              
@@ -56,9 +72,14 @@ class dashboard extends CI_Controller {
                 
         function addRoom(){
        if ($this->session->userdata('logged_in')) {
-            $data['username'] = Array($this->session->userdata('logged_in'));    
+   
         $this->load->library('upload');
- 
+         
+  if(($_SERVER['REQUEST_METHOD'] == 'POST'))
+            {
+                $hotel_id = $_POST['selectHotel'];
+                
+            }
         if (!empty($_FILES['room_img']['name']))
         {
             // Specify configuration for File 1
@@ -96,7 +117,7 @@ class dashboard extends CI_Controller {
            $description = $this->input->post('description');
         
            
-            $data['add_room']= $this->dashboard_model->add_new_room($room_type,$noOfRoom,$price,$description,$img_name);
+            $data['add_room']= $this->dashboard_model->add_new_room($room_type,$noOfRoom,$price,$description,$img_name, $hotel_id);
             
            if($data)
            {
@@ -120,20 +141,41 @@ class dashboard extends CI_Controller {
         }
         } 
           
-        
+        public function get_hotel_id(){
+   if(isset($_POST['id'])){
+$hotel_id= $_POST['id'];
+   }
+   else
+   {
+       $hotel_id='0';
+   }
+$data['query']= $this->dashboard_model->booking_room($hotel_id);
+
+
+
+ $this->load->view('dashboard/roomInformation',$data);
+//die($a);
+    
+}
                 
         
-        function roomInfo()
+public function roomInfo()
         {
             if ($this->session->userdata('logged_in')) {
-            $data['username'] = Array($this->session->userdata('logged_in'));
-               $data['query']= $this->dashboard_model->booking_room();
-            //die($data['query']);
-         $this->load->view('template/header');
-        $this->load->view('dashboard/reservationSystem',$data);
-        $this->load->view('dashboard/roomInformation',$data);
+                
+        $username = $this->session->userdata('username'); 
+      $user=  $this->dbmodel->get_user_info($username);
+      foreach ($user as $id){
+          $user_id=$id->id;
+      }
+      $data['hotelName']=$this->dbmodel->get_user_hotel($user_id);
       
-        $this->load->view('template/footer',$data);
+         $this->load->view('template/header');
+        $this->load->view('dashboard/reservationSystem');
+        $this->load->view('dashboard/hotelSelection', $data);
+        $this->load->view('dashboard/roomInformation');
+      
+        $this->load->view('template/footer');
        
         }  
         else {

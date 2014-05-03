@@ -1,18 +1,16 @@
 
+
+<!-- ------------------calling currency_modify helper for currency--------------------------------- -->
+ 
+<!-- ------------------finish calling currency_modify helper for currency--------------------------------- -->
 <div id="right">
     
-    <h2>Add new Room</h2><hr style="display: block; height: 1px;
+    <h2>Rooms&nbsp;<a href="<?php echo base_url().'index.php/dashboard/addNewRoomForm'; ?>">Add New Room</a></h2><hr style="display: block; height: 1px;
     border: 0; border-top: 1px solid #ccc;
     margin: 1em 0; padding: 0;">
-    
-    <div id="sucess"> 
-            <?php if($this->session->flashdata('message')) { ?>
-            <img src="<?php echo base_url() . "contents/images/success.jpg"; ?>" height="15px" width="15px"/>
-            <?php echo $this->session->flashdata('message');
-            }
-              ?>
-            
-    </div>
+   <!-- hotel selection -->
+   
+
     <div id="form">
     <table>
     <tr>
@@ -41,6 +39,26 @@
         <td><input type="file" name="room_img" id="file" class="file" multiple></td>
         <td><a href="" class="example5 r" id="help" onclick="return false;" style="cursor: default;">?</a></td>
     </tr>
+    <tr>
+        <td id="alignright"> Images:</td>
+        <td><select name="selectHotel" style="width: 125px"  id="selectBox" onchange="changeFunc();">
+             <option value="0" selected="selected"> Select Hotel                    
+                </option>
+               <?php
+                foreach ($hotelName as $data)
+                {
+                    ?>
+                <option value="<?php echo $data->id; ?>">
+                    <?php echo $data->name; ?>
+                </option>
+                    <?php
+                }
+                ?>
+          
+            </select></td>
+        <td><a href="" class="example6 r" id="help" onclick="return false;" style="cursor: default;">?</a></td>
+    </tr>
+    
       <tr>
           <td>&nbsp;</td>
           <td><input type="submit" value="Save" name="submit" id="save"><input type="submit" value="Save&Continue" name="submits"></td>

@@ -1,12 +1,19 @@
-<!-- ------------------calling currency_modify helper for currency--------------------------------- -->
- <?php
-            $this->load->helper('currency'); 
-            
-?>
-<!-- ------------------finish calling currency_modify helper for currency--------------------------------- -->
-<link rel="stylesheet" href="<?php echo base_url().'contents/styles/pop-up-booking.css'; ?>">
+<script src="<?php echo base_url().'contents/scripts/test.js' ?>"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url().'contents/styles/test.css';?> " />
+
+<script>
+$(document).ready(function(){
+  $(document).ajaxStart(function(){
+    $("#loading").css("display","block");
+  });
+  $(document).ajaxComplete(function(){
+    $("#loading").css("display","none");
+  });
+  });
+</script>
 
 <script type="text/javascript">
+    
   function changeFunc() {
       
       var checkin = $("#CheckIn").val();
@@ -21,55 +28,41 @@
      'checkout' : checkout,
      'adult' : adult,
      'child' : child,
+     'hotelId':"1"
         },
   success: function(msg) 
         {
     
-            $("#container").html(msg);
+            $("#replaceMe").html(msg);
+            
             
         }
  });
  //
     
-        $(".middleLayer").toggle();
-        $(".popup").toggle();
-    
+        $(".middleLayer").show();
+         $(".popup").show();
  }
+ 
+ 
+ 
+    function hide(obj) {
+   
+    var el = document.getElementById(obj);
 
-function book()
-{
-   //alert ("sdjf");
-     var dataString = 'this=' + 'this is ajax calling';
-  
-  // alert (dataString);
-      
-     // var checkout = $("#CheckOut").val();
-     //var adult = $("#adult").val();
-      //var child = $("#child").val();
- $.ajax({
- type: "POST",
- url: "<?php echo base_url().'index.php/room_booking/book_now' ;?>",
- data: dataString,
-  success: function(msgs) 
-        {
-    
-            $("#room_book").html(msgs);
-            
-        }
- });
- 
- 
-     //$(".middleLayer").toggle();
-     // $(".popup").hide(1000);
-        //$(".popup_personal_info").toggle();
-     
+        el.style.display = 'none';
+         $(".middleLayer").fadeOut(300);
+         
+         
+         $('#right').drags();
     }
- </script>
+ 
+</script>
 
-<link rel="stylesheet" type="text/css" href="<?php echo base_url().'contents/styles/test.css';?> " />
+
+
 <script type="text/javascript">
 var currenttime = "Apr 28, 2014 2:41:06 PM";
-
 var greeting = " PM";
 var montharray=new Array("January","February","March","April","May","June","July","August","September","October","November","December")
 var numbers = Array("&#2406;", "&#2407;", "&#2408;", "&#2409;", "&#2410;", "&#2411;", "&#2412;", "&#2413;", "&#2414;", "&#2415;");
@@ -97,8 +90,13 @@ function displaytime(){
 		}
 }
 setInterval("displaytime()", 1000);
+
+
 </script>   
-<script src="<?php echo base_url().'contents/scripts/test.js' ?>"></script>
+
+
+
+
 
 
 
@@ -184,108 +182,36 @@ setInterval("displaytime()", 1000);
 
 
 
-
-
-
 <!-- ================================================================================================
 =============================================================================================== -->
 
 <!-- booking -->
 
 <div class="middleLayer" style="display:none"></div>
-<?php
-if(isset($abc))
-{
 
-
-?>
-<div id="right" class="popup">
+<div id="right" class="popup" style="display: none">
     <div>
     <div class="popupTitleBox" >
         <span class="popupTitleText">Booking</span>
-        <span style="float:right;"><a href="#" id="closePopup"> Close </a></span>
+        <span style="float:right;"><a href="#" id="closePopup" onClick="hide('right')" > Close </a></span>
     </div> 
     </div><br>
     
     <hr style="display: block; height: 1px;
     border: 0; border-top: 1px solid #ccc;
     margin: 1em 0; padding: 0;">
-     
-    <!-- Information from checkin - $abc -->
-    
-    <table style="width: 100%; background: #f3f2f2;">
-        <tr>
-            <td>Checkin Date:<?php echo $abc['checkin'];  ?></td>
-            <td>Checkout Date:<?php echo $abc['checkout'];  ?></td>
-            <td>No. of Adults:<?php echo $abc['adult'];  ?></td>
-            <td>No. of Children:<?php echo $abc['child'];  ?></td>
-        </tr>
-    </table>
-    
-    <p></p>
-    <!-- ----------------->
-     <div id="room_book">
-    <table width="100%">
-        <tr>
-            <th width="25%">Room</th>
-            <th width="30%">Facilities</th>
-            <th width="15%">Price</th>
-            <th width="20%">Available Rooms</th>
-            <th width="10%">Total Price</th>
-    <?php
-    if(isset($query))
-    {
-        foreach($query as $book)
-    {
-    ?>
-            
-        <tr>
-            <td>
-                <div style="float: left; margin-right: 10px;"><img src="<?php echo base_url().'uploads/'.$book->image; ?>" width="50px" height="50px"></div>
-               <div style="font-size: 16px;width: 60%; float: left;"><?php echo $book->room_name; ?></div><br>  
-               
-                
-            </td> 
-            <td><?php echo $book->description; ?></td>
-            <td>
-                  <?php get_currency($book->price); ?> <!-- Sending price of room to currency_helper -->
-            </td>
-            <td> 
-               <?php $available_room = $book->no_of_room; ?> 
-                <select style="width: 80px;">
-                      <?php
-                            for ($i = 1; $i <= $available_room; $i++) {
-                                echo "<option value=" . $i . ">" . $i . "</option>";
-                            }
-                            ?>
-                   
-                </select>
-               
-            </td>
-        
-            <td>    
-                
-            </td>
-            
-        </tr>
-            
-    <?php           
-    }
-    }
-    ?>
-        </tr>
-    </table>
-          <div>
-    
-        <input type="submit" value="Book Now" onclick="javascript:book();"></div>
-     </div>
    
+    <!-- Information from checkin - $abc -->
+   
+    
+    <div id="replaceMe">
+        <img width="30" src="<?php echo base_url()."contents/images/loading1.gif"; ?>" alt="loading.." id="loading"/>
+    
+    </div>
     
 </div>
 
-<?php
-}
-?>
+
 
 
 

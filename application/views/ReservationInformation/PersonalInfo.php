@@ -1,50 +1,82 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url().'contents/styles/test.css';?> " />
-
 <script src="<?php echo base_url().'contents/scripts/test.js' ?>"></script>
-<table border="1">
-        	<tr>
-                <td style="width:400px;">
-                <fieldset>
-            <legend>Reservation Information</legend>
 
-                <div class="input-prepend input-append">
-                <span class="add-on">Check In</span>
-                <input name="CheckIn" type="text" required="required" style="width:212px; cursor:pointer; border-radius: 0px 5px 5px 0px;" id="CheckIn" value="">
-                
-                </div>
-                
-                <div class="clear"></div>
-                <div class="input-prepend input-append">
-                <span class="add-on">Check Out</span>
-                <input name="CheckOut" type="text" style="width:212px; cursor:pointer; border-radius: 0px 5px 5px 0px;" required="required" id="CheckOut" value="">
-                
-                </div>
-                
-                <div class="clear"></div>
-                <div class="input-prepend">
-                <span class="add-on">Room</span>
-                <select name="Room" style="width:223px;">
-                </select>
-                
-                </div>
-                
-                <div class="clear"></div>
-                <div class="input-prepend">
-                <span class="add-on">No. of Adults</span>
-                <input onkeypress='return isNumberKey(event)' class="input" style="width:35px;" required="required" maxlength="2" type="text" placeholder="Number of Adults" name="NoAdults" >
-                </div>
-                <div class="input-prepend">
-                <span class="add-on">No. of Childs</span>
-                <input onkeypress='return isNumberKey(event)' class="input" style="width:35px;" required="required" maxlength="2" type="text" placeholder="Number of Childs" name="NoChild" >
-                </div>
-              
-                </div>
-                
-            </fieldset>
+
+<script>
+    
+
+    $('#meroid').html(txtnext[1].no_of_room);
+
+$('#meroidnext').html(txtnext[2].no_of_room);
+var predata='<table width="420px">'+
+        '<tr style="background: #edebeb;font-weight: bold;" >'+
+        '<td style="width:40%;">Rooms</td>'+
+        '<td style="width:20%;">Booked</td>'+
+        '<td style="width:20%;">Price</td>'+
+        '<td style="width:20%;">Sub-Total</td></tr>';
+var nextdata="";
+    for(var i=0;i<=2;i++)
+    {
+        nextdata +='<tr><td><span id="room_name">'+
+                txtnext[i].room_name+'</span> </td><td><span id="booked_room">'+
+                txtnext[i].no_of_room+'</span> </td><td><span id="room_price">'+
+                txtnext[i].price+'</span></td><td><span id="sub_total"></span></td></tr>';
+        
+    
+}
+
+var postdata = '<tr><td colspan="2">Total Price</td><td></td></tr></table>';
+
+
+$('#firstTr').html(predata + nextdata + postdata);
+
+</script>
+
+<script>
+function roomBook()
+{
+      var dataString = 'hotelId=' + '1';
+ $.ajax({
+ type: "POST",
+ url: "<?php echo base_url().'index.php/room_booking/personal_info' ;?>",
+ data: dataString,
+  success: function(msgs) 
+        {
+    
+            $("#replaceMe").html(msgs);
             
+        }
+ });
+ }
+ </script>
+
+
+
+
+
+<div id="meroid">
+    
+</div>
+<div id="meroidnext">
+    
+</div>
+<div style="float: left; margin-top: 20px;">
+    
+ 
+    
+    <div id="legend" style="margin-bottom:30px;">Booking Information</div>
                 
-                </td>
-                <td  style="width:40px;">sysysdsdgsd</td>
+    <div id="firstTr">
+    </div>                  
+                        
+</div>
+                            
+                            
+                            
+<table style="float:left;">
+        	<tr>
+               
+                <td  style="width:20px;"></td>
                 <td style="width:400px;">
                 <fieldset>
             <legend>Personal Information</legend>
@@ -84,11 +116,11 @@
                 </div>
             </fieldset>
                     <textarea name="Remarks" placeholder="Remarks & Extra Instructions Like Pickup & Dropoff Information." style="width:330px;height:100px;resize:none;"></textarea>
-            
+            <input type="submit" value="Continue" onclick="javascript:roomBook();">
                 </td>
             </tr>
         </table>
 
  <div>
     
-        <input type="submit" value="Continue" onclick="javascript:book();"></div>
+        </div>
