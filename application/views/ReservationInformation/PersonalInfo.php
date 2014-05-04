@@ -6,16 +6,16 @@
 // $('#meroid').html(txtnext[1].no_of_room);
 
 //$('#meroidnext').html(txtnext[2].no_of_room);
-var predata='<table width="400px">'+
-        '<tr style="background: #edebeb;font-weight: bold;" >'+
-        '<td style="width:40%;">Rooms</td>'+
+var predata='<table width="400px" style="background:#e6e9f2;padding-top: 20px;">'+
+        '<tr style="background:#e6e9f2;font-weight: bold;border-bottom:solid thin #CCCCCC;" >'+
+        '<td style="width:35%;">Rooms</td>'+
         '<td style="width:20%;">Booked</td>'+
         '<td style="width:20%;">Price</td>'+
-        '<td style="width:20%;">Sub-Total</td></tr>';
+        '<td style="width:25%;">Sub-Total</td></tr>';
 var nextdata="";
     for(var i=0;i<txtnext.length;i++)
     {
-        nextdata +='<tr><td><span id="room_name">'+
+        nextdata +='<tr style="border-bottom:solid thin #CCCCCC;"><td><span id="room_name">'+
                 txtnext[i].room_name+'</span> </td><td><span id="booked_room">'+
                 txtnext[i].no_of_room+'</span> </td><td><span id="room_price">'+
                 txtnext[i].price+'</span></td><td><span id="sub_total"></span></td></tr>';
@@ -23,7 +23,7 @@ var nextdata="";
     
 }
 
-var postdata = '<tr><td colspan="2">Total Price</td><td></td></tr></table>';
+var postdata = '<tr style="border-bottom:solid thin #CCCCCC;"><td colspan="2">Total Price</td><td></td></tr></table>';
 $('#table').html(predata + nextdata + postdata);
 
 </script>
@@ -45,24 +45,24 @@ function roomBook()
  });
  }
  </script>
-
-<div style="float: left; margin-top: 20px;">
+ <div id="room_book">
+<div style="float: left;">
     
  
     
-    <div id="legend" style="margin-bottom:30px;">Booking Information</div>
+    <div id="legend" style="background:#e6e9f2;padding-bottom: 40px;padding-left: 10px; width: 390px;padding-top:20px;">Booking Summary</div>
                 
-    <div id="table"></div>                  
+    <div id="table" style="background: e6e9f2;"></div>                  
                         
 </div>
                             
                             
-     <div  style="float:left;">                       
-<table>
-        	<tr>
+     <div  style="float:left;background: e6e9f2;">                       
+<table style="background: e6e9f2;">
+    <tr">
                
-                <td  style="width:2px;"></td>
-                <td style="width:400px;">
+                <td  style="width:80px;"></td>
+                <td style="width:400px;margin-right: -30px;background:#e6e9f2;">
                 <fieldset>
             <legend>Personal Information</legend>
                 <div class="input-prepend">
@@ -101,11 +101,13 @@ function roomBook()
                 </div>
             </fieldset>
                     <textarea name="Remarks" placeholder="Remarks & Extra Instructions Like Pickup & Dropoff Information." style="width:330px;height:100px;resize:none;"></textarea>
-            <input type="submit" value="Continue" onclick="javascript:roomBook();">
+                    
                 </td>
             </tr>
         </table>
-
-
+          <div style="text-align: right;">
+<input type="submit" value="Next" id="popupBtn" onclick="javascript:roomBook();">
+          </div>
     
         </div>
+ </div>

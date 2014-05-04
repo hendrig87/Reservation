@@ -118,7 +118,7 @@
 
 #room_book
 {
- margin-left: 20px;   
+ //margin-left: 20px;   
 }
 
 #room_book th
@@ -131,7 +131,7 @@
 #room_book table tr td
 {
    text-align: left;
-  border-bottom: solid thin #ccc;
+  //border-bottom: solid thin #ccc;
 }
 
 #edit_room:hover 

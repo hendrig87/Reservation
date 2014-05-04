@@ -5,11 +5,12 @@
 
 .popup{
   
-   background-color:#E6E9F2;
+   background-color:white;
+   box-shadow: 10px 10px 5px 5px black;
    position:absolute;
    min-height:300px;
    width:auto;
-   border: solid 2px #B9EAF0;
+   
    // position: fixed;
   top: 30%;
   left: 15%;
@@ -17,13 +18,6 @@
    //top:30%;
    //left:30%;
    z-index: 1002;
-
-/*for rounded corner works with chrome and mozila*/
--moz-border-radius: 15px;
-border-bottom-right-radius:10px;
-border-bottom-left-radius:10px;
-border-top-right-radius:10px;
-border-top-left-radius:10px;
 
 }
 
@@ -39,16 +33,14 @@ border-top-left-radius:10px;
    overflow:auto;
 }
 
-.popupTitleBox{
-
-background-color:#CCCCCC;   
+#popupTitleBox
+{
+background: #0077b3; 
 height:30px; 
 text-align:center;
-//border: solid 1px #0089BF;
-//padding-left:5px;
 font-size: 16px;
 font-weight: bold;
-border-radius: 10px 10px 0px 0px;
+
 
 }
 
@@ -70,10 +62,65 @@ border-radius: 10px 10px 0px 0px;
    z-index: 1002;
 
 /*for rounded corner works with chrome and mozila*/
--moz-border-radius: 15px;
-border-bottom-right-radius:10px;
-border-bottom-left-radius:10px;
-border-top-right-radius:10px;
-border-top-left-radius:10px;
 
+
+}
+
+#popupBtn
+{
+    background: #2a61d5;
+    border-radius:5px 5px 5px 5px;
+    color: white;
+    font-weight: bolder;
+    border: none;
+    width: 100px;
+}
+
+
+#checkinStyle
+{
+    font-size: 14px;
+}
+
+#replaceMe{
+    padding: 10px;
+   
+}
+
+#popuptbl th{background-color: #d5e4fb;}
+#popuptbl tr:nth-child(even) {background: #f1f2f7}
+#popuptbl tr:nth-child(odd) {background: #e6e9f2}
+
+
+#closePopup, #back
+{
+
+	-moz-border-radius:30px;
+	-webkit-border-radius:30px;
+	border-radius:35px;
+	border:1px solid white;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:12px;
+        font-weight: bold;
+	padding:0px 5px 0px 5px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2b665e;  
+        margin-top: 2px;
+        margin-right: 4px;
+}
+
+.number
+{
+    font-size:12px;
+    font-weight: bold;
+    padding:0px 5px 0px 5px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #2b665e;  
+    float: left;
+    border-radius: 35px;
+    background: #fff;
+    cursor:pointer;
 }
