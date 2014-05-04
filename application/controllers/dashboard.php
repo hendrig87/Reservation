@@ -293,16 +293,45 @@ public function roomInfo()
         
     }
      
+    public function get_hotel_id_for_booked_room(){
+   if(isset($_POST['id'])){
+$hotel_id= $_POST['id'];
+   }
+   else
+   {
+       $hotel_id='0';
+   }
+$data['query']= $this->dashboard_model->booking_room($hotel_id);
+
+
+
+ $this->load->view('reservationInformation/bookedRoomInformation', $data);
+//die($a);
     
+}
      public function bookingInfo()
     {
+            if ($this->session->userdata('logged_in')) {
+                
+        $username = $this->session->userdata('username'); 
+      $user=  $this->dbmodel->get_user_info($username);
+      foreach ($user as $id){
+          $user_id=$id->id;
+      }
+      $data['hotelName']=$this->dbmodel->get_user_hotel($user_id);
+      
          $this->load->view('template/header');
         $this->load->view('dashboard/reservationSystem');
-        $this->load->view('dashboard/bookingInfo');
-       
+        $this->load->view('reservationInformation/bookedRoomView', $data);
+        $this->load->view('reservationInformation/bookedRoomInformation');
+      
         $this->load->view('template/footer');
-        
-    }
+       
+        }  
+        else {
+            redirect('login', 'refresh');
+        }
+        }
         
 }
         
