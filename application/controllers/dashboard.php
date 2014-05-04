@@ -301,12 +301,25 @@ $hotel_id= $_POST['id'];
    {
        $hotel_id='0';
    }
-$data['query']= $this->dashboard_model->booking_room($hotel_id);
+$room= $this->dbmodel->room_info($hotel_id);
+foreach ($room as $a){
+    $room_id=$a->id;
+}
 
+$data['personalInfo'] =  $this->dbmodel->get_booking_person_info($room_id);
+foreach ($data['personalInfo'] as $b){
+    $person_id=$b->Id;
+}
+if(isset($person_id)){
+$data['roomInfo'] =  $this->dbmodel->get_booked_room_info($person_id);
 
 
  $this->load->view('reservationInformation/bookedRoomInformation', $data);
 //die($a);
+}
+ else {
+    echo '<h3>No rooms are booked</h3>';    
+}
     
 }
      public function bookingInfo()

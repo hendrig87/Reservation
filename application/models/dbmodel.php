@@ -132,8 +132,20 @@ class Dbmodel extends CI_Model {
         return $query->result();
      
  }
- 
- 
- 
+ public function room_info($hotel_id){
+        $this->db->where('hotel_id', $hotel_id);
+        $query = $this->db->get('room_registration');
+        return $query->result();
+ }
+ public function get_booking_person_info($room_id){
+      $this->db->where('room_id', $room_id);
+        $query = $this->db->get('personal_info');
+        return $query->result();
+ }
+ public function get_booked_room_info($person_id){
+      $this->db->where('personal_info_id', $person_id);
+        $query = $this->db->get('booking_info');
+        return $query->result();
+ }
  
  }
