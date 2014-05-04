@@ -55,9 +55,9 @@ table td[class*="span"],table th[class*="span"],.row-fluid table td[class*="span
 .table-hover tbody tr.warning:hover>td{background-color:#faf2cc;}
 .table-hover tbody tr.info:hover>td{background-color:#c4e3f3;}
 form{margin:0 0 20px;}
-fieldset{padding:0;margin:0;border:0;}
-legend{display:block;width:100%;padding:0;margin-bottom:20px;font-size:21px;line-height:40px;color:#333333;border:0;border-bottom:1px solid #e5e5e5;}legend small{font-size:15px;color:#999999;}
-#legend{width:100%;padding:0;font-size:21px;border:0;border-bottom:1px solid #e5e5e5;}legend small{font-size:15px;color:#999999;}
+fieldset{padding:0;margin:0;border:0;background-color:#e6e9f2;}
+legend{display:block;width:100%;padding:0;margin-bottom:20px;font-size:21px;line-height:40px;color:#333333;border:0;background: e6e9f2;}legend small{font-size:15px;color:#999999;background: e6e9f2;}
+#legend{width:100%;padding:0;font-size:21px;border:0;border-bottom:1px solid #e5e5e5;background: e6e9f2;}legend small{font-size:15px;color:#999999;background: e6e9f2;}
 label,input,button,select,textarea{font-size:14px;font-weight:normal;line-height:20px;}
 input,button,select,textarea{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;}
 label{display:block;margin-bottom:5px;}

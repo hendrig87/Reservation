@@ -118,7 +118,11 @@
 
 #room_book
 {
+<<<<<<< HEAD
  margin: 0px;   
+=======
+ //margin-left: 20px;   
+>>>>>>> cb5c1bba9e2866fa72dab3a8731c1bf6f36dff6f
 }
 
 #room_book th
@@ -131,7 +135,7 @@
 #room_book table tr td
 {
    text-align: left;
-  border-bottom: solid thin #ccc;
+  //border-bottom: solid thin #ccc;
 }
 
 #edit_room:hover 

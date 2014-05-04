@@ -148,20 +148,20 @@ setInterval("displaytime()", 1000);
             
 ?>
 <!--      -->
-<table class="room-listing-tbl" style="width: 100%; background: #f3f2f2;">
-        <tr>
-            <td>Checkin Date:<?php echo $abc['checkin'];  ?></td>
-            <td>Checkout Date:<?php echo $abc['checkout'];  ?></td>
-            <td>No. of Adults:<?php echo $abc['adult'];  ?></td>
-            <td>No. of Children:<?php echo $abc['child'];  ?></td>
+<table class="room-listing-tbl" style="width: 100%;">
+    <tr id="checkinStyle">
+        <td><b>Checkin Date:</b>&nbsp;<?php echo $abc['checkin'];  ?></td>
+        <td><b>Checkout Date:</b>&nbsp;<?php echo $abc['checkout'];  ?></td>
+        <td><b>No. of Adults:</b>&nbsp;<?php echo $abc['adult'];  ?></td>
+        <td><b>No. of Children:</b>&nbsp;<?php echo $abc['child'];  ?></td>
         </tr>
     </table>
     
     <p></p>
     <!-- ----------------->
      <div id="room_book">
-    <table width="100%">
-        <tr>
+         <table width="100%" id="popuptbl">
+        <tr style="color:#0077b3">
             <th width="25%">Room</th>
             <th width="30%">Facilities</th>
             <th width="15%">Price</th>
@@ -220,5 +220,5 @@ setInterval("displaytime()", 1000);
     </table>
          <div style="text-align: right;">
     
-        <input type="submit" value="Book Now" onclick="javascript:book();"></div>
+             <input type="submit" value="Next" id="popupBtn" onclick="javascript:book();"></div>
      </div>

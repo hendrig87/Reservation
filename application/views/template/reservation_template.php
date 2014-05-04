@@ -43,7 +43,7 @@ $(document).ready(function(){
  //
     
         $(".middleLayer").show();
-         $(".popup").show(2000);
+         $(".popup").show("scale");
  }
  
  
@@ -60,7 +60,16 @@ $(document).ready(function(){
     }
  
 </script>
-
+<script>
+$(document).keydown(function(e)
+{
+    if(e.keyCode == 27)
+    {
+        $(".popup").hide();
+        $(".middleLayer").fadeOut(300);
+    }
+});
+</script>
 
 
 <script type="text/javascript">
@@ -193,16 +202,15 @@ setInterval("displaytime()", 1000);
 
 <div id="right" class="popup" style="display: none">
     <div>
-        <div class="popupTitleBox" style="width:100%;">
-            <span class="back" style="float:left;width:40%;text-align: left;"> <img width="55" height="25" src="<?php echo base_url()."contents/images/back.png"; ?>" alt="Back" id="back"/></span>
-        <span class="popupTitleText" style="float:left;width:10%;">Booking</span>
-        <span style="float:right;width:40%;text-align: right;"><a href="#" id="closePopup" onClick="hide('right')" > Close </a></span>
+        <div id="popupTitleBox" style="width:100%;">
+            <span class="back" style="float:left;width:40%;text-align: left;">&nbsp; <a href="" id="back"> < </a></span>
+        <span class="popupTitleText" style="float:left;width:10%;color: white;margin-top: 5px;">Booking</span>
+        <span style="float:right;width:40%;text-align: right; color: white;"><a href="" id="closePopup" onClick="hide('right')" > X </a></span>
     </div> 
     </div><br>
-    
-    <hr style="display: block; height: 1px;
-    border: 0; border-top: 1px solid #ccc;
-    margin: 1em 0; padding: 0;">
+    <label class="number">1</label><label class="number">2</label><label class="number">3</label><label class="number">4</label>
+    <hr style="display: block; height: 2px;
+    border: 0; border-top: 1px solid #ccc; padding: 0;">
    
     <!-- Information from checkin - $abc -->
    
