@@ -2,6 +2,7 @@
 <script src="<?php echo base_url().'contents/scripts/test.js' ?>"></script>
 
 
+
 <script>
 // $('#meroid').html(txtnext[1].no_of_room);
 
@@ -60,12 +61,12 @@ function roomBook()
                             
                             
      <div  style="float:left;">                       
-<table style="background: e6e9f2;">
-    <tr">
+<table>
+    <tr>
                
                 <td  style="width:80px;"></td>
-                <td style="width:400px;margin-right: -30px;">
-                <fieldset>
+                <td style="width:400px;">
+                    <fieldset style="margin:35px;">
                     <legend style="width: 80%;border-bottom: solid thin #ccc;">Personal Information</legend>
                 <div class="input-prepend">
                 <span class="add-on">Full Name</span>
@@ -101,8 +102,9 @@ function roomBook()
                 <span class="add-on">Email</span>
                 <input class="input input-large" type="text" placeholder="Email Address" required="required" name="Email" >
                 </div>
+                 <textarea name="Remarks" placeholder="Remarks & Extra Instructions Like Pickup & Dropoff Information." style="width:330px;height:100px;resize:none;"></textarea>
             </fieldset>
-                    <textarea name="Remarks" placeholder="Remarks & Extra Instructions Like Pickup & Dropoff Information." style="width:330px;height:100px;resize:none;"></textarea>
+                   
                     
                 </td>
             </tr>
