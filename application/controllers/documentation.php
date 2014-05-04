@@ -21,7 +21,7 @@ class Documentation extends CI_Controller {
         $this->load->view('documentations/document');
         
         $this->load->view('template/footer');
-        $this->load->view('template/payment');
+       
         
             
   }
