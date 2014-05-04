@@ -108,7 +108,7 @@ color: #fff;}
 	}
 	
 	#container{
-		margin: 1px 0px 1px 0px;
+		margin: 1px 0px -19px 0px;
 		background-color: rgb(111, 150, 216);
 		-webkit-box-shadow: 0 0 8px #D0D0D0;
 	}
@@ -199,7 +199,7 @@ color: #fff;}
             }
              .footerContainer
             {
-                margin-top: -19px;
+                margin-top: 0px;
 		padding: 0px;
                 background-color: #000;
                 width: 100%;

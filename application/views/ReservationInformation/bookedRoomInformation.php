@@ -10,24 +10,28 @@
   
   
      <div id="room_book">
-    <?php
+   <?php
     if(isset($query))
     { ?>
     <table id="tbl" width="100%">
         <tr>
-            <th width="25%">Room</th>
-            <th width="30%">Facilities</th>
-            <th width="15%">Price</th>
-            <th width="20%">Available Rooms</th>
-            <th width="10%">Action</th>
-   <?php
+            <th width="15%">Room</th>
+            <th width="10%">No. of rooms</th>
+            <th width="15%">From</th>
+            <th width="15%">To</th>
+            <th width="10%">No. of individuals</th>
+            <th width="20%">Contact Person</th>
+            <th width="15%">Contact Number</th>
+            
+    <?php
+   
         foreach($query as $book)
     {
     ?>
             
         <tr>
             <td>
-                <div style="float: left; margin-right: 10px;"><img src="<?php echo base_url().'uploads/'.$book->image; ?>" width="50px" height="50px"></div>
+                <div style="float: left; margin-right: 10px;"></div>
                <div style="font-size: 16px;width: 60%; float: left;"><?php echo $book->room_name; ?></div><br>  
                 <div style="width: 100%;font-size: 12px;">( Total Rooms: <?php echo $book->no_of_room; ?> )</div>
                 
