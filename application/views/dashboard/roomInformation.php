@@ -11,7 +11,7 @@
   
      <div id="room_book">
    
-    <table width="100%">
+    <table id="tbl" width="100%">
         <tr>
             <th width="25%">Room</th>
             <th width="30%">Facilities</th>

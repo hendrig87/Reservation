@@ -44,10 +44,10 @@ folder login inside view filder also uses these styles
 		margin: 0 px;
 		padding: 0px 5px 0px 15px;
 	}
-//th{background-color: #444;
-//color: #fff;}
-//tr:nth-child(even) {background: #CCC}
-//tr:nth-child(odd) {background: #FFF}
+#tbl th{background-color: #444;
+color: #fff;}
+#tbl tr:nth-child(even) {background: #CCC}
+#tbl tr:nth-child(odd) {background: #FFF}
 
 	#body{
 		margin: 0 15px 0 15px;
