@@ -56,7 +56,7 @@ $(document).ready(function(){
          $(".middleLayer").fadeOut(300);
          
          
-         $('#right').drags();
+         $('.popup').drags();
     }
  
 </script>
@@ -197,20 +197,29 @@ setInterval("displaytime()", 1000);
 =============================================================================================== -->
 
 <!-- booking -->
-
 <div class="middleLayer" style="display:none"></div>
 
-<div id="right" class="popup" style="display: none">
+<div class="popup" id="pop_up"style="display: none">
     <div>
         <div id="popupTitleBox" style="width:100%;">
-            <span class="back" style="float:left;width:40%;text-align: left;">&nbsp; <a href="" id="back"> < </a></span>
+            <span class="back" style="float:left;width:40%;text-align: left;">&nbsp; <!--<a href="" id="back"> < </a>--></span>
         <span class="popupTitleText" style="float:left;width:10%;color: white;margin-top: 5px;">Booking</span>
-        <span style="float:right;width:40%;text-align: right; color: white;"><a href="" id="closePopup" onClick="hide('right')" > X </a></span>
+        <span style="float:right;width:40%;text-align: right; color: white;"><a href="" id="closePopup" onClick="hide('pop_up')" > X </a></span>
     </div> 
     </div><br>
-    <label class="number">1</label><label class="number">2</label><label class="number">3</label><label class="number">4</label>
-    <hr style="display: block; height: 2px;
-    border: 0; border-top: 1px solid #ccc; padding: 0;">
+     <hr id="nav">
+    <div id="mainNav">
+        
+        <div class="number">1</div><span id="nav_description">Select Plan</span>
+        <div class="number" style="margin-left: 18%;">2</div><span id="nav_description" style="left: -70px;">Booking Summary</span>
+    <div class="number" style="margin-left: 18%;">3</div><span id="nav_description">Billing & Payments</span>
+    <div class="number" style="margin-left: 10%;">4</div><span id="nav_description">Thank You</span>
+    </div>
+   
+    <br>
+    
+    <hr style="display: block; height: 5px;
+    border: 0; border-top: 1px solid #ccc; padding: 0; margin-top: 30px;">
    
     <!-- Information from checkin - $abc -->
    

@@ -37,7 +37,7 @@ $(document).ready(
 </script>
 
 
-
+<!--
 <script>
  function calculateSum() {
 var ab = 0;
@@ -56,16 +56,14 @@ $(".subTotal").each(function() {
 
   }
 </script>
-
+-->
 
 
 <script>
 var txtnext = <?php echo $json.';'; ?>
 </script>
 
-<div id="replace">
-    
-</div>
+
 
     
 
@@ -215,10 +213,10 @@ setInterval("displaytime()", 1000);
     }
     ?>
         <tr>
-            <td>total<span id="total_price"></span><input type="button" onclick="calculateSum()" value="total"></td>
+            <td colspan="3" style="text-align:right;"><td><b>Total</b></td><td><span id="total_price"></span></td>
         </tr>
     </table>
-         <div style="text-align: right;">
+         <div id="action">
     
              <input type="submit" value="Next" id="popupBtn" onclick="javascript:book();"></div>
      </div>

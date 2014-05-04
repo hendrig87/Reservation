@@ -56,11 +56,12 @@ setInterval("displaytime()", 1000);
 </script>   
 
 
-<table>
-        	<tr>
+<table style="width: 100%;">
+    <tr>
                 <td style="width:400px;">
                 <fieldset>
-                    <legend>Credit Card</legend>
+                    <legend style="border-bottom: solid thin #CCC;width: 80%;top: -10px;">Secure Payment Info</legend>
+                    
                     <img src='<?php echo base_url().'contents/images/card-logos.jpg' ;?>' style="width: 380px; height: 100px;" >
                     
                 <div class="input-prepend">
@@ -96,15 +97,19 @@ setInterval("displaytime()", 1000);
                 <td  style="width:40px;"></td>
                 <td style="width:400px;">
                 <fieldset>
-              <legend>Payment Method</legend>
-              
+                    <legend style="border-bottom: solid thin #CCC;width: 80%;">Other Payment Method</legend>
+                    
               <img src='<?php echo base_url().'contents/images/esewa.jpg' ;?>'  >
             
               <img src='<?php echo base_url().'contents/images/payway.jpg' ;?>'  >
               
               
             </fieldset>
-            <input type="submit" value="Continue" onclick="javascript:payment();">
+          
                 </td>
             </tr>
         </table>
+<div id="action">
+    
+      <input type="submit" id="popupBtn" value="Next" onclick="javascript:payment();"></div>
+     </div>

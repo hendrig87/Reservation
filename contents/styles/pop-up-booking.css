@@ -4,33 +4,38 @@
 }
 
 .popup{
-  
+  min-height: 400px;
    background-color:white;
-   box-shadow: 10px 10px 5px 5px black;
+   box-shadow: 0px 0px 20px 1px #161616;
    position:absolute;
-   min-height:300px;
-   width:auto;
-   
+  // min-height:300px;
+   //width:auto;
+   width: 70%;
    // position: fixed;
   top: 30%;
   left: 15%;
-  
+ // margin-left: 50px;
+    //min-height: 400px;
    //top:30%;
    //left:30%;
    z-index: 1002;
 
 }
 
+
+
+
 .middleLayer {
    background-color:#111;
    opacity: 0.65;
-   position:absolute;
    z-index: 1000; /*ooveeerrrr nine thoussaaaannnd*/
-   top:0px;
-   left:0px;
-   width:100%;
-   min-height: 100%;
    overflow:auto;
+   width: 100%; 
+   height: 100%; 
+   margin: 0em;    
+   left: 0em; 
+   top: 0em; 
+   position: fixed;
 }
 
 #popupTitleBox
@@ -83,7 +88,7 @@ font-weight: bold;
 }
 
 #replaceMe{
-    padding: 10px;
+    padding: 20px;
    
 }
 
@@ -92,12 +97,9 @@ font-weight: bold;
 #popuptbl tr:nth-child(odd) {background: #e6e9f2}
 
 
-#closePopup, #back
+#closePopup
 {
-
-	-moz-border-radius:30px;
-	-webkit-border-radius:30px;
-	border-radius:35px;
+	border-radius:45px;
 	border:1px solid white;
 	display:inline-block;
 	cursor:pointer;
@@ -108,19 +110,48 @@ font-weight: bold;
 	padding:0px 5px 0px 5px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #2b665e;  
-        margin-top: 2px;
-        margin-right: 4px;
+        margin-top: 3px;
+        margin-right: 14px;
+        padding-left: 6px;
+        padding-right: 6px;
 }
 
 .number
 {
-    font-size:12px;
+    font-size:16px;
     font-weight: bold;
-    padding:0px 5px 0px 5px;
     text-decoration:none;
     text-shadow:0px 1px 0px #2b665e;  
     float: left;
     border-radius: 35px;
-    background: #fff;
+    background:#999999;
+    color: white;
+    padding: 5px 10px 5px 10px;
     cursor:pointer;
+}
+
+#action{
+    text-align: right;
+    padding: 10px 0px 10px 0px;
+}
+
+#nav{
+    width: 85%;
+}
+
+#mainNav
+{
+    width: 100%; margin-left:65px;position: relative;top: -25px;
+}
+
+#nav_description
+{
+    position: relative;top:30px;float: left;font-size: 12px;right:45px; 
+        
+}
+
+
+.room-listing-tbl
+{
+  margin-left: 40px;  
 }

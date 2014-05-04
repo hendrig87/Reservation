@@ -6,7 +6,7 @@
 // $('#meroid').html(txtnext[1].no_of_room);
 
 //$('#meroidnext').html(txtnext[2].no_of_room);
-var predata='<table width="400px" style="background:#e6e9f2;padding-top: 20px;">'+
+var predata='<table width="400px" style="padding-top: 20px;">'+
         '<tr style="background:#e6e9f2;font-weight: bold;border-bottom:solid thin #CCCCCC;" >'+
         '<td style="width:35%;">Rooms</td>'+
         '<td style="width:20%;">Booked</td>'+
@@ -23,7 +23,7 @@ var nextdata="";
     
 }
 
-var postdata = '<tr style="border-bottom:solid thin #CCCCCC;"><td colspan="2">Total Price</td><td></td></tr></table>';
+var postdata = '<tr style="border-bottom:solid thin #CCCCCC;"><td colspan="2"><b>Total Price</b></td><td></td></tr></table>';
 $('#table').html(predata + nextdata + postdata);
 
 </script>
@@ -50,21 +50,23 @@ function roomBook()
     
  
     
-    <div id="legend" style="background:#e6e9f2;padding-bottom: 40px;padding-left: 10px; width: 390px;padding-top:20px;">Booking Summary</div>
-                
+   
+<legend style="width: 80%;border-bottom: solid thin #ccc;">Booking Summary</legend> 
+
+
     <div id="table" style="background: e6e9f2;"></div>                  
                         
 </div>
                             
                             
-     <div  style="float:left;background: e6e9f2;">                       
+     <div  style="float:left;">                       
 <table style="background: e6e9f2;">
     <tr">
                
                 <td  style="width:80px;"></td>
-                <td style="width:400px;margin-right: -30px;background:#e6e9f2;">
+                <td style="width:400px;margin-right: -30px;">
                 <fieldset>
-            <legend>Personal Information</legend>
+                    <legend style="width: 80%;border-bottom: solid thin #ccc;">Personal Information</legend>
                 <div class="input-prepend">
                 <span class="add-on">Full Name</span>
                 <input class="input input-large" type="text" placeholder="Full Name" required="required" name="FullName" >
@@ -105,8 +107,8 @@ function roomBook()
                 </td>
             </tr>
         </table>
-          <div style="text-align: right;">
-<input type="submit" value="Next" id="popupBtn" onclick="javascript:roomBook();">
+         <div id="action">
+<input type="submit" value="Next" id="popupBtn" onclick="javascript:roomBook();" style="margin-bottom: 10px;">
           </div>
     
         </div>
