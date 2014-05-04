@@ -1,9 +1,6 @@
   <script src="<?php echo base_url() . "contents/scripts/room_booking.js"; ?>"></script>
 <link rel="stylesheet" href="<?php echo base_url().'contents/styles/pop-up-booking.css'; ?>">
 
-<script>
-var txtnext = <?php echo $json.';'; ?>
-</script>
 
 <script>
 $(document).ready(
@@ -14,17 +11,18 @@ $(document).ready(
    
            room_id = $(this).parent().prev().prev().prev('td').parent().attr('id');
             
-            
+            //alert(room_id);
             var booked = $(this).val();
+            //alert(booked);
             
             
            // obj.query[1].no_of_room=booked;
-           
+           //alert(txtnext.length);
             for (var i=0; i<txtnext.length; i++) {
   if (txtnext[i].id == room_id) {
     txtnext[i].no_of_room = booked;
     
-    //alert("i should update this");
+   //alert(txtnext[i].no_of_room );
     break;
   }
   
@@ -37,6 +35,34 @@ $(document).ready(
     
     
 </script>
+
+
+
+<script>
+ function calculateSum() {
+var ab = 0;
+ var sum = 0;
+// iterate through each td based on class and add the values
+$(".subTotal").each(function() {
+
+    var value = $(this).text();
+    
+    // add only if the value is number
+    if(!isNaN(value) && value.length != 0) {
+        sum += parseFloat(value);
+       
+    }
+});
+
+  }
+</script>
+
+
+
+<script>
+var txtnext = <?php echo $json.';'; ?>
+</script>
+
 <div id="replace">
     
 </div>
@@ -166,7 +192,7 @@ setInterval("displaytime()", 1000);
             <td> 
                <?php $available_room = $book->no_of_room; ?>
                
-                <select class="available-room" style="width: 80px;">
+                <select class="available-room" style="width: 80px;" onchange="calculateSum()">
                     <option value="0">Select</option>
                       <?php
                             for ($i = 1; $i <= $available_room; $i++) {
@@ -188,6 +214,8 @@ setInterval("displaytime()", 1000);
     }
     }
     ?>
+        <tr>
+            <td>total<span id="total_price"></span><input type="button" onclick="calculateSum()" value="total"></td>
         </tr>
     </table>
          <div style="text-align: right;">

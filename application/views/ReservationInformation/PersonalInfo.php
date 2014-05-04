@@ -3,19 +3,17 @@
 
 
 <script>
-    
+// $('#meroid').html(txtnext[1].no_of_room);
 
-    $('#meroid').html(txtnext[1].no_of_room);
-
-$('#meroidnext').html(txtnext[2].no_of_room);
-var predata='<table width="420px">'+
+//$('#meroidnext').html(txtnext[2].no_of_room);
+var predata='<table width="400px">'+
         '<tr style="background: #edebeb;font-weight: bold;" >'+
         '<td style="width:40%;">Rooms</td>'+
         '<td style="width:20%;">Booked</td>'+
         '<td style="width:20%;">Price</td>'+
         '<td style="width:20%;">Sub-Total</td></tr>';
 var nextdata="";
-    for(var i=0;i<=2;i++)
+    for(var i=0;i<txtnext.length;i++)
     {
         nextdata +='<tr><td><span id="room_name">'+
                 txtnext[i].room_name+'</span> </td><td><span id="booked_room">'+
@@ -26,9 +24,7 @@ var nextdata="";
 }
 
 var postdata = '<tr><td colspan="2">Total Price</td><td></td></tr></table>';
-
-
-$('#firstTr').html(predata + nextdata + postdata);
+$('#table').html(predata + nextdata + postdata);
 
 </script>
 
@@ -50,33 +46,22 @@ function roomBook()
  }
  </script>
 
-
-
-
-
-<div id="meroid">
-    
-</div>
-<div id="meroidnext">
-    
-</div>
 <div style="float: left; margin-top: 20px;">
     
  
     
     <div id="legend" style="margin-bottom:30px;">Booking Information</div>
                 
-    <div id="firstTr">
-    </div>                  
+    <div id="table"></div>                  
                         
 </div>
                             
                             
-                            
-<table style="float:left;">
+     <div  style="float:left;">                       
+<table>
         	<tr>
                
-                <td  style="width:20px;"></td>
+                <td  style="width:2px;"></td>
                 <td style="width:400px;">
                 <fieldset>
             <legend>Personal Information</legend>
@@ -121,6 +106,6 @@ function roomBook()
             </tr>
         </table>
 
- <div>
+
     
         </div>

@@ -12,6 +12,8 @@ $(document).ready(function(){
   });
 </script>
 
+
+
 <script type="text/javascript">
     
   function changeFunc() {
@@ -41,7 +43,7 @@ $(document).ready(function(){
  //
     
         $(".middleLayer").show();
-         $(".popup").show();
+         $(".popup").show(2000);
  }
  
  
@@ -191,9 +193,10 @@ setInterval("displaytime()", 1000);
 
 <div id="right" class="popup" style="display: none">
     <div>
-    <div class="popupTitleBox" >
-        <span class="popupTitleText">Booking</span>
-        <span style="float:right;"><a href="#" id="closePopup" onClick="hide('right')" > Close </a></span>
+        <div class="popupTitleBox" style="width:100%;">
+            <span class="back" style="float:left;width:40%;text-align: left;"> <img width="55" height="25" src="<?php echo base_url()."contents/images/back.png"; ?>" alt="Back" id="back"/></span>
+        <span class="popupTitleText" style="float:left;width:10%;">Booking</span>
+        <span style="float:right;width:40%;text-align: right;"><a href="#" id="closePopup" onClick="hide('right')" > Close </a></span>
     </div> 
     </div><br>
     
