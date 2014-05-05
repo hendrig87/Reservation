@@ -1,13 +1,10 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url().'contents/styles/test.css';?> " />
 <script src="<?php echo base_url().'contents/scripts/test.js' ?>"></script>
-
-
-
 <script>
-// $('#meroid').html(txtnext[1].no_of_room);
-
-//$('#meroidnext').html(txtnext[2].no_of_room);
-var predata='<table width="400px" style="padding-top: 20px;">'+
+$(document).ready(function(){
+    var total=0;
+    
+    var predata='<table width="400px" style="padding-top:20px;" id="bookSummary">'+
         '<tr style="background:#e6e9f2;font-weight: bold;border-bottom:solid thin #CCCCCC;" >'+
         '<td style="width:35%;">Rooms</td>'+
         '<td style="width:20%;">Booked</td>'+
@@ -21,20 +18,20 @@ var nextdata="";
         nextdata +='<tr style="border-bottom:solid thin #CCCCCC;"><td><span id="room_name">'+
                 txtnext[i].room_name+'</span> </td><td><span id="booked_room">'+
                 txtnext[i].no_of_room+'</span> </td><td><span id="room_price">'+
-                txtnext[i].price+'</span></td><td><span id="sub_total"></span></td></tr>';
+                txtnext[i].price+'</span></td><td><span id="sub_total">'+txtnext[i].no_of_room * txtnext[i].price +'</span></td></tr>';
     }
     
-        
-    
+    total += (txtnext[i].no_of_room) * (txtnext[i].price);   
+   
 }
 
-var postdata = '<tr style="border-bottom:solid thin #CCCCCC;"><td colspan="2"><b>Total Price</b></td><td></td></tr></table>';
+var postdata = '<tr style="border-bottom:solid thin #CCCCCC;"><td colspan="3"><b>Total Price</b></td><td><div id="pi_total"><b>'+ total +'<b></div></td></tr></table>';
 $('#table').html(predata + nextdata + postdata);
 
-</script>
-
-<script>
-$(document).ready(function(){
+    
+    
+    
+    
     $(".personalInfo").click(function(){
         
          $('#one').css({'background-color': '#999999'});
@@ -51,6 +48,10 @@ $(document).ready(function(){
     });
      });
 </script>
+
+
+
+
 
 
 <script>
