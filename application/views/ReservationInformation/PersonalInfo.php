@@ -30,6 +30,26 @@ $('#table').html(predata + nextdata + postdata);
 </script>
 
 <script>
+$(document).ready(function(){
+    $(".personalInfo").click(function(){
+        
+         $('#one').css({'background-color': '#999999'});
+         $('.first').css({'color': 'black'}); 
+         $('.first').css({'font-weight': 'normal'}); 
+         $('#two').css({'background-color': '#999999'});
+         $('.second').css({'color': 'black'}); 
+         $('.second').css({'font-weight': 'normal'}); 
+         
+         $('#three').css({'background-color': '#0077b3'});
+         $('.third').css({'color': '#0077b3'}); 
+         $('.third').css({'font-weight': 'bold'}); 
+        roomBook();
+    });
+     });
+</script>
+
+
+<script>
 function roomBook()
 {
       var dataString = 'hotelId=' + '1';
@@ -44,6 +64,7 @@ function roomBook()
             
         }
  });
+  $('#one').css({'background-color': '#999999'});
  }
  </script>
  <div id="room_book">
@@ -64,9 +85,9 @@ function roomBook()
 <table>
     <tr>
                
-                <td  style="width:80px;"></td>
-                <td style="width:400px;">
-                    <fieldset style="margin:35px;">
+                <td  style="width:80px;border-right: solid thin #cccccc;"></td>
+                <td style="width:400px;float: left;">
+                    <fieldset style="margin-left:75px;">
                     <legend style="width: 80%;border-bottom: solid thin #ccc;">Personal Information</legend>
                 <div class="input-prepend">
                 <span class="add-on">Full Name</span>
@@ -110,7 +131,7 @@ function roomBook()
             </tr>
         </table>
          <div id="action">
-<input type="submit" value="Next" id="popupBtn" onclick="javascript:roomBook();" style="margin-bottom: 10px;">
+             <input type="submit" value="Next" id="popupBtn" class="personalInfo" style="margin-bottom: 10px;">
           </div>
     
         </div>

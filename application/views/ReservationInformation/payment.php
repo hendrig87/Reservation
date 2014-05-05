@@ -1,9 +1,31 @@
 <script src="<?php echo base_url() . "contents/scripts/room_booking.js"; ?>"></script>
 <script src="<?php echo base_url() . "contents/scripts/jquery.js"; ?>"></script>
-        <script src="<?php echo base_url() . 'contents/scripts/calendar.js' ?>"></script>
+<script src="<?php echo base_url() . 'contents/scripts/calendar.js' ?>"></script>
 <link rel="stylesheet" href="<?php echo base_url().'contents/styles/pop-up-booking.css'; ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url().'contents/styles/test.css';?> " />
 <script src="<?php echo base_url().'contents/scripts/test.js' ?>"></script>
+
+
+<script>
+$(document).ready(function(){
+    $(".payment").click(function(){
+        
+         $('#one').css({'background-color': '#999999'});
+         $('.first').css({'color': 'black'}); 
+         $('.first').css({'font-weight': 'normal'}); 
+         $('#two').css({'background-color': '#999999'});
+         $('.second').css({'color': 'black'}); 
+         $('.second').css({'font-weight': 'normal'}); 
+         $('#three').css({'background-color': '#999999'});
+         $('.third').css({'color': 'black'}); 
+         $('.third').css({'font-weight': 'normal'}); 
+         $('#four').css({'background-color': '#0077b3'});
+         $('.fourth').css({'color': '#0077b3'}); 
+         $('.fourth').css({'font-weight': 'bold'}); 
+        payment();
+    });
+     });
+</script>
 
 
 <script>
@@ -84,19 +106,23 @@ setInterval("displaytime()", 1000);
                
                 
                 <div class="clear"></div>
-               <div class="input-prepend input-append">
+              
+                 <div class="tabledata">
+                     <div class="datepicker dropdown-menu"></div>
+                      <div class="input-prepend input-append">
                 <span class="add-on">Expiry Date</span>
-                <select name="yearpicker" id="yearpicker"></select>
-               <?php  ?>
-                </div>
+                <input name="pickdate" type="text" required="required" style="width:185px; cursor:pointer;" id="pickdate" value="">
+                <span class="add-on" style="width:auto; "><img src='<?php echo base_url().'contents/images/ParkReserve.png' ;?>' style="width: 15px; height: 20px;" ></span>
+                </div> 
+                    </div>
                
             </fieldset>
             
               
                 </td>
-                <td  style="width:40px;"></td>
+                <td  style="width:10px;border-right: solid thin #cccccc;"></td>
                 <td style="width:400px;">
-                <fieldset>
+                <fieldset  style="margin-left:90px;">
                     <legend style="border-bottom: solid thin #CCC;width: 80%;">Other Payment Method</legend>
                     
               <img src='<?php echo base_url().'contents/images/esewa.jpg' ;?>'  >
@@ -111,5 +137,4 @@ setInterval("displaytime()", 1000);
         </table>
 <div id="action">
     
-      <input type="submit" id="popupBtn" value="Next" onclick="javascript:payment();"></div>
-     </div>
+    <input type="submit" id="popupBtn" value="Next" class="payment"></div>

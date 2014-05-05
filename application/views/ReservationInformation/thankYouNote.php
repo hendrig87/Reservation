@@ -3,18 +3,17 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url().'contents/styles/test.css';?> " />
 <script src="<?php echo base_url().'contents/scripts/test.js' ?>"></script>
 <script>
-    function hide(obj) {
-   
-    var el = document.getElementById(obj);
-
-        el.style.display = 'none';
-         $(".middleLayer").fadeOut(300);
+  
+$(document).ready(function(){
+   var replaced = $("#changePopup").html();
+    $("#closePopup").click(function(){
+        $("#changePopup").html(replaced);
+         });
+     });
          
-         
-         $('.popup').drags();
-    }
+    
 </script>
 
 <div>
-    <h3>Thank You for booking.</h3><input type="button" id="popupBtn" value="Close" onclick="hide('pop_up')">
+    <h3>Thank You for your booking. Your reservation has confirmed. We are willing to see you in our hotel.</h3><a href="" id="closePopup" style="color: white;background: #2a61d5; font-size: 16px; padding: 8px 10px;">Close</a>
 </div>

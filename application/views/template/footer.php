@@ -46,5 +46,48 @@
 			</div>
 </div>
 <div class="clear"></div> 
+
+
+
+
+<h2>Create Object from JSON String</h2>
+<p>Original name: <span id="origname"></span></p>
+<p>New name: <span id="newname"></span></p>
+<div id="nab0"></div>
+<div id="nab1"></div>
+<div id="nab2"></div>
+
+<div id="newnab"></div>
+
+<script>
+var employees = [
+{ "firstName" : "John" , "lastName" : "Doe","age":"25" }, 
+{ "firstName" : "Anna" , "lastName" : "Smith" }, 
+{ "firstName" : "Peter" , "lastName" : "Jones" }, ];
+document.getElementById("origname").innerHTML=employees[0].firstName + " " + employees[0].lastName;
+
+// Set new name
+employees[0].firstName="Gilbert";
+document.getElementById("newname").innerHTML=employees[0].firstName + " " + employees[0].lastName;
+
+
+for(var i=0;i <employees.length; i++)
+{
+if(employees[i].age)
+{
+var id= "nab"+i;
+document.getElementById(id).innerHTML = employees[i].firstName + " " + employees[1].lastName +""+ employees[i].age;
+}
+else
+{
+
+
+}
+}
+
+
+document.getElementById("newnab").innerHTML = "hi";
+
+</script>
 </body>
 </html>
