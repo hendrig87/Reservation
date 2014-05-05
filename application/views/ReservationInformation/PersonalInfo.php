@@ -16,10 +16,14 @@ var predata='<table width="400px" style="padding-top: 20px;">'+
 var nextdata="";
     for(var i=0;i<txtnext.length;i++)
     {
+        if(txtnext[i].no_of_room!=0)
+        {
         nextdata +='<tr style="border-bottom:solid thin #CCCCCC;"><td><span id="room_name">'+
                 txtnext[i].room_name+'</span> </td><td><span id="booked_room">'+
                 txtnext[i].no_of_room+'</span> </td><td><span id="room_price">'+
                 txtnext[i].price+'</span></td><td><span id="sub_total"></span></td></tr>';
+    }
+    
         
     
 }

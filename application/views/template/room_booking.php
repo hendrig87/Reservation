@@ -19,6 +19,8 @@ $(document).ready(function(){
 <script>
     $(document).ready(function() {
                 makeActiveLink();
+                //jsonInitialization();
+                
 
                 var room_id;
                 $(".available-room").change(function() {
@@ -28,9 +30,7 @@ $(document).ready(function(){
 
                     for (var i = 0; i < txtnext.length; i++) {
                         if (txtnext[i].id == room_id) {
-                            txtnext[i].no_of_room = booked;
-
-                         
+                            txtnext[i].no_of_room = booked;                         
                             break;
                         }
 
@@ -41,6 +41,13 @@ $(document).ready(function(){
 
                 });
             });
+            
+            function jsonInitialization()
+            {
+                for (var i = 0; i < txtnext.length; i++) {                        
+                            txtnext[i].no_of_room = "0";
+                        }
+                    }
 
 
     function calculateSum() {
@@ -172,10 +179,8 @@ $this->load->helper('currency');
 
                 foreach ($query as $book) {
                     ?>
-
-                <tr id="<?php echo $book->id; ?>">
-                    <td>
-                        <div style="float: left; margin-right: 10px;"><img src="<?php echo base_url() . 'uploads/' . $book->image; ?>" width="50px" height="50px"></div>
+        <tr id="<?php echo $book->id;?>"><td>
+                        <div style="float: left; margin-right: 10px;"><img src="<?php echo base_url().'uploads/'.$book->image; ?>" width="50px" height="50px"></div>
                         <div style="font-size: 16px;width: 60%; float: left;" id="room-name"><?php echo $book->room_name; ?></div><br>  
 
 
