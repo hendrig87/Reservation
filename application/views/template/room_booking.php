@@ -11,16 +11,7 @@
 </script>
 <script>
     $(document).ready(function() {
-        $(".chooseRoom").click(function() {
-
-            $('#one').css({'background-color': '#999999'});
-            $('.first').css({'color': 'black'});
-            $('.first').css({'font-weight': 'normal'});
-            $('#two').css({'background-color': '#0077b3'});
-            $('.second').css({'color': '#0077b3'});
-            $('.second').css({'font-weight': 'bold'});
-            book();
-        });
+      
     });
 </script>
 
@@ -96,23 +87,7 @@
 
 
 <script>
-    function book()
-    {
-        // alert (id);
-        var dataString = 'hotelId=' + '1';
-
-        $.ajax({
-            type: "POST",
-            url: "<?php echo base_url() . 'index.php/room_booking/book_now'; ?>",
-            data: dataString,
-            success: function(msgs)
-            {
-
-                $("#room_book").html(msgs);
-
-            }
-        });
-    }
+   
 </script>
 
 

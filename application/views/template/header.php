@@ -3,10 +3,18 @@
     <head>
         <meta charset="utf-8">
         <title>Welcome to Online Reservation System</title>
+ 
+ 
+
+<script type="text/javascript">
+var base_url=<?php echo base_url(); ?>;
+</script> 
+     
+        
         <script src="<?php echo base_url() . "contents/scripts/bootstrap-datepicker.js"; ?>"></script>
          <link rel="stylesheet" href="<?php echo base_url() . "contents/styles/datepicker.css"; ?>"> 
          <link rel="stylesheet" href="<?php echo base_url() . "contents/styles/datepicker.less"; ?>"> 
-        
+        <script src="<?php echo base_url()."contents/scripts/popup.js";?>"></script>
         
         
         <script src="<?php echo base_url() . "contents/scripts/jquery.js"; ?>"></script>
@@ -19,9 +27,7 @@
         <link rel="stylesheet" href="<?php echo base_url() . "contents/styles/jquery.tinytooltip.css"; ?>">
 
 
-        <script src="<?php echo base_url() . "contents/scripts/dashboard.js"; ?>"></script>
-         <script src="<?php echo base_url() . "contents/scripts/room_booking.js"; ?>"></script>
-        <script src="<?php echo base_url() . "contents/scripts/jquery.tinytooltip.js"; ?>"></script>
+       <script src="<?php echo base_url() . "contents/scripts/jquery.tinytooltip.js"; ?>"></script>
         <script src="<?php echo base_url() . "contents/scripts/jquery.tinytooltip.min.js"; ?>"></script>
 
         <link type="text/css" rel="stylesheet" href="<?php echo base_url() . "contents/styles/styles.css"; ?>"/>
@@ -46,10 +52,13 @@
             }
             function hide_loginForm() { document.getElementById('loginOnHover').style.visibility="hidden"; }
                      </script>
-        
+           
 
+ <script src="<?php echo base_url()."contents/scripts/apiCheckin.js";?>"></script>
     </head>
     <body>
+        
+        
         <div id="header">
 
 
@@ -74,6 +83,9 @@
                 <?php
                 } else {
                     ?>
+                   <script src="<?php echo base_url() . "contents/scripts/dashboard.js"; ?>"></script>
+         
+      
                     <ul>
                         <li><a href="<?Php echo base_url() . 'index.php' ?>">HOME</a></li>
                         <li><a href="<?Php echo base_url() . 'index.php/documentation/index' ?>">DOCUMENTATION</a></li>

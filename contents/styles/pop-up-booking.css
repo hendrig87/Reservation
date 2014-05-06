@@ -1,57 +1,46 @@
+.popup{
+    min-height: 400px;
+    background-color:white;
+    box-shadow: 0px 0px 20px 1px #161616;
+    position:absolute;
+    width: 70%;
+    top: 30%;
+    left: 15%;
+    z-index: 1002;
+}
+
 #loading
 {
     display: none;
+    z-index: 9999;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    margin-left: -10px;
 }
 
-.popup{
-  min-height: 400px;
-   background-color:white;
-   box-shadow: 0px 0px 20px 1px #161616;
-   position:absolute;
-  // min-height:300px;
-   //width:auto;
-   width: 70%;
-   // position: fixed;
-  top: 30%;
-  left: 15%;
- // margin-left: 50px;
-    //min-height: 400px;
-   //top:30%;
-   //left:30%;
-   z-index: 1002;
-}
 
-#loading
+.middleLayer 
 {
-   display: none;
-   z-index: 9999;
-   top: 50%;
-   left: 50%;
-   position: absolute;
-   margin-left: -10px;
-}
-
-
-.middleLayer {
-   background-color:#111;
-   opacity: 0.65;
-   z-index: 1000; /*ooveeerrrr nine thoussaaaannnd*/
-   overflow:auto;
-   width: 100%; 
-   height: 100%; 
-   margin: 0em;    
-   left: 0em; 
-   top: 0em; 
-   position: fixed;
+    background-color:#111;
+    opacity: 0.65;
+    z-index: 1000; 
+    overflow:auto;
+    width: 100%; 
+    height: 100%; 
+    margin: 0em;    
+    left: 0em; 
+    top: 0em; 
+    position: fixed;
 }
 
 #popupTitleBox
 {
-background: #0077b3; 
-height:30px; 
-text-align:center;
-font-size: 16px;
-font-weight: bold;
+    background: #0077b3; 
+    height:30px; 
+    text-align:center;
+    font-size: 16px;
+    font-weight: bold;
 
 
 }
@@ -59,21 +48,16 @@ font-weight: bold;
 
 
 
-.popup_personal_info{
-   background-color:#E6E9F2;
-   position:absolute;
-   min-height:300px;
-   width:auto;
-   border: solid 2px #B9EAF0;
-   // position: fixed;
-  top: 30%;
-  left: 15%;
-  
-   //top:30%;
-   //left:30%;
-   z-index: 1002;
-
-/*for rounded corner works with chrome and mozila*/
+.popup_personal_info
+{
+    background-color:#E6E9F2;
+    position:absolute;
+    min-height:300px;
+    width:auto;
+    border: solid 2px #B9EAF0;
+    top: 30%;
+    left: 15%;
+    z-index: 1002;
 
 
 }
@@ -95,9 +79,9 @@ font-weight: bold;
     font-size: 14px;
 }
 
-#changePopup{
+#changePopup
+{
     padding: 20px;
-   
 }
 
 #popuptbl th{background-color: #d5e4fb;}
@@ -107,21 +91,21 @@ font-weight: bold;
 
 #closePopup
 {
-	border-radius:45px;
-	border:1px solid white;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:12px;
-        font-weight: bold;
-	padding:0px 5px 0px 5px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #2b665e;  
-        margin-top: 3px;
-        margin-right: 14px;
-        padding-left: 6px;
-        padding-right: 6px;
+    border-radius:45px;
+    border:1px solid white;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:12px;
+    font-weight: bold;
+    padding:0px 5px 0px 5px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #2b665e;  
+    margin-top: 3px;
+    margin-right: 14px;
+    padding-left: 6px;
+    padding-right: 6px;
 }
 
 .number
@@ -138,12 +122,14 @@ font-weight: bold;
     cursor:pointer;
 }
 
-#action{
+#action
+{
     text-align: right;
     padding: 10px 0px 5px 0px;
 }
 
-#nav{
+#nav
+{
     width: 85%;
 }
 
@@ -158,11 +144,50 @@ font-weight: bold;
 #nav_description
 {
     position: relative;top:30px;float: left;font-size: 12px;right:45px; 
-        
 }
 
 
 .room-listing-tbl
 {
-  margin-left: 40px;  
+    margin-left: 40px;  
+}
+
+
+
+#room_book
+{
+ margin-left: 10px;   
+}
+
+#room_book th
+{
+  text-align: left;
+  border-bottom: solid thin #ccc;
+}
+
+
+#room_book table tr td, th
+{
+    padding: 10px;
+   text-align: left;
+}
+
+
+#pi_booking_summary
+{
+    float: left;
+    width: 400px;
+}
+
+#booking_summary_title
+{
+    margin-top: 10px;
+    width: 80%;
+    border-bottom: solid thin #ccc;
+}
+
+#vertical_line
+{
+    width:60px;
+    border-right: solid thin #cccccc;
 }
