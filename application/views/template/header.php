@@ -32,7 +32,7 @@ var base_url=<?php echo base_url(); ?>;
 
         <link type="text/css" rel="stylesheet" href="<?php echo base_url() . "contents/styles/styles.css"; ?>"/>
 
-        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+     <!--   <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" /> -->
 
         <link rel="stylesheet" href="/resources/demos/style.css" />
         <script>

@@ -1,95 +1,19 @@
 <script src="<?php echo base_url() . "contents/scripts/room_booking.js"; ?>"></script>
 <link rel="stylesheet" href="<?php echo base_url() . 'contents/styles/pop-up-booking.css'; ?>">
-
-<script>
+<style type="text/css">
+    .grey{
+        background-color: #999999;
+    }
+</style>
+<script>      
     var txtnext = <?php echo $json . ';'; ?>;   
         for (var i = 0; i < txtnext.length; i++) {
             txtnext[i].no_of_room = "0";
         }
-    
-    
-</script>
-<script>
     $(document).ready(function() {
-      
+       makeActiveLink(); 
     });
 </script>
-
-<script>
-    $(document).ready(function() {
-        makeActiveLink();
-        
-
-
-        var room_id;
-        $(".available-room").change(function() {
-
-            room_id = $(this).parent().prev().prev().prev('td').parent().attr('id');
-            var booked = $(this).val();
-
-            for (var i = 0; i < txtnext.length; i++) {
-                if (txtnext[i].id == room_id) {
-                    txtnext[i].no_of_room = booked;
-                    break;
-                }
-
-            }
-
-
-            var rooms = $(this).val();
-            var price = $(this).parent().prev('td').children('span.priceTag').text();
-            var total = rooms * price;
-
-            $(this).parent().next('td').children('span.subTotal').text(total);
-
-            calculateSum();
-            makeActiveLink();
-
-
-        });
-    });
-
-    
-
-
-    function calculateSum() {
-        var ab = 0;
-        var sum = 0;
-// iterate through each td based on class and add the values
-        $(".subTotal").each(function() {
-
-            var value = $(this).text();
-
-            // add only if the value is number
-            if (!isNaN(value) && value.length != 0) {
-                sum += parseFloat(value);
-
-            }
-        });
-        $("#total_price").text(sum);
-
-    }
-
-    function makeActiveLink()
-    {
-        if (($("#total_price").text() == '.00') || ($("#total_price").text() == '0'))
-        {
-            $('#popupBtn').attr('disabled', 'disabled');
-        }
-        else
-        {
-            $('#popupBtn').removeAttr('disabled');
-        }
-    }
-</script>
-
-
-
-
-<script>
-   
-</script>
-
 
 
 
@@ -158,11 +82,9 @@ $this->load->helper('currency');
             <th width="10%">Total Price</th>
             <?php
             if (isset($query)) {
-
-
                 foreach ($query as $book) {
                     ?>
-                <tr id="<?php echo $book->id; ?>"><td>
+                <tr id="<?php echo $book->id; ?>"> <td>
                         <div style="float: left; margin-right: 10px;"><img src="<?php echo base_url() . 'uploads/' . $book->image; ?>" width="50px" height="50px"></div>
                         <div style="font-size: 16px;width: 60%; float: left;" id="room-name"><?php echo $book->room_name; ?></div><br>  
 
@@ -204,6 +126,6 @@ $this->load->helper('currency');
         </tr>
     </table>
     <div id="action">
-
-        <input type="submit" value="Next" id="popupBtn" class="chooseRoom"></div>
+        <input type="hidden" name="disablebtn" id="disablebtn" value="yes"/>
+        <input type="submit" value="Next" id="popupBtn"></div>
 </div>

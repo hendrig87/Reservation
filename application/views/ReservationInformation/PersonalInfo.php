@@ -1,5 +1,12 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'contents/styles/test.css'; ?> " />
 <script src="<?php echo base_url() . 'contents/scripts/test.js' ?>"></script>
+<script>
+    $(document).ready(function(){
+       personal_info(); 
+    });
+    </script>
+
+
 
 <div id="room_book">
 

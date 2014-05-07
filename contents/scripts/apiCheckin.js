@@ -2,15 +2,52 @@
 
 var base_url = "http://localhost/reservation/";
 
+ 
+    
 
+    
+
+
+    function calculateSum() {
+        var ab = 0;
+        var sum = 0;
+// iterate through each td based on class and add the values
+        $(".subTotal").each(function() {
+
+            var value = $(this).text();
+
+            // add only if the value is number
+            if (!isNaN(value) && value.length != 0) {
+                sum += parseFloat(value);
+
+            }
+        });
+        $("#total_price").text(sum);
+
+    }
+
+    function makeActiveLink()
+    {
+        if (($("#total_price").text() == '.00') || ($("#total_price").text() == '0'))
+        {
+            $('#disablebtn').val('yes');
+            //$('#popupBtn').attr('disabled', 'disabled');
+        }
+        else
+        {
+            $('#disablebtn').val('no');
+            //$('#popupBtn').removeAttr('disabled');            
+        }
+        
+    }
+    
  function book()
     {
-        // alert (id);
         var dataString = 'hotelId=' + '1';
 
         $.ajax({
             type: "POST",
-            url: "<?php echo base_url() . 'index.php/room_booking/book_now'; ?>",
+            url: base_url+'index.php/room_booking/book_now',
             data: dataString,
             success: function(msgs)
             {
@@ -43,7 +80,6 @@ var base_url = "http://localhost/reservation/";
 
 
 function personal_info() {   
-       alert ("asdfadsf");
         var total = 0;
 
         var predata = '<table width="400px" style="padding-top:20px;" id="bookSummary">' +
@@ -99,16 +135,54 @@ function changeFunc() {
  });
  }
 
+
+
 $(document).ready(function(){
    var replaced = $("#changePopup").html();
+   var room_id;
+   
     $("#closePopup").click(function(){
         $("#changePopup").html(replaced);
          });
-         
-    
-    $("#checkin").click(function(){
+       
+   
+            room_id = $(this).parent().prev().prev().prev('td').parent().attr('id');
+            var booked = $(this).val();
+
+            for (var i = 0; i < txtnext.length; i++) {
+                if (txtnext[i].id == room_id) {
+                    txtnext[i].no_of_room = booked;
+                    break;
+                }
+ }
+            var rooms = $(this).val();
+            var price = $(this).parent().prev('td').children('span.priceTag').text();
+            var total = rooms * price;
+            $(this).parent().next('td').children('span.subTotal').text(total);
+            calculateSum();
+            makeActiveLink();
         
-    
+    $("#popupBtn").live('click',function(e){
+        
+        if($('#disablebtn').val() == 'yes')
+        {
+            e.preventDefault();
+            alert('Please select the rooms');
+            return false;
+        }
+        else
+        {
+            $('#one').css({'background-color': '#999999'});
+            $('.first').css({'color': 'black'});
+            $('.first').css({'font-weight': 'normal'});
+            $('#two').css({'background-color': '#0077b3'});
+            $('.second').css({'color': '#0077b3'});
+            $('.second').css({'font-weight': 'bold'});
+            book();
+        }
+        });
+        
+    $("#checkin").live('click',(function(){
          $(".middleLayer").show();
          $(".popup").show();
     
@@ -123,21 +197,16 @@ $(document).ready(function(){
     
         changeFunc(); // function show popup
 	            }, 1000); // .5 second
-	    
-     
+	
     });
+      });
     
-    $(document).keydown(function(e)
-{
-    if(e.keyCode == 27)
-    {
-        $(".popup").hide();
-        $(".middleLayer").fadeOut(300);
-    }
-});
+    
+
+    
 
 
-$(".personalInfo").click(function() {
+$(".personalInfo").live('click',function() {
 
             $('#one').css({'background-color': '#999999'});
             $('.first').css({'color': 'black'});
@@ -153,23 +222,19 @@ $(".personalInfo").click(function() {
             personal_info();
         });
 
-  $(".chooseRoom").click(function() {
-
-            $('#one').css({'background-color': '#999999'});
-            $('.first').css({'color': 'black'});
-            $('.first').css({'font-weight': 'normal'});
-            $('#two').css({'background-color': '#0077b3'});
-            $('.second').css({'color': '#0077b3'});
-            $('.second').css({'font-weight': 'bold'});
-            book();
-        });
-
-    });
+     });
 
 
 
 
 
+    $(document).keydown(function(e){
+    if(e.keyCode==27)
+    {
+        $(".popup").hide();
+        $(".middleLayer").fadeOut(300);
+    }
+});
 // function to call
  
  $( document ).ajaxComplete(function( event,request, settings ) {
@@ -197,8 +262,7 @@ function closeloading() {
             
             
             
-            
- 
+           
  //Personal info methods
    
 
