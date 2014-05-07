@@ -189,7 +189,7 @@
     border-right: solid thin #cccccc;
 }
 
-#disablebtnInfo, .error
+#disablebtnInfo
 {
     margin-left: 500px;
     color: red;

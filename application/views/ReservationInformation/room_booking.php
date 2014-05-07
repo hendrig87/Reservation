@@ -6,12 +6,7 @@
             txtnext[i].no_of_room = "0";
         }
 </script>
-<script>
- 
-      //  $("#closePopup").click(function(){
 
-//});
-</script>
 <script>
 
 $(document).ready(function(){
