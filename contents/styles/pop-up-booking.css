@@ -188,3 +188,10 @@
     width:60px;
     border-right: solid thin #cccccc;
 }
+
+#disablebtnInfo
+{
+    color: #768d87;
+    float: left;
+    font-weight: bold;
+}

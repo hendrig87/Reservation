@@ -32,7 +32,6 @@ class Welcome extends CI_Controller {
              $this->load->library('session');
           
                 $this->load->view('template/header');
-                $this->load->view('template/jsinphp');
                 $this->load->view('login/loginOnHover');
                 $this->load->view('template/imageDiv');
 		$this->load->view('template/reservation_template');

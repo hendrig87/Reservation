@@ -1,8 +1,10 @@
 <script src="<?php echo base_url() . "contents/scripts/jquery.js"; ?>"></script>
 
 <script>
+    
+    
+    
     $(document).ready(function(){
-     alert("something");
     var total = 0;
 
     var predata = '<table width="400px" style="padding-top:20px;" id="bookSummary">' +

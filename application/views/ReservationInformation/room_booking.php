@@ -7,6 +7,12 @@
         }
 </script>
 <script>
+ 
+      //  $("#closePopup").click(function(){
+//$("#changePopup").html(replaced);
+//});
+</script>
+<script>
 
 $(document).ready(function(){
     makeActiveLink();
@@ -17,6 +23,18 @@ $(document).ready(function(){
     $(this).parent().next('td').children('span.subTotal').text(total);
     calculateSum();
     makeActiveLink();
+    
+    
+    // for updating the json data.
+     var room_id;
+        room_id = $(this).parent().prev().prev().prev('td').parent().attr('id');
+       var booked = $(this).val();
+        for (var i = 0; i < txtnext.length; i++) {
+if (txtnext[i].id == room_id) {
+txtnext[i].no_of_room = booked;
+        break;
+}
+}
 });        
  
  
@@ -26,7 +44,7 @@ $(document).ready(function(){
 if ($('#disablebtn').val() == 'yes')
 {
 e.preventDefault();
-        alert('Please select the rooms');
+        $("#disablebtnInfo").text('Please select the rooms');
         return false;
 }
 else
@@ -146,7 +164,7 @@ $this->load->helper('currency');
                 <span id="total_price">.00</span></td>
         </tr>
     </table>
-    <div id="action">
+    <div id="action"><span id="disablebtnInfo"></span>
         <input type="hidden" name="disablebtn" id="disablebtn" value="yes"/>
         <input type="submit" value="Next" id="popupBtn" class="choosedRoom"></div>
 </div>

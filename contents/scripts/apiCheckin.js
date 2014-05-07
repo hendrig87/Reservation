@@ -121,19 +121,7 @@ $(".middleLayer").show();
         });
     
 var replaced = $("#changePopup").html();
-        var room_id;
-        $("#closePopup").click(function(){
-$("#changePopup").html(replaced);
-});
-        room_id = $(this).parent().prev().prev().prev('td').parent().attr('id');
-        var booked = $(this).val();
-        for (var i = 0; i < txtnext.length; i++) {
-if (txtnext[i].id == room_id) {
-txtnext[i].no_of_room = booked;
-        break;
-}
-}
-
+      
         
       
 

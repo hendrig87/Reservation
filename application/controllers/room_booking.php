@@ -40,11 +40,11 @@ class room_booking extends CI_Controller {
               $data['json'] = json_encode($data['query']);
               if(!$_POST['checkin'])
               {
-                  $this->load->view('template/room_booking_empty_view');
+                  $this->load->view('ReservationInformation/room_booking_empty_view');
               }
               else
               {            
-            $this->load->view('template/room_booking',$data);
+            $this->load->view('ReservationInformation/room_booking',$data);
               }
             
           
