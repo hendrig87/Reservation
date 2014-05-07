@@ -96,7 +96,9 @@ $('#one').css({'background-color': '#999999'});
 <!--loading currency_helper  -->
 <?php
 $this->load->helper('currency');
-
+//foreach ($availableRoom as $rooms){
+ //   echo $rooms;
+//}
 ?>
 <!--      -->
 <table class="room-listing-tbl" style="width: 100%;">
