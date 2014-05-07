@@ -52,7 +52,7 @@ setInterval("displaytime()", 1000);
 	<div id="body">
 	
            <div class ="checkForm">
-               <div class="error"> Invalid Date.Enter (yyyy/mm/dd) date format. </div>
+               <span class="error"> Invalid Date.Enter (yyyy/mm/dd) date format. </span>
                <form method="post" action="#" id="checkin_room">
             <table>
                 <tr>
