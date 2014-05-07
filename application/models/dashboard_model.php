@@ -45,7 +45,17 @@ public function add_new_room($room_type,$noOfRoom,$price,$description,$img_name,
             //var_dump($booked_room);
             return $booked_room->result();
         }
-
+        
+        //==================== find out total no. of available rooms===============================//
+        
+        function availableRoom($InDate,$OutDate)
+        {
+           $this->db->select('no_of_room_booked'); 
+           $this->db->where('check_in_date >=', $InDate);
+            $this->db->where('check_out_date <=', $OutDate);
+           $availableRoom = $this->db->get('booking_info');
+           return $availableRoom->result();
+        }
 
         public function findroom($id) {
         $this->db->select();
