@@ -1,4 +1,5 @@
-//Global variable 
+<script>
+    //Global variable 
 
 var base_url = "http://localhost/reservation/";
 
@@ -7,11 +8,14 @@ function calculateSum() {   //function to calculate the total price of the booke
     var sum = 0;
 // iterate through each td based on class and add the values
     $(".subTotal").each(function() {
-    var value = $(this).text();
-    // add only if the value is number
-    if (!isNaN(value) && value.length != 0) {
-        sum += parseFloat(value);
-    }
+
+        var value = $(this).text();
+
+        // add only if the value is number
+        if (!isNaN(value) && value.length != 0) {
+            sum += parseFloat(value);
+
+        }
     });
     $("#total_price").text(sum);
 
@@ -70,6 +74,35 @@ function roomBook()      // function to call for payment info view.
 
 
 
+function personal_info() {
+    var total = 0;
+
+    var predata = '<table width="400px" style="padding-top:20px;" id="bookSummary">' +
+            '<tr style="background:#e6e9f2;font-weight: bold;border-bottom:solid thin #CCCCCC;" >' +
+            '<td style="width:35%;">Rooms</td>' +
+            '<td style="width:20%;">Booked</td>' +
+            '<td style="width:20%;">Price</td>' +
+            '<td style="width:25%;">Sub-Total</td></tr>';
+    var nextdata = "";
+    for (var i = 0; i < txtnext.length; i++)
+    {
+        if (txtnext[i].no_of_room != 0)
+        {
+            nextdata += '<tr style="border-bottom:solid thin #CCCCCC;"><td><span id="room_name">' +
+                    txtnext[i].room_name + '</span> </td><td><span id="booked_room">' +
+                    txtnext[i].no_of_room + '</span> </td><td><span id="room_price">' +
+                    txtnext[i].price + '</span></td><td><span id="sub_total">' + txtnext[i].no_of_room * txtnext[i].price + '</span></td></tr>';
+        }
+
+        total += (txtnext[i].no_of_room) * (txtnext[i].price);
+
+    }
+
+    var postdata = '<tr style="border-bottom:solid thin #CCCCCC;"><td colspan="3"><b>Total Price</b></td><td><div id="pi_total"><b>' + total + '<b></div></td></tr></table>';
+    $('#table').html(predata + nextdata + postdata);
+}
+
+
 
 function changeFunc() {
     var checkin = $("#CheckIn").val();
@@ -103,7 +136,30 @@ $("#loading").fadeOut('fast');
 
 
 $(document).ready(function(){
-         $("#checkin").click(function(){
+    
+$("#popupBtn").click(function(e){
+if ($('#disablebtn').val() == 'yes')
+{
+e.preventDefault();
+        alert('Please select the rooms');
+        return false;
+}
+else
+{
+$('#one').css({'background-color': '#999999'});
+        $('.first').css({'color': 'black'});
+        $('.first').css({'font-weight': 'normal'});
+        $('#two').css({'background-color': '#0077b3'});
+        $('.second').css({'color': '#0077b3'});
+        $('.second').css({'font-weight': 'bold'});
+        book();
+}
+});
+});
+
+$(document).ready(function(){
+    alert("one");
+      $("#checkin").click(function(){
 $(".middleLayer").show();
         $(".popup").show();
         
@@ -119,6 +175,11 @@ $(".middleLayer").show();
         }, 1000);
         
         });
+        
+        
+        
+        
+    
     
 var replaced = $("#changePopup").html();
         var room_id;
@@ -134,6 +195,16 @@ txtnext[i].no_of_room = booked;
 }
 }
 
+$('#roomToBook').change(function() {
+    alert("vxvxzv");
+
+var rooms = $(this).val();
+        var price = $(this).parent().prev('td').children('span.priceTag').text();
+        var total = rooms * price;
+        $(this).parent().next('td').children('span.subTotal').text(total);
+        calculateSum();
+        makeActiveLink();
+});        
         
       
 
@@ -167,3 +238,5 @@ $(".popup").hide();
 function path() {
 $("#path").show();
 }
+
+</script>

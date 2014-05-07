@@ -2,15 +2,8 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Welcome to Online Reservation System</title>
- 
- 
-
-<script type="text/javascript">
-var base_url=<?php echo base_url(); ?>;
-</script> 
+        <title>Welcome to Online Reservation System</title>  
      
-        
         <script src="<?php echo base_url() . "contents/scripts/bootstrap-datepicker.js"; ?>"></script>
          <link rel="stylesheet" href="<?php echo base_url() . "contents/styles/datepicker.css"; ?>"> 
          <link rel="stylesheet" href="<?php echo base_url() . "contents/styles/datepicker.less"; ?>"> 

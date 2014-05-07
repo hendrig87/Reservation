@@ -1,26 +1,47 @@
-<script src="<?php echo base_url() . "contents/scripts/room_booking.js"; ?>"></script>
-<link rel="stylesheet" href="<?php echo base_url() . 'contents/styles/pop-up-booking.css'; ?>">
-<style type="text/css">
-    .grey{
-        background-color: #999999;
-    }
-</style>
+<script src="<?php echo base_url() . "contents/scripts/jquery.js"; ?>"></script>
 <script>      
-    var txtnext = <?php echo $json . ';'; ?>;   
+    var txtnext;
+    txtnext = <?php echo $json . ';'; ?>;   
         for (var i = 0; i < txtnext.length; i++) {
             txtnext[i].no_of_room = "0";
         }
-    $(document).ready(function() {
-       makeActiveLink(); 
-    });
 </script>
+<script>
 
-
-
-
-
-
-
+$(document).ready(function(){
+    makeActiveLink();
+    $('.available-room').change(function() {            //action performs when no of  rooms is selected
+    var rooms = $(this).val();
+    var price = $(this).parent().prev('td').children('span.priceTag').text();
+    var total = rooms * price;
+    $(this).parent().next('td').children('span.subTotal').text(total);
+    calculateSum();
+    makeActiveLink();
+});        
+ 
+ 
+ 
+ //action perform when next button is clicked
+ $("#popupBtn").click(function(e){
+if ($('#disablebtn').val() == 'yes')
+{
+e.preventDefault();
+        alert('Please select the rooms');
+        return false;
+}
+else
+{
+$('#one').css({'background-color': '#999999'});
+        $('.first').css({'color': 'black'});
+        $('.first').css({'font-weight': 'normal'});
+        $('#two').css({'background-color': '#0077b3'});
+        $('.second').css({'color': '#0077b3'});
+        $('.second').css({'font-weight': 'bold'});
+        book();
+}
+});
+});
+</script>
 
 <script type="text/javascript">
     var currenttime = "Apr 28, 2014 2:41:06 PM";
@@ -78,7 +99,7 @@ $this->load->helper('currency');
             <th width="25%">Room</th>
             <th width="30%">Facilities</th>
             <th width="15%">Price</th>
-            <th width="20%">Available Rooms</th>
+            <th width="20%">Select No. of Rooms</th>
             <th width="10%">Total Price</th>
             <?php
             if (isset($query)) {
@@ -97,7 +118,7 @@ $this->load->helper('currency');
                     <td> 
                         <?php $available_room = $book->no_of_room; ?>
 
-                        <select class="available-room" style="width: 80px;" onchange="calculateSum()">
+                        <select class="available-room" style="width: 80px;" id="roomToBook">
                             <option value="0">Select</option>
                             <?php
                             for ($i = 1; $i <= $available_room; $i++) {
@@ -127,5 +148,5 @@ $this->load->helper('currency');
     </table>
     <div id="action">
         <input type="hidden" name="disablebtn" id="disablebtn" value="yes"/>
-        <input type="submit" value="Next" id="popupBtn"></div>
+        <input type="submit" value="Next" id="popupBtn" class="choosedRoom"></div>
 </div>
