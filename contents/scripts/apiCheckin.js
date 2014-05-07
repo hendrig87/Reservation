@@ -125,7 +125,7 @@ $("#loading").fadeOut('fast');
 }
 
 
-$(document).ready(function(){
+$(document).ready(function(event){
      var replaced = $("#changePopup").html();
          $("#checkinbtn").click(function(){
              
@@ -142,6 +142,17 @@ $(document).ready(function(){
      event.preventDefault();
    }
              
+             
+              var dtVal=$('#CheckOut').val();
+   if(ValidateDate(dtVal))   //calling ValidateDate function
+   {
+      $('.error').hide();
+   }
+   else
+   {
+     $('.error').show();
+     event.preventDefault();
+   }
     // end for checks for valid date code part         
              
              
