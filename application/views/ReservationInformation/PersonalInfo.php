@@ -2,10 +2,13 @@
 
 <script>
     
-    
-    
     $(document).ready(function(){
-    var total = 0;
+       
+         $('#loading').show();
+        
+        
+        //for displaying booked room
+        var total = 0;
 
     var predata = '<table width="400px" style="padding-top:20px;" id="bookSummary">' +
             '<tr style="background:#e6e9f2;font-weight: bold;border-bottom:solid thin #CCCCCC;" >' +
@@ -30,9 +33,27 @@
 
     var postdata = '<tr style="border-bottom:solid thin #CCCCCC;"><td colspan="3"><b>Total Price</b></td><td><div id="pi_total"><b>' + total + '<b></div></td></tr></table>';
     $('#table').html(predata + nextdata + postdata);
-    });
-    </script>
+    
+    
+//end of code for diplaying booked room
 
+$(".personalInfo").click(function() {
+
+        $('#one').css({'background-color': '#999999'});
+        $('.first').css({'color': 'black'});
+        $('.first').css({'font-weight': 'normal'});
+        $('#two').css({'background-color': '#999999'});
+        $('.second').css({'color': 'black'});
+        $('.second').css({'font-weight': 'normal'});
+        $('#three').css({'background-color': '#0077b3'});
+        $('.third').css({'color': '#0077b3'});
+        $('.third').css({'font-weight': 'bold'});
+        roomBook();
+});
+
+ $('#loading').hide();
+ });
+    </script>
 
 
 <div id="room_book">

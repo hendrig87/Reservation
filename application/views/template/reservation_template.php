@@ -2,6 +2,17 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url().'contents/styles/test.css';?> " />
 
 <script>
+  
+    $(document).ready(function(){   
+        
+        $("#closePopup").click(function(){
+           $("#pop_up").hide();
+            $(".middleLayer").fadeOut(300);
+        });
+          
+    });
+</script>
+<script>
 var currenttime = "Apr 28, 2014 2:41:06 PM";
 var greeting = " PM";
 var montharray=new Array("January","February","March","April","May","June","July","August","September","October","November","December")
@@ -41,6 +52,7 @@ setInterval("displaytime()", 1000);
 	<div id="body">
 	
            <div class ="checkForm">
+               <div class="error"> Invalid Date.(mm/dd/yyyy or mm-dd-yyyy) </div>
                <form method="post" action="#" id="checkin_room">
             <table>
                 <tr>
@@ -99,7 +111,7 @@ setInterval("displaytime()", 1000);
                              </div>
                     </td>
                     <td style="margin-top:-15px;">
-                        <input type ="button" value="Submit" style="margin-top:-25px;" id="checkin">
+                        <input type ="button" value="Submit" style="margin-top:-25px;" id="checkinbtn">
                       
                     </td>
             </table>
@@ -145,7 +157,7 @@ setInterval("displaytime()", 1000);
     border: 0; border-top: 1px solid #ccc; padding: 0; margin-top: 18px;">
     </div>
     
-    <div id="loading"> <img width="30" src="<?php echo base_url().'contents/images/loadingGif.gif' ; ?>" alt="loading.."/><br><b>Loading...</b></div>
+    <div id="loading"> <img width="30" src="<?php echo base_url().'contents/images/page-loader.gif' ; ?>" alt="loading.."/><br><b>Loading...</b></div>
     <div id="replaceMe">
         
     </div>

@@ -9,7 +9,7 @@
 <script>
  
       //  $("#closePopup").click(function(){
-//$("#changePopup").html(replaced);
+
 //});
 </script>
 <script>
@@ -17,6 +17,9 @@
 $(document).ready(function(){
     makeActiveLink();
     $('.available-room').change(function() {            //action performs when no of  rooms is selected
+        
+        $("#disablebtnInfo").hide()                  //hides the information about disable button info.
+        
     var rooms = $(this).val();
     var price = $(this).parent().prev('td').children('span.priceTag').text();
     var total = rooms * price;
@@ -105,7 +108,7 @@ $this->load->helper('currency');
         <td><b>Checkin Date:</b>&nbsp;<?php echo $abc['checkin']; ?></td>
         <td><b>Checkout Date:</b>&nbsp;<?php echo $abc['checkout']; ?></td>
         <td><b>No. of Adults:</b>&nbsp;<?php echo $abc['adult']; ?></td>
-        <td><b>No. of Children:</b>&nbsp;<?php echo $abc['child']; ?></td>
+        <td><b>No. of Children:</b>&nbsp;<?php if($abc['child']=="Select") { echo "0"; } else { echo $abc['child']; } ?></td>
     </tr>
 </table>
 

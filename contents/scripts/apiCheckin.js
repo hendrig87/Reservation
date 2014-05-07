@@ -2,8 +2,18 @@
 
 var base_url = "http://localhost/reservation/";
 
+
+function ValidateDate(dtValue)                   //checks valid date Format.
+{
+    
+var dtRegex = new RegExp(/\b\d{1,2}[\/-]\d{1,2}[\/-]\d{4}\b/);
+return dtRegex.test(dtValue);
+}
+
+
+
 function calculateSum() {   //function to calculate the total price of the booked room.
-    var ab = 0;
+   
     var sum = 0;
 // iterate through each td based on class and add the values
     $(".subTotal").each(function() {
@@ -72,6 +82,8 @@ function roomBook()      // function to call for payment info view.
 
 
 function changeFunc() {
+    $('#loading').show();
+    
     var checkin = $("#CheckIn").val();
     var checkout = $("#CheckOut").val();
     var adult = $("#adult").val();
@@ -92,7 +104,10 @@ function changeFunc() {
 
             $("#replaceMe").html(msg);
 
-        }
+        },
+         complete: function(){
+        $('#loading').hide();
+      }
     });
 }
 
@@ -103,42 +118,34 @@ $("#loading").fadeOut('fast');
 
 
 $(document).ready(function(){
-         $("#checkin").click(function(){
+     var replaced = $("#changePopup").html();
+         $("#checkinbtn").click(function(){
+             
+      // checks for valid date code part
+     
+   var dtVal=$('#CheckIn').val();
+   if(ValidateDate(dtVal))   //calling ValidateDate function
+   {
+      $('.error').hide();
+   }
+   else
+   {
+     $('.error').show();
+     event.preventDefault();
+   }
+             
+    // end for checks for valid date code part         
+             
+             
+      $("#changePopup").html(replaced); 
 $(".middleLayer").show();
         $(".popup").show();
-        
-       // loading(); // loading
-
-        setTimeout(function(){ // then show popup, deley in .5 second
-        closeloading();
                 path();
                 $('#one').css({'background-color': '#0077b3'});
                 $('.first').css({'color': '#0077b3'});
                 $('.first').css({'font-weight': 'bold'});
                 changeFunc(); // function show popup
-        }, 1000);
-        
-        });
-    
-var replaced = $("#changePopup").html();
-      
-        
-      
-
-$(".personalInfo").click(function() {
-
-        $('#one').css({'background-color': '#999999'});
-        $('.first').css({'color': 'black'});
-        $('.first').css({'font-weight': 'normal'});
-        $('#two').css({'background-color': '#999999'});
-        $('.second').css({'color': 'black'});
-        $('.second').css({'font-weight': 'normal'});
-        $('#three').css({'background-color': '#0077b3'});
-        $('.third').css({'color': '#0077b3'});
-        $('.third').css({'font-weight': 'bold'});
-        roomBook();
-        personal_info();
-});
+    });
 });
 
 
