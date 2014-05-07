@@ -4,7 +4,7 @@
     
     $(document).ready(function(){
        
-         $('#loading').show();
+        
         
         
         //for displaying booked room
@@ -51,7 +51,6 @@ $(".personalInfo").click(function() {
         roomBook();
 });
 
- $('#loading').hide();
  });
     </script>
 

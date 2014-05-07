@@ -6,7 +6,7 @@ var base_url = "http://localhost/reservation/";
 function ValidateDate(dtValue)                   //checks valid date Format.
 {
     
-var dtRegex = new RegExp(/\b\d{1,2}[\/-]\d{1,2}[\/-]\d{4}\b/);
+var dtRegex = new RegExp(/\b\d{4}[\/]\d{1,2}[\/]\d{1,2}\b/);
 return dtRegex.test(dtValue);
 }
 
@@ -44,6 +44,7 @@ function makeActiveLink()    //function to make the link deactive when no rooms 
 
 function book()         //function to be calle for personal info view.
 {
+    $('#loading').show();
     var dataString = 'hotelId=' + '1';
 
     $.ajax({
@@ -55,13 +56,17 @@ function book()         //function to be calle for personal info view.
 
             $("#room_book").html(msgs);
 
-        }
+        },
+         complete: function(){
+        $('#loading').hide();
+      }
     });
 }
 
 
 function roomBook()      // function to call for payment info view.
 {
+    $('#loading').show();
     var dataString = 'hotelId=' + '1';
     $.ajax({
         type: "POST",
@@ -72,7 +77,10 @@ function roomBook()      // function to call for payment info view.
 
             $("#replaceMe").html(msgs);
 
-        }
+        },
+         complete: function(){
+        $('#loading').hide();
+      }
     });
     $('#one').css({'background-color': '#999999'});
 }
