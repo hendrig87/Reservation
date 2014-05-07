@@ -130,6 +130,11 @@ alert("here");
 }
 
 
+function closeloading() {
+$("#loading").fadeOut('fast');
+}
+
+
 
 $(document).ready(function(){
     
@@ -138,7 +143,7 @@ $(".middleLayer").show();
         $(".popup").show();
         
        // loading(); // loading
-alert("this");
+
         setTimeout(function(){ // then show popup, deley in .5 second
         closeloading();
                 path();
@@ -222,8 +227,4 @@ $(".popup").hide();
 
 function path() {
 $("#path").show();
-}
-
-function closeloading() {
-$("#loading").fadeOut('fast');
 }
