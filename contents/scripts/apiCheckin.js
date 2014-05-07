@@ -125,7 +125,7 @@ $("#loading").fadeOut('fast');
 }
 
 
-$(document).ready(function(){
+$(document).ready(function(event){
      var replaced = $("#changePopup").html();
          $("#checkinbtn").click(function(){
              
