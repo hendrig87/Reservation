@@ -37,6 +37,8 @@ class room_booking extends CI_Controller {
                     );
             $hotelId= $_POST['hotelId'];
             $data['query']= $this->dashboard_model->booking_room($hotelId);
+            $data['total_room']= $this->dashboard_model->total_room();
+            //$data['booked_room']= $this->dashboard_model->booked_room();
               $data['json'] = json_encode($data['query']);
               if(!$_POST['checkin'])
               {

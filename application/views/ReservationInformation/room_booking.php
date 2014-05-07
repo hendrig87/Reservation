@@ -101,6 +101,13 @@ $('#one').css({'background-color': '#999999'});
 <!--loading currency_helper  -->
 <?php
 $this->load->helper('currency');
+
+foreach ($total_room as $room){
+    echo $room->room_name." = ".$room->no_of_room."<br/>";
+}
+//foreach ($booked_room as $booked){
+  //  echo $booked->room_type." = ".$booked->no_of_room_booked."<br/>";
+//}
 ?>
 <!--      -->
 <table class="room-listing-tbl" style="width: 100%;">

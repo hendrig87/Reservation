@@ -101,7 +101,7 @@ setInterval("displaytime()", 1000);
                              <span class="add-on">Children</span>
                        
                              <select name="children" required id="child" style="border-radius:0px 5px 5px 0px;">
-                                 <option > Select</option>
+                                 <option value="0" > Select</option>
                             <?php
                             for ($i = 1; $i <= $children; $i++) {
                                 echo "<option value=" . $i . ">" . $i . "</option>";
