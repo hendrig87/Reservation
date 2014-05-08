@@ -117,12 +117,12 @@ $(".personalInfo").click(function() {
         </table>
     <script>
         
-var updated_json =' <?php form_open('popup/popinsert'); ?>'+'<input type="text" value="'+txtnext+'" name="json">'+' <input type="submit" value="Next" id="popupBtn" class="personalInfo" style="margin-bottom: 10px;">'+'<?php form_close(); ?>';
-$('#action').html(updated_json);
+//var updated_json =' <?php //form_open('popup/popinsert'); ?>'+'<input type="text" value="'+txtnext+'" name="json">'+' <input type="submit" value="Next" id="popupBtn" class="personalInfo" style="margin-bottom: 10px;">'+'<?php //form_close(); ?>';
+//$('#action').html(updated_json);
     </script>
    
         <div id="action">
-           
+            <input type="text" name="jsondata" id="myjson" value="myjsonkovalue">
         </div>
 
     </div>

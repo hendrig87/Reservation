@@ -66,12 +66,17 @@ function book()         //function to be calle for personal info view.
 
 function roomBook()      // function to call for payment info view.
 {
+  
     $('#loading').show();
-    var dataString = 'hotelId=' + '1';
+    var jsondata = $('#myjson').val();
     $.ajax({
         type: "POST",
         url: base_url + 'index.php/room_booking/personal_info',
-        data: dataString,
+        data: {
+            
+            'child': jsondata,
+            'hotelId': "1"
+        },
         success: function(msgs)
         {
 

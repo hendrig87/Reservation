@@ -82,11 +82,12 @@ class room_booking extends CI_Controller {
          function personal_info()
         {  
               $hotelId= $_POST['hotelId'];
-          // $data['query']= $this->dashboard_model->booking_room($hotelId);
-           //echo $data['query'];
-          //  $j_son['json'] = json_encode($data);
-          // echo $j_son;
           
+              $mydata = $_POST['child'];
+      
+     
+              echo $mydata;
+              echo $hotelId;
           $this->load->view('ReservationInformation/payment', $hotelId);
             
           
@@ -95,10 +96,7 @@ class room_booking extends CI_Controller {
         function payment_options()
         {  
               $hotelId= $_POST['hotelId'];
-          // $data['query']= $this->dashboard_model->booking_room($hotelId);
-           //echo $data['query'];
-          //  $j_son['json'] = json_encode($data);
-          // echo $j_son;
+              
           
           $this->load->view('ReservationInformation/thankYouNote', $hotelId);
             

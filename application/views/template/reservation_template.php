@@ -233,6 +233,7 @@ setInterval("displaytime()", 1000);
 
 
 <?php 
+if(isset($xyz))
 echo $xyz;
 
 ?>
