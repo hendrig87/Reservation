@@ -62,21 +62,13 @@ $(document).ready(function(){
  });
  
  }
- 
- $( document ).ajaxComplete(function( event,request, settings ) {
- $("#closePopup").click(function(){
-      $(".middleLayer").fadeOut(300);
-         $('.popup').hide();
-         $('#changePopup').html();
-         
-=======
+
   
     $(document).ready(function(){   
-        
+        //close popup.
         $("#closePopup").click(function(){
            $("#pop_up").hide();
             $(".middleLayer").fadeOut(300);
->>>>>>> fb2b08234a93a9a4e3fd5ad58be6b54220d36365
         });
           
     });
