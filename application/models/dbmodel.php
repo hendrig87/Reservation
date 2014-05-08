@@ -11,7 +11,7 @@ class Dbmodel extends CI_Model {
         $this->db->where('user_email', $this->input->post('userEmail') );
         $this->db->where('user_pass', md5($this->input->post('userPass')) );
         $query = $this->db->get('user_info');
-       // print_r($query);
+        
         if ($query->num_rows == 1) {
             return true;
         } else {

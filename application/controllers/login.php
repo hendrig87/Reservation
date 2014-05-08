@@ -160,8 +160,8 @@ else
                   $this->load->model('dbmodel');  
 		
 		$query = $this->dbmodel->validate();
-                //print_r($query);
-                if(isset($query)) // if the user's credentials validated...
+              
+                if($query) // if the user's credentials validated...
                     
 		{
                     
