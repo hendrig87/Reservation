@@ -36,6 +36,13 @@ public function add_new_room($room_type,$noOfRoom,$price,$description,$img_name,
             $total_room = $this->db->get('room_registration');
             return $total_room->result();
         }
+        function htotal_room($r_type){
+            
+            $this->db->select('no_of_room');
+            $this->db->where('room_name',$r_type);
+            $total_room = $this->db->get('room_registration');
+            return $total_room->result();
+        }
         
         //======== find out total num. of room booked======//
         
@@ -54,13 +61,27 @@ public function add_new_room($room_type,$noOfRoom,$price,$description,$img_name,
            //die($InDate." ".$OutDate);
             
            $this->db->select_sum('no_of_rooms_booked'); 
-           $this->db->where('check_in_date >=', $InDate);
-            $this->db->where('check_out_date <=', $OutDate);
+           $this->db->where('check_in_date <=', $OutDate);
+            $this->db->where('check_out_date >=', $InDate);
             $this->db->where('room_type','Deluxe');
            $availableRoom = $this->db->get('booking_info');
            //var_dump($availableRoom);
            return $availableRoom->result();
         }
+        
+        function havailableRoom($InDate,$OutDate,$r_type)
+        {
+           //die($InDate." ".$OutDate);
+           
+           $this->db->select_sum('no_of_rooms_booked'); 
+           $this->db->where('check_in_date <=', $OutDate);
+            $this->db->where('check_out_date >=', $InDate);
+            $this->db->where('room_type',$r_type);
+           $availableRoom = $this->db->get('booking_info');
+           //var_dump($availableRoom);
+           return $availableRoom->result();
+        }
+        
 
         public function findroom($id) {
         $this->db->select();

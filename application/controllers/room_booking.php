@@ -47,9 +47,14 @@ class room_booking extends CI_Controller {
             
             $data['query']= $this->dashboard_model->booking_room($hotelId);
             
-            $data['total_room']= $this->dashboard_model->total_room();
+            //$data['total_room']= $this->dashboard_model->total_room();
             
-           $data['availableRoom'] = $this->dashboard_model->availableRoom($firstDate,$secondDate);
+           
+                
+              //  $data['availableRoom'] = $this->dashboard_model->availableRoom($firstDate,$secondDate);
+            
+            
+           
             
             //$data['booked_room']= $this->dashboard_model->booked_room();
               $data['json'] = json_encode($data['query']);
