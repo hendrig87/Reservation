@@ -27,8 +27,8 @@ class popup extends CI_Controller {
            
        public function popinsert()
        {
-            $jsons = $this->input->post('json');
-            die($json);
+            $jsons['xyz'] = $this->input->post('json');
+            die($jsons);
         
            $this->load->view('template/reservation_template',$jsons);
        }

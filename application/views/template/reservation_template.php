@@ -233,6 +233,6 @@ setInterval("displaytime()", 1000);
 
 
 <?php 
-echo $jsons;
+echo $xyz;
 
 ?>
