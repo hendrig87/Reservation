@@ -6,7 +6,7 @@ var base_url = "http://localhost/reservation/";
 function ValidateDate(dtValue)                   //checks valid date Format.
 {
     
-var dtRegex = new RegExp(/\b\d{4}[\/]\d{1,2}[\/]\d{1,2}\b/);
+var dtRegex = new RegExp(/\b\d{4}[-]\d{1,2}[-]\d{1,2}\b/);
 return dtRegex.test(dtValue);
 }
 
@@ -120,12 +120,19 @@ function changeFunc() {
 }
 
 
-function closeloading() {
-$("#loading").fadeOut('fast');
-}
-
-
 $(document).ready(function(event){
+    
+    $("#CheckIn").click(function(){
+        $(".error").fadeOut(2000);
+    });
+    
+     $("#CheckOut").click(function(){
+        $(".error").fadeOut(2000);
+    });
+    
+    
+    
+    
      var replaced = $("#changePopup").html();
          $("#checkinbtn").click(function(){
              
@@ -138,7 +145,7 @@ $(document).ready(function(event){
    }
    else
    {
-     $('.error').show();
+     $('.error').fadeIn(1500);
      event.preventDefault();
    }
              
@@ -146,19 +153,19 @@ $(document).ready(function(event){
               var dtVal=$('#CheckOut').val();
    if(ValidateDate(dtVal))   //calling ValidateDate function
    {
-      $('.error').hide();
+      $('.error').fadeOut(1500);
    }
    else
    {
-     $('.error').show();
+     $('.error').fadeIn(1500);
      event.preventDefault();
    }
     // end for checks for valid date code part         
              
              
       $("#changePopup").html(replaced); 
-$(".middleLayer").show();
-        $(".popup").show();
+$(".middleLayer").fadeToggle(1500);
+        $(".popup").fadeToggle(2000);
                 path();
                 $('#one').css({'background-color': '#0077b3'});
                 $('.first').css({'color': '#0077b3'});

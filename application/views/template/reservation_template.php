@@ -52,15 +52,15 @@ setInterval("displaytime()", 1000);
 	<div id="body">
 	
            <div class ="checkForm">
-               <span class="error"> Invalid Date.Enter (yyyy/mm/dd) date format. </span>
+               <span class="error"><span class="error_sign">!</span>&nbsp;Invalid Date. Enter (yyyy/mm/dd) date format. </span>
                <form method="post" action="#" id="checkin_room">
-            <table>
+                   <table>
                 <tr>
                     
                     <td class="tabledata">
                       <div class="input-prepend input-append">
                 <span class="add-on">Check In</span>
-                <input name="CheckIn" type="text" required="required" style="width:185px; cursor:pointer;" id="CheckIn" value="">
+                <input name="CheckIn" type="text" required="required" style="width:185px; cursor:pointer;" id="CheckIn">
                 <span class="add-on" style="width:auto; "><img src='<?php echo base_url().'contents/images/ParkReserve.png' ;?>' style="width: 15px; height: 20px;" ></span>
                 </div> 
                     </td>

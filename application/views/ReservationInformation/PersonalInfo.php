@@ -10,7 +10,7 @@
         //for displaying booked room
         var total = 0;
 
-    var predata = '<table width="400px" style="padding-top:20px;" id="bookSummary">' +
+    var predata = '<table width="400px" style="padding-top:20px;" id="popuptbl">' +
             '<tr style="background:#e6e9f2;font-weight: bold;border-bottom:solid thin #CCCCCC;" >' +
             '<td style="width:35%;">Rooms</td>' +
             '<td style="width:20%;">Booked</td>' +

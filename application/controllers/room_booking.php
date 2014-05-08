@@ -44,7 +44,7 @@ class room_booking extends CI_Controller {
             
             //$data['booked_room']= $this->dashboard_model->booked_room();
               $data['json'] = json_encode($data['query']);
-              if(!$_POST['checkin'])
+              if(!$_POST['checkin'] && !$_POST['checkout'])
               {
                   $this->load->view('ReservationInformation/room_booking_empty_view');
               }

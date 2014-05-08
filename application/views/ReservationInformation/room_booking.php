@@ -42,7 +42,8 @@ txtnext[i].no_of_room = booked;
 if ($('#disablebtn').val() == 'yes')
 {
 e.preventDefault();
-        $("#disablebtnInfo").text('Please select the rooms');
+        $("#disablebtnInfo").html('<span class="error_sign">!</span>&nbsp;' + 'Please select the rooms');
+        $("#disablebtnInfo").fadeIn(1000);
         return false;
 }
 else

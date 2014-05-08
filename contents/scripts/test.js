@@ -47,7 +47,7 @@ var checkout = $('#CheckOut').datepicker({
 	
 	var Datepicker = function(element, options){
 		this.element = $(element);
-		this.format = DPGlobal.parseFormat(options.format||this.element.data('date-format')||'yyyy/mm/dd');
+		this.format = DPGlobal.parseFormat(options.format||this.element.data('date-format')||'yyyy-mm-dd');
 		this.picker = $(DPGlobal.template)
 							.appendTo('body')
 							.on({
@@ -406,7 +406,7 @@ var checkout = $('#CheckOut').datepicker({
 			return [31, (DPGlobal.isLeapYear(year) ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month]
 		},
 		parseFormat: function(format){
-			var separator = format.match(/[.\/\-\s].*?/),
+			var separator = format.match(/[.\-\-\s].*?/),
 				parts = format.split(/\W+/);
 			if (!separator || !parts || parts.length === 0){
 				throw new Error("Invalid date format.");

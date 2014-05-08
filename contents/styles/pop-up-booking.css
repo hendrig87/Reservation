@@ -15,7 +15,7 @@
     z-index: 9999;
     top: 50%;
     left: 50%;
-    position: fixed;
+    position:absolute;
     margin-left: -10px;
 }
 
@@ -23,7 +23,7 @@
 .middleLayer 
 {
     background-color:#111;
-    opacity: 0.65;
+    opacity: 0.8;
     z-index: 1000; 
     overflow:auto;
     width: 100%; 
@@ -105,6 +105,7 @@
     padding-right: 6px;
 }
 
+
 .number
 {
     font-size:16px;
@@ -172,6 +173,7 @@
 
 #pi_booking_summary
 {
+    margin-top: 10px;
     float: left;
     width: 400px;
 }
@@ -191,17 +193,44 @@
 
 #disablebtnInfo
 {
+    display: none;
     margin-left: 500px;
-    color: red;
+    letter-spacing: 1px;
+    font-size:12px; 
+    border: #eb4545 thin solid;
+    border-radius: 5px;
+    background: whitesmoke;
+    padding: 5px;
     float: left;
     font-weight: bold;
 }
 
 .error
 {
+    letter-spacing: 1px;
+    font-size:12px; 
     display: none;
-    margin-left: 15px;
-    color:#cc0033;
-    min-height: 30px;
-    
+    border: #eb4545 thin solid;
+    border-radius: 5px;
+    background: whitesmoke;
+    margin-left: 5px;
+    padding: 5px;    
+    font-weight: bold;
+}
+
+#checkinbtn
+{
+    border-radius: 5px;
+    height: 30px;
+    margin-bottom: 3px;
+    margin-left: 10px;
+}
+
+.error_sign
+{
+    font-weight: bolder;
+    padding: 3px 6px;
+    color: white;
+    background:#eb4545;
+    border-radius: 20px;
 }
