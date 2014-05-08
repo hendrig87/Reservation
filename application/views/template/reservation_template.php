@@ -2,12 +2,81 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url().'contents/styles/test.css';?> " />
 
 <script>
+<<<<<<< HEAD
+$(document).ready(function(){
+   var replaced = $("#changePopup").html();
+    $("#closePopup").click(function(){
+        $("#changePopup").html(replaced);
+         });
+         
+    
+    $("#checkin").click(function(){
+         $(".middleLayer").show();
+         $(".popup").show();
+         //alert("i m here");
+   loading(); // loading
+	            setTimeout(function(){ // then show popup, deley in .1 second
+	closeloading();
+        path();
+         $('#one').css({'background-color': '#0077b3'}); 
+         $('.first').css({'color': '#0077b3'}); 
+         $('.first').css({'font-weight': 'bold'});
+         
+       //alert ("i m here also");
+        changeFunc(); // function show popup
+	            }, 1000); // .1 second
+	    
+     
+    });
+    });
+</script>
+
+
+
+<script type="text/javascript">
+    
+  function changeFunc() {
+      
+      var checkin = $("#CheckIn").val();
+      var checkout = $("#CheckOut").val();
+     var adult = $("#adult").val();
+      var child = $("#child").val();
+ $.ajax({
+ type: "POST",
+ url: "<?php echo base_url().'index.php/room_booking/post_action' ;?>",
+ data: {
+     'checkin' : checkin,
+     'checkout' : checkout,
+     'adult' : adult,
+     'child' : child,
+     'hotelId':"1"
+        },
+  success: function(msg) 
+        {
+            
+            
+            $("#replaceMe").html(msg);
+            
+            
+        }
+ });
+ 
+ }
+ 
+ $( document ).ajaxComplete(function( event,request, settings ) {
+ $("#closePopup").click(function(){
+      $(".middleLayer").fadeOut(300);
+         $('.popup').hide();
+         $('#changePopup').html();
+         
+=======
   
     $(document).ready(function(){   
         
         $("#closePopup").click(function(){
            $("#pop_up").hide();
             $(".middleLayer").fadeOut(300);
+>>>>>>> fb2b08234a93a9a4e3fd5ad58be6b54220d36365
         });
           
     });

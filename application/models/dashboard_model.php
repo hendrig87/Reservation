@@ -54,7 +54,8 @@ public function add_new_room($room_type,$noOfRoom,$price,$description,$img_name,
            $this->db->where('check_in_date >=', $InDate);
             $this->db->where('check_out_date <=', $OutDate);
            $availableRoom = $this->db->get('booking_info');
-           return $availableRoom->result();
+           die($availableRoom);
+           //return $availableRoom->result();
         }
 
         public function findroom($id) {
