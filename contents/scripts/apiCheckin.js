@@ -69,6 +69,7 @@ function roomBook()      // function to call for payment info view.
   
     $('#loading').show();
     var jsondata = $('#myjson').val();
+    alert(jsondata);
     $.ajax({
         type: "POST",
         url: base_url + 'index.php/room_booking/personal_info',

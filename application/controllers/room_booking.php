@@ -87,7 +87,10 @@ class room_booking extends CI_Controller {
       
      
               echo $mydata;
-              echo $hotelId;
+              
+              $d='{"id":"75","room_name":"Economy ","no_of_room":"0","price":"500","description":"asdfasf","image":"","hotel_id":"1"},{"id":"70","room_name":"Couple Room","no_of_room":"0","price":"500","description":"sadsadasdas","image":"DSCF363.jpg","hotel_id":"1"},{"id":"66","room_name":"Luxury","no_of_room":"9","price":"1000","description":"dfh dvsrtruub dsgd","image":"arrow.jpg","hotel_id":"1"},{"id":"65","room_name":"Deluxe","no_of_room":"0","price":"800","description":"rybsvssfd","image":"2P2Z4.png","hotel_id":"1"}';
+                $json = json_decode($d,TRUE);
+                var_dump($json);
           $this->load->view('ReservationInformation/payment', $hotelId);
             
           

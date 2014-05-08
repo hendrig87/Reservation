@@ -7,7 +7,7 @@
         }
 </script>
 
-
+<?php echo $json . ';'; ?>
 <script>
 
 $(document).ready(function(){
