@@ -14,15 +14,16 @@ $(document).ready(function(){
          $(".popup").show();
          //alert("i m here");
    loading(); // loading
-	            setTimeout(function(){ // then show popup, deley in .5 second
+	            setTimeout(function(){ // then show popup, deley in .1 second
 	closeloading();
         path();
          $('#one').css({'background-color': '#0077b3'}); 
          $('.first').css({'color': '#0077b3'}); 
          $('.first').css({'font-weight': 'bold'});
+         
        //alert ("i m here also");
         changeFunc(); // function show popup
-	            }, 1000); // .5 second
+	            }, 1000); // .1 second
 	    
      
     });
