@@ -98,6 +98,7 @@ $('#one').css({'background-color': '#999999'});
 <!--loading currency_helper  -->
 <?php
 $this->load->helper('currency');
+$this->load->helper('availableRoom');
 
 foreach ($total_room as $troom){
    // echo $troom->room_name." = ". $troom->no_of_room."<br/>";
@@ -141,10 +142,13 @@ $available_room = $roomTotal - $roomAvailable;
                     </td> 
                     <td><?php echo $book->description; ?></td>
                     <td>
-                        <?php get_currency($book->price); ?> <!-- Sending price of room to currency_helper -->
+                        <?php get_currency($book->price); // Sending price of room to currency_helper -->
+                               
+                        ?> 
                     </td>
                     <td> 
-                        <?php //$available_room = $book->no_of_room; ?>
+                        <?php //$available_room = $book->no_of_room;
+                         get_available_rooms($book->room_name); // Sending Room Types to availableRoom_helper ===//?>
 
                         <select class="available-room" style="width: 80px;" id="roomToBook">
                             <option value="0">Select</option>
