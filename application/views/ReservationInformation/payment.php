@@ -3,7 +3,7 @@
 <script src="<?php echo base_url() . 'contents/scripts/calendar.js' ?>"></script>
 <link rel="stylesheet" href="<?php echo base_url().'contents/styles/pop-up-booking.css'; ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url().'contents/styles/test.css';?> " />
-<script src="<?php echo base_url().'contents/scripts/test.js' ?>"></script>
+<script src="<?php echo base_url() . "contents/scripts/test.js"; ?>"></script>
 
 
 <script>
@@ -49,8 +49,8 @@ $(document).ready(function(){
 
 
 
-<script type="text/javascript">
-var currenttime = "Apr 25, 2014 2:41:06 PM"										
+<script>
+var currenttime = "Apr 28, 2014 2:41:06 PM";
 var greeting = " PM";
 var montharray=new Array("January","February","March","April","May","June","July","August","September","October","November","December")
 var numbers = Array("&#2406;", "&#2407;", "&#2408;", "&#2409;", "&#2410;", "&#2411;", "&#2412;", "&#2413;", "&#2414;", "&#2415;");
@@ -78,7 +78,7 @@ function displaytime(){
 		}
 }
 setInterval("displaytime()", 1000);
-</script>   
+ </script>
 
 
 <table style="width: 100%;">
@@ -111,6 +111,9 @@ setInterval("displaytime()", 1000);
                 <div class="clear"></div>
               
                  <div class="tabledata">
+                     
+                     
+                     
                      <div class="datepicker dropdown-menu"></div>
                       <div class="input-prepend input-append">
                 <span class="add-on">Expiry Date</span>
