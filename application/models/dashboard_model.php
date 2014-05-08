@@ -28,7 +28,37 @@ public function add_new_room($room_type,$noOfRoom,$price,$description,$img_name,
           
         }
         
-         public function findroom($id) {
+        //======== find out total num. of rooms=====================//
+        
+        function total_room(){
+            $this->db->select('room_name,no_of_room');
+            $total_room = $this->db->get('room_registration');
+            return $total_room->result();
+        }
+        
+        //======== find out total num. of room booked======//
+        
+        function booked_room(){
+            
+            $this->db->select('room_type,no_of_room_booked');
+            $booked_room = $this->db->get('booking_info');
+            //var_dump($booked_room);
+            return $booked_room->result();
+        }
+        
+        //==================== find out total no. of available rooms===============================//
+        
+        function availableRoom($InDate,$OutDate)
+        {
+           $this->db->select_sum('no_of_room_booked'); 
+           $this->db->where('check_in_date >=', $InDate);
+            $this->db->where('check_out_date <=', $OutDate);
+           $availableRoom = $this->db->get('booking_info');
+           die($availableRoom);
+           //return $availableRoom->result();
+        }
+
+        public function findroom($id) {
         $this->db->select();
         $this->db->from('room_registration');
         $this->db->where('id', $id);

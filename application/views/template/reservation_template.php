@@ -2,6 +2,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url().'contents/styles/test.css';?> " />
 
 <script>
+<<<<<<< HEAD
 $(document).ready(function(){
    var replaced = $("#changePopup").html();
     $("#closePopup").click(function(){
@@ -68,36 +69,19 @@ $(document).ready(function(){
          $('.popup').hide();
          $('#changePopup').html();
          
+=======
+  
+    $(document).ready(function(){   
+        
+        $("#closePopup").click(function(){
+           $("#pop_up").hide();
+            $(".middleLayer").fadeOut(300);
+>>>>>>> fb2b08234a93a9a4e3fd5ad58be6b54220d36365
         });
-});
- 
- function loading() {
-	        $("#loading").show();
-                
-	    }
-            
-            
- function path() {
-	        $("#path").show();
-	    }
-            
-function closeloading() {
-	        $("#loading").fadeOut('fast');
-	    }
+          
+    });
 </script>
 <script>
-$(document).keydown(function(e)
-{
-    if(e.keyCode == 27)
-    {
-        $(".popup").hide();
-        $(".middleLayer").fadeOut(300);
-    }
-});
-</script>
-
-
-<script type="text/javascript">
 var currenttime = "Apr 28, 2014 2:41:06 PM";
 var greeting = " PM";
 var montharray=new Array("January","February","March","April","May","June","July","August","September","October","November","December")
@@ -126,17 +110,9 @@ function displaytime(){
 		}
 }
 setInterval("displaytime()", 1000);
-
-
-</script>   
-
-
-
-
-
-
-
-<?php
+ </script>
+    
+    <?php
         $adultsNumber = 5;
         $children = 5;
         ?>
@@ -145,6 +121,7 @@ setInterval("displaytime()", 1000);
 	<div id="body">
 	
            <div class ="checkForm">
+               <span class="error"> Invalid Date.Enter (yyyy/mm/dd) date format. </span>
                <form method="post" action="#" id="checkin_room">
             <table>
                 <tr>
@@ -193,9 +170,9 @@ setInterval("displaytime()", 1000);
                              <span class="add-on">Children</span>
                        
                              <select name="children" required id="child" style="border-radius:0px 5px 5px 0px;">
-
+                                 <option value="0" > Select</option>
                             <?php
-                            for ($i = 0; $i <= $children; $i++) {
+                            for ($i = 1; $i <= $children; $i++) {
                                 echo "<option value=" . $i . ">" . $i . "</option>";
                             }
                             ?>
@@ -203,7 +180,7 @@ setInterval("displaytime()", 1000);
                              </div>
                     </td>
                     <td style="margin-top:-15px;">
-                        <input type ="button" value="Submit" style="margin-top:-25px;" id="checkin">
+                        <input type ="button" value="Submit" style="margin-top:-25px;" id="checkinbtn">
                       
                     </td>
             </table>
@@ -249,7 +226,7 @@ setInterval("displaytime()", 1000);
     border: 0; border-top: 1px solid #ccc; padding: 0; margin-top: 18px;">
     </div>
     
-    <div id="loading"> <img width="30" src="<?php echo base_url().'contents/images/loadingGif.gif' ; ?>" alt="loading.."/><br><b>Loading...</b></div>
+    <div id="loading"> <img width="30" src="<?php echo base_url().'contents/images/page-loader.gif' ; ?>" alt="loading.."/><br><b>Loading...</b></div>
     <div id="replaceMe">
         
     </div>

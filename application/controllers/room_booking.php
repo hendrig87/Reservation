@@ -35,16 +35,25 @@ class room_booking extends CI_Controller {
             'adult' => $_POST['adult'],
             'child' => $_POST['child']
                     );
+            $checkIn = $_POST['checkin'];
+            $firstDate = date('Y-m-d', strtotime($checkIn));
+           
+            $checkOut = $_POST['checkout'];
+            $secondDate = date('Y-m-d', strtotime($checkOut));
             $hotelId= $_POST['hotelId'];
             $data['query']= $this->dashboard_model->booking_room($hotelId);
+            //$data['total_room']= $this->dashboard_model->total_room();
+           //$data['availableRoom'] = $this->dashboard_model->availableRoom($checkIn,$checkOut);
+            
+            //$data['booked_room']= $this->dashboard_model->booked_room();
               $data['json'] = json_encode($data['query']);
               if(!$_POST['checkin'])
               {
-                  $this->load->view('template/room_booking_empty_view',$data);
+                  $this->load->view('ReservationInformation/room_booking_empty_view');
               }
               else
               {            
-            $this->load->view('template/room_booking',$data);
+            $this->load->view('ReservationInformation/room_booking',$data);
               }
             
           

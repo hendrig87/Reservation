@@ -7,28 +7,6 @@
 
 
 <script>
-$(document).ready(function(){
-    $(".payment").click(function(){
-        
-         $('#one').css({'background-color': '#999999'});
-         $('.first').css({'color': 'black'}); 
-         $('.first').css({'font-weight': 'normal'}); 
-         $('#two').css({'background-color': '#999999'});
-         $('.second').css({'color': 'black'}); 
-         $('.second').css({'font-weight': 'normal'}); 
-         $('#three').css({'background-color': '#999999'});
-         $('.third').css({'color': 'black'}); 
-         $('.third').css({'font-weight': 'normal'}); 
-         $('#four').css({'background-color': '#0077b3'});
-         $('.fourth').css({'color': '#0077b3'}); 
-         $('.fourth').css({'font-weight': 'bold'}); 
-        payment();
-    });
-     });
-</script>
-
-
-<script>
 function payment()
 {
       var dataString = 'hotelId=' + '1';
@@ -45,6 +23,31 @@ function payment()
  });
  }
  </script>
+ 
+<script>
+$(document).ready(function(){
+     $('#loading').show();
+    $(".payment").click(function(){
+        
+         $('#one').css({'background-color': '#999999'});
+         $('.first').css({'color': 'black'}); 
+         $('.first').css({'font-weight': 'normal'}); 
+         $('#two').css({'background-color': '#999999'});
+         $('.second').css({'color': 'black'}); 
+         $('.second').css({'font-weight': 'normal'}); 
+         $('#three').css({'background-color': '#999999'});
+         $('.third').css({'color': 'black'}); 
+         $('.third').css({'font-weight': 'normal'}); 
+         $('#four').css({'background-color': '#0077b3'});
+         $('.fourth').css({'color': '#0077b3'}); 
+         $('.fourth').css({'font-weight': 'bold'}); 
+        payment();
+    });
+     $('#loading').hide();
+     });
+</script>
+
+
 
 <script type="text/javascript">
 var currenttime = "Apr 25, 2014 2:41:06 PM"										
