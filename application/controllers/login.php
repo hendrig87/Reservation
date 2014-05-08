@@ -246,7 +246,7 @@ else
         if ($to==$useremail) {                                       
                $token= $this->getRandomString(10);                          
                 $this->dbmodel->update_emailed_user($to, $token);  
-                //$this->test($token);
+                $this->test($token);
                 
                 $this->mailresetlink($to, $token);
                 

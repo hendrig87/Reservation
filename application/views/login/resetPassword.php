@@ -3,9 +3,7 @@
 
 <div id="login">
 
-	<div id="body">
-            
-           <div class ="checkForm">
+	<div class="body">
          <?php echo form_open_multipart('login/setpassword');?>
                <?php if(isset($query))
                    //($query);
@@ -54,4 +52,3 @@
     
         </div>
         </div>	
-</div>

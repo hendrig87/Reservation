@@ -4,12 +4,10 @@
         <meta charset="utf-8">
         <title>Welcome to Online Reservation System</title>  
 
-        <script src="<?php echo base_url() . "contents/scripts/bootstrap-datepicker.js"; ?>"></script>
-        <link rel="stylesheet" href="<?php echo base_url() . "contents/styles/datepicker.css"; ?>"> 
-        <link rel="stylesheet" href="<?php echo base_url() . "contents/styles/datepicker.less"; ?>"> 
+        
         <script src="<?php echo base_url() . "contents/scripts/popup.js"; ?>"></script>
         <script src="<?php echo base_url() . "contents/scripts/jquery.js"; ?>"></script>
-        <link rel="stylesheet" href="<?php echo base_url() . "contents/styles/test.css"; ?>"> 
+        <link rel="stylesheet" href="<?php echo base_url() . "contents/styles/tableStyles.css"; ?>"> 
         <link rel="stylesheet" href="<?php echo base_url() . "contents/styles/pop-up-booking.css"; ?>"> 
         <link rel="shortcut icon" href="<?php echo base_url() . "contents/images/favicon1.jpg"; ?>" type="image/x-icon"> 
         <link rel="stylesheet" href="<?php echo base_url() . "contents/styles/dashboardStyle.css"; ?>"> 
