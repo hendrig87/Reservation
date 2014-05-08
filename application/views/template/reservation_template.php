@@ -12,7 +12,7 @@ $(document).ready(function(){
     $("#checkin").click(function(){
          $(".middleLayer").show();
          $(".popup").show();
-         //alert("i m here");
+        
    loading(); // loading
 	            setTimeout(function(){ // then show popup, deley in .1 second
 	closeloading();
@@ -21,7 +21,7 @@ $(document).ready(function(){
          $('.first').css({'color': '#0077b3'}); 
          $('.first').css({'font-weight': 'bold'});
          
-       //alert ("i m here also");
+      
         changeFunc(); // function show popup
 	            }, 1000); // .1 second
 	    
@@ -30,27 +30,6 @@ $(document).ready(function(){
     });
 </script>
 
-
-
-<!--  /////////////////// inserting to database /////////////////////////-->
-<script>
-$(document).ready(function(){
-   alert("asdf");
-  $.ajax({
-        type: "POST",
-        url: <?php echo base_url().'index.php/popup/popinsert' ?>,
-        data:{
-            source1: "some text",
-            source2: "some text 2"
-        },
-        success: function(msgs)
-        {
-            $("#checkForm").html(msgs);
-        },
-    });
- 
-});
-</script>
 
 <script type="text/javascript">
     
@@ -253,3 +232,7 @@ setInterval("displaytime()", 1000);
 
 
 
+<?php 
+echo $jsons;
+
+?>

@@ -27,11 +27,10 @@ class popup extends CI_Controller {
            
        public function popinsert()
        {
-           $a = $_POST['source1'];
-           $b = $_POST['source2'];
-           var_dump($a);
-           
-           $this->load->view('template/reservation_template',$a);
+            $jsons = $this->input->post('json');
+            die($json);
+        
+           $this->load->view('template/reservation_template',$jsons);
        }
   }
         

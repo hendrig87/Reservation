@@ -37,6 +37,9 @@
     
 //end of code for diplaying booked room
 
+
+
+
 $(".personalInfo").click(function() {
 
         $('#one').css({'background-color': '#999999'});
@@ -68,7 +71,7 @@ $(".personalInfo").click(function() {
                 
                 <td id="vertical_line"></td>
                 <td style="width:400px;float: left;">
-                    <fieldset style="margin-left:50px;">
+                    <fieldset style="margin-left:70px;">
                         <legend id="booking_summary_title">Personal Information</legend>
                         <?php form_open('popup/popupinsert') ?>
                         <div class="input-prepend">
@@ -112,8 +115,14 @@ $(".personalInfo").click(function() {
                 </td>
             </tr>
         </table>
+    <script>
+        
+var updated_json =' <?php form_open('popup/popinsert'); ?>'+'<input type="text" value="'+txtnext+'" name="json">'+' <input type="submit" value="Next" id="popupBtn" class="personalInfo" style="margin-bottom: 10px;">'+'<?php form_close(); ?>';
+$('#action').html(updated_json);
+    </script>
+   
         <div id="action">
-            <input type="submit" value="Next" id="popupBtn" class="personalInfo" style="margin-bottom: 10px;">
+           
         </div>
-<?php form_close() ?>
+
     </div>
