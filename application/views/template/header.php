@@ -17,13 +17,13 @@
         <script src="<?php echo base_url() . "contents/scripts/jquery.tinytooltip.js"; ?>"></script>
         <script src="<?php echo base_url() . "contents/scripts/jquery.tinytooltip.min.js"; ?>"></script>
         <link type="text/css" rel="stylesheet" href="<?php echo base_url() . "contents/styles/styles.css"; ?>"/>
-       <link rel="stylesheet" href="/resources/demos/style.css" />
+        <link rel="stylesheet" href="/resources/demos/style.css" />
 
         <script>
 
 
             $(document).ready(function() {
-                
+
                 var time = 2000,
                         timer;
 
@@ -38,17 +38,17 @@
                     }, time);
                 }
                 $("#loggin, #loginOnHover").hover(handlerIn, handlerOut);
-                        function myPicker() {
-                        $("#datepicker2").datepicker({dateFormat: "yy-mm-dd"});
-                        }
-                function mpicker(){
-                $("#datepicker1").datepicker({dateFormat: "yy-mm-dd"});
+                function myPicker() {
+                    $("#datepicker2").datepicker({dateFormat: "yy-mm-dd"});
+                }
+                function mpicker() {
+                    $("#datepicker1").datepicker({dateFormat: "yy-mm-dd"});
                 }
 
 
             });
         </script>
-        
+
         <script src="<?php echo base_url() . "contents/scripts/apiCheckin.js"; ?>"></script>
     </head>
     <body>
@@ -103,4 +103,3 @@
 
 
 
-     

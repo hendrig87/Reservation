@@ -92,7 +92,7 @@ public function hotelListing(){
     if ($this->session->userdata('logged_in')) {
       
       $this->load->view('template/header');
-      $this->load->view('hotel/hotelListing', $dat);
+      $this->load->view('hotel/hotelListing');
        
     }
  else {

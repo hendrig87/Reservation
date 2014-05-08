@@ -16,16 +16,13 @@ class Login extends CI_Controller {
  
  public function index(){
      $this->load->library('session');
-     if(!$this->session->userdata('logged_in')){
+    
       $this->load->view('template/header');
       $this->load->view('login/loginOnHover');
       $this->load->view('template/imageDiv');
           $this->load->view('template/reservation_template');
          $this->load->view('template/footer');
-     }
- else {
-         redirect('dashboard/index');   
-     }
+ 
  }
 
  public function registrationForm()
