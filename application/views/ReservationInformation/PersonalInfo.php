@@ -70,6 +70,7 @@ $(".personalInfo").click(function() {
                 <td style="width:400px;float: left;">
                     <fieldset style="margin-left:50px;">
                         <legend id="booking_summary_title">Personal Information</legend>
+                        <?php form_open('popup/popupinsert') ?>
                         <div class="input-prepend">
                             <span class="add-on">Full Name</span>
                             <input class="input input-large" type="text" placeholder="Full Name" required="required" name="FullName" >
@@ -114,5 +115,5 @@ $(".personalInfo").click(function() {
         <div id="action">
             <input type="submit" value="Next" id="popupBtn" class="personalInfo" style="margin-bottom: 10px;">
         </div>
-
+<?php form_close() ?>
     </div>

@@ -2,7 +2,6 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url().'contents/styles/test.css';?> " />
 
 <script>
-<<<<<<< HEAD
 $(document).ready(function(){
    var replaced = $("#changePopup").html();
     $("#closePopup").click(function(){
@@ -32,6 +31,26 @@ $(document).ready(function(){
 </script>
 
 
+
+<!--  /////////////////// inserting to database /////////////////////////-->
+<script>
+$(document).ready(function(){
+   alert("asdf");
+  $.ajax({
+        type: "POST",
+        url: <?php echo base_url().'index.php/popup/popinsert' ?>,
+        data:{
+            source1: "some text",
+            source2: "some text 2"
+        },
+        success: function(msgs)
+        {
+            $("#checkForm").html(msgs);
+        },
+    });
+ 
+});
+</script>
 
 <script type="text/javascript">
     
