@@ -223,8 +223,7 @@ else
           $this->load->view('login/forgotPassword');
           $this->load->view('template/reservation_template');
           $this->load->view('template/footer'); 
-          //$this->session->set_flashdata('message', 'Instructions to reset your password have been emailed to you. Please check your email and login ');
-          //redirect('welcome/mailSentMessage', 'refresh');
+         
                }
 
      else{
@@ -237,7 +236,9 @@ else
  
  public function email(){
         
-       if(isset($_POST['userEmail'])) 
+       if(isset($_POST['userEmail'])){
+           
+      
         $useremail= $_POST['userEmail'];
        
         $username =  $this->dbmodel->get_selected_user($useremail);
@@ -248,13 +249,13 @@ else
         if ($to==$useremail) {                                       
                $token= $this->getRandomString(10);                          
                 $this->dbmodel->update_emailed_user($to, $token);  
-                $this->test($token);
+                //$this->test($token);
                 
                 $this->mailresetlink($to, $token);
                 
-           //$this->session->set_flashdata('message', 'Instructions to reset your password have been emailed to you. Please check your email and login ');
-           //redirect('welcome/mailSentMessage', 'refresh');    
-            } else {
+           $this->session->set_flashdata('message', 'Instructions to reset your password have been emailed to you. Please check your email and login ');
+           redirect('welcome/mailSentMessage', 'refresh');    
+            } }  else {
                 $this->session->set_flashdata('message', 'Please type valid Email Address');
                 redirect("login/forgotPassword");
             }
@@ -286,7 +287,33 @@ else
            } 
            
  function mailresetlink($to,$token){
-     
+  $to ;
+  $uri = 'http://'. $_SERVER['HTTP_HOST'] ;
+   $subject = "This is subject";
+   $message = '
+    <html>
+    <head>
+    <title></title>
+    </head>
+    <body>
+    <p>Click on the given link to reset your password <a href="'.$uri.'/reset.php?token='.$token.'">Reset Password</a></p>
+
+    </body>
+    </html>
+';
+   $header = 'From: Admin<info@smartaservices.com>' . "\r\n";
+   $retval = mail ($to,$subject,$message,$header);
+   if( $retval == true )  
+   {
+      echo "Email sent successfully...";
+   }
+   else
+   {
+      echo "Message could not be sent...";
+   }    
+
+    
+         
  }
  
   public function resetPassword() {

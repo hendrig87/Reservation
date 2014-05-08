@@ -18,7 +18,7 @@
 <div id='code'>
 <pre>
 <code>
-<textarea disabled="true" style="border: none;background-color:white; min-height:400px; width: 930px; margin:  0px ; padding: 0px;">
+    <textarea readonly  style="border: none;background-color:white; min-height:400px; width: 930px; margin:  0px ; padding: 0px;">
     <div id="container">
       <h1>Welcome to Reservation</h1>
         <div id="body">

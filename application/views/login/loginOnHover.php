@@ -1,4 +1,4 @@
-<div id="loginOnHover" style="visibility: hidden; position: absolute; left: 1009px;
+<div id="loginOnHover" style="display: none; position: absolute; left: 1009px;
      top: 49px; min-height: 100px;" onMouseOver="show_loginForm()" onMouseOut="hide_loginForm()" >
 <div id="login">
 
