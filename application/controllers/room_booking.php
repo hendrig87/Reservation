@@ -11,6 +11,7 @@ class room_booking extends CI_Controller {
         $this->load->model('dbmodel');
         $this->load->model('dashboard_model');
         $this->load->helper('url');
+       
         $this->load->helper(array('form', 'url'));
         $this->load->library("pagination");
     }
@@ -29,6 +30,8 @@ class room_booking extends CI_Controller {
         
         function post_action()
         {   
+             $this->load->helper('availableRoom');
+             
             $data['abc']=array(
             'checkin' => $_POST['checkin'],
             'checkout' => $_POST['checkout'],
@@ -42,11 +45,12 @@ class room_booking extends CI_Controller {
             $secondDate = date('Y-m-d', strtotime($checkOut));
             $hotelId= $_POST['hotelId'];
             
+             //get_check_In_Out_date($firstDate,$secondDate); 
             $data['query']= $this->dashboard_model->booking_room($hotelId);
             
-            $data['total_room']= $this->dashboard_model->total_room();
+           // $data['total_room']= $this->dashboard_model->total_room();
             
-           $data['availableRoom'] = $this->dashboard_model->availableRoom($firstDate,$secondDate);
+          // $data['availableRoom'] = $this->dashboard_model->availableRoom($firstDate,$secondDate);
             
             //$data['booked_room']= $this->dashboard_model->booked_room();
               $data['json'] = json_encode($data['query']);

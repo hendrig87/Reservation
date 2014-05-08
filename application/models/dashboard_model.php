@@ -54,8 +54,8 @@ public function add_new_room($room_type,$noOfRoom,$price,$description,$img_name,
            //die($InDate." ".$OutDate);
             
            $this->db->select_sum('no_of_rooms_booked'); 
-           $this->db->where('check_in_date <=', $OutDate);
-            $this->db->where('check_out_date >=', $InDate);
+           $this->db->where('check_in_date >=', $InDate);
+            $this->db->where('check_out_date <=', $OutDate);
             $this->db->where('room_type','Deluxe');
            $availableRoom = $this->db->get('booking_info');
            //var_dump($availableRoom);
