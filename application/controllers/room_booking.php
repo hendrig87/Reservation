@@ -74,20 +74,32 @@ class room_booking extends CI_Controller {
          function personal_info()
         {  
               $hotelId= $_POST['hotelId'];
-              
-            $fullName = $this->input->post('FullName');
-            $address = $this->input->post('Address');
-            $occupation = $this->input->post('Occupation');
-            $nationality = $this->input->post('Nationality');
-            $contactNo = $this->input->post('ContactNumber');
-            $email = $this->input->post('Email');
-            $remarks = $this->input->post('Remarks');
+            $totalPrice = $_POST['total_price'];
+            $fullName = $_POST['fullnames'];
+            $address = $_POST['addresss'];
+            $occupation = $_POST['occupations'];
+            $nationality = $_POST['nationalitys'];
+            $contactNo = $_POST['contactnos'];
+            $email = $_POST['emails'];
+            $remarks = $_POST['remarkss'];
             
-            $data['personalInfo']=$this->booking_room->personal_info($fullName,$address,$occupation,$nationality,$contactNo,$email,$remarks);
+            
+             $check_in = $_POST['checkin'];
+            $check_out = $_POST['checkout'];
+            $adult_s = $_POST['adult'];
+            $child_s = $_POST['child'];
+           // die($fullName);
+          
+            
+            $data['personalInfo']=$this->booking_room->personal_info($fullName,$address,$occupation,$nationality,$contactNo,$email,$remarks,$totalPrice,$child_s,$adult_s);
          
             $jsondatas = $_POST['updated_json'];
             $jsonDecode = json_decode($jsondatas,true);
             $jsonArray = $jsonDecode;
+     
+//$stack = array("orange", "banana");
+            //array_push($jsonArray, $check_in, $check_out);
+            //var_dump($jsonArray);
                
                foreach ($jsonArray as $item)
                {

@@ -239,3 +239,12 @@
 {
     padding-bottom: 25px;
 }
+
+#totalPrice
+{
+    font-size: 20px;
+font-weight: bolder;
+background: #cccccc;
+width: 200px;
+height: 30px;
+}

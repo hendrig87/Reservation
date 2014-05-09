@@ -31,7 +31,7 @@
 
     }
 
-    var postdata = '<tr style="border-bottom:solid thin #CCCCCC;"><td colspan="3"><b>Total Price</b></td><td><div id="pi_total"><b>' + total + '<b></div></td></tr></table>';
+    var postdata = '<tr style="border-bottom:solid thin #CCCCCC;"><td colspan="3"><b>Total Price</b></td><td><div id="pi_total">' + total + '</div></td></tr></table>';
     $('#table').html(predata + nextdata + postdata);
     
     
@@ -65,7 +65,7 @@ $(".personalInfo").click(function() {
                         <div id="table"></div>                  
 </div>
 
-                         
+          <?php echo form_open('room_booking/personal_info'); ?>               
         <table>
             <tr>
                 
@@ -73,42 +73,42 @@ $(".personalInfo").click(function() {
                 <td style="width:400px;float: left;">
                     <fieldset style="margin-left:70px;">
                         <legend id="booking_summary_title">Personal Information</legend>
-                        <?php form_open('popup/popupinsert') ?>
+                        
                         <div class="input-prepend">
                             <span class="add-on">Full Name</span>
-                            <input class="input input-large" type="text" placeholder="Full Name" required="required" name="FullName" >
+                            <input class="input input-large" type="text" placeholder="Full Name" required="required" name="FullName" id="fullname" >
                         </div>
 
                         <div class="clear"></div>
                         <div class="input-prepend">
                             <span class="add-on">Address</span>
-                            <input class="input input-large" type="text" placeholder="Full Address" required="required" name="Address" >
+                            <input class="input input-large" type="text" placeholder="Full Address" required="required" name="Address" id="address" >
                         </div>
 
                         <div class="clear"></div>
                         <div class="input-prepend">
                             <span class="add-on">Occupation</span>
-                            <input class="input input-large" type="text" placeholder="Occupation" name="Occupation" >
+                            <input class="input input-large" type="text" placeholder="Occupation" name="Occupation" id="occupation">
                         </div>
 
                         <div class="clear"></div>
                         <div class="input-prepend">
                             <span class="add-on">Nationality</span>
-                            <input class="input input-large" type="text" placeholder="Nationality" required="required" name="Nationality" >
+                            <input class="input input-large" type="text" placeholder="Nationality" required="required" name="Nationality" id="nationality" >
                         </div>
 
                         <div class="clear"></div>
                         <div class="input-prepend">
                             <span class="add-on">Contact No.</span>
-                            <input onkeypress='return isNumberKey(event)' class="input input-large" type="text" placeholder="Contact Number" required="required" name="ContactNumber" >
+                            <input onkeypress='return isNumberKey(event)' class="input input-large" type="text" placeholder="Contact Number" required="required" name="ContactNumber" id="contactno" >
                         </div>
 
                         <div class="clear"></div>
                         <div class="input-prepend">
                             <span class="add-on">Email</span>
-                            <input class="input input-large" type="text" placeholder="Email Address" required="required" name="Email" >
+                            <input class="input input-large" type="text" placeholder="Email Address" required="required" name="Email" id="email" >
                         </div>
-                        <textarea name="Remarks" placeholder="Remarks & Extra Instructions Like Pickup & Dropoff Information." style="width:330px;height:100px;resize:none;"></textarea>
+                        <textarea name="Remarks" placeholder="Remarks & Extra Instructions Like Pickup & Dropoff Information." style="width:330px;height:100px;resize:none;" id="remarks"></textarea>
                     </fieldset>
 
 
@@ -117,13 +117,13 @@ $(".personalInfo").click(function() {
         </table>
     <script>
         
-var updated_json ='<textarea  id="myjson" >'+JSON.stringify(txtnext)+'</textarea>'+' <input type="submit" value="Next" id="popupBtn" class="personalInfo" style="margin-bottom: 10px;">';
-$('#action').html(updated_json);
+var updated_json ='<textarea  id="myjson" >'+JSON.stringify(txtnext)+'</textarea>';
+$('#action').append(updated_json);
     </script>
   
    
         <div id="action">
-           
+            <input type="button" value="Next" id="popupBtn" class="personalInfo" style="margin-bottom: 10px;">
         </div>
-    
+<?php echo form_close(); ?>    
     </div>

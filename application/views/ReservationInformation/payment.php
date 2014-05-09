@@ -79,8 +79,13 @@ function displaytime(){
 }
 setInterval("displaytime()", 1000);
  </script>
-
-
+<?php
+$this->load->helper('currency');
+$this->load->helper('availableRoom');
+?>
+ 
+ 
+ <div id="totalPrice">Total:get_currency(); </div>
 <table style="width: 100%;">
     <tr>
                 <td style="width:400px;">
