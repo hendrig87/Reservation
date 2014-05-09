@@ -18,6 +18,7 @@ class Welcome extends CI_Controller {
                 $this->load->view('template/header');
                 $this->load->view('login/loginOnHover');
                 $this->load->view('template/imageDiv');
+                 $this->load->view('template/suggetion');
 		$this->load->view('template/reservation_template');
                 $this->load->view('template/footer');
           
