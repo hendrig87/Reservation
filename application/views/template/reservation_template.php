@@ -1,5 +1,5 @@
-<script src="<?php echo base_url().'contents/scripts/test.js' ?>"></script>
-<link rel="stylesheet" type="text/css" href="<?php echo base_url().'contents/styles/test.css';?> " />
+<script src="<?php echo base_url().'contents/scripts/datepicker.js' ?>"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url().'contents/styles/tableStyles.css';?> " />
 
 <script>
 $(document).ready(function(){

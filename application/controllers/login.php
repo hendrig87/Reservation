@@ -94,11 +94,31 @@ class Login extends CI_Controller {
  
  public function registerEmail($useremail){
     $data['user']= $this->dbmodel->get_current_user($useremail);
+    
     $uri = 'http://'. $_SERVER['HTTP_HOST'] ;
    $subject = "Registration Successful";
-   $message =  $this->load->view('emailTemplates/emailHeader');
-   $message .= $this->load->view('emailTemplates/registrationVerification', $data);
-   $message .=  $this->load->view('emailTemplates/emailHeader');
+   $imglink = base_url() . "contents/images/ParkReserve.png";
+   $message = '<div style="width: 1000px; margin: 0 auto 0 auto; padding: 0px;" >
+        <div style="height: 100px; alignment-adjust: central; background-color: #999; margin: 0 auto 0 auto;">
+<img src="'.$imglink.'" alt="salyani" style="height:50px; width:50px; margin:10px;">
+       
+<div>
+    
+    
+    <h4>Dear <?php echo $username ?>  !</h4>
+<?php     } ?>
+    <h4>Welcome to reservation.</h4>
+    <h5>You are almost done with the sign up process </h5>
+    <p>Click <a href="#"> here</a> to confirm your account.</p>
+</div>
+
+
+
+        </div>
+<div>
+    <p>&copy Reservation</p>
+</div>
+</div>';
    $headers = "MIME-Version: 1.0" . "\r\n";
 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 $headers .= 'From: admin<info@smartaservices.com>' . "\r\n" ."CC: info@salyani.com.np";
@@ -389,7 +409,13 @@ function mailresetlink($to,$token){
       
  }
  
-
+ public function emailTemplate(){
+     
+     $this->load->view('emailtemplates/emailHeader');
+      $this->load->view('emailtemplates/passwordReset');
+       $this->load->view('emailtemplates/emailFooter');
+     
+ }
 
  
 }
