@@ -8,9 +8,8 @@
             <file>file:/C:/wamp/www/Reservation/application/views/template/header.php</file>
 =======
             <file>file:/C:/wamp/www/Reservation/application/views/ReservationInformation/PersonalInfo.php</file>
-            <file>file:/C:/wamp/www/Reservation/application/views/ReservationInformation/payment.php</file>
-            <file>file:/C:/wamp/www/Reservation/application/controllers/popup.php</file>
-            <file>file:/C:/wamp/www/Reservation/contents/scripts/apiCheckin.js</file>
+            <file>file:/C:/wamp/www/Reservation/application/controllers/dashboard.php</file>
+            <file>file:/C:/wamp/www/Reservation/application/models/popup_model.php</file>
             <file>file:/C:/wamp/www/Reservation/application/views/template/reservation_template.php</file>
             <file>file:/C:/wamp/www/Reservation/application/controllers/room_booking.php</file>
             <file>file:/C:/wamp/www/Reservation/application/views/ReservationInformation/room_booking.php</file>
