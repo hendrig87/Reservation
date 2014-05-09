@@ -99,16 +99,6 @@ $('#one').css({'background-color': '#999999'});
 <?php
 $this->load->helper('currency');
 $this->load->helper('availableRoom');
-
-//foreach ($total_room as $troom){
-   // echo $troom->room_name." = ". $troom->no_of_room."<br/>";
- //   $roomTotal = $troom->no_of_room;
-//}
-
-//foreach ($availableRoom as $rooms){
- //   $roomAvailable =  $rooms->no_of_rooms_booked;
-//}
-//$available_room = $roomTotal - $roomAvailable;
 ?>
 <!--      -->
 <table class="room-listing-tbl" style="width: 100%;">

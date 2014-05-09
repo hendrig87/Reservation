@@ -7,70 +7,9 @@ $(document).ready(function(){
     $("#closePopup").click(function(){
         $("#changePopup").html(replaced);
          });
-         
-    
-    $("#checkin").click(function(){
-         $(".middleLayer").show();
-         $(".popup").show();
-        
-   loading(); // loading
-	            setTimeout(function(){ // then show popup, deley in .1 second
-	closeloading();
-        path();
-         $('#one').css({'background-color': '#0077b3'}); 
-         $('.first').css({'color': '#0077b3'}); 
-         $('.first').css({'font-weight': 'bold'});
-         
-      
-        changeFunc(); // function show popup
-	            }, 1000); // .1 second
-	    
-     
-    });
     });
 </script>
 
-
-<script type="text/javascript">
-    
-  function changeFunc() {
-      
-      var checkin = $("#CheckIn").val();
-      var checkout = $("#CheckOut").val();
-     var adult = $("#adult").val();
-      var child = $("#child").val();
- $.ajax({
- type: "POST",
- url: "<?php echo base_url().'index.php/room_booking/post_action' ;?>",
- data: {
-     'checkin' : checkin,
-     'checkout' : checkout,
-     'adult' : adult,
-     'child' : child,
-     'hotelId':"1"
-        },
-  success: function(msg) 
-        {
-            
-            
-            $("#replaceMe").html(msg);
-            
-            
-        }
- });
- 
- }
-
-  
-    $(document).ready(function(){   
-        //close popup.
-        $("#closePopup").click(function(){
-           $("#pop_up").hide();
-            $(".middleLayer").fadeOut(300);
-        });
-          
-    });
-</script>
 <script>
 var currenttime = "Apr 28, 2014 2:41:06 PM";
 var greeting = " PM";

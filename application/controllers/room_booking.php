@@ -39,25 +39,10 @@ class room_booking extends CI_Controller {
             'adult' => $_POST['adult'],
             'child' => $_POST['child']
                     );
-            $checkIn = $_POST['checkin'];
-            $firstDate = date('Y-m-d', strtotime($checkIn));
-           
-            $checkOut = $_POST['checkout'];
-            $secondDate = date('Y-m-d', strtotime($checkOut));
+           die("m here baby");
             $hotelId= $_POST['hotelId'];
             
             $data['query']= $this->dashboard_model->booking_room($hotelId);
-            
-            //$data['total_room']= $this->dashboard_model->total_room();
-            
-           
-                
-              //  $data['availableRoom'] = $this->dashboard_model->availableRoom($firstDate,$secondDate);
-            
-            
-           
-            
-            //$data['booked_room']= $this->dashboard_model->booked_room();
               $data['json'] = json_encode($data['query']);
               if(!$_POST['checkin'] && !$_POST['checkout'])
               {
@@ -88,17 +73,26 @@ class room_booking extends CI_Controller {
          function personal_info()
         {  
               $hotelId= $_POST['hotelId'];
+              
+              
               $jsondatas = $_POST['updated_json'];
                $jsonDecode = json_decode($jsondatas,true);
                $jsonArray = $jsonDecode;
-               foreach ($jsonArray as $items)
+               
+               foreach ($jsonArray as $item)
                {
-                   var_dump($items);
+                if($item['no_of_room'] != "0")
+                {
+                    mysql_query("INSERT INTO `booking_info` (room_type, no_of_rooms_booked) 
+       VALUES ('".$item['room_name']."', '".$item['no_of_room']."')");
+                }
+     
                }
+               
+               
+              // $stack = array("orange", "banana");
+                //array_push($stack, "apple", "raspberry");
 
-//var_dump($jsonArray);
-             //$data['bookRoomInfo']= $this->popup_model->popup_insert($jsonArray);
-              
           $this->load->view('ReservationInformation/payment', $hotelId);
             
           
