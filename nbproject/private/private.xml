@@ -1,29 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
-<<<<<<< HEAD
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
-    </open-files>
-=======
-<<<<<<< HEAD
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/Reservation/application/views/ReservationInformation/PersonalInfo.php</file>
-            <file>file:/C:/wamp/www/Reservation/application/views/dashboard/roomInformation.php</file>
-            <file>file:/C:/wamp/www/Reservation/application/views/template/room_booking.php</file>
             <file>file:/C:/wamp/www/Reservation/application/controllers/login.php</file>
-            <file>file:/C:/wamp/www/Reservation/application/controllers/dashboard.php</file>
-            <file>file:/C:/wamp/www/Reservation/application/models/dbmodel.php</file>
-            <file>file:/C:/wamp/www/Reservation/application/views/ReservationInformation/bookedRoomInformation.php</file>
-            <file>file:/C:/wamp/www/Reservation/contents/images/loading1.gif</file>
-            <file>file:/C:/wamp/www/Reservation/application/views/template/reservation_template.php</file>
             <file>file:/C:/wamp/www/Reservation/application/views/template/header.php</file>
-            <file>file:/C:/wamp/www/Reservation/contents/images/loadingGif.gif</file>
-            <file>file:/C:/wamp/www/Reservation/contents/styles/dashboardStyle.css</file>
         </group>
     </open-files>
-=======
->>>>>>> fb2b08234a93a9a4e3fd5ad58be6b54220d36365
->>>>>>> 1169e78d56fb54ea8e5ea9eeea768c739d8c5e6b
 </project-private>

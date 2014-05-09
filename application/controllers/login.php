@@ -298,7 +298,7 @@ else
     </body>
     </html>
 ';
-   $header = 'From: Admin<info@smartaservices.com>' . "\r\n";
+   $header = 'From: admin<info@smartaservices.com>' . "\r\n";
    $retval = mail ($to,$subject,$message,$header);
    if( $retval == true )  
    {
