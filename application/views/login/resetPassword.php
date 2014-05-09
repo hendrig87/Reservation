@@ -1,17 +1,19 @@
+<?php
+$id = $_GET['resetPassword'];
 
+//echo $id;
+foreach ($query as $data){
+                   $useremail= $data->user_email;
+                   $userKey = $data->user_auth_key;
+              }
+?>
 
-
+<?php if($id==$userKey){ ?>
 <div id="login">
 
 	<div class="body">
          <?php echo form_open_multipart('login/setpassword');?>
-               <?php if(isset($query))
-                   //($query);
-               foreach ($query as $data){
-                   $useremail= $data->user_email;
-              
-              } else {} ?>
-   
+                  
     <input type="hidden" name="userEmail" value="<?php echo $useremail; ?>" />
             <table style="text-align:center">
                <tr>
@@ -48,3 +50,9 @@
     
         </div>
         </div>	
+<?php }
+ else { ?>
+<div class="body">
+    <label> Sorry your token has been expired! </label>
+</div>
+<?php }?>

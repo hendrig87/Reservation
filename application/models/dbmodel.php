@@ -72,10 +72,12 @@ class Dbmodel extends CI_Model {
         $this->db->set('last_login_date', 'NOW()', FALSE);
         $this->db->update('user_info', $data);
     }
-    public function update_user_password($token, $userPassword){
+    public function update_user_password($email, $userPassword){
+        $token = " ";
         $data = array(
-        'user_pass'=>md5($userPassword));
-        $this->db->where('user_email', $token);
+        'user_pass'=>md5($userPassword),
+            'user_auth_key'=>$token);
+        $this->db->where('user_email', $email);
         $this->db->update('user_info', $data);
     }
     
@@ -88,12 +90,12 @@ class Dbmodel extends CI_Model {
     
     
     public function get_user_email($a) {  
-        $this->db->select('user_email');
+        $this->db->select('user_email,user_auth_key');
         $this->db->where('user_auth_key', $a );
-         $data = array(
-            'user_auth_key'=> " ");
+         //$data = array(
+         //   'user_auth_key'=> " ");
         
-        $this->db->update('user_info', $data);
+        //$this->db->update('user_info', $data);
         $query = $this->db->get('user_info');
         return $query->result();
     } 

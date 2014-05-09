@@ -348,6 +348,7 @@ else
       $a=$_GET['resetPassword'];
       
       $data['query']= $this->dbmodel->get_user_email($a);
+      //var_dump($data);
       if($data['query']){
            $this->load->view('template/header');
              $this->load->view("login/resetPassword", $data);
@@ -367,15 +368,15 @@ else
      
    
    $password= $_POST['user_pass'];
-        $token = $_POST['userEmail'];
+        $email = $_POST['userEmail'];
      //die($token);  
         $confirmPassword =  $_POST['user_confirm_pass'];
         if ($password==$confirmPassword) {                                       
                
             $userPassword=  $this->input->post('user_pass');
             
-                $this->dbmodel->update_user_password($token, $userPassword);
-                $this->dbmodel->update_user_token($token);
+                $this->dbmodel->update_user_password($email, $userPassword);
+                //$this->dbmodel->update_user_token($token);
                 
                 $this->session->set_flashdata('message', 'Your password has been changed successfully');
                 redirect('welcome/mailSentMessage', 'refresh');
