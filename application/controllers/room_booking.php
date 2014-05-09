@@ -94,6 +94,7 @@ class room_booking extends CI_Controller {
             $data['personalInfo']=$this->booking_room->personal_info($fullName,$address,$occupation,$nationality,$contactNo,$email,$remarks,$totalPrice,$child_s,$adult_s);
          
             $jsondatas = $_POST['updated_json'];
+            
             $jsonDecode = json_decode($jsondatas,true);
             $jsonArray = $jsonDecode;
      
@@ -115,7 +116,7 @@ class room_booking extends CI_Controller {
               // $stack = array("orange", "banana");
                 //array_push($stack, "apple", "raspberry");
 
-          $this->load->view('ReservationInformation/payment', $hotelId);
+          $this->load->view('ReservationInformation/payment', $hotelId,$totalPrice);
             
         }
         

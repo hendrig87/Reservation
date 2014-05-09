@@ -26,6 +26,7 @@ function payment()
  
 <script>
 $(document).ready(function(){
+       
      $('#loading').show();
     $(".payment").click(function(){
         
@@ -85,7 +86,7 @@ $this->load->helper('availableRoom');
 ?>
  
  
- <div id="totalPrice">Total:get_currency(); </div>
+ <div id="totalPrice">Total:<?php //echo $totalPrice; ?></div>
 <table style="width: 100%;">
     <tr>
                 <td style="width:400px;">
