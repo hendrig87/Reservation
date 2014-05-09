@@ -8,10 +8,11 @@ foreach ($query as $data){
               }
 ?>
 
-<?php if($id==$userKey){ ?>
+
 <div id="login">
 
 	<div class="body">
+            <?php if($id == $userKey){ ?>
          <?php echo form_open_multipart('login/setpassword');?>
                   
     <input type="hidden" name="userEmail" value="<?php echo $useremail; ?>" />
@@ -46,13 +47,12 @@ foreach ($query as $data){
    </table>
         <?php echo form_close(); ?>
     
-    
+    <?php }
+ else { ?>
+
+    <label> Sorry your token has been expired! </label>
+
+<?php }?>
     
         </div>
         </div>	
-<?php }
- else { ?>
-<div class="body">
-    <label> Sorry your token has been expired! </label>
-</div>
-<?php }?>
