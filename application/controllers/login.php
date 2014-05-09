@@ -93,8 +93,8 @@ class Login extends CI_Controller {
  }
  
  public function registerEmail($useremail){
-    $data['user']= $useremail;
-  $uri = 'http://'. $_SERVER['HTTP_HOST'] ;
+    $data['user']= $this->dbmodel->get_current_user($useremail);
+    $uri = 'http://'. $_SERVER['HTTP_HOST'] ;
    $subject = "Registration Successful";
    $message =  $this->load->view('emailTemplates/emailHeader');
    $message .= $this->load->view('emailTemplates/registrationVerification', $data);

@@ -67,6 +67,8 @@ class Hotels extends CI_Controller {
                     $hotel_name= $this->input->post('hotelName');
                     $address= $this->input->post('address');
                     $contact= $this->input->post('contact');
+                    
+                     $this->addHotelEmail($username, $hotel_name);
                    $this->dbmodel->add_new_hotel($hotel_name, $address, $contact, $user_id);
 
                     
@@ -85,6 +87,33 @@ class Hotels extends CI_Controller {
   }
  
 }
+
+ public function addHotelEmail($username, $hotel_name){
+              $data['user']= $this->dbmodel->get_current_user($username);
+    $data['hotel']= $this->dbmodel->get_current_hotel($hotel_name);
+   $uri = 'http://'. $_SERVER['HTTP_HOST'] ;
+   $subject = "Registration Successful";
+   $message =  $this->load->view('emailTemplates/emailHeader');
+   $message .= $this->load->view('emailTemplates/hotelAddition', $data);
+   $message .=  $this->load->view('emailTemplates/emailFooter');
+   $headers = "MIME-Version: 1.0" . "\r\n";
+$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+$headers .= 'From: admin<info@smartaservices.com>' . "\r\n" ."CC: info@salyani.com.np";
+
+   
+   $retval = mail ($username,$subject,$message,$headers);
+   if( $retval == true )  
+   {
+      echo "Email sent successfully...";
+   }
+   else
+   {
+       $mess = "Message could not be sent...";
+       die($mess) ;
+   }    
+ }
+ 
+
 
 
 public function hotelListing(){
