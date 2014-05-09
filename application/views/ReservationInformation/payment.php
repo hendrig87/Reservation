@@ -26,6 +26,7 @@ function payment()
  
 <script>
 $(document).ready(function(){
+       
      $('#loading').show();
     $(".payment").click(function(){
         
@@ -79,8 +80,13 @@ function displaytime(){
 }
 setInterval("displaytime()", 1000);
  </script>
-
-
+<?php
+$this->load->helper('currency');
+$this->load->helper('availableRoom');
+?>
+ 
+ 
+ <div id="totalPrice">Total:<?php //echo $totalPrice; ?></div>
 <table style="width: 100%;">
     <tr>
                 <td style="width:400px;">

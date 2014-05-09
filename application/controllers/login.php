@@ -93,27 +93,17 @@ class Login extends CI_Controller {
  }
  
  public function registerEmail($useremail){
-    $data['user']= $this->dbmodel->get_current_user($useremail);
-    $uri = 'http://'. $_SERVER['HTTP_HOST'] ;
+    $user= $this->dbmodel->get_current_user($useremail);
+    foreach ($user as $data){
+        $username=$data->user_name;
+    }    
+    $this->load->helper('send_email_helper');
    $subject = "Registration Successful";
-   $message =  $this->load->view('emailTemplates/emailHeader');
-   $message .= $this->load->view('emailTemplates/registrationVerification', $data);
-   $message .=  $this->load->view('emailTemplates/emailHeader');
-   $headers = "MIME-Version: 1.0" . "\r\n";
-$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-$headers .= 'From: admin<info@smartaservices.com>' . "\r\n" ."CC: info@salyani.com.np";
-
+   $imglink = base_url() . "contents/images/ParkReserve.png";
+   $message = register_email($username,$imglink);   
    
-   $retval = mail ($useremail,$subject,$message,$headers);
-   if( $retval == true )  
-   {
-      echo "Email sent successfully...";
-   }
-   else
-   {
-       $mess = "Message could not be sent...";
-       die($mess) ;
-   }    
+    
+    send_email($useremail,$subject,$message);      
  }
  
  
@@ -389,7 +379,13 @@ function mailresetlink($to,$token){
       
  }
  
-
+ public function emailTemplate(){
+     
+     $this->load->view('emailtemplates/emailHeader');
+      $this->load->view('emailtemplates/registrationVerification');
+       $this->load->view('emailtemplates/emailFooter');
+     
+ }
 
  
 }
