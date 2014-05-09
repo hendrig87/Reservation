@@ -92,10 +92,7 @@ class Dbmodel extends CI_Model {
     public function get_user_email($a) {  
         $this->db->select('user_email,user_auth_key');
         $this->db->where('user_auth_key', $a );
-         //$data = array(
-         //   'user_auth_key'=> " ");
-        
-        //$this->db->update('user_info', $data);
+         
         $query = $this->db->get('user_info');
         return $query->result();
     } 
@@ -147,6 +144,22 @@ class Dbmodel extends CI_Model {
  public function get_booked_room_info($person_id){
       $this->db->where('personal_info_id', $person_id);
         $query = $this->db->get('booking_info');
+        return $query->result();
+ }
+ 
+ public function get_current_user($useremail){
+      $this->db->where('user_email', $useremail);
+        $query = $this->db->get('user_info');
+        return $query->result();
+ }
+ public function get_current_hotel($hotel_name){
+      $this->db->where('name', $hotel_name);
+        $query = $this->db->get('hotel_info');
+        return $query->result();
+ }
+ public function get_current_hotel_by_id($hotel_id){
+      $this->db->where('id', $hotel_id);
+        $query = $this->db->get('hotel_info');
         return $query->result();
  }
  

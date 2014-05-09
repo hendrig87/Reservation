@@ -72,7 +72,7 @@ class dashboard extends CI_Controller {
                 
         function addRoom(){
        if ($this->session->userdata('logged_in')) {
-   
+   $username = $this->session->userdata('username');
         $this->load->library('upload');
          
   if(($_SERVER['REQUEST_METHOD'] == 'POST'))
@@ -116,7 +116,7 @@ class dashboard extends CI_Controller {
            $price = $this->input->post('price');
            $description = $this->input->post('description');
         
-           
+           $this->addNewRoomEmail($username, $hotel_id);
             $data['add_room']= $this->dashboard_model->add_new_room($room_type,$noOfRoom,$price,$description,$img_name, $hotel_id);
             
            if($data)
@@ -139,7 +139,35 @@ class dashboard extends CI_Controller {
       else {
             redirect('login', 'refresh');
         }
-        } 
+        }
+        
+      public function addNewRoomEmail($username, $hotel_id){
+              $data['user']= $this->dbmodel->get_current_user($username);
+    $data['hotel']= $this->dbmodel->get_current_hotel_by_id($hotel_id);
+   $uri = 'http://'. $_SERVER['HTTP_HOST'] ;
+   $subject = "Registration Successful";
+   $message =  $this->load->view('emailTemplates/emailHeader');
+   $message .= $this->load->view('emailTemplates/roomAddition', $data);
+   $message .=  $this->load->view('emailTemplates/emailFooter');
+   $headers = "MIME-Version: 1.0" . "\r\n";
+$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+$headers .= 'From: admin<info@smartaservices.com>' . "\r\n" ."CC: info@salyani.com.np";
+
+   
+   $retval = mail ($username,$subject,$message,$headers);
+   if( $retval == true )  
+   {
+      echo "Email sent successfully...";
+   }
+   else
+   {
+       $mess = "Message could not be sent...";
+       die($mess) ;
+   }    
+ }  
+        
+        
+        
           
         public function get_hotel_id(){
    if(isset($_POST['id'])){
