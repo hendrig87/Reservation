@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 04, 2014 at 06:52 AM
+-- Generation Time: May 09, 2014 at 07:07 AM
 -- Server version: 5.6.12-log
 -- PHP Version: 5.4.12
 
@@ -38,7 +38,14 @@ CREATE TABLE IF NOT EXISTS `booking_info` (
   `no_of_nights` int(3) NOT NULL,
   `personal_info_id` int(3) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `booking_info`
+--
+
+INSERT INTO `booking_info` (`id`, `check_in_date`, `check_out_date`, `room_type`, `no_of_rooms_booked`, `total_amount`, `no_of_nights`, `personal_info_id`) VALUES
+(1, '2014/5/3', '2014/5/20', 'deluxe', 3, '3000', 16, 1);
 
 -- --------------------------------------------------------
 
@@ -79,8 +86,17 @@ CREATE TABLE IF NOT EXISTS `personal_info` (
   `contact_no` int(20) NOT NULL,
   `email` varchar(100) CHARACTER SET utf8 NOT NULL,
   `remarks` varchar(500) CHARACTER SET utf8 DEFAULT NULL,
+  `room_id` int(11) NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `personal_info`
+--
+
+INSERT INTO `personal_info` (`Id`, `full_name`, `address`, `occupation`, `nationality`, `contact_no`, `email`, `remarks`, `room_id`) VALUES
+(1, 'sushil ', 'gsuyfgsd', 'shuifhui', 'nepali', 955000000, '', NULL, 78),
+(2, '', '', '', '', 0, '', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -97,7 +113,7 @@ CREATE TABLE IF NOT EXISTS `room_registration` (
   `image` varchar(255) NOT NULL,
   `hotel_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=79 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=81 ;
 
 --
 -- Dumping data for table `room_registration`
@@ -117,7 +133,9 @@ INSERT INTO `room_registration` (`id`, `room_name`, `no_of_room`, `price`, `desc
 (75, '0', 0, 0, '0', '', 1),
 (76, 'My Room available', 7, 1233, '213213123', '', 2),
 (77, '', 1, 0, '', '', 2),
-(78, 'sdesa', 1, 0, 'sad', '', 3);
+(78, 'sdesa', 1, 0, 'sad', '', 3),
+(79, 'mjudh', 3, 400, '', '', 3),
+(80, 'tvfrfc', 1, 500, '', '', 3);
 
 -- --------------------------------------------------------
 
@@ -136,7 +154,7 @@ CREATE TABLE IF NOT EXISTS `user_info` (
   `login_status` varchar(100) NOT NULL,
   `Last_login_date` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
 -- Dumping data for table `user_info`
@@ -147,13 +165,16 @@ INSERT INTO `user_info` (`id`, `user_name`, `user_fname`, `user_lname`, `user_em
 (4, '\\sa', 'AS', 'A', 'A@akjs.ud', '8c80b057bc0b599b48cbd144558aeada', '', 'Registered', '2014-05-01 23:43:31'),
 (5, 'admin', 'homnath', 'bagale', 'bhomnath@salyani.com', '21232f297a57a5a743894a0e4a801fc3', '1SYPD8XIWJ', 'Logged Out', '2014-05-01 23:43:31'),
 (6, 'sushil', 'shrerha', 'lakfals', 'sushilsth21@gmail.co', '698d51a19d8a121ce581499d7b701668', '', 'Logged Out', '2014-05-01 23:43:31'),
-(7, 'ksadfjlsafj', 'sadfkl', 'kldgjsdkl', 'sunil@gmail.com', '912ec803b2ce49e4a541068d495ab570', '', 'Logged Out', '2014-05-03 22:20:38'),
+(7, 'ksadfjlsafj', 'sadfkl', 'kldgjsdkl', 'sunil@gmail.com', '912ec803b2ce49e4a541068d495ab570', 'JCGJ3HHC35', 'Logged Out', '2014-05-03 22:20:38'),
 (8, 'jay', 'jayash', 'gsfdatgds', 'jayash@gmail.com', '912ec803b2ce49e4a541068d495ab570', '', 'Logged Out', '2014-05-01 23:43:31'),
 (9, 'mynba', 'hsdydhas', 'joidjsaui', 'asdsy@gsuyguu.asyfg', '7f2b3b81e81984b415a16d0400388eda', '', 'Logged Out', '2014-05-01 23:43:31'),
-(10, 'ramesh', 'ramesh', 'pah', 'pah@gmail.com', '912ec803b2ce49e4a541068d495ab570', '', 'Logged In', '2014-05-03 22:53:56'),
+(10, 'ramesh', 'ramesh', 'pah', 'pah@gmail.com', '912ec803b2ce49e4a541068d495ab570', 'JIQ9M3KF46', 'Logged Out', '2014-05-09 10:19:25'),
 (11, 'raghu', 'raghu', 'kandel', 'raghu@gmail.com', '912ec803b2ce49e4a541068d495ab570', '', 'Logged Out', '2014-05-02 03:30:43'),
 (12, 'pappu', 'pappu', 'daddu', 'pappu@gmail.com.np', 'd13fe0a49db0ea88fe97488f6713719c', '', 'Logged Out', '2014-05-02 03:25:34'),
-(13, 'danku', 'daku', 'gada', 'daku@yahoo.com', '912ec803b2ce49e4a541068d495ab570', '', 'Logged Out', '2014-05-02 03:46:56');
+(13, 'danku', 'daku', 'gada', 'daku@yahoo.com', '912ec803b2ce49e4a541068d495ab570', '', 'Logged Out', '2014-05-02 03:46:56'),
+(14, 'asdf', 'asdff', 'sadas', 'aaaa@aaaa.aaaa', '74b87337454200d4d33f80c4663dc5e5', 'XTP151U9TL', 'Registered', 'Not logged in till'),
+(15, 'aaaaaaa', 'aaaaaaa', 'aaaaaaa', 'aaaaaaa@aaaaaaa.aaaa', '5d793fc5b00a2348c3fb9ab59e5ca98a', '', 'Registered', 'Not logged in till'),
+(16, 'sadasdfa', 'adsadas', 'sadasdas', 'sadas@sadsa.sadas', '2b7203e1d1b1c3dd4615bdd0ffe60736', '', 'Registered', 'Not logged in till');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
