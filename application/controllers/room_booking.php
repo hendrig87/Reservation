@@ -21,6 +21,7 @@ class room_booking extends CI_Controller {
             
             $this->load->view('template/header');
             $this->load->view('template/imageDiv');
+           
             $this->load->view('template/reservation_template');
             $this->load->view('login/test');
             $this->load->view('template/footer');
