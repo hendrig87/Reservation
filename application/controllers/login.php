@@ -83,12 +83,41 @@ class Login extends CI_Controller {
                $userpass = $this->input->post('userPass');
                $loginStatus="Registered";
                $loginDate="Not logged in till";
+                $this->registerEmail($useremail);
             $this->dbmodel->add_new_user($user_name, $userfname, $userlname, $useremail, $userpass, $loginStatus, $loginDate);
             
             redirect('login/index');
                 }
                 
  }
+ 
+ public function registerEmail($useremail){
+     $useremail ;
+  $uri = 'http://'. $_SERVER['HTTP_HOST'] ;
+   $subject = "Registration Successful";
+   $message = '
+    <html>
+    <head>
+    <title>Password reset link</title>
+    </head>
+    <body>
+    <p>Click on the given link to reset your password <a href="'.$uri.'/reset.php?token='.$token.'">Reset Password</a></p>
+
+    </body>
+    </html>';
+   $header = 'From: admin<info@smartaservices.com>' . "\r\n";
+   $retval = mail ($useremail,$subject,$message,$header);
+   if( $retval == true )  
+   {
+      echo "Email sent successfully...";
+   }
+   else
+   {
+      echo "Message could not be sent...";
+   }    
+ }
+ 
+ 
  function logout() {
      if ($this->session->userdata('logged_in')) {
               
@@ -248,10 +277,10 @@ else
                 $this->dbmodel->update_emailed_user($to, $token);  
                 $this->test($token);
                 
-                $this->mailresetlink($to, $token);
+               // $this->mailresetlink($to, $token);
                 
-           $this->session->set_flashdata('message', 'Instructions to reset your password have been emailed to you. Please check your email and login ');
-           redirect('welcome/mailSentMessage', 'refresh');    
+          // $this->session->set_flashdata('message', 'Instructions to reset your password have been emailed to you. Please check your email and login ');
+           //redirect('welcome/mailSentMessage', 'refresh');    
             } }  else {
                 $this->session->set_flashdata('message', 'Please type valid Email Address');
                 redirect("login/forgotPassword");
@@ -283,21 +312,20 @@ else
     
            } 
            
- function mailresetlink($to,$token){
+ /*function mailresetlink($to,$token){
   $to ;
   $uri = 'http://'. $_SERVER['HTTP_HOST'] ;
    $subject = "This is subject";
    $message = '
     <html>
     <head>
-    <title></title>
+    <title>Password reset link</title>
     </head>
     <body>
     <p>Click on the given link to reset your password <a href="'.$uri.'/reset.php?token='.$token.'">Reset Password</a></p>
 
     </body>
-    </html>
-';
+    </html>';
    $header = 'From: admin<info@smartaservices.com>' . "\r\n";
    $retval = mail ($to,$subject,$message,$header);
    if( $retval == true )  
@@ -311,7 +339,7 @@ else
 
     
          
- }
+ }*/
  
   public function resetPassword() {
       
