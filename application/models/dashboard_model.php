@@ -109,4 +109,7 @@ public function add_new_room($room_type,$noOfRoom,$price,$description,$img_name,
 
         $this->db->delete('room_registration', array('id' => $id));
     }
+    
+    
+   
 }
