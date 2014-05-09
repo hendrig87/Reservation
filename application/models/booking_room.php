@@ -16,19 +16,6 @@ class booking_room extends CI_Model {
         return $query->result();
     }
     
-    public function personal_info($fullName,$address,$occupation,$nationality,$contactNo,$email,$remarks)
-    {
-         $data = array(
-            'full_name' => $fullName,
-            'address'=> $address,
-            'occupation'=> $occupation,
-            'nationality'=> $nationality,
-            'contact_no'=> $contactNo,
-            'email'=>$email,
-             'remarks'=>$remarks);
-        
-         $this->db->insert('personal_info', $data);
-    }
    
     
 }

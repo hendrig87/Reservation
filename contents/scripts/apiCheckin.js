@@ -95,13 +95,13 @@ function roomBook()      // function to call for payment info view.
 
 
 function changeFunc() {
-   
     $('#loading').show();
     
     var checkin = $("#CheckIn").val();
     var checkout = $("#CheckOut").val();
     var adult = $("#adult").val();
     var child = $("#child").val();
+
     $.ajax({
         type: "POST",
         url: base_url + "index.php/room_booking/post_action",
@@ -172,8 +172,6 @@ $(document).ready(function(event){
 $(".middleLayer").fadeToggle(1000);
         $(".popup").fadeToggle(1300);
                 path();
-               
-                
                 $('#one').css({'background-color': '#0077b3'});
                 $('.first').css({'color': '#0077b3'});
                 $('.first').css({'font-weight': 'bold'});
