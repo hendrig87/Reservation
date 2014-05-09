@@ -84,6 +84,7 @@ class Login extends CI_Controller {
                $loginStatus="Registered";
                $loginDate="Not logged in till";
                 $this->registerEmail($useremail);
+                
             $this->dbmodel->add_new_user($user_name, $userfname, $userlname, $useremail, $userpass, $loginStatus, $loginDate);
             
             redirect('login/index');
@@ -92,28 +93,26 @@ class Login extends CI_Controller {
  }
  
  public function registerEmail($useremail){
-     $useremail ;
+    $data['user']= $useremail;
   $uri = 'http://'. $_SERVER['HTTP_HOST'] ;
    $subject = "Registration Successful";
-   $message = '
-    <html>
-    <head>
-    <title>Password reset link</title>
-    </head>
-    <body>
-    <p>Click on the given link to reset your password <a href="'.$uri.'/reset.php?token='.$token.'">Reset Password</a></p>
+   $message =  $this->load->view('emailTemplates/emailHeader');
+   $message .= $this->load->view('emailTemplates/registrationVerification', $data);
+   $message .=  $this->load->view('emailTemplates/emailHeader');
+   $headers = "MIME-Version: 1.0" . "\r\n";
+$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+$headers .= 'From: admin<info@smartaservices.com>' . "\r\n" ."CC: info@salyani.com.np";
 
-    </body>
-    </html>';
-   $header = 'From: admin<info@smartaservices.com>' . "\r\n";
-   $retval = mail ($useremail,$subject,$message,$header);
+   
+   $retval = mail ($useremail,$subject,$message,$headers);
    if( $retval == true )  
    {
       echo "Email sent successfully...";
    }
    else
    {
-      echo "Message could not be sent...";
+       $mess = "Message could not be sent...";
+       die($mess) ;
    }    
  }
  
@@ -279,7 +278,7 @@ else
                 
                // $this->mailresetlink($to, $token);
                 
-          // $this->session->set_flashdata('message', 'Instructions to reset your password have been emailed to you. Please check your email and login ');
+         // $this->session->set_flashdata('message', 'Instructions to reset your password have been emailed to you. Please check your email and login ');
            //redirect('welcome/mailSentMessage', 'refresh');    
             } }  else {
                 $this->session->set_flashdata('message', 'Please type valid Email Address');
@@ -312,7 +311,7 @@ else
     
            } 
            
- /*function mailresetlink($to,$token){
+function mailresetlink($to,$token){
   $to ;
   $uri = 'http://'. $_SERVER['HTTP_HOST'] ;
    $subject = "This is subject";
@@ -339,7 +338,7 @@ else
 
     
          
- }*/
+ }
  
   public function resetPassword() {
       
