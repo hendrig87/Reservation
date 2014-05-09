@@ -10,6 +10,7 @@ class room_booking extends CI_Controller {
         $this->load->library('session');
         $this->load->model('dbmodel');
         $this->load->model('dashboard_model');
+         $this->load->model('popup_model');
         $this->load->helper('url');
        
         $this->load->helper(array('form', 'url'));
@@ -87,15 +88,17 @@ class room_booking extends CI_Controller {
          function personal_info()
         {  
               $hotelId= $_POST['hotelId'];
-          
-              $mydata = $_POST['child'];
-      
-     
-              echo $mydata;
+              $jsondatas = $_POST['updated_json'];
+               $jsonDecode = json_decode($jsondatas,true);
+               $jsonArray = $jsonDecode;
+               foreach ($jsonArray as $items)
+               {
+                   var_dump($items);
+               }
+
+//var_dump($jsonArray);
+             //$data['bookRoomInfo']= $this->popup_model->popup_insert($jsonArray);
               
-              $d='{"id":"75","room_name":"Economy ","no_of_room":"0","price":"500","description":"asdfasf","image":"","hotel_id":"1"},{"id":"70","room_name":"Couple Room","no_of_room":"0","price":"500","description":"sadsadasdas","image":"DSCF363.jpg","hotel_id":"1"},{"id":"66","room_name":"Luxury","no_of_room":"9","price":"1000","description":"dfh dvsrtruub dsgd","image":"arrow.jpg","hotel_id":"1"},{"id":"65","room_name":"Deluxe","no_of_room":"0","price":"800","description":"rybsvssfd","image":"2P2Z4.png","hotel_id":"1"}';
-                $json = json_decode($d,TRUE);
-                var_dump($json);
           $this->load->view('ReservationInformation/payment', $hotelId);
             
           

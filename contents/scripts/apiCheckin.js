@@ -69,13 +69,12 @@ function roomBook()      // function to call for payment info view.
   
     $('#loading').show();
     var jsondata = $('#myjson').val();
-    alert(jsondata);
     $.ajax({
         type: "POST",
         url: base_url + 'index.php/room_booking/personal_info',
         data: {
             
-            'child': jsondata,
+            'updated_json': jsondata,
             'hotelId': "1"
         },
         success: function(msgs)
@@ -170,8 +169,8 @@ $(document).ready(function(event){
              
              
       $("#changePopup").html(replaced); 
-$(".middleLayer").fadeToggle(1500);
-        $(".popup").fadeToggle(2000);
+$(".middleLayer").fadeToggle(1000);
+        $(".popup").fadeToggle(1300);
                 path();
                 $('#one').css({'background-color': '#0077b3'});
                 $('.first').css({'color': '#0077b3'});
