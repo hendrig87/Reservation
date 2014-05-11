@@ -6,6 +6,7 @@
  * and open the template in the editor.
  */
 
+
 function send_email($useremail,$subject,$message)
                 {
      $headers = 'From: admin<info@smartaservices.com>' . "\r\n" ."CC: info@salyani.com.np";
@@ -45,3 +46,4 @@ function register_email($username,$imglink)
 </div>';
     
 }
+
