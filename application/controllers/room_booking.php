@@ -91,7 +91,7 @@ class room_booking extends CI_Controller {
             $child_s = $_POST['child'];
            // die($fullName);
           //die($check_in);
-            
+   
             $data['personalInfo']=$this->booking_room->personal_info($fullName,$address,$occupation,$nationality,$contactNo,$email,$remarks,$totalPrice,$child_s,$adult_s);
          
             $jsondatas = $_POST['updated_json'];
@@ -99,8 +99,16 @@ class room_booking extends CI_Controller {
             $jsonDecode = json_decode($jsondatas,true);
             $jsonArray = $jsonDecode;
      
-           array_walk($jsonArray, create_function('&$subarray', '$subarray[check_in_date] =$check_in;'));
-           array_walk($jsonArray, create_function('&$subarray', '$subarray[check_out_date] = "three";'));
+            array_walk($jsonArray, function (&$subarray) use ($check_in) {
+    $subarray['check_in_date'] = $check_in;
+});
+
+array_walk($jsonArray, function (&$subarray) use ($check_out) {
+    $subarray['check_out_date'] = $check_out;
+});
+
+//array_walk($jsonArray, create_function('&$subarray', '$subarray[check_in_date] =$check_in;'));
+           //array_walk($jsonArray, create_function('&$subarray', '$subarray[check_out_date] = "three";'));
 
             
             var_dump($jsonArray);
