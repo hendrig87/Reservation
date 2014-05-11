@@ -137,7 +137,7 @@ function send_room_add_email($useremail,$subject,$message)
 }
 
 
-function room_book_email($hotelId, $totalPrice, $fullName, $email, $check_in, $check_out, $child_s, $adult_s, $imglink){
+function room_book_email($hotelname, $totalPrice, $fullName, $check_in, $check_out, $child_s, $adult_s, $imglink){
    $body = '<div style="width: 750px; margin: 0 auto 0 auto; padding: 0px;" >
         <div style="display:table-cell; vertical-align:middle; text-align:center; height: 70px; width: 1000px; alignment-adjust: central; background-color: #ccc; margin: 0 auto 0 auto;">
             <img src="'.$imglink.'" alt="salyani" style="height:50px; width:50px; margin:10px;"/>
@@ -147,11 +147,11 @@ function room_book_email($hotelId, $totalPrice, $fullName, $email, $check_in, $c
    <div style="padding: 10px 20px 10px 20px; background-color: #eee;">
    
     
-    <h4>Dear '.$username.'  !</h4>
+    <h4>Dear '.$fullName.'  !</h4>
 
-    <h4>Welcome to reservation.</h4>
-    <h5>Congratulation your hotel addition is successful</h5>
-    <p>You have successfully added your hotel  '.$hotel_name.' to reservation.</p>
+  
+    <h5>Thank you for your booking through reservation.</h5>
+    <p>You have successfully booked hotel '.$hotelname.' dated from '.$check_in.' to '.$check_out.' for '.$adult_s.' adults and '.$child_s.' for total price '.$totalPrice.'.</p>
 </div>
             
             <div style="display:table-cell; vertical-align:middle; text-align:center; height: 70px; width: 1000px; alignment-adjust: central; background-color: #ccc; margin: 0 auto 0 auto;">

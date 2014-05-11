@@ -135,11 +135,19 @@ array_walk($jsonArray, function (&$subarray) use ($check_out) {
         
         
         
-         public function bookingEmail($hotelId, $totalPrice, $fullName, $email, $check_in, $check_out, $child_s, $adult_s){ 
-    $this->load->helper('send_email_helper');
+    public function bookingEmail($hotelId, $totalPrice, $fullName, $email, $check_in, $check_out, $child_s, $adult_s){ 
+   
+      $hotel=  $this->dbmodel->get_current_hotel_by_id($hotelId);      
+       if (!empty($hotel)) {
+        foreach ($hotel as $data) {
+            $hotelname = $data->name;
+        }
+    }
+             
+   $this->load->helper('send_email_helper');
    $subject = "Registration Successful";
    $imglink = base_url() . "contents/images/ParkReserve.png";
-   $message = room_book_email($hotelId, $totalPrice, $fullName, $email, $check_in, $check_out, $child_s, $adult_s, $imglink);   
+   $message = room_book_email($hotelname, $totalPrice, $fullName, $check_in, $check_out, $child_s, $adult_s, $imglink);   
    
     
     send_room_book_email($email,$subject,$message);      
