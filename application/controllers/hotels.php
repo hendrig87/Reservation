@@ -89,28 +89,22 @@ class Hotels extends CI_Controller {
 }
 
  public function addHotelEmail($username, $hotel_name){
-              $data['user']= $this->dbmodel->get_current_user($username);
-    $data['hotel']= $this->dbmodel->get_current_hotel($hotel_name);
-   $uri = 'http://'. $_SERVER['HTTP_HOST'] ;
-   $subject = "Registration Successful";
-   $message =  $this->load->view('emailTemplates/emailHeader');
-   $message .= $this->load->view('emailTemplates/hotelAddition', $data);
-   $message .=  $this->load->view('emailTemplates/emailFooter');
-   $headers = "MIME-Version: 1.0" . "\r\n";
-$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-$headers .= 'From: admin<info@smartaservices.com>' . "\r\n" ."CC: info@salyani.com.np";
-
+              $user= $this->dbmodel->get_current_user($username);
+  
+   if (!empty($user)) {
+        foreach ($user as $data) {
+            $username = $data->user_name;
+            $useremail= $data->user_email;
+}}
+ 
+    $this->load->helper('send_email_helper');
+   $subject = "Hotel Addition Successful";
+   $imglink = base_url() . "contents/images/ParkReserve.png";
+   $message = hotel_add_email($username,$imglink, $hotel_name);  
    
-   $retval = mail ($username,$subject,$message,$headers);
-   if( $retval == true )  
-   {
-      echo "Email sent successfully...";
-   }
-   else
-   {
-       $mess = "Message could not be sent...";
-       die($mess) ;
-   }    
+    
+    send_hotel_add_email($useremail,$subject,$message);  
+   
  }
  
 

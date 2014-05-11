@@ -56,34 +56,34 @@ class Login extends CI_Controller {
                 {  
                          foreach ($users as $user){
                              $userName= $user->user_name;
+                              $userEmail= $user->user_email;
                          }
-            $inputuserName= $_POST['userName'];             
-            if($userName != $inputuserName){             
-            $user_name = $this->input->post('userName');
+                         if(isset($_POST['userName']))
+                $inputuserName= $_POST['userName'];             
+            if($userName === $inputuserName){             
+            $this->session->set_flashdata('message', 'User Name already exsists');
+          redirect('login/registrationForm', 'refresh');
             }
  else {
-                $this->session->set_flashdata('message', 'User Name already exsists');
-          redirect('login/registrationForm', 'refresh');
+                $user_name = $this->input->post('userName');
  }
             $userfname = $this->input->post('userFirstName');   
             $userlname = $this->input->post('userLastName');
-          
-            foreach ($users as $user){
-                             $userEmail= $user->user_email;
-                         }
+            if(isset($_POST['userEmail']));
            $inputuserEmail= $_POST['userEmail']; 
-            if($userEmail != $inputuserEmail){             
-              $useremail = $this->input->post('userEmail');
+           
+            if($userEmail === $inputuserEmail){             
+              $this->session->set_flashdata('message', 'User Email already exsists');
+          redirect('login/registrationForm', 'refresh');
             }
  else {
-                $this->session->set_flashdata('message', 'User Email already exsists');
-          redirect('login/registrationForm', 'refresh');
+                $useremail = $this->input->post('userEmail');
  }
  
                $userpass = $this->input->post('userPass');
                $loginStatus="Registered";
                $loginDate="Not logged in till";
-                $this->registerEmail($useremail);
+                $this->registerEmail($useremail,$user_name);
                 
             $this->dbmodel->add_new_user($user_name, $userfname, $userlname, $useremail, $userpass, $loginStatus, $loginDate);
             
@@ -92,15 +92,11 @@ class Login extends CI_Controller {
                 
  }
  
- public function registerEmail($useremail){
-    $user= $this->dbmodel->get_current_user($useremail);
-    foreach ($user as $data){
-        $username=$data->user_name;
-    }    
+ public function registerEmail($useremail, $user_name){ 
     $this->load->helper('send_email_helper');
    $subject = "Registration Successful";
    $imglink = base_url() . "contents/images/ParkReserve.png";
-   $message = register_email($username,$imglink);   
+   $message = register_email($user_name,$imglink);   
    
     
     send_email($useremail,$subject,$message);      
@@ -380,10 +376,10 @@ function mailresetlink($to,$token){
  }
  
  public function emailTemplate(){
-     
-     $this->load->view('emailtemplates/emailHeader');
-      $this->load->view('emailtemplates/registrationVerification');
-       $this->load->view('emailtemplates/emailFooter');
+     $data['query']=
+    // $this->load->view('emailtemplates/testEmailTemplate');
+      $this->load->view('emailtemplates/bookingRoomEmail');
+     //  $this->load->view('emailtemplates/emailFooter');
      
  }
 
