@@ -167,6 +167,7 @@ function send_room_book_email($email,$subject,$message)
                 {
      $headers = 'From: admin<info@smartaservices.com>' ."\r\n" ;
              $headers .="CC: info@salyani.com.np";
+             
     $headers .="MIME-Version: 1.0" . "\r\n";
             $headers .="Content-type:text/html;charset=UTF-8" . "\r\n";
 

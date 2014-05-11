@@ -140,7 +140,7 @@ class room_booking extends CI_Controller {
     }
              
    $this->load->helper('send_email_helper');
-   $subject = "Registration Successful";
+   $subject = "Room Booking Successful";
    $imglink = base_url() . "contents/images/ParkReserve.png";
    $message = room_book_email($hotelname, $totalPrice, $fullName, $check_in, $check_out, $child_s, $adult_s, $imglink);   
    
