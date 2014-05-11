@@ -81,7 +81,7 @@ function roomBook()      // function to call for payment info view.
     var checkout = $("#CheckOut").val();
     var adult = $("#adult").val();
     var child = $("#child").val();
-    
+    alert(checkin);
 
     $.ajax({
         type: "POST",

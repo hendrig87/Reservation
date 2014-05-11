@@ -90,7 +90,7 @@ class room_booking extends CI_Controller {
             $adult_s = $_POST['adult'];
             $child_s = $_POST['child'];
            // die($fullName);
-          
+          die($check_in);
             
             $data['personalInfo']=$this->booking_room->personal_info($fullName,$address,$occupation,$nationality,$contactNo,$email,$remarks,$totalPrice,$child_s,$adult_s);
          
@@ -99,9 +99,11 @@ class room_booking extends CI_Controller {
             $jsonDecode = json_decode($jsondatas,true);
             $jsonArray = $jsonDecode;
      
-//$stack = array("orange", "banana");
-            //array_push($jsonArray, $check_in, $check_out);
-            //var_dump($jsonArray);
+          // array_walk($jsonArray, create_function('&$subarray', '$subarray[check_in_date] =$check_in;'));
+          // array_walk($jsonArray, create_function('&$subarray', '$subarray[check_out_date] = "three";'));
+
+            
+            var_dump($jsonArray);
                
                foreach ($jsonArray as $item)
                {

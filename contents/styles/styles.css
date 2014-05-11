@@ -170,24 +170,12 @@ color: #fff;}
         .centerDiv
             {
                 padding: 10px;
+                position: absolute;
+                top:100px;
+                right: 100px;
                 margin: 0 auto 0 auto;
-                width: 80%;
-              
-
             }
             
-            #sliderDescriptionDiv
-            {
-                padding-top: 200px;
-                text-align: right;
-                
-
-
-            }
-            #sliderDescriptionDiv h2,   #sliderDescriptionDiv p
-            {
-                 color: white;
-            }
             
             .container
             {
