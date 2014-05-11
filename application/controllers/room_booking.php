@@ -90,7 +90,7 @@ class room_booking extends CI_Controller {
             $adult_s = $_POST['adult'];
             $child_s = $_POST['child'];
            // die($fullName);
-          die($check_in);
+          //die($check_in);
             
             $data['personalInfo']=$this->booking_room->personal_info($fullName,$address,$occupation,$nationality,$contactNo,$email,$remarks,$totalPrice,$child_s,$adult_s);
          
@@ -99,8 +99,8 @@ class room_booking extends CI_Controller {
             $jsonDecode = json_decode($jsondatas,true);
             $jsonArray = $jsonDecode;
      
-          // array_walk($jsonArray, create_function('&$subarray', '$subarray[check_in_date] =$check_in;'));
-          // array_walk($jsonArray, create_function('&$subarray', '$subarray[check_out_date] = "three";'));
+           array_walk($jsonArray, create_function('&$subarray', '$subarray[check_in_date] =$check_in;'));
+           array_walk($jsonArray, create_function('&$subarray', '$subarray[check_out_date] = "three";'));
 
             
             var_dump($jsonArray);
@@ -109,8 +109,8 @@ class room_booking extends CI_Controller {
                {
                 if($item['no_of_room'] != "0")
                 {
-                    mysql_query("INSERT INTO `booking_info` (room_type, no_of_rooms_booked) 
-       VALUES ('".$item['room_name']."', '".$item['no_of_room']."')");
+                    mysql_query("INSERT INTO `booking_info` (check_in_date, check_out_date, room_type, no_of_rooms_booked) 
+       VALUES ('".$item['check_in_date']."', '".$item['check_out_date']."' ,'".$item['room_name']."', '".$item['no_of_room']."')");
                 }
      
                }
