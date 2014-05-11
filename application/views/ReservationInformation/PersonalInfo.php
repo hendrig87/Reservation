@@ -117,7 +117,7 @@ $(".personalInfo").click(function() {
         </table>
     <script>
         
-var updated_json ='<textarea  id="myjson" >'+JSON.stringify(txtnext)+'</textarea>';
+var updated_json ='<textarea  id="myjson" style="display:none;" >'+JSON.stringify(txtnext)+'</textarea>';
 $('#action').append(updated_json);
     </script>
   

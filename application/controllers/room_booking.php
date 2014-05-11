@@ -100,19 +100,14 @@ class room_booking extends CI_Controller {
             $jsonArray = $jsonDecode;
      
             array_walk($jsonArray, function (&$subarray) use ($check_in) {
-    $subarray['check_in_date'] = $check_in;
-});
+            $subarray['check_in_date'] = $check_in;
+            });
 
-array_walk($jsonArray, function (&$subarray) use ($check_out) {
-    $subarray['check_out_date'] = $check_out;
-});
+            array_walk($jsonArray, function (&$subarray) use ($check_out) {
+            $subarray['check_out_date'] = $check_out;
+            });
 
-//array_walk($jsonArray, create_function('&$subarray', '$subarray[check_in_date] =$check_in;'));
-           //array_walk($jsonArray, create_function('&$subarray', '$subarray[check_out_date] = "three";'));
 
-            
-            var_dump($jsonArray);
-               
                foreach ($jsonArray as $item)
                {
                 if($item['no_of_room'] != "0")
