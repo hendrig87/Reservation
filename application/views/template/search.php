@@ -25,40 +25,7 @@
 $('#sugestion').on('keydown', '#link', function(e){
 alert("keydown");
 });
-function getSugestion(value)
-    {
-        alert(' enter into function');
-        if(value != "")
-        {                      
-            alert('enter into ajax'); 
-            var userA = value;
-                                        
-            alert('this is typed value = '+userA);
-         
-            $.ajax({
-                type: "POST",
-                url: "<?php echo base_url() . 'index.php/search_con/user'; ?>",
-                data: {
-                    'userA' : userA
- 
-                },
-                success: function(msg) 
-                {
-            
-            
-                    $("#sugestion").html(msg);
-                    runCSS();
-            
-                }
-            });
-                                        
-        }
-        else
-        {	
-            removeSugestion();
-        }
-    }
-			
+		
     function removeSugestion()
     {
         $("#sugestion").html("");

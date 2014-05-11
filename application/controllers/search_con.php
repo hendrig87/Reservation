@@ -36,7 +36,9 @@ class Search_con extends CI_Controller {
         
      //echo $startSelect.$option.$endSelect;
      $list = "";
-     $startUL = "<div id='link' > <style> #sugUL li:hover { background-color:#fofofo; } </style> <ul id='sugUL' style='list-style:none;'>";
+     $startUL = " <style> #sugUL li:hover { background-color:#fofofo; } #link {
+         position:relative; top:-20px; left:-40px;  } #link ul li {width:230px;} 
+ </style> <div id='link' > <ul id='sugUL' style='list-style:none;'>";
      foreach ($result as $finaldata)
      {
          $list = $list."<li style='background-color:#ccc; padding:5px 20px 5px 0;' onClick='addText(\"".$finaldata->name."\");'> " . $finaldata->name." </li>";
