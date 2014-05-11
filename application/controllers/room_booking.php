@@ -119,6 +119,8 @@ array_walk($jsonArray, function (&$subarray) use ($check_out) {
                 {
                     mysql_query("INSERT INTO `booking_info` (check_in_date, check_out_date, room_type, no_of_rooms_booked) 
        VALUES ('".$item['check_in_date']."', '".$item['check_out_date']."' ,'".$item['room_name']."', '".$item['no_of_room']."')");
+                    
+                    $this->bookingEmail($hotelId, $totalPrice, $fullName, $email, $check_in, $check_out, $child_s, $adult_s);
                 }
      
                }
@@ -130,6 +132,18 @@ array_walk($jsonArray, function (&$subarray) use ($check_out) {
           $this->load->view('ReservationInformation/payment', $hotelId,$totalPrice);
             
         }
+        
+        
+        
+         public function bookingEmail($hotelId, $totalPrice, $fullName, $email, $check_in, $check_out, $child_s, $adult_s){ 
+    $this->load->helper('send_email_helper');
+   $subject = "Registration Successful";
+   $imglink = base_url() . "contents/images/ParkReserve.png";
+   $message = room_book_email($hotelId, $totalPrice, $fullName, $email, $check_in, $check_out, $child_s, $adult_s, $imglink);   
+   
+    
+    send_room_book_email($email,$subject,$message);      
+ }
         
         function payment_options()
         {  

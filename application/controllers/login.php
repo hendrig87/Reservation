@@ -376,7 +376,7 @@ function mailresetlink($to,$token){
  }
  
  public function emailTemplate(){
-     $data['query']=
+    
     // $this->load->view('emailtemplates/testEmailTemplate');
       $this->load->view('emailtemplates/bookingRoomEmail');
      //  $this->load->view('emailtemplates/emailFooter');
