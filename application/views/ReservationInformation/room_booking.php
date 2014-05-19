@@ -100,7 +100,7 @@ $('#one').css({'background-color': '#999999'});
 <!--loading currency_helper  -->
 <?php
 $this->load->helper('currency');
-$this->load->helper('availableRoom');
+$this->load->helper('availableroom');
 
 //foreach ($total_room as $troom){
    // echo $troom->room_name." = ". $troom->no_of_room."<br/>";
