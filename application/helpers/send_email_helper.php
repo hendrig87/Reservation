@@ -165,7 +165,7 @@ function room_book_email($hotelname, $totalPrice, $fullName, $check_in, $check_o
 
 function send_room_book_email($email,$subject,$message)
                 {
-  /*   $headers = 'From: admin<info@smartaservices.com>' ."\r\n" ;
+    $headers = 'From: admin<info@smartaservices.com>' ."\r\n" ;
              $headers .="CC: info@salyani.com.np";
              
     $headers .="MIME-Version: 1.0" . "\r\n";
@@ -176,7 +176,7 @@ function send_room_book_email($email,$subject,$message)
     } else {
         echo "Message could not be sent...";
          
-   }   */ 
+   }  
    }
  
  
