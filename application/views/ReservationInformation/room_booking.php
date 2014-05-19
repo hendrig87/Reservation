@@ -39,9 +39,10 @@ txtnext[i].no_of_room = booked;
  
  
  //action perform when next button is clicked
- $("#popupBtn").click(function(e){
+ $(".choosedRoom").click(function(e){
 if ($('#disablebtn').val() == 'yes')
 {
+
 e.preventDefault();
         $("#disablebtnInfo").html('<span class="error_sign">!</span>&nbsp;' + 'Please select the rooms');
         $("#disablebtnInfo").fadeIn(1000);
@@ -49,6 +50,7 @@ e.preventDefault();
 }
 else
 {
+   
 $('#one').css({'background-color': '#999999'});
         $('.first').css({'color': 'black'});
         $('.first').css({'font-weight': 'normal'});
