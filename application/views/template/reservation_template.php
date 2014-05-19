@@ -60,8 +60,6 @@ $(document).ready(function(){
  });
  
  }
-
-  
     $(document).ready(function(){   
         //close popup.
         $("#closePopup").click(function(){
