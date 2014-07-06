@@ -98,6 +98,15 @@ function displaytime(){
 		}
 }
 setInterval("displaytime()", 1000);
+
+function movecursor() {
+    $("#CheckIn").focus();
+}
+function movecursornext() {
+    $("#CheckOut").focus();
+}
+  
+
  </script>
     
     <?php
@@ -118,7 +127,7 @@ setInterval("displaytime()", 1000);
                       <div class="input-prepend input-append">
                 <span class="add-on">Check In</span>
                 <input name="CheckIn" type="text" required="required" style="width:185px; cursor:pointer;" id="CheckIn">
-                <span class="add-on" style="width:auto; "><img src='<?php echo base_url().'contents/images/ParkReserve.png' ;?>' style="width: 15px; height: 20px;" ></span>
+                <span onclick="movecursor()" class="add-on" style="width:auto; cursor:pointer; "><img src='<?php echo base_url().'contents/images/ParkReserve.png' ;?>' style="width: 15px; height: 20px;" ></span>
                 </div> 
                     </td>
                     
@@ -147,7 +156,7 @@ setInterval("displaytime()", 1000);
                 <div class="input-prepend input-append">
                 <span class="add-on">Check Out</span>
                 <input name="CheckOut" type="text" style="width:185px; cursor:pointer;" id="CheckOut" value=""  required="required">
-                <span class="add-on" style="width:auto;"><img src='<?php echo base_url().'contents/images/ParkReserve.png' ;?>' style="width: 15px; height: 20px;" ></span>
+                <span onclick="movecursornext()" class="add-on" style="width:auto; cursor:pointer;"><img src='<?php echo base_url().'contents/images/ParkReserve.png' ;?>' style="width: 15px; height: 20px;" ></span>
                 </div>
                     </td>
                     
