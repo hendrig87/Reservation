@@ -7,6 +7,7 @@ class Hotels extends CI_Controller {
    parent::__construct();  
         $this->load->library('session');
         $this->load->model('dbmodel');
+        $this->load->model('dashboard_model');
         $this->load->helper('url');
         $this->load->helper(array('form', 'url'));
         $this->load->library("pagination");
@@ -31,11 +32,9 @@ class Hotels extends CI_Controller {
   }
   public function addHotel(){
        if ($this->session->userdata('logged_in')) {
-            //$data['username'] = Array($this->session->userdata('logged_in'));
         $this->load->view('template/header');
         $this->load->view('dashboard/reservationSystem');
         $this->load->view('hotel/addNewHotel');
-        
         $this->load->view('template/footer');
         
         }  
@@ -47,20 +46,23 @@ class Hotels extends CI_Controller {
  
   public function addNewHotel(){
       if ($this->session->userdata('logged_in')) {
-       $username = $this->session->userdata('username'); 
-      $user=  $this->dbmodel->get_user_info($username);
+       $useremail = $this->session->userdata('useremail'); 
+      $user=  $this->dbmodel->get_user_info($useremail);
       foreach ($user as $data){
           $user_id=$data->id;
       }
        $this->load->library('form_validation');
        
-                $this->form_validation->set_rules('hotelName', 'Name of Hotel', 'trim|required|xss_clean');
-                $this->form_validation->set_rules('address', 'Address', 'trim|required|xss_clean');
-                $this->form_validation->set_rules('contact', 'Contact Number', 'trim|required|xss_clean');
+                $this->form_validation->set_rules('hotelName', 'Name of Hotel', 'trim|regex_match[/^[a-z,0-9,A-Z_ ]{5,35}$/]|required|xss_clean');
+                $this->form_validation->set_rules('address', 'Address', 'trim|regex_match[/^[A-Za-z0-9\-\\,._ ]{2,35}$/]|required|xss_clean');
+                $this->form_validation->set_rules('contact', 'Contact Number', 'trim|regex_match[/^[0-9]{9,15}$/]|required|xss_clean');
                 
                 if($this->form_validation->run() == FALSE)
                      {
-                        $this->index();
+                         $this->load->view('template/header');
+                        $this->load->view('dashboard/reservationSystem');
+                        $this->load->view('hotel/addNewHotel');
+                        $this->load->view('template/footer');
                      }
                 else
                 {  
@@ -113,13 +115,19 @@ class Hotels extends CI_Controller {
 public function hotelListing(){
     
     if ($this->session->userdata('logged_in')) {
-      
+   $useremail = $this->session->userdata('useremail');
+            $user = $this->dbmodel->get_user_info($useremail);
+            foreach ($user as $id) {
+                $user_id = $id->id;
+            }
+            $data['hotelName'] = $this->dbmodel->get_user_hotel($user_id);   
       $this->load->view('template/header');
-      $this->load->view('hotel/hotelListing');
-       
+      $this->load->view('dashboard/reservationSystem');
+      $this->load->view('hotel/hotelListing', $data);
+      $this->load->view('template/footer');
     }
  else {
-          echo 'couldnot find any hotel';    
+          redirect('login', 'refresh');   
       }   
    }
 

@@ -266,9 +266,17 @@ color: #fff;}
 {
     margin: 0 auto 0 auto;
     -webkit-box-shadow: 0 0 8px #D0D0D0;
+    width: 100%; 
+    padding: 0px;
+    background-color: #D0D0D0;
+}
+#loginHover
+{
+    margin: 0 auto 0 auto;
+    -webkit-box-shadow: 0 0 8px #D0D0D0;
     width: 100%;
     z-index: 100;
-    position: absolute;
+    //position: absolute;
     padding: 0px;
     background-color: #D0D0D0;
 }

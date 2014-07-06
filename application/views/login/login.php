@@ -4,13 +4,13 @@
             
            
         <?php echo form_open_multipart('login/validate_user'); ?>
-            <table >
+            <table>
                 
                <tr>
-                   <td  ><h3 style="text-align: center; margin: 0px; padding: 5px;">Log in</h3>
-            <p id="sucessmsg">
+                   <td><h3 style="text-align: center; margin: 0px; padding: 5px;">Log in</h3>
+            <div id="sucessmsg">
             <?php if($this->session->flashdata('message')){echo $this->session->flashdata('message');}
-              echo validation_errors(); ?> </p></td>
+              echo validation_errors(); ?> </div></td>
                 </tr>
                 <tr>
                     <td>
@@ -37,7 +37,7 @@
                         </td>
                </tr> 
             </table>
-        </form>
+         <?php echo form_close(); ?>
         
         </div>	
 </div>

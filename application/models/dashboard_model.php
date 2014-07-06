@@ -27,7 +27,31 @@ public function add_new_room($room_type,$noOfRoom,$price,$description,$img_name,
             return $query->result();
           
         }
+    
+        function get_no_of_room($id)
+        {
+          $this->db->where('hotel_id', $id);
         
+            $query = $this->db->get('room_registration');
+           
+            return $query->result();  
+        }
+
+        function get_booked_room_info()
+        {
+            $query = $this->db->get('booking_info');
+           
+            return $query->result();
+        }
+        
+        function get_booking_personal_info($personalInfoId)
+        {
+            $this->db->where('id', $personalInfoId);
+        
+            $query = $this->db->get('personal_info');
+           
+            return $query->result(); 
+        }
         //======== find out total num. of rooms=====================//
         
         function total_room(){

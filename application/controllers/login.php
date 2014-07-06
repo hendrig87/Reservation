@@ -40,49 +40,60 @@ class Login extends CI_Controller {
 
     public function register() {
         $this->load->library('form_validation');
-        $users = $this->dbmodel->get_all_users();
-        $this->form_validation->set_rules('userName', 'Username', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('userFirstName', 'First name', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('userLastName', 'Last name', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('userEmail', 'Email', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('userPass', 'Password', 'trim|required|xss_clean|md5|callback_check_database');
+       
+        $this->form_validation->set_rules('userName', 'Username', 'trim|regex_match[/^[a-z,0-9,A-Z_ ]{5,35}$/]|required|xss_clean');
+        $this->form_validation->set_rules('userFirstName', 'First name', 'trim|regex_match[/^[a-z,0-9,A-Z_ ]{5,35}$/]|required|xss_clean');
+        $this->form_validation->set_rules('userLastName', 'Last name', 'trim|regex_match[/^[a-z,0-9,A-Z_ ]{5,35}$/]|required|xss_clean');
+        $this->form_validation->set_rules('userEmail', 'Email', 'trim|regex_match[/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/]|required|xss_clean');
+        $this->form_validation->set_rules('userPass', 'Password', 'trim|regex_match[/^[a-z,0-9,A-Z]{5,35}$/]|required|xss_clean|md5|callback_check_database');
         if ($this->form_validation->run() == FALSE) {
-            $this->registrationForm();
+             $this->load->view('template/header');
+             $this->load->view('login/register');
+             $this->load->view('template/reservation_template');
+             $this->load->view('template/footer');
         } else {
-            foreach ($users as $user) {
-                $userName = $user->user_name;
-                $userEmail = $user->user_email;
+            
+            if (isset($_POST['userName'])){
+            $uname= trim($_POST['userName']);}
+            
+            if (isset($_POST['userEmail'])) {
+                $email = trim($_POST['userEmail']);  
             }
-            if (isset($_POST['userName']))
-                $inputuserName = $_POST['userName'];
-            if ($userName === $inputuserName) {
-                $this->session->set_flashdata('message', 'User Name already exsists');
-                redirect('login/registrationForm', 'refresh');
-            } else {
-                $user_name = $this->input->post('userName');
-            }
+            $userEmail = $this->dbmodel->check_user($email, $uname);
+           
+            
+            if (!empty($userEmail)) {
+                $validation = FALSE;
+                $data['validation_message'] = "Sorry! User Name or Email already exsists.";
+
+                $this->load->view('template/header', $data);
+             $this->load->view('login/register');
+             $this->load->view('template/reservation_template');
+             $this->load->view('template/footer');
+            } 
+            
+        else {
+            $user_name = $this->input->post('userName');
             $userfname = $this->input->post('userFirstName');
             $userlname = $this->input->post('userLastName');
-            if (isset($_POST['userEmail']))
-                ;
-            $inputuserEmail = $_POST['userEmail'];
-
-            if ($userEmail === $inputuserEmail) {
-                $this->session->set_flashdata('message', 'User Email already exsists');
-                redirect('login/registrationForm', 'refresh');
-            } else {
-                $useremail = $this->input->post('userEmail');
-            }
+            $useremail = $this->input->post('userEmail');
+            
 
             $userpass = $this->input->post('userPass');
             $loginStatus = "Registered";
             $loginDate = "Not logged in till";
-            $this->registerEmail($useremail, $user_name);
+            
 
             $this->dbmodel->add_new_user($user_name, $userfname, $userlname, $useremail, $userpass, $loginStatus, $loginDate);
-
+            
+             $data = array(
+                    'useremail' => $useremail,
+                    'username' => $user_name,
+                    'logged_in' => true);
+                $this->session->set_userdata($data);
+            $this->registerEmail($useremail, $user_name);
             redirect('login/index');
-        }
+        }}
     }
 
     public function registerEmail($useremail, $user_name) {
@@ -98,8 +109,8 @@ class Login extends CI_Controller {
     function logout() {
         if ($this->session->userdata('logged_in')) {
 
-            $username = $this->session->userdata('username');
-            $user = $this->dbmodel->get_user_info($username);
+            $useremail = $this->session->userdata('useremail');
+            $user = $this->dbmodel->get_user_info($useremail);
             foreach ($user as $id) {
                 $user_id = $id->login_status;
                 $user_email = $id->user_email;
@@ -137,25 +148,32 @@ class Login extends CI_Controller {
             $this->session->sess_expiration = 60 * 60;
             $this->session->sess_expire_on_close = FALSE;
         }
-die($_POST['checkMe']);
+
         $this->load->library('form_validation');
-        $this->form_validation->set_rules('userEmail', 'Username', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('userPass', 'Password', 'trim|required|xss_clean|callback_check_database');
+        $this->form_validation->set_rules('userEmail', 'User Email', 'trim|regex_match[/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/]|required|xss_clean');
+        $this->form_validation->set_rules('userPass', 'Password', 'trim|regex_match[/^[a-z,0-9,A-Z]{5,35}$/]|required|xss_clean|callback_check_database');
         if ($this->form_validation->run() == FALSE) {
-            $this->loginForm();
+           $this->load->view('template/header');
+            $this->load->view('login/login');
+            $this->load->view('template/reservation_template');
+            $this->load->view('template/footer');
         } else {
-            $this->load->model('dbmodel');
+            $email= $this->input->post('userEmail');
+            $pass = $this->input->post('userPass'); 
+           $query = $this->dbmodel->validate_user($email, $pass);
 
-            $query = $this->dbmodel->validate();
-
-            if ($query) { // if the user's credentials validated...
-
+            if (!empty($query)) { // if the user's credentials validated...
+                foreach ($query as $users) {
+                    $userName = $users->user_name;
+                }
                 $data = array(
-                    'username' => $this->input->post('userEmail'),
+                    'useremail' => $email,
+                    'username' => $userName,
                     'logged_in' => true);
+
                 $this->session->set_userdata($data);
-                $username = $this->session->userdata('username');
-                $user = $this->dbmodel->get_user_info($username);
+                $useremail = $this->session->userdata('useremail');
+                $user = $this->dbmodel->get_user_info($useremail);
                 foreach ($user as $id) {
                     $user_id = $id->login_status;
                     $user_email = $id->user_email;

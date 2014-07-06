@@ -6,10 +6,10 @@ class Dbmodel extends CI_Model {
         $this->load->database();
     }
     
-    function validate() {
+    function validate($email, $pass) {
        
-        $this->db->where('user_email', $this->input->post('userEmail') );
-        $this->db->where('user_pass', md5($this->input->post('userPass')) );
+        $this->db->where('user_email', $email );
+        $this->db->where('user_pass', md5($pass));
         $query = $this->db->get('user_info');
         
         if ($query->num_rows == 1) {
@@ -19,6 +19,29 @@ class Dbmodel extends CI_Model {
         }
     }
     
+    function validate_user($email, $pass) {
+    $password=md5($pass);
+        $this->db->where('user_email',$email );
+        $this->db->where('user_pass', $password);
+        
+        $query = $this->db->get('user_info');
+        return $query->result();
+    }
+    
+    public function check_user($email, $uname){
+        $this->db->where('user_email', $email );
+        $this->db->or_where('user_name', $uname);
+        $query = $this->db->get('user_info');
+        return $query->result();
+    }
+    
+    public function get_logged_in_user($email, $pass){
+       $this->db->where('user_email', $email );
+        $this->db->where('user_pass', md5($pass));
+        $query = $this->db->get('user_info');
+        return $query->result();
+        
+    }
     
     public function add_new_user($user_name, $userfname, $userlname, $useremail, $userpass, $loginStatus,$loginDate){
         $data = array(
@@ -109,8 +132,8 @@ class Dbmodel extends CI_Model {
         return $query->result();
  }
  
-  public function get_user_info($username){
-      $this->db->where('user_email', $username);
+  public function get_user_info($useremail){
+      $this->db->where('user_email', $useremail);
         $query = $this->db->get('user_info');
         return $query->result();
  }
