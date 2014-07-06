@@ -137,7 +137,7 @@ class Login extends CI_Controller {
             $this->session->sess_expiration = 60 * 60;
             $this->session->sess_expire_on_close = FALSE;
         }
-
+die($_POST['checkMe']);
         $this->load->library('form_validation');
         $this->form_validation->set_rules('userEmail', 'Username', 'trim|required|xss_clean');
         $this->form_validation->set_rules('userPass', 'Password', 'trim|required|xss_clean|callback_check_database');
