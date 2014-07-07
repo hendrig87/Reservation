@@ -72,7 +72,9 @@ class room_booking extends CI_Controller {
           
         }
         
-         function personal_info()
+        private $aa;
+                
+        public function personal_info()
         {  
              if(isset($_POST['hotelId'])){
              $hotelId= $_POST['hotelId'];}
@@ -114,8 +116,9 @@ class room_booking extends CI_Controller {
             $child_s = $_POST['child'];}
            
    
-           // $data['personalInfo']=$this->booking_room->personal_info($fullName,$address,$occupation,$nationality,$contactNo,$email,$remarks,$totalPrice,$child_s,$adult_s);
-         
+           $personalInfo= array($fullName,$address,$occupation,$nationality,$contactNo,$email,$remarks,$totalPrice,$child_s,$adult_s);
+           $this->abc($personalInfo);
+           var_dump($personalInfo);
             $jsondatas = $_POST['updated_json'];
             
             $jsonDecode = json_decode($jsondatas,true);
@@ -147,12 +150,18 @@ class room_booking extends CI_Controller {
                 //array_push($stack, "apple", "raspberry");
 $data['value']= array($hotelId, $totalPrice);
           $this->load->view('ReservationInformation/payment', $data);
+          
             
         }
-        
-        
-        
-    public function bookingEmail($hotelId, $totalPrice, $fullName, $email, $check_in, $check_out, $child_s, $adult_s){ 
+        private function abc($personalInfo)
+        { 
+            return $personalInfo;
+        }
+
+
+
+
+       function bookingEmail($hotelId, $totalPrice, $fullName, $email, $check_in, $check_out, $child_s, $adult_s){ 
    
       $hotel=  $this->dbmodel->get_current_hotel_by_id($hotelId);      
        if (!empty($hotel)) {
@@ -170,11 +179,15 @@ $data['value']= array($hotelId, $totalPrice);
     send_room_book_email($email,$subject,$message);      
  }
         
-        function payment_options()
+ public function payment_options()
         {  
-              
-              
-          
+              $hotelId= $_POST['hotelId'];
+              $fullName= $_POST['fullName'];
+              $cardNumber = $_POST['cardNumber'];
+              $securityNumber = $_POST['securityNumber'];
+              var_dump($securityNumber);
+          $data['file'] = $this->aa;
+          var_dump($data);
           $this->load->view('ReservationInformation/thankYouNote');
             
           

@@ -11,14 +11,44 @@ function payment()
 {
   var fullName = $("#fullname").val();
       var cardNumber = $("#cardnumber").val();
-     var security = $("#securityNumber").val();
-    alert(fullName);
+     var security = $("#securitynumber").val();
+     var valid = true;
+    var msg="Incomplete form:\n";
+     
+    if((fullName==null)||(fullName=="") || (!fullName.match( /^[a-z,0-9,A-Z_ ]{5,35}$/ )) ){
+    msg+="You need to fill the name field in correct format!\n";
+    valid = false;
+   
+    }
+   
+   if((cardNumber==null)||(cardNumber=="") || (!cardNumber.match( /^[a-z,0-9,A-Z_ ]{5,35}$/ )) ){  
+     
+    msg+="You need to fill the card number field in correct format!\n";
+    valid = false;
+   }
+   
+   if((security==null)||(security=="") || (!security.match( /^[a-z,0-9,A-Z_ ]{5,35}$/ )) ){  
+     
+    msg+="You need to fill the security number field in correct format!\n";
+    valid = false;
+   }
+    
+     if (valid==false){
+        $("#msg").html(msg);
+     }
+     else{ 
+     
+      var hotelId = 'hotelId=' + '1';
       
-      var dataString = 'hotelId=' + '1';
+      
  $.ajax({
  type: "POST",
  url: "<?php echo base_url().'index.php/room_booking/payment_options' ;?>",
- data: dataString,
+ data: {
+     'fullName' : fullName,
+     'cardNumber' : cardNumber,
+     'securityNumber' : security,
+     'hotelId':hotelId},
   success: function(msgs) 
         {
     
@@ -26,6 +56,7 @@ function payment()
             
         }
  });
+ }
  }
  </script>
  
@@ -99,6 +130,7 @@ $this->load->helper('availableRoom');
     <tr>
                 <td style="width:400px;">
                 <fieldset>
+                    <strong id="msg" style="color:#990000 ;"></strong>
                     <legend style="border-bottom: solid thin #CCC;width: 80%;top: -10px;">Secure Payment Info</legend>
                     
                     <img src='<?php echo base_url().'contents/images/card-logos.jpg' ;?>' style="width: 380px; height: 100px;" >
