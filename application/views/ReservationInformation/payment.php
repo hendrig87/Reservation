@@ -9,11 +9,46 @@
 <script>
 function payment()
 {
-      var dataString = 'hotelId=' + '1';
+  var fullName = $("#fullname").val();
+      var cardNumber = $("#cardnumber").val();
+     var security = $("#securitynumber").val();
+     var valid = true;
+    var msg="Incomplete form:\n";
+     
+    if((fullName==null)||(fullName=="") || (!fullName.match( /^[a-z,0-9,A-Z_ ]{5,35}$/ )) ){
+    msg+="You need to fill the name field in correct format!\n";
+    valid = false;
+   
+    }
+   
+   if((cardNumber==null)||(cardNumber=="") || (!cardNumber.match( /^[a-z,0-9,A-Z_ ]{5,35}$/ )) ){  
+     
+    msg+="You need to fill the card number field in correct format!\n";
+    valid = false;
+   }
+   
+   if((security==null)||(security=="") || (!security.match( /^[a-z,0-9,A-Z_ ]{5,35}$/ )) ){  
+     
+    msg+="You need to fill the security number field in correct format!\n";
+    valid = false;
+   }
+    
+     if (valid==false){
+        $("#msg").html(msg);
+     }
+     else{ 
+     
+      var hotelId = 'hotelId=' + '1';
+      
+      
  $.ajax({
  type: "POST",
  url: "<?php echo base_url().'index.php/room_booking/payment_options' ;?>",
- data: dataString,
+ data: {
+     'fullName' : fullName,
+     'cardNumber' : cardNumber,
+     'securityNumber' : security,
+     'hotelId':hotelId},
   success: function(msgs) 
         {
     
@@ -21,6 +56,7 @@ function payment()
             
         }
  });
+ }
  }
  </script>
  
@@ -84,32 +120,36 @@ setInterval("displaytime()", 1000);
 $this->load->helper('currency');
 $this->load->helper('availableRoom');
 ?>
+ <?php if(!empty($value)){
+     $hotelId = $value['0'];
+     $totalPrice = $value['1'];
+ } ?>
  
- 
- <div id="totalPrice">Total:<?php //echo $totalPrice; ?></div>
+ <div id="totalPrice">Total:<?php echo $totalPrice; ?></div>
 <table style="width: 100%;">
     <tr>
                 <td style="width:400px;">
                 <fieldset>
+                    <strong id="msg" style="color:#990000 ;"></strong>
                     <legend style="border-bottom: solid thin #CCC;width: 80%;top: -10px;">Secure Payment Info</legend>
                     
                     <img src='<?php echo base_url().'contents/images/card-logos.jpg' ;?>' style="width: 380px; height: 100px;" >
                     
                 <div class="input-prepend">
                 <span class="add-on">Name in Card</span>
-                <input class="input input-large" type="text" placeholder="Name in credit card" required="required" name="FullName" >
+                <input class="input input-large" type="text" placeholder="Name in credit card" required="required" name="FullName" id="fullname">
                 </div>
                 
                 <div class="clear"></div>
                 <div class="input-prepend">
                 <span class="add-on">Card Number</span>
-                <input class="input input-large" type="text" placeholder="Credit card number" required="required" name="Address" >
+                <input class="input input-large" type="text" placeholder="Credit card number" required="required" name="Address" id="cardnumber">
                 </div>
                 
                 <div class="clear"></div>
                 <div class="input-prepend">
                 <span class="add-on">Security Number</span>
-                <input class="input input-large" type="text" placeholder="Security Number" name="Occupation" >
+                <input class="input input-large" type="text" placeholder="Security Number" name="Occupation" id="securitynumber" >
                 </div>
                 
                

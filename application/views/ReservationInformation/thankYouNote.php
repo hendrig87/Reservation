@@ -15,6 +15,7 @@ $(document).ready(function(){
 </script>
 
 <div>
+    
     <h3>Thank You for your booking. Your reservation has confirmed. We are willing to see you in our hotel.</h3>
     <a href="" id="closePopup" style="color: white;background: #2a61d5; font-size: 16px; padding: 8px 10px; border-radius:5px;">Close</a>
 </div>

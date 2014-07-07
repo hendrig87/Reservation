@@ -71,29 +71,52 @@ class room_booking extends CI_Controller {
             
           
         }
-        
-         function personal_info()
+                
+        public function personal_info()
         {  
-              $hotelId= $_POST['hotelId'];
-            $totalPrice = $_POST['total_price'];
-            $fullName = $_POST['fullnames'];
-            $address = $_POST['addresss'];
-            $occupation = $_POST['occupations'];
-            $nationality = $_POST['nationalitys'];
-            $contactNo = $_POST['contactnos'];
-            $email = $_POST['emails'];
-            $remarks = $_POST['remarkss'];
+             if(isset($_POST['hotelId'])){
+             $hotelId= $_POST['hotelId'];}
+             
+             if(isset($_POST['total_price'])){
+             $totalPrice = $_POST['total_price'];}
+             
+             if(isset($_POST['fullnames'])){
+             $fullName = $_POST['fullnames'];}
+             
+             if(isset($_POST['addresss'])){
+             $address = $_POST['addresss'];}
+             
+             if(isset($_POST['occupations'])){
+             $occupation = $_POST['occupations'];}
+             
+             if(isset($_POST['nationalitys'])){
+             $nationality = $_POST['nationalitys'];}
+             
+             if(isset($_POST['contactnos'])){
+             $contactNo = $_POST['contactnos'];}
+             
+             if(isset($_POST['emails'])){
+             $email = $_POST['emails'];}
+             
+             if(isset($_POST['remarkss'])){
+             $remarks = $_POST['remarkss'];}
             
+            if(isset($_POST['checkin'])){
+            $check_in = $_POST['checkin'];}
             
-             $check_in = $_POST['checkin'];
-            $check_out = $_POST['checkout'];
-            $adult_s = $_POST['adult'];
-            $child_s = $_POST['child'];
-           // die($fullName);
-          //die($check_in);
+            if(isset($_POST['checkout'])){
+            $check_out = $_POST['checkout'];}
+            
+            if(isset($_POST['adult'])){
+            $adult_s = $_POST['adult'];}
+            
+            if(isset($_POST['child'])){
+            $child_s = $_POST['child'];}
+           
    
-            $data['personalInfo']=$this->booking_room->personal_info($fullName,$address,$occupation,$nationality,$contactNo,$email,$remarks,$totalPrice,$child_s,$adult_s);
-         
+           $data['personalInfo']= array($fullName,$address,$occupation,$nationality,$contactNo,$email,$remarks,$totalPrice,$child_s,$adult_s);
+          
+           
             $jsondatas = $_POST['updated_json'];
             
             $jsonDecode = json_decode($jsondatas,true);
@@ -108,29 +131,32 @@ class room_booking extends CI_Controller {
             });
 
 
-               foreach ($jsonArray as $item)
-               {
-                if($item['no_of_room'] != "0")
-                {
-                    mysql_query("INSERT INTO `booking_info` (check_in_date, check_out_date, room_type, no_of_rooms_booked) 
-       VALUES ('".$item['check_in_date']."', '".$item['check_out_date']."' ,'".$item['room_name']."', '".$item['no_of_room']."')");
+    //           foreach ($jsonArray as $item)
+    //           {
+     //           if($item['no_of_room'] != "0")
+     //           {
+    //                mysql_query("INSERT INTO `booking_info` (check_in_date, check_out_date, room_type, no_of_rooms_booked) 
+    //   VALUES ('".$item['check_in_date']."', '".$item['check_out_date']."' ,'".$item['room_name']."', '".$item['no_of_room']."')");
                     
-                    $this->bookingEmail($hotelId, $totalPrice, $fullName, $email, $check_in, $check_out, $child_s, $adult_s);
-                }
+                 //  $this->bookingEmail($hotelId, $totalPrice, $fullName, $email, $check_in, $check_out, $child_s, $adult_s);
+     //           }
      
-               }
+    //           }
                
                
               // $stack = array("orange", "banana");
                 //array_push($stack, "apple", "raspberry");
-
-          $this->load->view('ReservationInformation/payment', $hotelId,$totalPrice);
+$data['value']= array($hotelId, $totalPrice);
+          $this->load->view('ReservationInformation/payment', $data);
+          
             
         }
-        
-        
-        
-    public function bookingEmail($hotelId, $totalPrice, $fullName, $email, $check_in, $check_out, $child_s, $adult_s){ 
+       
+
+
+
+
+       function bookingEmail($hotelId, $totalPrice, $fullName, $email, $check_in, $check_out, $child_s, $adult_s){ 
    
       $hotel=  $this->dbmodel->get_current_hotel_by_id($hotelId);      
        if (!empty($hotel)) {
@@ -148,12 +174,15 @@ class room_booking extends CI_Controller {
     send_room_book_email($email,$subject,$message);      
  }
         
-        function payment_options()
+ function payment_options()
         {  
               $hotelId= $_POST['hotelId'];
-              
+              $fullName= $_POST['fullName'];
+              $cardNumber = $_POST['cardNumber'];
+              $securityNumber = $_POST['securityNumber'];
+              var_dump($securityNumber);
           
-          $this->load->view('ReservationInformation/thankYouNote', $hotelId);
+          $this->load->view('ReservationInformation/thankYouNote');
             
           
         }
