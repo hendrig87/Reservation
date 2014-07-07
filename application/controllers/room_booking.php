@@ -71,8 +71,6 @@ class room_booking extends CI_Controller {
             
           
         }
-        
-        private $aa;
                 
         public function personal_info()
         {  
@@ -116,9 +114,9 @@ class room_booking extends CI_Controller {
             $child_s = $_POST['child'];}
            
    
-           $personalInfo= array($fullName,$address,$occupation,$nationality,$contactNo,$email,$remarks,$totalPrice,$child_s,$adult_s);
-           $this->abc($personalInfo);
-           var_dump($personalInfo);
+           $data['personalInfo']= array($fullName,$address,$occupation,$nationality,$contactNo,$email,$remarks,$totalPrice,$child_s,$adult_s);
+          
+           
             $jsondatas = $_POST['updated_json'];
             
             $jsonDecode = json_decode($jsondatas,true);
@@ -153,10 +151,7 @@ $data['value']= array($hotelId, $totalPrice);
           
             
         }
-        private function abc($personalInfo)
-        { 
-            return $personalInfo;
-        }
+       
 
 
 
@@ -179,15 +174,14 @@ $data['value']= array($hotelId, $totalPrice);
     send_room_book_email($email,$subject,$message);      
  }
         
- public function payment_options()
+ function payment_options()
         {  
               $hotelId= $_POST['hotelId'];
               $fullName= $_POST['fullName'];
               $cardNumber = $_POST['cardNumber'];
               $securityNumber = $_POST['securityNumber'];
               var_dump($securityNumber);
-          $data['file'] = $this->aa;
-          var_dump($data);
+          
           $this->load->view('ReservationInformation/thankYouNote');
             
           
