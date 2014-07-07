@@ -37,61 +37,6 @@
     
 //end of code for diplaying booked room
 
-//here changes
- $(".personalInfo").click(function() {
-{
-
-   if( document.myForm.FullName.value == "" )
-   {
-     alert( "Please provide your name!" );
-     document.myForm.Name.focus() ;
-     return false;
-   }
-   if( document.myForm.Address.value == "" )
-   {
-     alert( "Please provide your name!" );
-     document.myForm.Name.focus() ;
-     return false;
-   }
-   
-   
-   if( document.myForm.EMail.value == "" )
-   {
-     alert( "Please provide your Email!" );
-     document.myForm.EMail.focus() ;
-     return false;
-   }
-   if( document.myForm.Zip.value == "" ||
-           isNaN( document.myForm.Zip.value ) ||
-           document.myForm.Zip.value.length != 5 )
-   {
-     alert( "Please provide a zip in the format #####." );
-     document.myForm.Zip.focus() ;
-     return false;
-   }
-   if( document.myForm.Country.value == "-1" )
-   {
-     alert( "Please provide your country!" );
-     return false;
-   }
-   return( true );
-}
- });
-function validateEmail()
-{
-
-   var emailID = document.myForm.EMail.value;
-   atpos = emailID.indexOf("@");
-   dotpos = emailID.lastIndexOf(".");
-   if (atpos < 1 || ( dotpos - atpos < 2 )) 
-   {
-       alert("Please enter correct email ID")
-       document.myForm.EMail.focus() ;
-       return false;
-   }
-   return( true );
-}
-//to here
 
 
 $(".personalInfo").click(function() {
@@ -110,7 +55,79 @@ $(".personalInfo").click(function() {
 
  });
     </script>
+    
+    <script type="text/javascript">
+   alert('my code goes here');
+function validate() {
+ 
+     var valid = true;
+  var msg="Incomplete form:\n";
+  //  var fullName=document.forms["myForm"]["fullname"].value;
+  //  var address=document.getElementById('address');
+  // var occupation=document.getElementById('occupation');
+  //  var nationality=document.getElementById('nationality');
+  //  var contactno=document.getElementById('contactno');
+    
+    alert(document.myForm.fullname.value);
+    
+    if((document.myForm.fullname.value==null)||(document.myForm.fullname.value=="") || (!document.myForm.fullname.value.match( /^[a-zA-Z- ']+$/ )) ){
+   //if (valid)//only receive focus if its the first error
+      document.myForm.fullname.focus();
+    
+    document.myForm.fullname.style.border="solid 1px red";
+    msg+="You need to fill the name field!\n";
+    valid = false;
+   
+    }
+   
+   if( document.myForm.Address.value === "" )
+   {
+     alert( "Please provide your name!" );
+     document.myForm.Name.focus() ;
+     return false;
+   }
+   
+   
+   if( document.myForm.EMail.value === "" )
+   {
+     alert( "Please provide your Email!" );
+     document.myForm.EMail.focus() ;
+     return false;
+   }
+   if( document.myForm.Zip.value == "" ||
+           isNaN( document.myForm.Zip.value ) ||
+           document.myForm.Zip.value.length != 5 )
+   {
+     alert( "Please provide a zip in the format #####." );
+     document.myForm.Zip.focus() ;
+     return false;
+   }
+   if( document.myForm.Country.value == "-1" )
+   {
+     alert( "Please provide your country!" );
+     return false;
+   }
+    if (!valid) alert(msg);
+  return valid;
 
+}
+function validateEmail()
+{
+
+   var emailID = document.myForm.EMail.value;
+   atpos = emailID.indexOf("@");
+   dotpos = emailID.lastIndexOf(".");
+   if (atpos < 1 || ( dotpos - atpos < 2 )) 
+   {
+       alert("Please enter correct email ID")
+       document.myForm.EMail.focus() ;
+       return false;
+   }
+   return( true );
+}
+//to here
+
+    </script>
 
 <div id="room_book">
 
@@ -119,7 +136,7 @@ $(".personalInfo").click(function() {
                         <div id="table"></div>                  
 </div>
 
-          <?php echo form_open('room_booking/personal_info'); ?>               
+          <?php echo form_open('room_booking/personal_info','name="myForm"', 'onSubmit="validate()"'); ?>               
         <table>
             <tr>
                 
@@ -176,8 +193,9 @@ $('#action').append(updated_json);
     </script>
   
    
-        <div id="action">
-            <input type="button" value="Next" id="popupBtn" class="personalInfo" style="margin-bottom: 10px;">
+        <div id="action"><span id="disablebtnInfo"></span>
+            <input type="hidden" name="disablebtn" id="thisis" />
+            <input type="button" value="Next" id="popupBtn" onclick="validate()" class="personalInfo" style="margin-bottom: 10px;">
         </div>
 <?php echo form_close(); ?>    
     </div>
