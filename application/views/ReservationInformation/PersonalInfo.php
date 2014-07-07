@@ -57,16 +57,16 @@ $(".personalInfo").click(function() {
     </script>
     
     <script type="text/javascript">
-   alert('my code goes here');
+   
 function validate() {
  
      var valid = true;
   var msg="Incomplete form:\n";
-  //  var fullName=document.forms["myForm"]["fullname"].value;
-  //  var address=document.getElementById('address');
-  // var occupation=document.getElementById('occupation');
-  //  var nationality=document.getElementById('nationality');
-  //  var contactno=document.getElementById('contactno');
+    var fullName=document.myForm.fullname.value;
+    var address=document.myForm.address.value;
+   var occupation=document.getElementById('occupation');
+     var nationality=document.getElementById('nationality');
+     var contactno=document.getElementById('contactno');
     
     alert(document.myForm.fullname.value);
     
