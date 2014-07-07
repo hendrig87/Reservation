@@ -9,6 +9,11 @@
 <script>
 function payment()
 {
+  var fullName = $("#fullname").val();
+      var cardNumber = $("#cardnumber").val();
+     var security = $("#securityNumber").val();
+    alert(fullName);
+      
       var dataString = 'hotelId=' + '1';
  $.ajax({
  type: "POST",
@@ -84,9 +89,12 @@ setInterval("displaytime()", 1000);
 $this->load->helper('currency');
 $this->load->helper('availableRoom');
 ?>
+ <?php if(!empty($value)){
+     $hotelId = $value['0'];
+     $totalPrice = $value['1'];
+ } ?>
  
- 
- <div id="totalPrice">Total:<?php //echo $totalPrice; ?></div>
+ <div id="totalPrice">Total:<?php echo $totalPrice; ?></div>
 <table style="width: 100%;">
     <tr>
                 <td style="width:400px;">
@@ -97,19 +105,19 @@ $this->load->helper('availableRoom');
                     
                 <div class="input-prepend">
                 <span class="add-on">Name in Card</span>
-                <input class="input input-large" type="text" placeholder="Name in credit card" required="required" name="FullName" >
+                <input class="input input-large" type="text" placeholder="Name in credit card" required="required" name="FullName" id="fullname">
                 </div>
                 
                 <div class="clear"></div>
                 <div class="input-prepend">
                 <span class="add-on">Card Number</span>
-                <input class="input input-large" type="text" placeholder="Credit card number" required="required" name="Address" >
+                <input class="input input-large" type="text" placeholder="Credit card number" required="required" name="Address" id="cardnumber">
                 </div>
                 
                 <div class="clear"></div>
                 <div class="input-prepend">
                 <span class="add-on">Security Number</span>
-                <input class="input input-large" type="text" placeholder="Security Number" name="Occupation" >
+                <input class="input input-large" type="text" placeholder="Security Number" name="Occupation" id="securitynumber" >
                 </div>
                 
                

@@ -39,25 +39,24 @@
 
 
 
-$(".personalInfo").click(function() {
-
-        $('#one').css({'background-color': '#999999'});
-        $('.first').css({'color': 'black'});
-        $('.first').css({'font-weight': 'normal'});
-        $('#two').css({'background-color': '#999999'});
-        $('.second').css({'color': 'black'});
-        $('.second').css({'font-weight': 'normal'});
-        $('#three').css({'background-color': '#0077b3'});
-        $('.third').css({'color': '#0077b3'});
-        $('.third').css({'font-weight': 'bold'});
-        roomBook();
-});
+//$(".personalInfo").click(function() {
+//
+//        $('#one').css({'background-color': '#999999'});
+//        $('.first').css({'color': 'black'});
+//        $('.first').css({'font-weight': 'normal'});
+//        $('#two').css({'background-color': '#999999'});
+//        $('.second').css({'color': 'black'});
+//        $('.second').css({'font-weight': 'normal'});
+//        $('#three').css({'background-color': '#0077b3'});
+//        $('.third').css({'color': '#0077b3'});
+//        $('.third').css({'font-weight': 'bold'});
+//        roomBook();
+//});
 
  });
     </script>
     
     <script type="text/javascript">
-   alert('my code goes here');
 function validate() {
  
      var valid = true;
@@ -67,64 +66,71 @@ function validate() {
     var occupation=document.myForm.occupation.value; 
     var nationality=document.myForm.nationality.value;
     var contactno=document.myForm.contactno.value; 
+    var email = document.myForm.email.value;
     
-    alert(fullName);
     
-    if((fullName==null)||(fullName=="") || (!fullName.match( /^[a-zA-Z- ']+$/ )) ){
+    if((fullName==null)||(fullName=="") || (!fullName.match( /^[a-z,0-9,A-Z_ ]{5,35}$/ )) ){
    //if (valid)//only receive focus if its the first error
-      document.myForm.fullname.focus();
+    document.myForm.fullname.focus();
     
     document.myForm.fullname.style.border="solid 1px red";
-    msg+="You need to fill the name field!\n";
+    msg+="You need to fill the name field in correct format!\n";
     valid = false;
    
     }
    
-   if( document.myForm.Address.value === "" )
-   {
-     alert( "Please provide your name!" );
-     document.myForm.Name.focus() ;
-     return false;
+   if((address==null)||(address=="") || (!address.match( /^[a-z,0-9,A-Z_ ]{5,35}$/ )) ){  
+     document.myForm.address.focus();
+    document.myForm.address.style.border="solid 1px red";
+    msg+="You need to fill the address field in correct format!\n";
+    valid = false;
    }
    
+   if((occupation==null)||(occupation=="") || (!occupation.match( /^[a-z,0-9,A-Z_ ]{5,35}$/ )) ){  
+     document.myForm.occupation.focus();
+    document.myForm.occupation.style.border="solid 1px red";
+    msg+="You need to fill the occupation field in correct format!\n";
+    valid = false;
+   }
    
-   if( document.myForm.EMail.value === "" )
-   {
-     alert( "Please provide your Email!" );
-     document.myForm.EMail.focus() ;
-     return false;
+   if((nationality==null)||(nationality=="") || (!nationality.match( /^[a-z,0-9,A-Z_ ]{5,35}$/ )) ){  
+     document.myForm.nationality.focus();
+    document.myForm.nationality.style.border="solid 1px red";
+    msg+="You need to fill the nationality field in correct format!\n";
+    valid = false;
    }
-   if( document.myForm.Zip.value == "" ||
-           isNaN( document.myForm.Zip.value ) ||
-           document.myForm.Zip.value.length != 5 )
-   {
-     alert( "Please provide a zip in the format #####." );
-     document.myForm.Zip.focus() ;
-     return false;
+   
+    if((contactno==null)||(contactno=="") || (!contactno.match( /^[0-9]{5,35}$/ )) ){  
+     document.myForm.contactno.focus();
+    document.myForm.contactno.style.border="solid 1px red";
+    msg+="You need to fill the contact number field in correct format!\n";
+    valid = false;
    }
-   if( document.myForm.Country.value == "-1" )
-   {
-     alert( "Please provide your country!" );
-     return false;
+   
+   if((email==null)||(email=="") || (!email.match( /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/ )) ){  
+     document.myForm.email.focus();
+    document.myForm.email.style.border="solid 1px red";
+    msg+="You need to fill the emaile field in correct format!\n";
+    valid = false;
    }
-    if (!valid) alert(msg);
-  return valid;
-
+   
+    if (valid==false){
+        $("#msg").html(msg);
+     }
+     else{
+           $('#one').css({'background-color': '#999999'});
+        $('.first').css({'color': 'black'});
+        $('.first').css({'font-weight': 'normal'});
+        $('#two').css({'background-color': '#999999'});
+        $('.second').css({'color': 'black'});
+        $('.second').css({'font-weight': 'normal'});
+        $('#three').css({'background-color': '#0077b3'});
+        $('.third').css({'color': '#0077b3'});
+        $('.third').css({'font-weight': 'bold'});
+        roomBook();
+     }
 }
-function validateEmail()
-{
 
-   var emailID = document.myForm.EMail.value;
-   atpos = emailID.indexOf("@");
-   dotpos = emailID.lastIndexOf(".");
-   if (atpos < 1 || ( dotpos - atpos < 2 )) 
-   {
-       alert("Please enter correct email ID")
-       document.myForm.EMail.focus() ;
-       return false;
-   }
-   return( true );
-}
 //to here
 
     </script>
@@ -133,7 +139,9 @@ function validateEmail()
 
  <div id="pi_booking_summary">
                         <legend id="booking_summary_title">Booking Summary</legend> 
-                        <div id="table"></div>                  
+                        <div id="table">
+                            
+                        </div>                  
 </div>
 
           <?php echo form_open('room_booking/personal_info','name="myForm"', 'onSubmit="validate()"'); ?>               
@@ -142,6 +150,7 @@ function validateEmail()
                 
                 <td id="vertical_line"></td>
                 <td style="width:400px;float: left;">
+                    <strong id="msg" style="color:#990000 ;"></strong>
                     <fieldset style="margin-left:70px;">
                         <legend id="booking_summary_title">Personal Information</legend>
                         
@@ -193,8 +202,7 @@ $('#action').append(updated_json);
     </script>
   
    
-        <div id="action"><span id="disablebtnInfo"></span>
-            <input type="hidden" name="disablebtn" id="thisis" />
+        <div id="action">
             <input type="button" value="Next" id="popupBtn" onclick="validate()" class="personalInfo" style="margin-bottom: 10px;">
         </div>
 <?php echo form_close(); ?>    
