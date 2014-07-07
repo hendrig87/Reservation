@@ -62,15 +62,15 @@ function validate() {
  
      var valid = true;
   var msg="Incomplete form:\n";
-  //  var fullName=document.forms["myForm"]["fullname"].value;
-  //  var address=document.getElementById('address');
-  // var occupation=document.getElementById('occupation');
-  //  var nationality=document.getElementById('nationality');
-  //  var contactno=document.getElementById('contactno');
+    var fullName=document.myForm.fullname.value;
+    var address=document.myForm.address.value;    
+    var occupation=document.myForm.occupation.value; 
+    var nationality=document.myForm.nationality.value;
+    var contactno=document.myForm.contactno.value; 
     
-    alert(document.myForm.fullname.value);
+    alert(fullName);
     
-    if((document.myForm.fullname.value==null)||(document.myForm.fullname.value=="") || (!document.myForm.fullname.value.match( /^[a-zA-Z- ']+$/ )) ){
+    if((fullName==null)||(fullName=="") || (!fullName.match( /^[a-zA-Z- ']+$/ )) ){
    //if (valid)//only receive focus if its the first error
       document.myForm.fullname.focus();
     
