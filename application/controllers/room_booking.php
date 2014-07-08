@@ -113,9 +113,10 @@ class room_booking extends CI_Controller {
             if(isset($_POST['child'])){
             $child_s = $_POST['child'];}
            
+   
+           $data['personalInfo']= array($fullName,$address,$occupation,$nationality,$contactNo,$email,$remarks,$totalPrice,$child_s,$adult_s);
           
-           $personalInfo= array($fullName,$address,$occupation,$nationality,$contactNo,$email,$remarks,$totalPrice,$child_s,$adult_s);
-          
+           
             $jsondatas = $_POST['updated_json'];
             
             $jsonDecode = json_decode($jsondatas,true);
@@ -179,8 +180,7 @@ $data['value']= array($hotelId, $totalPrice);
               $fullName= $_POST['fullName'];
               $cardNumber = $_POST['cardNumber'];
               $securityNumber = $_POST['securityNumber'];
-           
-         
+              var_dump($securityNumber);
           
           $this->load->view('ReservationInformation/thankYouNote');
             
