@@ -44,9 +44,9 @@ public function add_new_room($room_type,$noOfRoom,$price,$description,$img_name,
             return $query->result();
         }
         
-        function get_booking_personal_info($personalInfoId)
+        function get_booking_personal_info($bookingId)
         {
-            $this->db->where('id', $personalInfoId);
+            $this->db->where('booking_id', $bookingId);
         
             $query = $this->db->get('personal_info');
            
@@ -67,7 +67,16 @@ public function add_new_room($room_type,$noOfRoom,$price,$description,$img_name,
             $total_room = $this->db->get('room_registration');
             return $total_room->result();
         }
+        function get_hotel_info($hotelId)
+        {
+            $this->db->where('id', $hotelId);
         
+            $query = $this->db->get('hotel_info');
+           
+            return $query->result(); 
+        }
+
+
         //======== find out total num. of room booked======//
         
         function booked_room(){
@@ -95,14 +104,14 @@ public function add_new_room($room_type,$noOfRoom,$price,$description,$img_name,
         
         function havailableRoom($InDate,$OutDate,$r_type)
         {
-           //die($InDate." ".$OutDate);
+           
            
            $this->db->select_sum('no_of_rooms_booked'); 
            $this->db->where('check_in_date <=', $OutDate);
             $this->db->where('check_out_date >=', $InDate);
             $this->db->where('room_type',$r_type);
            $availableRoom = $this->db->get('booking_info');
-           //var_dump($availableRoom);
+           
            return $availableRoom->result();
         }
         
