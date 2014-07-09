@@ -19,7 +19,7 @@ class booking_room extends CI_Model {
     
     //insertion of booking inforamtion of personalinfo
     
-    public function personal_info($fullName,$address,$occupation,$nationality,$contactNo,$email,$remarks,$totalPrice,$child_s,$adult_s, $bookId)
+   public function personal_info($fullName,$address,$occupation,$nationality,$contactNo,$email,$remarks,$totalPrice,$child_s,$adult_s, $bookId)
     {
         
        
@@ -47,5 +47,7 @@ class booking_room extends CI_Model {
      $query = $this->db->get('personal_info', 1);
        return $query->result();
     }
+    
+    
     
 }

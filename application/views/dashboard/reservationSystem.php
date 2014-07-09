@@ -1,7 +1,14 @@
-<?php 
+<script>
+    $(function () {
 
+    $('#cssmenu ul li').click(function () {
+  $("li").removeClass("active has-sub");
+  $(this).addClass("active has-sub");
+});
 
-?>
+});
+    
+    </script>
 <div id="main">
 <div id="left">
 <div id="navigation">
