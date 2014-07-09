@@ -47,7 +47,17 @@
 
             });
         </script>
+<script>
+    $(function () {
 
+    $('.navigationTop ul li').click(function () {
+  $("li").removeClass("active");
+  $(this).addClass("active");
+});
+
+});
+    
+    </script>
         <script src="<?php echo base_url() . "contents/scripts/apiCheckin.js"; ?>"></script>
     </head>
     <body>
@@ -61,7 +71,7 @@
 
             <div id="headerLogo">
 
-                <img src="<?php echo base_url() . "contents/images/ParkReserve.png"; ?>"/>
+                <img src="<?php echo base_url() . "contents/images/ParkReserve.png"; ?>" alt="Reservation"/>
 
             </div>
             <div class="navigationTop">

@@ -111,12 +111,22 @@
 
 .edit_room:hover 
 {
-   // border: solid thin #ccc;
     background-color: #ddd;
+}
+.edit_room
+{
+   border: solid thin #ccc;
+  height:20px;
+  width:20px; 
+}
+.delete_room
+{
+    border: solid thin #ccc;
+    height:20px;
+    width:20px;
 }
 .delete_room:hover
 {
-   // border: solid thin #ccc;
     background-color: #ddd;
 }
 

@@ -80,7 +80,8 @@ color: #fff;}
         {
             list-style-type: none;
             display: inline;
-            margin: 0px;   
+            margin: 0px;
+            padding: 19px 3px 17px 3px;
         }
         
         
@@ -89,11 +90,15 @@ color: #fff;}
                 color: #fff;
                 text-decoration: none;
                 margin: 2px;  
-                padding: 0px;
                 padding: 19px 3px 17px 3px;
                 
+                
             }
-        .navigationTop ul li a:hover
+        .navigationTop ul li:hover
+        {
+            background-color: rgb(111, 150, 216)
+        }
+        .navigationTop ul li.active
         {
             background-color: rgb(111, 150, 216)
         }

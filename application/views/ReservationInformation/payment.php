@@ -1,10 +1,3 @@
-<script src="<?php echo base_url() . "contents/scripts/room_booking.js"; ?>"></script>
-<script src="<?php echo base_url() . "contents/scripts/jquery.js"; ?>"></script>
-<script src="<?php echo base_url() . 'contents/scripts/calendar.js' ?>"></script>
-<link rel="stylesheet" href="<?php echo base_url().'contents/styles/pop-up-booking.css'; ?>">
-<link rel="stylesheet" type="text/css" href="<?php echo base_url().'contents/styles/test.css';?> " />
-<script src="<?php echo base_url() . "contents/scripts/test.js"; ?>"></script>
-
 
 <script>
 function payment()
@@ -164,7 +157,7 @@ $this->load->helper('availableRoom');
                       <div class="input-prepend input-append">
                 <span class="add-on">Expiry Date</span>
                 <input name="pickdate" type="text" required="required" style="width:185px; cursor:pointer;" id="pickdate" value="">
-                <span class="add-on" style="width:auto; "><img src='<?php echo base_url().'contents/images/ParkReserve.png' ;?>' style="width: 15px; height: 20px;" ></span>
+                <span class="add-on" style="width:auto; "><img src='<?php echo base_url().'contents/images/ParkReserve.png' ;?>' alt="" width="15" height="20" ></span>
                 </div> 
                     </div>
                

@@ -127,7 +127,7 @@ function movecursornext() {
                       <div class="input-prepend input-append">
                 <span class="add-on">Check In</span>
                 <input name="CheckIn" type="text" required="required" style="width:185px; cursor:pointer;" id="CheckIn">
-                <span onclick="movecursor()" class="add-on" style="width:auto; cursor:pointer; "><img src='<?php echo base_url().'contents/images/ParkReserve.png' ;?>' style="width: 15px; height: 20px;" ></span>
+                <span onclick="movecursor()" class="add-on" style="width:auto; cursor:pointer; "><img src='<?php echo base_url().'contents/images/ParkReserve.png' ;?>' alt="" width="15" height="20" ></span>
                 </div> 
                     </td>
                     
@@ -156,7 +156,7 @@ function movecursornext() {
                 <div class="input-prepend input-append">
                 <span class="add-on">Check Out</span>
                 <input name="CheckOut" type="text" style="width:185px; cursor:pointer;" id="CheckOut" value=""  required="required">
-                <span onclick="movecursornext()" class="add-on" style="width:auto; cursor:pointer;"><img src='<?php echo base_url().'contents/images/ParkReserve.png' ;?>' style="width: 15px; height: 20px;" ></span>
+                <span onclick="movecursornext()" class="add-on" style="width:auto; cursor:pointer;"><img src='<?php echo base_url().'contents/images/ParkReserve.png' ;?>' alt="" width="15" height="20" ></span>
                 </div>
                     </td>
                     
@@ -205,7 +205,7 @@ function movecursornext() {
         <span class="popupTitleText" style="float:left;width:10%;color: white;margin-top: 5px;">Booking</span>
         <span style="float:right;width:40%;text-align: right; color: white;"><a href="#" id="closePopup" > X </a></span>
     </div> 
-    </div><br>
+    </div><br/>
     
     <div id="changePopup">
     <!-- Information from checkin - $abc -->
@@ -218,7 +218,7 @@ function movecursornext() {
         <div class="number" id="three" style="margin-left: 18%;">3</div><span id="nav_description" class="third">Billing & Payments</span>
         <div class="number" id="four" style="margin-left: 10%;">4</div><span id="nav_description" class="fourth">Thank You</span>
     </div>
-    <br>
+    <br/>
     <hr style="display: block; height: 1px;
     border: 0; border-top: 1px solid #ccc; padding: 0; margin-top: 18px;">
     </div>
