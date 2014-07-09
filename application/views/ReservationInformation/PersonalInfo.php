@@ -57,16 +57,24 @@
     </script>
     
     <script type="text/javascript">
+
 function validate() {
  
      var valid = true;
   var msg="Incomplete form:\n";
     var fullName=document.myForm.fullname.value;
+
+    var address=document.myForm.address.value;
+   var occupation=document.getElementById('occupation');
+     var nationality=document.getElementById('nationality');
+     var contactno=document.getElementById('contactno');
+
     var address=document.myForm.address.value;    
     var occupation=document.myForm.occupation.value; 
     var nationality=document.myForm.nationality.value;
     var contactno=document.myForm.contactno.value; 
     var email = document.myForm.email.value;
+
     
     
     if((fullName==null)||(fullName=="") || (!fullName.match( /^[a-z,0-9,A-Z_ ]{5,35}$/ )) ){
