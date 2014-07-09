@@ -41,8 +41,9 @@ folder login inside view filder also uses these styles
 		background-color: #f9f9f9;
 		color: #002166;
 		display: block;
-		margin: 0 px;
+		margin: 0px;
 		padding: 0px 5px 0px 15px;
+                width: 95%;
 	}
 #tbl th{background-color: #444;
 color: #fff;}

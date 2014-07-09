@@ -3,9 +3,7 @@
         $children = 5;
         ?><div class="right">
 <div id='ttoopp'>
-    <h2>Documents</h2><hr style="display: block; height: 1px;
-                          border: 0; border-top: 1px solid #ccc;
-                          margin: 1em 0; padding: 0;">
+    <h2>Documents</h2><hr class='topLine'/>
 
 
     <h3>Reservation code API: Documentation</h3>

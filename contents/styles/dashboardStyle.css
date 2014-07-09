@@ -143,12 +143,11 @@
   width: 100%;
   min-height: 100%;
 }
-#cssmenu ul,
-li {
+#cssmenu ul, #cssmenu li {
   list-style: none;
   margin: 0;
   padding: 0;
-  border-bottom: 1px dotted #333;
+  
 }
 #cssmenu ul {
   position: relative;
@@ -160,6 +159,7 @@ li {
   min-height: 1px;
   line-height: 1em;
   vertical-align: middle;
+  border-bottom: 1px dotted #333;
 }
 #cssmenu ul li.hover,
 #cssmenu ul li:hover {

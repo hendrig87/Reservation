@@ -17,7 +17,7 @@ class Documentation extends CI_Controller {
           
             
         $this->load->view('template/header');
-        $this->load->view('documentations/documentationNavigation');
+        $this->load->view("dashboard/reservationSystem");
         $this->load->view('documentations/document');
         
         $this->load->view('template/footer');
