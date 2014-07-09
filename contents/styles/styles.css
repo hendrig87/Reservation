@@ -117,17 +117,7 @@ color: #fff;}
 		background-color: rgb(111, 150, 216);
 		-webkit-box-shadow: 0 0 8px #D0D0D0;
 	}
-        input
-        {
-            padding: 5px;
-            min-width: 20px;
-        }
-        select
-        {
-            width: 100px;
-            padding: 5px;
-        }
-        
+      
         .checkForm
         
         {
