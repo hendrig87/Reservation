@@ -1,5 +1,5 @@
 
-<div id="right">
+<div class="right">
     
     <h2>Edit Hotel</h2><hr class="topLine" />
     
@@ -54,5 +54,6 @@
     </div>
    
 </div>
-<div id="clear"></div>
+
 </div>
+<div id="clear"></div>

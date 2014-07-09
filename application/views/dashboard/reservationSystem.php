@@ -11,7 +11,6 @@
     </script>
 <div id="main">
 <div id="left">
-<div id="navigation">
     <div id='cssmenu'>
 <ul>
    <li class='active has-sub'><a href="<?php echo base_url().'index.php/dashboard/bookingInfo'; ?>"><span>Hotel</span></a>
@@ -28,6 +27,6 @@
    <li class='last'><a href='#'><span>Documentation</span></a></li>
 </ul>
 </div>
-</div>
+
 </div>
     

@@ -3,8 +3,8 @@
 
   <!-- hotel selection complete -->
     
-  </div>
-  <div id="right">
+
+  <div class="right">
       <h2>Booking Info</h2><hr class="topLine" />
      <div id="room_book">
    <?php
@@ -76,8 +76,8 @@
         ?>
         <td><?php echo $hotelName."<br>". $hotelAddress."<br>".$contact;  ?></td>
   <!--          <td>    
-                <?php echo anchor('dashboard/edit/'.$book->id,'<img src="'.  base_url().'contents/images/edit.png" height="20px" width="20px" alt="Edit" id="edit_room">'); ?>&nbsp;&nbsp;&nbsp;
-                <?php echo anchor('dashboard/delete/'.$book->id,'<img src="'.  base_url().'contents/images/delete.jpg" height="20px" width="20px" alt="Delete" id="delete_room">'); ?>
+                <?php echo anchor('dashboard/edit/'.$book->id,'<img src="'.  base_url().'contents/images/edit.png" height="20px" width="20px" alt="Edit" class="edit_room">'); ?>&nbsp;&nbsp;&nbsp;
+                <?php echo anchor('dashboard/delete/'.$book->id,'<img src="'.  base_url().'contents/images/delete.jpg" height="20px" width="20px" alt="Delete" class="delete_room">'); ?>
                 
             </td>  -->
             
@@ -91,3 +91,4 @@
     </table>
      </div>
   </div>
+    </div>

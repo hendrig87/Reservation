@@ -1,4 +1,4 @@
-<div id="right">
+<div class="right">
     
     <h2>Calender</h2><hr class="topLine" />
     

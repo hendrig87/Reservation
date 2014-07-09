@@ -1,5 +1,5 @@
 
-<div id="right">
+<div class="right">
     
     <h2>Edit &nbsp;<a href="<?php echo base_url().'index.php/dashboard/addNewRoomForm'; ?>">Add New Room</a></h2><hr class="topLine" />
    
@@ -56,4 +56,5 @@
         }
         ?>
     </div>
+</div>
 </div>

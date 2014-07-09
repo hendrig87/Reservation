@@ -3,8 +3,8 @@
 
 <!-- hotel selection complete -->
 
-</div>
-<div id="right">
+
+<div class="right">
    <h2>Hotels&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url().'index.php/hotels/index'; ?>">Add New Hotel</a></h2><hr class="topLine" />
    <div id="sucessmsg"> 
             <?php echo validation_errors();
@@ -49,8 +49,8 @@
                     <td> <?php echo $allrooms; ?></td>
                    
                     <td>    
-                        <?php echo anchor('hotels/editHotel/' . $hotel->id, '<img src="' . base_url() . 'contents/images/edit.png" height="20px" width="20px" alt="Edit" id="edit_room">'); ?>&nbsp;&nbsp;&nbsp;
-                        <?php echo anchor('hotels/deleteHotel/' . $hotel->id, '<img src="' . base_url() . 'contents/images/delete.jpg" height="20px" width="20px" alt="Delete" id="delete_room">'); ?>
+                        <?php echo anchor('hotels/editHotel/' . $hotel->id, '<img src="' . base_url() . 'contents/images/edit.png" height="20" width="20" alt="Edit" id="edit_room">'); ?>&nbsp;&nbsp;&nbsp;
+                        <?php echo anchor('hotels/deleteHotel/' . $hotel->id, '<img src="' . base_url() . 'contents/images/delete.jpg" height="20" width="20" alt="Delete" id="delete_room">'); ?>
 
                     </td>
 
@@ -64,3 +64,5 @@
     </table>
 </div>
 </div>
+</div>
+<div class="clear"></div>

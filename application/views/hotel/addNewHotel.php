@@ -1,5 +1,5 @@
 
-<div id="right">
+<div class="right">
     
     <h2>Add New Hotel&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url().'index.php/hotels/hotelListing'; ?>">View Hotels</a></h2><hr class="topLine" />
     
@@ -43,5 +43,6 @@
     </div>
    
 </div>
-<div id="clear"></div>
+
 </div>
+<div id="clear"></div>

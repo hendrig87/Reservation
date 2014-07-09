@@ -24,7 +24,7 @@ success: function(msgs)
 <!-- ------------------calling currency_modify helper for currency--------------------------------- -->
 
 <!-- ------------------finish calling currency_modify helper for currency--------------------------------- -->
-<div id="right">
+<div class="right">
    
    <h2>Rooms&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url().'index.php/dashboard/addNewRoomForm'; ?>">Add New Room</a></h2><hr class="topLine" />
    

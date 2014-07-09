@@ -83,7 +83,7 @@
                     <ul>
                         <li><a href="<?Php echo base_url() . 'index.php' ?>">HOME</a></li>
                         <li><a href="<?Php echo base_url() . 'index.php/documentation/index' ?>">DOCUMENTATION</a></li>
-                        <li><a href="<?Php echo base_url() . 'index.php/dashboard/addNewRoomForm' ?>">DEVELOPER TOOLS</a></li>
+                        <li><a href="<?Php echo base_url() . 'index.php/dashboard/bookingInfo' ?>">DEVELOPER TOOLS</a></li>
                         <li><a id="loginLink" href="<?Php echo base_url() . 'index.php/login/logout' ?>">LOG OUT</a></li>
                     </ul> 
                 <?php }
