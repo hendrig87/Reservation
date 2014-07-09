@@ -217,8 +217,8 @@ class dashboard extends CI_Controller {
             redirect('login', 'refresh');
         }
     }
-
-    function update() {
+    
+                function update() {
         if ($this->session->userdata('logged_in')) {
             $data['username'] = Array($this->session->userdata('logged_in'));
             $this->load->library('upload');

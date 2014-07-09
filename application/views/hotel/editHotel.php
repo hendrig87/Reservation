@@ -1,7 +1,7 @@
 
 <div id="right">
     
-    <h2>Add New Hotel&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url().'index.php/hotels/hotelListing'; ?>">View Hotels</a></h2><hr class="topLine" />
+    <h2>Edit Hotel</h2><hr class="topLine" />
     
     
     <div id="sucessmsg"> 
@@ -14,22 +14,33 @@
             
     </div>
     <div id="form">
+         <?php
+    if (!empty($query)) {
+        foreach ($query as $data){
+            $id= $data->id;
+            $name= $data->name;
+            $address= $data->address;
+            $contact= $data->contact;
+        }
+    }
+        ?>
     <table>
     <tr>
-        <?php echo form_open_multipart('hotels/addNewHotel'); ?>
+        <?php echo form_open_multipart('hotels/updateHotel'); ?>
         <td id="alignright"> Name of hotel:</td>
-        <td><input type="text" name="hotelName" value="<?php echo set_value('hotelName'); ?>" required /></td>
+        <td><input type="hidden" value="<?php echo $id; ?>" name="id">
+            <input type="text" name="hotelName" value="<?php echo $name; ?>" required /></td>
         <td><a href="" class="help1 r" id="help" onclick="return false;" style="cursor: default;">?</a></td>
     </tr>
     
     <tr>
         <td id="alignright"> Address</td>
-        <td><input type="text" name="address" value="<?php echo set_value('address'); ?>" required /></td>
+        <td><input type="text" name="address" value="<?php echo $address ?>" required /></td>
         <td><a href="" class="help2 r" id="help" onclick="return false;" style="cursor: default;">?</a></td>
     </tr>
     <tr>
         <td id="alignright"> Contact No.</td>
-        <td><input type="text" name="contact" value="<?php echo set_value('contact'); ?>" required /></td>
+        <td><input type="text" name="contact" value="<?php echo $contact; ?>" required /></td>
         <td><a href="" class="help3 r" id="help" onclick="return false;" style="cursor: default;">?</a></td>
     </tr>
    

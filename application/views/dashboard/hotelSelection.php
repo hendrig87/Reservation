@@ -26,9 +26,8 @@ success: function(msgs)
 <!-- ------------------finish calling currency_modify helper for currency--------------------------------- -->
 <div id="right">
    
-   <h2>Rooms&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url().'index.php/dashboard/addNewRoomForm'; ?>">Add New Room</a></h2><hr style="display: block; height: 1px;
-   border: 0; border-top: 1px solid #ccc;
-   margin: 1em 0; padding: 0;">
+   <h2>Rooms&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url().'index.php/dashboard/addNewRoomForm'; ?>">Add New Room</a></h2><hr class="topLine" />
+   
   <!-- hotel selection -->
   
  

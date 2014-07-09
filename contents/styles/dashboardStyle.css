@@ -261,9 +261,9 @@ li {
 }
 #cssmenu a {
   color: #666666;
-  line-height: 160%;
+  line-height: 150%;
   padding: 16px 8px 16px 28px;
-  width: 100%;
+  width: 85%;
 }
 #cssmenu ul ul {
   -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
@@ -289,3 +289,11 @@ li {
   font-size: 12px;
 }
 // now navigation css ends here
+.topLine
+{
+   display: block; 
+   height: 1px;
+   border-top: 3px solid #ccc;
+   margin: 1em 0;
+   padding: 0;
+}

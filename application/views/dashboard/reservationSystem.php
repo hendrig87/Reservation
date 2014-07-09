@@ -14,7 +14,7 @@
 <div id="navigation">
     <div id='cssmenu'>
 <ul>
-   <li class='active has-sub'><a href="<?php echo base_url().'index.php/hotels/hotelListing'; ?>"><span>Hotel</span></a>
+   <li class='active has-sub'><a href="<?php echo base_url().'index.php/dashboard/bookingInfo'; ?>"><span>Hotel</span></a>
       <ul>
          <li class='has-sub'><a href="<?php echo base_url().'index.php/hotels/hotelListing'; ?>"><span>View Hotels</span></a></li>
          <li class='has-sub'><a href="<?php echo base_url().'index.php/hotels/index'; ?>"><span>Add New Hotel</span></a></li>

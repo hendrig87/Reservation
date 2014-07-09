@@ -5,9 +5,16 @@
 
 </div>
 <div id="right">
-   <h2>Hotels&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url().'index.php/hotels/index'; ?>">Add New Hotel</a></h2><hr style="display: block; height: 1px;
-    border: 0; border-top: 1px solid #ccc;
-    margin: 1em 0; padding: 0;">
+   <h2>Hotels&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url().'index.php/hotels/index'; ?>">Add New Hotel</a></h2><hr class="topLine" />
+   <div id="sucessmsg"> 
+            <?php echo validation_errors();
+              if($this->session->flashdata('message')) { ?>
+            <img src="<?php echo base_url() . "contents/images/success.jpg"; ?>" height="15px" width="15px"/>
+            <?php echo $this->session->flashdata('message');
+            }
+              ?>
+            
+    </div> 
 <div id="room_book" >
     <?php
     if (!empty($hotelName)) {
@@ -42,8 +49,8 @@
                     <td> <?php echo $allrooms; ?></td>
                    
                     <td>    
-                        <?php echo anchor('dashboard/edit/' . $hotel->id, '<img src="' . base_url() . 'contents/images/edit.png" height="20px" width="20px" alt="Edit" id="edit_room">'); ?>&nbsp;&nbsp;&nbsp;
-                        <?php echo anchor('dashboard/delete/' . $hotel->id, '<img src="' . base_url() . 'contents/images/delete.jpg" height="20px" width="20px" alt="Delete" id="delete_room">'); ?>
+                        <?php echo anchor('hotels/editHotel/' . $hotel->id, '<img src="' . base_url() . 'contents/images/edit.png" height="20px" width="20px" alt="Edit" id="edit_room">'); ?>&nbsp;&nbsp;&nbsp;
+                        <?php echo anchor('hotels/deleteHotel/' . $hotel->id, '<img src="' . base_url() . 'contents/images/delete.jpg" height="20px" width="20px" alt="Delete" id="delete_room">'); ?>
 
                     </td>
 

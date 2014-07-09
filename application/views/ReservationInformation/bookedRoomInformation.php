@@ -5,23 +5,21 @@
     
   </div>
   <div id="right">
-      <h2>Booking</h2><hr style="display: block; height: 1px;
-    border: 0; border-top: 1px solid #ccc;
-    margin: 1em 0; padding: 0;">
+      <h2>Booking Info</h2><hr class="topLine" />
      <div id="room_book">
    <?php
     if(!empty($roomInfo))
     { ?>
     <table width="100%">
         <tr>
-            <th width="15%">Room</th>
-            <th width="10%">No. of rooms</th>
-            <th width="15%">From</th>
-            <th width="15%">To</th>
-            <th width="10%">No. of individuals</th>
-            <th width="20%">Contact Person/ Address</th>
-            <th width="15%">Contact Number</th>
-             <th width="15%">Booked Hotel Info</th>
+            <th width="10%">Room</th>
+            <th width="7%">No. of rooms</th>
+            <th width="10%">From</th>
+            <th width="10%">To</th>
+            <th width="7%">No. of individuals</th>
+            <th width="22%">Contact Person/ Address</th>
+            <th width="10%">Contact Number</th>
+             <th width="24%">Booked Hotel Info</th>
             
     <?php
    

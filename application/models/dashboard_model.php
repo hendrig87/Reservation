@@ -43,6 +43,13 @@ public function add_new_room($room_type,$noOfRoom,$price,$description,$img_name,
            
             return $query->result();
         }
+        function get_booked_room_information($bookingId)
+        {
+            $this->db->where('booking_id', $bookingId);
+             $query = $this->db->get('booking_info');
+           
+            return $query->result();
+        }
         
         function get_booking_personal_info($bookingId)
         {
@@ -124,6 +131,24 @@ public function add_new_room($room_type,$noOfRoom,$price,$description,$img_name,
         return $query->result();
     }
     
+    public function find_hotel($id) {
+        $this->db->from('hotel_info');
+        $this->db->where('id', $id);
+        $query = $this->db->get();
+        return $query->result();
+    }
+    
+    function update_hotel($hotel_name, $address, $contact, $id)
+    {
+        $data = array(
+            'name' => $hotel_name,
+            'address'=> $address,
+            'contact'=> $contact );
+        
+        $this->db->where('id', $id);
+        $this->db->update('hotel_info', $data);
+    }
+    
     function updateRoom($id,$room_type,$noOfRoom,$price,$description,$img_name)
     {
         $data = array(
@@ -142,7 +167,10 @@ public function add_new_room($room_type,$noOfRoom,$price,$description,$img_name,
 
         $this->db->delete('room_registration', array('id' => $id));
     }
-    
+     public function delete_hotel($id) {
+
+        $this->db->delete('hotel_info', array('id' => $id));
+    }
     
    
 }
