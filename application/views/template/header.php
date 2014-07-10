@@ -7,6 +7,9 @@
         
         <script src="<?php echo base_url() . "contents/scripts/popup.js"; ?>"></script>
         <script src="<?php echo base_url() . "contents/scripts/jquery.js"; ?>"></script>
+        <script src="<?php echo base_url() . "contents/scripts/jquery-ui.js"; ?>"></script>
+        <script src="<?php echo base_url() . "contents/scripts/jquery1.10.2.js"; ?>"></script>
+        <script src="<?php echo base_url() . "contents/scripts/datepicker.js"; ?>"></script>
         <link rel="stylesheet" href="<?php echo base_url() . "contents/styles/tableStyles.css"; ?>"> 
         <link rel="stylesheet" href="<?php echo base_url() . "contents/styles/pop-up-booking.css"; ?>"> 
         <link rel="shortcut icon" href="<?php echo base_url() . "contents/images/favicon1.jpg"; ?>" type="image/x-icon"> 

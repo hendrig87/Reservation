@@ -23,19 +23,19 @@
     </tr>
     
     <tr>
-        <td id="alignright"> Address</td>
+        <td id="alignright"> Address:</td>
         <td><input type="text" name="address" value="<?php echo set_value('address');  ?>" placeholder="Full address" required /></td>
       <!--  <td><a href="" class="help2 r" id="help" onclick="return false;" style="cursor: default;">?</a></td> -->
     </tr>
     <tr>
-        <td id="alignright"> Contact No.</td>
+        <td id="alignright"> Contact No.:</td>
         <td><input type="text" name="contact" value="<?php echo set_value('contact'); ?>" placeholder="Contact number" required /></td>
       <!--  <td><a href="" class="help3 r" id="help" onclick="return false;" style="cursor: default;">?</a></td> -->
     </tr>
    
       <tr>
           <td></td>
-          <td><input type="submit" value="Save" name="submit" id="save"></td>
+          <td><input type="submit" value="Add Hotel" name="submit" id="save"></td>
               <?php form_close() ?>
           
     </tr>

@@ -1,67 +1,4 @@
-<script type="text/javascript">
-  function changeFunc() {
-   var selectBox = document.getElementById("selectBox");
-   var selectedValue = selectBox.options[selectBox.selectedIndex].value;
-   var checkIn=$("#checkin").val();
-   var checkOut=$("#checkout").val();
-   
-   
- 
-  
-$.ajax({
-type: "POST",
-url: "<?php echo base_url().'index.php/dashboard/searchManagedBooking' ;?>",
-data: {
-     'hotel' : selectedValue,
-     'checkIn' : checkIn,
-     'checkOut' : checkOut},
-success: function(msgs) 
-      {
-  
-          $("#room_book").html(msgs);
-          
-      }
-});
-}
-
- </script>
-
-
-  <!-- hotel selection complete -->
-     <script>
-$(function() {
-$( ".datepicker" ).datepicker();
-});
-</script>
-
-  <div class="right">
-      <h2>Booking Info</h2>
-      
-      <hr class="topLine" />
-       <div class="filter">
-           
-          <input type="text" class="datepicker" id="checkin">
-          <input type="text" class="datepicker" id="checkout">
-          <select name="selectMenu"  id="selectBox">
-            <option value="0" selected="selected"> All Hotels                    
-               </option>
-              <?php var_dump($hotelName); if(!empty($hotelName)){
-               foreach ($hotelName as $data)
-               {
-                   ?>
-               <option value="<?php echo $data->id; ?>">
-                   <?php echo $data->name; ?>
-               </option>
-                   <?php
-              }}
-               ?>
-         
-           </select>
-          <input type="submit" value="Search" onclick="changeFunc()" />
-         
-      </div> 
-      
-     <div id="room_book">
+ <div id="room_book">
    <?php
     if(!empty($roomInfo))
     { ?>
@@ -75,8 +12,8 @@ $( ".datepicker" ).datepicker();
             <th width="22%">Contact Person/ Address</th>
             <th width="10%">Contact Number</th>
              <th width="20%">Booked Hotel Info</th>
-             <th width="4%">Action</th>
-        </tr>  
+              <th width="4%">Action</th>
+        </tr>    
     <?php
    
         foreach($roomInfo as $book)
@@ -131,22 +68,23 @@ $( ".datepicker" ).datepicker();
     }}
         ?>
         <td><?php echo $hotelName."<br>". $hotelAddress."<br>".$contact;  ?></td>
-   <td>    
-                <?php echo anchor('dashboard/edit/'.$book->id,'<img src="'.  base_url().'contents/images/edit.png"  alt="Edit" class="edit_room">'); ?>&nbsp;&nbsp;&nbsp;
+        <td>    
+                <?php echo anchor('dashboard/edit/'.$book->id,'<img src="'.  base_url().'contents/images/edit.png" alt="Edit" class="edit_room">'); ?>&nbsp;&nbsp;&nbsp;
                 <?php echo anchor('dashboard/delete/'.$book->id,'<img src="'.  base_url().'contents/images/delete.png" alt="Delete" class="delete_room">'); ?>
                 
-            </td>  
+            </td> 
             
         </tr>
             
     <?php           
     }
-    }else
+    }
+    else
     {
-        echo '<h3>Sorry no booking are made.</h3>';
+         echo '<h3>Sorry no booking are made.</h3>';
     }
     ?>
-        
+      
     </table>
      </div>
   </div>

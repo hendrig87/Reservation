@@ -169,13 +169,17 @@ class dashboard extends CI_Controller {
     public function get_hotel_id() {
         if (isset($_POST['id'])) {
             $hotel_id = $_POST['id'];
-        } else {
-            $hotel_id = '0';
+            if($hotel_id!=0){
+            $data['query'] = $this->dashboard_model->booking_room($hotel_id);
         }
-        $data['query'] = $this->dashboard_model->booking_room($hotel_id);
-
-
-
+        else
+        {
+            $data['query'] = $this->dashboard_model->get_all_rooms();
+        }
+        }else {
+            $data['query'] = $this->dashboard_model->get_all_rooms();
+        }
+       
         $this->load->view('dashboard/roomInformation', $data);
 
     }
@@ -189,11 +193,12 @@ class dashboard extends CI_Controller {
                 $user_id = $id->id;
             }
             $data['hotelName'] = $this->dbmodel->get_user_hotel($user_id);
-
+            
+            $data['query'] = $this->dashboard_model->get_all_rooms();
             $this->load->view('template/header');
             $this->load->view('dashboard/reservationSystem');
             $this->load->view('dashboard/hotelSelection', $data);
-            $this->load->view('dashboard/roomInformation');
+            $this->load->view('dashboard/roomInformation', $data);
 
             $this->load->view('template/footer');
         } else {
@@ -312,7 +317,38 @@ class dashboard extends CI_Controller {
         }
     }
     
-    
+    function searchManagedBooking(){
+              $hotelId= $_POST['hotel'];
+              $checkIn= $_POST['checkIn'];
+              $checkOut = $_POST['checkOut'];
+             if($hotelId!=0 && $hotelId!=NULL && $hotelId!="" && $checkIn!="" && $checkIn!=NULL && $checkOut!="" && $checkOut!=NULL ){
+             $data['hotelName'] = $this->dashboard_model->get_hotel_Info($hotelId);
+             $data['roomInfo'] = $this->dashboard_model->get_booked_room_info_search($hotelId, $checkIn, $checkOut);
+        }
+ else {
+     if($checkIn!="" && $checkIn!=NULL && $checkOut!="" && $checkOut!=NULL ){
+         
+             $data['hotelName'] = $this->dashboard_model->get_all_hotel();
+             $data['roomInfo'] = $this->dashboard_model->get_booked_room_info_search_all_hotel($checkIn, $checkOut);
+        }
+        else
+        {
+           if(($checkOut!="" && $checkOut!=NULL) ||($checkIn!="" && $checkIn!=NULL) ){
+         
+             $data['hotelName'] = $this->dashboard_model->get_hotel_Info($hotelId);
+             $data['roomInfo'] = $this->dashboard_model->get_booked_room_info_search_check($checkIn, $checkOut);
+        }
+        else
+        {
+            $data['hotelName'] = $this->dashboard_model->get_all_hotel();
+            $data['roomInfo'] = $this->dashboard_model->get_booked_room_info();
+        }
+        }
+ }
+        
+        
+         $this->load->view('reservationInformation/bookedRoomInfoAjax', $data);
+    }
     
     
     
