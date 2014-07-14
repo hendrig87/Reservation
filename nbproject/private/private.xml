@@ -3,12 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/Reservation/application/views/ReservationInformation/PersonalInfo.php</file>
             <file>file:/C:/wamp/www/Reservation/application/controllers/dashboard.php</file>
+            <file>file:/C:/wamp/www/Reservation/application/views/dashboard/reservationSystem.php</file>
             <file>file:/C:/wamp/www/Reservation/application/views/ReservationInformation/bookedRoomInfoAjax.php</file>
             <file>file:/C:/wamp/www/Reservation/application/views/ReservationInformation/bookedRoomInformation.php</file>
             <file>file:/C:/wamp/www/Reservation/application/models/dashboard_model.php</file>
-            <file>file:/C:/wamp/www/Reservation/application/controllers/room_booking.php</file>
         </group>
     </open-files>
 </project-private>

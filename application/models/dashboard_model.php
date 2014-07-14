@@ -56,11 +56,14 @@ class dashboard_model extends CI_Model {
     }
 
     function get_booked_room_info_search($hotelId, $checkIn, $checkOut) {
-        $this->db->where('hotel_id', $hotelId);
-        $this->db->where('check_in_date >=', $checkIn);
-        $this->db->where('check_out_date <=', $checkOut);
+        if($hotelId!=0 && $hotelId!=NULL && $hotelId!=""){
+        $this->db->where('hotel_id', $hotelId);}
+         if($checkIn!="" && $checkIn!=NULL){
+         $this->db->where('check_in_date >=', $checkIn);}
+         if($checkOut!="" && $checkOut!=NULL){
+         $this->db->where('check_out_date <=', $checkOut);}
         $query = $this->db->get('booking_info');
-
+        
         return $query->result();
     }
     

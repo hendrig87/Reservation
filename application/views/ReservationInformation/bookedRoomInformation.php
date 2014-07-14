@@ -128,9 +128,9 @@ $( ".datepicker" ).datepicker();
         $hotelName= $bookHotel->name;
         $hotelAddress = $bookHotel->address;
         $contact = $bookHotel->contact;
-    }}
+    
         ?>
-        <td><?php echo $hotelName."<br>". $hotelAddress."<br>".$contact;  ?></td>
+        <td><?php echo $hotelName."<br>". $hotelAddress."<br>".$contact;  ?></td> <?php }} else{ ?><td><?php echo 'hotel not found';  ?></td><?php } ?>
    <td>    
                 <?php echo anchor('dashboard/edit/'.$book->id,'<img src="'.  base_url().'contents/images/edit.png"  alt="Edit" class="edit_room">'); ?>&nbsp;&nbsp;&nbsp;
                 <?php echo anchor('dashboard/delete/'.$book->id,'<img src="'.  base_url().'contents/images/delete.png" alt="Delete" class="delete_room">'); ?>

@@ -24,7 +24,7 @@
       </ul>
    </li>
    <li class='has-sub'><a href="#"><span>Apps</span></a>
-   <li class='last'><a href="<?php echo base_url().'index.php/documentation/index'; ?>"><span>Documentation</span></a>
+   <li class='has-sub'><a href="<?php echo base_url().'index.php/documentation/index'; ?>"><span>Documentation</span></a>
    <ul>
          <li class='has-sub'><a href="#ttoopp"><span>What Is It ?</span></a></li>
          <li class='has-sub'><a href="#code"><span>How It Works ?</span></a></li>
