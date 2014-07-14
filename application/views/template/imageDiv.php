@@ -11,7 +11,7 @@
         success: function(msgs)
         {
             $("#sugestion").html(msgs);
-            //runCSS();
+           
         }
         
     });
@@ -103,15 +103,16 @@ alert("keydown");
 <div id="title">
     <ul>
         <li class="has-active"><a href="#">Hotels</a></li>
-        <li><a href="#">Cars</a></li>
-        <li><a href="#">Flight</a></li>
+       
     </ul>
     
     
     
     </div>
                     <span>Request the reservation we will come back to you shortly.</span>
-<!--<input type="text" placeholder="Select a Hotel..." class="selectHotel" id="selectHotel" />-->
+                    
+                    
+
 <input type="text" placeholder="Select a Hotel..." class="selectHotel" id="userA" />
 <div id="sugestion"></div>
 <input type="text" placeholder="From" class="from" />
