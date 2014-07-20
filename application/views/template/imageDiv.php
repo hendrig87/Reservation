@@ -8,9 +8,18 @@
         type: "POST",
         url: "http://localhost/Reservation/index.php/search_con/user",
         data: dataString,
+       
         success: function(msgs)
         {
-            $("#sugestion").html(msgs);
+           
+           var json = msgs;
+           alert(json);
+       
+
+           $( "#tags" ).autocomplete({
+      source: json
+    });
+    //$("#sugestion").html(msgs);
            
         }
         
@@ -109,6 +118,63 @@ alert("keydown");
     
     
     </div>
+                    
+    <!-- from here-->
+    
+   
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+ 
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script>    
+  $(function() {  
+     $("#tags").keyup(function(){
+     var value = this.value;
+     var dataString = 'userA=' + value;
+     if(value != ""){
+    $.ajax({
+        type: "POST",
+        url: "http://localhost/Reservation/index.php/search_con/user",
+        data: dataString,
+       
+        success: function(msgs)
+        {
+         var availableTags = msgs;
+        showdata(availableTags);
+        }
+        
+    });
+     }else{
+            removeSugestion();
+     }
+});
+
+   // $( "#tags" ).autocomplete({
+        
+  //    source: availableTags
+   // });
+ 
+  });
+  
+  
+  function showdata(arg)
+  {
+      alert(arg);
+      $( "#tags" ).autocomplete({
+        
+      source: arg
+    });  
+  }
+  </script>
+
+    
+    <div class="ui-widget">
+  <label for="tags">Tags: </label>
+  <input id="tags">
+</div>
+<!-- till here-->
+                    
                     <span>Request the reservation we will come back to you shortly.</span>
                     
                     

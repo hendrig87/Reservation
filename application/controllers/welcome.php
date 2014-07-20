@@ -8,6 +8,7 @@ class Welcome extends CI_Controller {
         $this->load->library('session');
          $this->load->helper(array('form', 'url'));
         $this->load->helper('url');
+        $this->load->model('dashboard_model');
         
       
  }
