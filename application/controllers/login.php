@@ -188,7 +188,7 @@ class Login extends CI_Controller {
 
                     $this->dbmodel->update_Registered_user_status($user_email, $loginStatus);
                 } else {
-                    $user = $this->dbmodel->get_user_info($username);
+                    $user = $this->dbmodel->get_user_info($userName);
                     foreach ($user as $id) {
                         $user_id = $id->login_status;
                         $user_email = $id->user_email;

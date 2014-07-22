@@ -310,7 +310,7 @@ class dashboard extends CI_Controller {
             $data['roomInfo'] = $this->dashboard_model->get_booked_room_info();}
             $this->load->view('template/header');
             $this->load->view('dashboard/reservationSystem');
-            $this->load->view('reservationInformation/bookedRoomInformation', $data);
+            $this->load->view('ReservationInformation/bookedRoomInformation', $data);
 
             $this->load->view('template/footer');
         } else {

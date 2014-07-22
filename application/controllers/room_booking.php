@@ -32,16 +32,17 @@ class room_booking extends CI_Controller {
         
         function post_action()
         {   
-             $this->load->helper('availableRoom');
+             $this->load->helper('availableroom');
              
             $data['abc']=array(
             'checkin' => $_POST['checkin'],
             'checkout' => $_POST['checkout'],
             'adult' => $_POST['adult'],
-            'child' => $_POST['child']
+            'child' => $_POST['child'],
+            
                     );
             
-            $hotelId= $_POST['hotelId'];
+            $hotelId= 4;
             
             $data['query']= $this->dashboard_model->booking_room($hotelId);
             
@@ -51,7 +52,8 @@ class room_booking extends CI_Controller {
                   $this->load->view('ReservationInformation/room_booking_empty_view');
               }
               else
-              {            
+              { 
+                  
             $this->load->view('ReservationInformation/room_booking',$data);
               }
             

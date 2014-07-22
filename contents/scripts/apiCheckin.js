@@ -45,7 +45,7 @@ function makeActiveLink()    //function to make the link deactive when no rooms 
 function book()         //function to be calle for personal info view.
 {
     $('#loading').show();
-    var dataString = 'hotelId=' + '1';
+    var dataString = 'hotelId=' + '4';
 
     $.ajax({
         type: "POST",
@@ -96,7 +96,7 @@ function roomBook()      // function to call for payment info view.
             'emails': email,
             'remarkss': remarks,
             'updated_json': jsondata,
-            'hotelId': "1",
+            'hotelId': "4",
             'checkin': checkin,
             'checkout': checkout,
             'adult': adult,
@@ -126,7 +126,7 @@ function changeFunc() {
     var checkout = $("#CheckOut").val();
     var adult = $("#adult").val();
     var child = $("#child").val();
-
+    
     $.ajax({
         type: "POST",
         url: base_url + "index.php/room_booking/post_action",
@@ -135,7 +135,7 @@ function changeFunc() {
             'checkout': checkout,
             'adult': adult,
             'child': child,
-            'hotelId': "1"
+           
         },
         success: function(msg)
         {
