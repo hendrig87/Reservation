@@ -1,4 +1,8 @@
-
+<script src="<?php echo base_url() . "contents/scripts/popup.js"; ?>"></script>
+        <script src="<?php echo base_url() . "contents/scripts/jquery.js"; ?>"></script>
+        <script src="<?php echo base_url() . "contents/scripts/jquery-ui.js"; ?>"></script>
+        <script src="<?php echo base_url() . "contents/scripts/jquery1.10.2.js"; ?>"></script>
+        <script src="<?php echo base_url() . "contents/scripts/datepicker.js"; ?>"></script>
 <script>
 function payment()
 {
@@ -6,23 +10,23 @@ function payment()
       var cardNumber = $("#cardnumber").val();
      var security = $("#securitynumber").val();
      var valid = true;
-    var msg="Incomplete form:\n";
+   var msg="Incomplete form, please fill the form correctly\n";
      
     if((fullName==null)||(fullName=="") || (!fullName.match( /^[a-z,0-9,A-Z_ ]{5,35}$/ )) ){
-    msg+="You need to fill the name field in correct format!\n";
+    //msg+="You need to fill the name field in correct format!\n";
     valid = false;
    
     }
    
    if((cardNumber==null)||(cardNumber=="") || (!cardNumber.match( /^[a-z,0-9,A-Z_ ]{5,35}$/ )) ){  
      
-    msg+="You need to fill the card number field in correct format!\n";
+    //msg+="You need to fill the card number field in correct format!\n";
     valid = false;
    }
    
    if((security==null)||(security=="") || (!security.match( /^[a-z,0-9,A-Z_ ]{5,35}$/ )) ){  
      
-    msg+="You need to fill the security number field in correct format!\n";
+    //msg+="You need to fill the security number field in correct format!\n";
     valid = false;
    }
     
@@ -123,11 +127,11 @@ $this->load->helper('availableRoom');
     <tr>
                 <td style="width:400px;">
                 <fieldset>
-                    <strong id="msg" style="color:#990000 ;"></strong>
+                   
                     <legend style="border-bottom: solid thin #CCC;width: 80%;top: -10px;">Secure Payment Info</legend>
                     
                     <img src='<?php echo base_url().'contents/images/card-logos.jpg' ;?>' style="width: 380px; height: 100px;" >
-                    
+                  <strong id="msg" style="color:#990000 ;"></strong>   
                 <div class="input-prepend">
                 <span class="add-on">Name in Card</span>
                 <input class="input input-large" type="text" placeholder="Name in credit card" required="required" name="FullName" id="fullname">

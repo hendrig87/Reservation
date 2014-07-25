@@ -34,24 +34,6 @@
     var postdata = '<tr style="border-bottom:solid thin #CCCCCC;"><td colspan="3"><b>Total Price</b></td><td><div id="pi_total">' + total + '</div></td></tr></table>';
     $('#table').html(predata + nextdata + postdata);
     
-    
-//end of code for diplaying booked room
-
-
-
-//$(".personalInfo").click(function() {
-//
-//        $('#one').css({'background-color': '#999999'});
-//        $('.first').css({'color': 'black'});
-//        $('.first').css({'font-weight': 'normal'});
-//        $('#two').css({'background-color': '#999999'});
-//        $('.second').css({'color': 'black'});
-//        $('.second').css({'font-weight': 'normal'});
-//        $('#three').css({'background-color': '#0077b3'});
-//        $('.third').css({'color': '#0077b3'});
-//        $('.third').css({'font-weight': 'bold'});
-//        roomBook();
-//});
 
  });
     </script>
@@ -61,7 +43,7 @@
 function validate() {
  
      var valid = true;
-  var msg="Incomplete form:\n";
+  var msg="Incomplete form, please fill the form correctly\n";
     var fullName=document.myForm.fullname.value;
 
     var address=document.myForm.address.value;
@@ -82,7 +64,7 @@ function validate() {
     document.myForm.fullname.focus();
     
     document.myForm.fullname.style.border="solid 1px red";
-    msg+="You need to fill the name field in correct format!\n";
+    //msg="You need to fill the name field in correct format!\n";
     valid = false;
    
     }
@@ -90,35 +72,35 @@ function validate() {
    if((address==null)||(address=="") || (!address.match( /^[a-z,0-9,A-Z_ ]{5,35}$/ )) ){  
      document.myForm.address.focus();
     document.myForm.address.style.border="solid 1px red";
-    msg+="You need to fill the address field in correct format!\n";
+    //msg="You need to fill the address field in correct format!\n";
     valid = false;
    }
    
    if((occupation==null)||(occupation=="") || (!occupation.match( /^[a-z,0-9,A-Z_ ]{5,35}$/ )) ){  
      document.myForm.occupation.focus();
     document.myForm.occupation.style.border="solid 1px red";
-    msg+="You need to fill the occupation field in correct format!\n";
+    //msg="You need to fill the occupation field in correct format!\n";
     valid = false;
    }
    
    if((nationality==null)||(nationality=="") || (!nationality.match( /^[a-z,0-9,A-Z_ ]{5,35}$/ )) ){  
      document.myForm.nationality.focus();
     document.myForm.nationality.style.border="solid 1px red";
-    msg+="You need to fill the nationality field in correct format!\n";
+    //msg="You need to fill the nationality field in correct format!\n";
     valid = false;
    }
    
     if((contactno==null)||(contactno=="") || (!contactno.match( /^[0-9]{5,35}$/ )) ){  
      document.myForm.contactno.focus();
     document.myForm.contactno.style.border="solid 1px red";
-    msg+="You need to fill the contact number field in correct format!\n";
+    //msg="You need to fill the contact number field in correct format!\n";
     valid = false;
    }
    
    if((email==null)||(email=="") || (!email.match( /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/ )) ){  
      document.myForm.email.focus();
     document.myForm.email.style.border="solid 1px red";
-    msg+="You need to fill the emaile field in correct format!\n";
+    //msg="You need to fill the email field in correct format!\n";
     valid = false;
    }
    
@@ -139,8 +121,6 @@ function validate() {
      }
 }
 
-//to here
-
     </script>
 
 <div id="room_book">
@@ -158,8 +138,9 @@ function validate() {
                 
                 <td id="vertical_line"></td>
                 <td style="width:400px;float: left;">
-                    <strong id="msg" style="color:#990000 ;"></strong>
+                   
                     <fieldset style="margin-left:70px;">
+                         <strong id="msg" style="color:#990000 ;"></strong>
                         <legend id="booking_summary_title">Personal Information</legend>
                         
                         <div class="input-prepend">

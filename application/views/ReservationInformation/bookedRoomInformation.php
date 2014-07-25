@@ -149,5 +149,10 @@ $( ".datepicker" ).datepicker();
         
     </table>
      </div>
+      <?php if (strlen($links) > 2) { ?>
+        <div class="pagination">
+            <?php echo $links; ?>
+        </div>
+    <?php } ?>
   </div>
     </div>
