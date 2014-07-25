@@ -115,25 +115,25 @@ function movecursornext() {
         ?>
 <div id="container">
     
-	<div id="body">
 	
-           <div class ="checkForm">
+	
+         
                <span class="error"><span class="error_sign">!</span>&nbsp;Invalid Date. Enter (yyyy/mm/dd) date format. </span>
                <form method="post" action="#" id="checkin_room">
-                   <table>
-                <tr>
+                   
+                
                     
-                    <td class="tabledata">
+                   
                       <div class="input-prepend input-append">
                 <span class="add-on">Check In</span>
                 <input name="CheckIn" type="text" required="required" style="width:185px; cursor:pointer;" id="CheckIn">
                 <span onclick="movecursor()" class="add-on" style="width:auto; cursor:pointer; "><img src='<?php echo base_url().'contents/images/ParkReserve.png' ;?>' alt="" width="15" height="20" ></span>
                 </div> 
-                    </td>
+                   
                     
-                    <td style="width:10px;"></td>
+                  
                     
-                    <td class="tabledata">
+                   
                         <div class="input-prepend input-append">
                      <span class="add-on">Adults</span> 
                                        
@@ -146,23 +146,14 @@ function movecursornext() {
                             ?>
                         </select>
                         </div>
-                    </td>
-                </tr>
-                <br/>
-                <tr>
                    
-                    <td class="tabledata">
                        <div class="clear"></div>
                 <div class="input-prepend input-append">
                 <span class="add-on">Check Out</span>
                 <input name="CheckOut" type="text" style="width:185px; cursor:pointer;" id="CheckOut" value=""  required="required">
                 <span onclick="movecursornext()" class="add-on" style="width:auto; cursor:pointer;"><img src='<?php echo base_url().'contents/images/ParkReserve.png' ;?>' alt="" width="15" height="20" ></span>
                 </div>
-                    </td>
-                    
-                    <td style="width:10px;"></td>
-                    
-                    <td class="tabledata">
+                  
                          <div class="input-prepend input-append">
                              <span class="add-on">Children</span>
                        
@@ -175,19 +166,17 @@ function movecursornext() {
                             ?>
                         </select>
                              </div>
-                    </td>
-                    <td style="margin-top:-15px;">
-                        <input type ="button" value="Submit" style="margin-top:-25px;" id="checkinbtn">
+                   
+                        <input type ="button" value="Submit" id="checkinbtn">
                       
-                    </td>
-            </table>
+                   
         </form>
                
              
         
                
-        </div>
-        </div>
+        
+       
 </div>
 
 

@@ -1,6 +1,6 @@
 
 <div class="footerContainer">
-<div class="col-md-3"></div>
+
 			<div class="sitemap">
 				<h3>Information</h3>
 				<p class="caption">
@@ -49,6 +49,6 @@
 
 
 
-
+</div>
 </body>
 </html>

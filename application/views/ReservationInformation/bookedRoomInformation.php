@@ -71,7 +71,7 @@ $( ".datepicker" ).datepicker();
             <th width="7%">No. of rooms</th>
             <th width="10%">From</th>
             <th width="10%">To</th>
-            <th width="7%">No. of individuals</th>
+            <th width="9%">No. of individuals</th>
             <th width="22%">Contact Person/ Address</th>
             <th width="10%">Contact Number</th>
              <th width="20%">Booked Hotel Info</th>
@@ -93,8 +93,8 @@ $( ".datepicker" ).datepicker();
             
         <tr>
             <td>
-                <div style="float: left; margin-right: 10px;"></div>
-               <div style="font-size: 16px;width: 60%; float: left;"><?php echo $room; ?></div><br>  
+                
+               <?php echo $room; ?>  
                 
                 
             </td> 

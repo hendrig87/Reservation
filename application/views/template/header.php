@@ -60,17 +60,24 @@
 
 });
     
+    $(document).ready(function(){
+  $("#menuImage").click(function(){
+      $("#left").toggle();   
+  });
+});
     </script>
         <script src="<?php echo base_url() . "contents/scripts/apiCheckin.js"; ?>"></script>
     </head>
     <body>
 
-
+<div id="full">
         <div id="header">
 
 
 
-
+<div id="menuImage">
+         <img src="<?php echo base_url() . "contents/images/menuiconnext.jpg"; ?>" alt=""/>
+    </div>
 
             <div id="headerLogo">
 
