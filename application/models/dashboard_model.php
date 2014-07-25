@@ -63,7 +63,8 @@ function record_count_all_personal_info()
         return $query->result();
     }
 
-    function get_booked_room_info_search($hotelId, $checkIn, $checkOut) {
+    function get_booked_room_info_search($limit, $start, $hotelId, $checkIn, $checkOut) {
+        $this->db->limit($limit, $start);
         if($hotelId!=0 && $hotelId!=NULL && $hotelId!=""){
         $this->db->where('hotel_id', $hotelId);}
          if($checkIn!="" && $checkIn!=NULL){
