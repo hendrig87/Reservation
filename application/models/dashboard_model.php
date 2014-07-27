@@ -26,13 +26,36 @@ class dashboard_model extends CI_Model {
         return $query->result();
     }
     
-function record_count_all_personal_info()
+function record_count_all_booking_info()
     {
+        $today= date("Y-m-d");
+        $this->db->where('check_out_date >=', $today);
+        $this->db->from("booking_info");
+        return $this->db->count_all_results();
+    }
+    
+    function record_count_all_personal_info()
+    {
+        
         $this->db->from("personal_info");
         return $this->db->count_all_results();
     }
     
-    function get_all_rooms() {
+    function record_count_all_room_registration()
+    {
+        $this->db->from('room_registration');
+        return $this->db->count_all_results();
+    }
+    
+    function get_hotel_data_by_id($hotel_id)
+    { 
+        $this->db->where('id', $hotel_id);
+        $query = $this->db->get('hotel_info');
+        return $query->result();
+    }
+            
+    function get_all_rooms($limit, $start) {
+          $this->db->limit($limit, $start);
         $this->db->order_by("hotel_id", "desc");
         $query = $this->db->get('room_registration');
         return $query->result();
@@ -56,8 +79,11 @@ function record_count_all_personal_info()
     }
  
     function get_booked_room_info($limit, $start) {
+        $today= date("Y-m-d");
+       
         $this->db->limit($limit, $start);
-         $this->db->order_by('id','DESC');
+        $this->db->where('check_out_date >=', $today);
+        $this->db->order_by('id','DESC');
         $query = $this->db->get('booking_info');
 
         return $query->result();

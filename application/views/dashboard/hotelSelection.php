@@ -35,7 +35,7 @@ success: function(msgs)
 <select name="selectMenu"  id="selectBox" onchange="changeFunc();">
             <option value="0" selected="selected"> All Hotels                    
                </option>
-              <?php var_dump($hotelName); if(!empty($hotelName)){
+              <?php if(!empty($hotelName)){
                foreach ($hotelName as $data)
                {
                    ?>
@@ -66,9 +66,10 @@ success: function(msgs)
         <tr>
             <th width="25%">Room</th>
             <th width="30%">Facilities</th>
-            <th width="15%">Price</th>
+            <th width="10%">Price</th>
             <th width="10%">Total Rooms</th>
-            <th width="10%">Action</th>
+            <th width="12%">Related Hotel</th>
+             <th width="10%">Action</th>
    <?php
         foreach($query as $book)
     {
@@ -76,6 +77,11 @@ success: function(msgs)
             $totalRooms = $book->no_of_room;
             $roomDesc = $book->description;
             $hotel_id= $book->hotel_id;
+            $hotelData= $this->dashboard_model->get_hotel_data_by_id($hotel_id);
+            foreach($hotelData as $hotels)
+    {
+            $hotelName= $hotels->name;
+           
     ?>
             
         <tr>
@@ -90,7 +96,7 @@ success: function(msgs)
                 <?php get_currency($book->price); ?> <!-- Sending price of room to currency_helper -->
             </td>
             <td> <?php echo $totalRooms; ?></td>
-        
+         <td> <?php echo $hotelName; ?></td>
             <td>    
                 <?php echo anchor('dashboard/edit/'.$book->id,'<img src="'.  base_url().'contents/images/edit.png"  alt="Edit" class="edit_room">'); ?>&nbsp;&nbsp;&nbsp;
                 <?php echo anchor('dashboard/delete/'.$book->id,'<img src="'.  base_url().'contents/images/delete.png" alt="Delete" class="delete_room">'); ?>
@@ -102,8 +108,14 @@ success: function(msgs)
     <?php           
     }
     }
+    }
     ?>
         </tr>
     </table>
      </div>
+  <?php if (strlen($links) > 2) { ?>
+        <div class="pagination">
+            <?php echo $links; ?>
+        </div>
+    <?php } ?>
 </div>

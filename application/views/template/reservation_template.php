@@ -167,7 +167,7 @@ function movecursornext() {
                         </select>
                              </div>
                    
-                        <input type ="button" value="Submit" id="checkinbtn">
+                        <input type ="button" value="Check availability" id="checkinbtn">
                       
                    
         </form>

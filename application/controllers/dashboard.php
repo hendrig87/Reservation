@@ -167,17 +167,20 @@ class dashboard extends CI_Controller {
     }
 
     public function get_hotel_id() {
+          $config["per_page"] = 5;
+        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
         if (isset($_POST['id'])) {
             $hotel_id = $_POST['id'];
             if($hotel_id!=0){
+                
             $data['query'] = $this->dashboard_model->booking_room($hotel_id);
         }
         else
         {
-            $data['query'] = $this->dashboard_model->get_all_rooms();
+            $data['query'] = $this->dashboard_model->get_all_rooms($config["per_page"], $page);
         }
         }else {
-            $data['query'] = $this->dashboard_model->get_all_rooms();
+            $data['query'] = $this->dashboard_model->get_all_rooms($config["per_page"], $page);
         }
        
         $this->load->view('dashboard/roomInformation', $data);
@@ -186,7 +189,35 @@ class dashboard extends CI_Controller {
 
     public function roomInfo() {
         if ($this->session->userdata('logged_in')) {
-
+/*for pagination*/
+            $config = array();
+        $config["base_url"] = base_url() . "index.php/dashboard/roomInfo";
+        $config["total_rows"] = $this->dashboard_model->record_count_all_room_registration();
+        $config["per_page"] = 5;
+        $this->pagination->initialize($config);
+        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+       
+        $config["num_links"] = $config["total_rows"] / $config["per_page"];
+        $config['full_tag_open'] = '<ul class="tsc_pagination tsc_paginationA tsc_paginationA01">';
+        $config['full_tag_close'] = '</ul>';
+        $config['prev_link'] = 'First';
+        $config['prev_tag_open'] = '<li>';
+        $config['prev_tag_close'] = '</li>';
+        $config['next_link'] = 'Next';
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
+        $config['cur_tag_open'] = '<li class="current"><a href="#">';
+        $config['cur_tag_close'] = '</a></li>';
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        $config['first_tag_open'] = '<li>';
+        $config['first_tag_close'] = '</li>';
+        $config['last_tag_open'] = '<li>';
+        $config['last_tag_close'] = '</li>';
+        $config['first_link'] = '&lt;&lt;';
+        $config['last_link'] = '&gt;&gt;';
+        $this->pagination->initialize($config);
+        /* pagination ends here */
             $useremail = $this->session->userdata('useremail');
             $user = $this->dbmodel->get_user_info($useremail);
             foreach ($user as $id) {
@@ -194,11 +225,13 @@ class dashboard extends CI_Controller {
             }
             $data['hotelName'] = $this->dbmodel->get_user_hotel($user_id);
              if(!empty($data['hotelName'])){
-             $data['query'] = $this->dashboard_model->get_all_rooms();}
+             $data['query'] = $this->dashboard_model->get_all_rooms($config["per_page"], $page);}
+             $config['display_pages'] = FALSE;
+             $data["links"] = $this->pagination->create_links();
             $this->load->view('template/header');
             $this->load->view('dashboard/reservationSystem');
             $this->load->view('dashboard/hotelSelection', $data);
-            $this->load->view('dashboard/roomInformation', $data);
+            //$this->load->view('dashboard/roomInformation', $data);
 
             $this->load->view('template/footer');
         } else {
@@ -309,7 +342,7 @@ class dashboard extends CI_Controller {
 /*for pagination*/
             $config = array();
         $config["base_url"] = base_url() . "index.php/dashboard/bookingInfo";
-        $config["total_rows"] = $this->dashboard_model->record_count_all_personal_info();
+        $config["total_rows"] = $this->dashboard_model->record_count_all_booking_info();
         $config["per_page"] = 5;
         $this->pagination->initialize($config);
         $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
@@ -398,7 +431,7 @@ class dashboard extends CI_Controller {
              if(($hotelId!=0 && $hotelId!=NULL && $hotelId!="") || ($checkIn!="" && $checkIn!=NULL) || ($checkOut!="" && $checkOut!=NULL) ){       
              $data['hotelName'] = $this->dbmodel->get_user_hotel($user_id);
                  $data['roomInfo'] = $this->dashboard_model->get_booked_room_info_search($config["per_page"], $page, $hotelId, $checkIn, $checkOut);     
-            die('here');
+            
                  }
         else
         {

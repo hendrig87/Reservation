@@ -63,6 +63,7 @@ class room_booking extends CI_Controller {
         
         function book_now()
         {  
+           
                 $hotelId= $_POST['hotelId'];
            $data['query']= $this->dashboard_model->booking_room($hotelId);
            //echo $data['query'];
