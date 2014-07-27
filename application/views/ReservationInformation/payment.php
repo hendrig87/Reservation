@@ -55,6 +55,24 @@ function payment()
  });
  }
  }
+ 
+ function back()
+ {
+    var hotelId = 'hotelId=' + '1';
+      
+ $.ajax({
+ type: "POST",
+ url: "<?php echo base_url().'index.php/room_booking/book_now' ;?>",
+ data: hotelId,
+  success: function(msgs) 
+        {
+    
+            $("#replaceMe").html(msgs);
+            
+        }
+ });
+ }
+ 
  </script>
  
 <script>
@@ -77,6 +95,7 @@ $(document).ready(function(){
          $('.fourth').css({'font-weight': 'bold'}); 
         payment();
     });
+    
      $('#loading').hide();
      });
 </script>
@@ -186,4 +205,6 @@ $this->load->helper('availableRoom');
         </table>
 <div id="action">
     
-    <input type="submit" id="popupBtn" value="Next" class="payment"></div>
+    <input type="submit" id="popupBtn" value="Back" onclick="back()" class="backBtnPayment">
+    <input type="submit" id="popupBtn" value="Next" class="payment">
+</div>

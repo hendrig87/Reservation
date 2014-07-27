@@ -67,9 +67,12 @@
     font-weight: bolder;
     border: none;
     width: 100px;
+    line-height: 30px;
 }
-
-
+.backBtn, .backBtnPerson, .backBtnPayment
+{
+    float: left;
+}
 
 #checkinStyle
 {
@@ -194,7 +197,7 @@
     border-radius: 5px;
     background: whitesmoke;
     padding: 5px;
-    float: left;
+    //float: left;
     font-weight: bold;
 }
 

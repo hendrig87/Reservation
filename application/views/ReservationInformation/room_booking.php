@@ -121,10 +121,10 @@ $this->load->helper('availableroom');
 <!--      -->
 <table class="room-listing-tbl" style="width: 100%;">
     <tr id="checkinStyle">
-        <td id="a"><b>Checkin Date:</b>&nbsp;<?php echo $abc['checkin']; ?></td>
-        <td id="b"><b>Checkout Date:</b>&nbsp;<?php echo $abc['checkout']; ?></td>
-        <td id="c"><b>No. of Adults:</b>&nbsp;<?php echo $abc['adult']; ?></td>
-        <td id="d"><b>No. of Children:</b>&nbsp;<?php if ($abc['child'] == "Select") {
+        <td><b>Checkin Date:</b>&nbsp;<?php echo $abc['checkin']; ?></td>
+        <td><b>Checkout Date:</b>&nbsp;<?php echo $abc['checkout']; ?></td>
+        <td><b>No. of Adults:</b>&nbsp;<?php echo $abc['adult']; ?></td>
+        <td><b>No. of Children:</b>&nbsp;<?php if ($abc['child'] == "Select") {
     echo "0";
 } else {
     echo $abc['child'];
