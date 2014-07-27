@@ -1,66 +1,65 @@
 <script type="text/javascript">
-    $(document).ready(function(){
-     $("#userA").keyup(function(){
-     var value = this.value;
-     var dataString = 'userA=' + value;
-     if(value != ""){
-    $.ajax({
-        type: "POST",
-        url: "http://localhost/Reservation/index.php/search_con/user",
-        data: dataString,
-       
-        success: function(msgs)
-        {
-           
-           var json = msgs;
-           alert(json);
-       
+    $(document).ready(function() {
+        $("#userA").keyup(function() {
+            var value = this.value;
+            var dataString = 'userA=' + value;
+            if (value != "") {
+                $.ajax({
+                    type: "POST",
+                    url: "http://localhost/Reservation/index.php/search_con/user",
+                    data: dataString,
+                    success: function(msgs)
+                    {
 
-           $( "#tags" ).autocomplete({
-      source: json
-    });
-    //$("#sugestion").html(msgs);
-           
-        }
-        
-    });
-     }else{
-            removeSugestion();
-     }
-});
-});
+                        var json = msgs;
+                      
 
-$('#sugestion').on('keydown', '#link', function(e){
-alert("keydown");
-});
-		
+
+                        $("#tags").autocomplete({
+                            source: json
+                        });
+                        
+
+                    }
+
+                });
+            } else {
+                removeSugestion();
+            }
+        });
+    });
+
+    $('#sugestion').on('keydown', '#link', function(e) {
+        alert("keydown");
+    });
+
     function removeSugestion()
     {
         $("#sugestion").html("");
         stopCSS();
     }
-			
+
     function addText(value)
     {
         $("#userA").val(value);
     }
-			
+
     function runCSS()
     {
         $("#sugestion").css({
-            'border' : 'solid',
-            'border-width' : '1px'
+            'border': 'solid',
+            'border-width': '1px'
         });
     }
-			
+
     function stopCSS()
     {
         $("#sugestion").css({
-            'border' : '',
-            'border-width' : ''
+            'border': '',
+            'border-width': ''
         });
     }
-					
+
 </script>
 
 <style type="text/css">
@@ -98,95 +97,87 @@ alert("keydown");
         font-size: 16px;
         color: #fff;
     }
-   
-    
+
+
 
 </style>
 
-  
+
 
 
 <div id="topNavigationWithSlider">
-<div class="centerDiv">
-                <div id="reservation_temp">
-<div id="title">
-    <ul>
-        <li class="has-active"><a href="#">Hotels</a></li>
-       
-    </ul>
-    
-    
-    
-    </div>
-                    
-    <!-- from here-->
-    
-   
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
- 
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script>    
-  $(function() {  
-     $("#tags").keyup(function(){
-     var value = this.value;
-     var dataString = 'userA=' + value;
-     if(value != ""){
-    $.ajax({
-        type: "POST",
-        url: "http://localhost/Reservation/index.php/search_con/user",
-        data: dataString,
-       
-        success: function(msgs)
-        {
-         var availableTags = msgs;
-        showdata(availableTags);
-        }
-        
-    });
-     }else{
-            removeSugestion();
-     }
+    <div class="centerDiv">
+        <div id="reservation_temp">
+            <div id="title">
+                <ul>
+                    <li class="has-active"><a href="#">Hotels</a></li>
+
+                </ul>
+
+
+
+            </div>
+
+            <!-- from here-->
+
+
+            <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+
+            <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+            <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+            <link rel="stylesheet" href="/resources/demos/style.css">
+            <script>
+              $(function() {
+                  $("#tags").keyup(function() {
+                      var value = this.value;
+                      var dataString = 'userA=' + value;
+                      if (value != "") {
+                          $.ajax({
+                              type: "POST",
+                              url: "<?php echo base_url().'index.php/search_con/user' ;?>",
+                              data: dataString,
+                              success: function(msgs)
+                              {
+                                  var data= msgs;
+                               mydata(data);
+                              }
+
+                          });
+                      } else {
+                          removeSugestion();
+                      }
+                  });
+      
+               });
+
+ $(function mydata(data)   { 
+      // alert(data)
+                   $( "#tags" ).autocomplete({
+source: ["Central Palms Hotel","Hotel Monalisha","asghgjfddas","My hotel added","asdfsdf","asdsadsa"]
 });
 
-   // $( "#tags" ).autocomplete({
-        
-  //    source: availableTags
-   // });
- 
-  });
-  
-  
-  function showdata(arg)
-  {
-      alert(arg);
-      $( "#tags" ).autocomplete({
-        
-      source: arg
-    });  
-  }
-  </script>
+              });
+            </script>
 
-    
-    <div class="ui-widget">
-  <label for="tags">Tags: </label>
-  <input id="tags">
-</div>
-<!-- till here-->
-                    
-                    <span>Request the reservation we will come back to you shortly.</span>
-                    
-                    
 
-<input type="text" placeholder="Select a Hotel..." class="selectHotel" id="userA" />
-<div id="sugestion"></div>
-<input type="text" placeholder="From" class="from" />
-<input type="text" placeholder="To" class="to"/>
-<input type="text" placeholder="Adults" class="from" />
-<input type="text" placeholder="Child" class="to"/>
-<input type="button" id="search" value="PROCEED TO BOOKING" />
-</div>
-                
+            <div class="ui-widget">
+                <label for="tags">Tags: </label>
+                <input id="tags">
             </div>
+            <!-- till here-->
+
+            <span>Request the reservation we will come back to you shortly.</span>
+
+
+
+            <input type="text" placeholder="Select a Hotel..." class="selectHotel" id="userA" />
+            <div id="sugestion"></div>
+            <input type="text" placeholder="From" class="from" />
+            <input type="text" placeholder="To" class="to"/>
+            <input type="text" placeholder="Adults" class="from" />
+            <input type="text" placeholder="Child" class="to"/>
+            <input type="button" id="search" value="PROCEED TO BOOKING" />
         </div>
+
+    </div>
+</div>

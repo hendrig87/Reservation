@@ -7,7 +7,7 @@
      if(value != ""){
     $.ajax({
         type: "POST",
-        url: "http://localhost/Reservation/index.php/search_con/user",
+        url: "<?php echo base_url().'index.php/search_con/user' ;?>",
         data: dataString,
         success: function(msgs)
         {

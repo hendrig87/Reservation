@@ -19,8 +19,7 @@ class Search_con extends CI_Controller {
  public function user(){
      
         $userPart = $_POST['userA'];
-        die($userPart);
-        die('here');
+        
         
         $result = $this->searchdb->search($userPart) ;
        // die($result);
