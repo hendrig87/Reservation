@@ -214,9 +214,9 @@
     font-weight: bold;
 }
 
-#checkinbtn
+.checkinbtn
 {
-    //border-radius: 5px;
+    width: auto;
     height: 28px;
     margin: 0px 0px 0px 10px;
     

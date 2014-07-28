@@ -48,7 +48,12 @@ function payment()
      'hotelId':hotelId},
   success: function(msgs) 
         {
-    
+            $('#one').css({'background-color': '#0077b3'}); 
+            $('.first').css({'color': '#0077b3'}); 
+         $('.first').css({'font-weight': 'bold'});
+         $('#two').css({'background-color': '#999999'});
+                $('.second').css({'color': 'black'});
+                $('.second').css({'font-weight': 'normal'});
             $("#replaceMe").html(msgs);
             
         }
@@ -66,7 +71,15 @@ function payment()
  data: hotelId,
   success: function(msgs) 
         {
-    
+     $('#one').css({'background-color': '#999999'});
+            $('.first').css({'color': 'black'});
+            $('.first').css({'font-weight': 'normal'});
+            $('#two').css({'background-color': '#0077b3'});
+            $('.second').css({'color': '#0077b3'});
+            $('.second').css({'font-weight': 'bold'});
+            $('#three').css({'background-color': '#999999'});
+            $('.third').css({'color': 'black'});
+            $('.third').css({'font-weight': 'normal'});
             $("#replaceMe").html(msgs);
             
         }

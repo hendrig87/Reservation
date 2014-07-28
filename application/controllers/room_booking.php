@@ -39,10 +39,15 @@ class room_booking extends CI_Controller {
             'checkout' => $_POST['checkout'],
             'adult' => $_POST['adult'],
             'child' => $_POST['child'],
-            
+            'hotelId'=> $_POST['hotelId'],
                     );
             
-            $hotelId= 4;
+            $hotel= $_POST['hotelId'];
+            $hotels= $this->dashboard_model->get_hotel_id($hotel);
+            foreach ($hotels as $hotelData)
+            {
+                $hotelId = $hotelData->id;
+            }
             
             $data['query']= $this->dashboard_model->booking_room($hotelId);
             
@@ -57,18 +62,23 @@ class room_booking extends CI_Controller {
             $this->load->view('ReservationInformation/room_booking',$data);
               }
             
-          
+         
         }
         
         
         function book_now()
         {  
-           
-                $hotelId= $_POST['hotelId'];
+         $hotel= $_POST['hotelId'];
+            $data['hotels']= $this->dashboard_model->get_hotel_id($hotel);
+            foreach ($data['hotels'] as $hotelData)
+            {
+                $hotelId = $hotelData->id;
+            }
+          
            $data['query']= $this->dashboard_model->booking_room($hotelId);
            //echo $data['query'];
             $j_son['json'] = json_encode($data);
-          // echo $j_son;
+            
           
           $this->load->view('ReservationInformation/PersonalInfo',$j_son);
             

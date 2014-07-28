@@ -9,6 +9,8 @@ class searchdb extends CI_Model {
     
     function search($value){
         $this->db->like('name', $value);
+        $this->db->or_like('address', $value);
+        $this->db->or_like('contact', $value);
        $result = $this->db->get('hotel_info');
        
        return $result->result();

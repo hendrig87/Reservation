@@ -28,7 +28,8 @@
             }
 
             total += (txtnext[i].no_of_room) * (txtnext[i].price);
-
+    var hotelId = txtnext[i].hotel_id;
+    alert(data);
         }
 
         var postdata = '<tr style="border-bottom:solid thin #CCCCCC;"><td colspan="3"><b>Total Price</b></td><td><div id="pi_total">' + total + '</div></td></tr></table>';
@@ -59,7 +60,12 @@
         },
   success: function(msg) 
         {    
-            
+            $('#one').css({'background-color': '#0077b3'}); 
+         $('.first').css({'color': '#0077b3'}); 
+         $('.first').css({'font-weight': 'bold'});
+         $('#two').css({'background-color': '#999999'});
+                $('.second').css({'color': 'black'});
+                $('.second').css({'font-weight': 'normal'});
             $("#replaceMe").html(msg);  
             
         }

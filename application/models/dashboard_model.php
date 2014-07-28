@@ -18,6 +18,14 @@ class dashboard_model extends CI_Model {
         $this->db->insert('room_registration', $data);
     }
 
+    function get_hotel_id($hotel)
+    {
+         $this->db->where('name', $hotel);
+         $query = $this->db->get('hotel_info');
+
+        return $query->result();
+    }
+            
     function booking_room($hotel_id) {
         $this->db->where('hotel_id', $hotel_id);
         $this->db->order_by("id", "desc");
