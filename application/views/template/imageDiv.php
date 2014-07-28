@@ -1,67 +1,4 @@
 <script src="<?php echo base_url().'contents/scripts/datepicker.js' ?>"></script>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $("#userA").keyup(function() {
-            var value = this.value;
-            var dataString = 'userA=' + value;
-            if (value != "") {
-                $.ajax({
-                    type: "POST",
-                    url: "http://localhost/Reservation/index.php/search_con/user",
-                    data: dataString,
-                    success: function(msgs)
-                    {
-
-                        var json = msgs;
-                      
-
-
-                        $("#tags").autocomplete({
-                            source: json
-                        });
-                        
-
-                    }
-
-                });
-            } else {
-                removeSugestion();
-            }
-        });
-    });
-
-    $('#sugestion').on('keydown', '#link', function(e) {
-        alert("keydown");
-    });
-
-    function removeSugestion()
-    {
-        $("#sugestion").html("");
-        stopCSS();
-    }
-
-    function addText(value)
-    {
-        $("#userA").val(value);
-    }
-
-    function runCSS()
-    {
-        $("#sugestion").css({
-            'border': 'solid',
-            'border-width': '1px'
-        });
-    }
-
-    function stopCSS()
-    {
-        $("#sugestion").css({
-            'border': '',
-            'border-width': ''
-        });
-    }
-
-</script>
 <script>
 var currenttime = "Apr 28, 2014 2:41:06 PM";
 var greeting = " PM";
@@ -152,57 +89,38 @@ setInterval("displaytime()", 1000);
             </div>
 
             <!-- from here-->
+            
+            
+        
 
-
-            <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
-
-            <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-            <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+           <link type="text/css" rel="stylesheet" href="<?php echo base_url() . "contents/styles/jquery-ui.css"; ?>"/>
+             <script src="<?php echo base_url() . "contents/scripts/jquery1.10.2.js"; ?>"></script>
+            <script src="<?php echo base_url() . "contents/scripts/jquery-ui.js"; ?>"></script>
             <link rel="stylesheet" href="/resources/demos/style.css">
-            <script>
-//                
-//               $(function () {
-//    $("#tags").autocomplete({
-//        source: function (request, response) {
-//            $.post("<?php //echo base_url().'index.php/search_con/user' ;?>", {
-//                userA: request.term
-//            }, response);
-//        }
-//    });
-//}); 
-                
+            <script>         
               $(function() {
-                  $("#tags").keyup(function() {
-                      var value = this.value;
-                     
-                      var dataString = 'userA=' + value;
-                      if (value != "") {
-                          $.ajax({
+                    
+                 $("#tags").autocomplete({     
+                     source: function( request, response ) {  
+                     $.ajax({
                               type: "POST",
                               url: "<?php echo base_url().'index.php/search_con/user' ;?>",
-                              data: dataString,
-                              success: function(msgs)
+                              data: {'userA': request.term}, 
+                       success: function(msgs)
                               {
-                                  var data= msgs;
-                            // alert(data);
-                             
+                              var a = ["Central Palms Hotel","Hotel Monalisha","asghgjfddas","My hotel added","asdfsdf","asdsadsa"];  
+                                
+                            response(a);
+                             // alert(msgs);
                               }
-
-                          });
-                      } else {
-                          removeSugestion();
+                     });  
                       }
+                      
                   });
       
                });
+        
 
-$(function mydata(data)   { 
-      // alert(data)
-                   $( "#tags" ).autocomplete({
-source: ["Central Palms Hotel","Hotel Monalisha","asghgjfddas","My hotel added","asdfsdf","asdsadsa"]
-});
-
-              });
             </script>
             
             <script>
