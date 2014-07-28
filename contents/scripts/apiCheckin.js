@@ -45,7 +45,9 @@ function makeActiveLink()    //function to make the link deactive when no rooms 
 function book()         //function to be calle for personal info view.
 {
     $('#loading').show();
-    var dataString = 'hotelId=' + '4';
+    var hotelId= $('#selectedHotelId').val();
+    
+    var dataString = 'hotelId=' + hotelId;
 
     $.ajax({
         type: "POST",

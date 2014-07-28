@@ -132,6 +132,7 @@ $this->load->helper('availableroom');
     </tr>
 </table>
 
+<input type="hidden" id="selectedHotelId" value="<?php echo $abc['hotelId']; ?>" >
 <!-- ----------------->
 <div id="room_book">
     <table width="100%" id="popuptbl">
