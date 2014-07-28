@@ -41,12 +41,17 @@ class room_booking extends CI_Controller {
             'child' => $_POST['child'],
             'hotelId'=> $_POST['hotelId'],
                     );
-            
+           
             $hotel= $_POST['hotelId'];
+          
             $hotels= $this->dashboard_model->get_hotel_id($hotel);
+            if(!empty($hotels)){
             foreach ($hotels as $hotelData)
             {
                 $hotelId = $hotelData->id;
+            }}
+            else{
+                $hotelId= 4;
             }
             
             $data['query']= $this->dashboard_model->booking_room($hotelId);
@@ -70,9 +75,13 @@ class room_booking extends CI_Controller {
         {  
          $hotel= $_POST['hotelId'];
             $data['hotels']= $this->dashboard_model->get_hotel_id($hotel);
+            if(!empty($data['hotels'])){
             foreach ($data['hotels'] as $hotelData)
             {
                 $hotelId = $hotelData->id;
+            }}
+            else{
+                $hotelId=4;
             }
           
            $data['query']= $this->dashboard_model->booking_room($hotelId);
@@ -87,8 +96,6 @@ class room_booking extends CI_Controller {
                 
         public function personal_info()
         {  
-             if(isset($_POST['hotelId'])){
-             $hotelId= $_POST['hotelId'];}
              
              if(isset($_POST['total_price'])){
              $totalPrice = $_POST['total_price'];}
@@ -156,13 +163,13 @@ class room_booking extends CI_Controller {
                 if($item['no_of_room'] != "0")
                 {
                     mysql_query("INSERT INTO `booking_info` (check_in_date, check_out_date, room_type, no_of_rooms_booked, booking_id, hotel_id) 
-       VALUES ('".$item['check_in_date']."', '".$item['check_out_date']."' ,'".$item['room_name']."', '".$item['no_of_room']."','".$bookId."','".$hotelId."' )");
+       VALUES ('".$item['check_in_date']."', '".$item['check_out_date']."' ,'".$item['room_name']."', '".$item['no_of_room']."','".$bookId."','".$item['hotel_id']."' )");
                
                 }
                }
               // $stack = array("orange", "banana");
                 //array_push($stack, "apple", "raspberry");
-$data['value']= array($hotelId, $totalPrice);
+$data['value']= array( $totalPrice);
           $this->load->view('ReservationInformation/payment', $data);
           
             

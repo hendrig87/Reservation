@@ -35,7 +35,7 @@ function payment()
      }
      else{ 
      
-      var hotelId = 'hotelId=' + '1';
+      
       
       
  $.ajax({
@@ -44,8 +44,7 @@ function payment()
  data: {
      'fullName' : fullName,
      'cardNumber' : cardNumber,
-     'securityNumber' : security,
-     'hotelId':hotelId},
+     'securityNumber' : security},
   success: function(msgs) 
         {
             $('#one').css({'background-color': '#0077b3'}); 
@@ -150,8 +149,8 @@ $this->load->helper('currency');
 $this->load->helper('availableRoom');
 ?>
  <?php if(!empty($value)){
-     $hotelId = $value['0'];
-     $totalPrice = $value['1'];
+     
+     $totalPrice = $value['0'];
  } ?>
  
  <div id="totalPrice">Total:<?php echo $totalPrice; ?></div>

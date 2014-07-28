@@ -70,6 +70,57 @@ function roomBook()      // function to call for payment info view.
 {
   
     $('#loading').show();
+   
+    var jsondata = $('#myjson').val();
+    var total = $('#pi_total').html();
+    var fullname = $('#fullname').val();
+    var address = $('#address').val();
+    var occupation = $('#occupation').val();
+    var nationality = $('#nationality').val();
+    var contactno = $('#contactno').val();
+    var email = $('#email').val();
+    var remarks = $('#remarks').val();
+    var checkin = $("#fromDate").val();
+    var checkout = $("#toDate").val();
+    var adult = $("#adults").val();
+    var child = $("#childs").val();
+    
+    $.ajax({
+        type: "POST",
+        url: base_url + 'index.php/room_booking/personal_info',
+        data: {
+            'total_price': total,
+            'fullnames': fullname,
+            'addresss': address,
+            'occupations': occupation,
+            'nationalitys': nationality,
+            'contactnos': contactno,
+            'emails': email,
+            'remarkss': remarks,
+            'updated_json': jsondata,
+            'checkin': checkin,
+            'checkout': checkout,
+            'adult': adult,
+            'child': child
+        },
+        success: function(msgs)
+        {
+
+            $("#replaceMe").html(msgs);
+
+        },
+         complete: function(){
+        $('#loading').hide();
+      }
+    });
+    $('#one').css({'background-color': '#999999'});
+}
+
+function roomBookView()      // function to call for payment info view.
+{
+  
+    $('#loading').show();
+   
     var jsondata = $('#myjson').val();
     var total = $('#pi_total').html();
     var fullname = $('#fullname').val();
@@ -98,7 +149,6 @@ function roomBook()      // function to call for payment info view.
             'emails': email,
             'remarkss': remarks,
             'updated_json': jsondata,
-            'hotelId': "4",
             'checkin': checkin,
             'checkout': checkout,
             'adult': adult,
@@ -116,7 +166,6 @@ function roomBook()      // function to call for payment info view.
     });
     $('#one').css({'background-color': '#999999'});
 }
-
 
 
 

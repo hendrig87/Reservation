@@ -28,8 +28,8 @@
             }
 
             total += (txtnext[i].no_of_room) * (txtnext[i].price);
-    var hotelId = txtnext[i].hotel_id;
-    alert(data);
+   
+   
         }
 
         var postdata = '<tr style="border-bottom:solid thin #CCCCCC;"><td colspan="3"><b>Total Price</b></td><td><div id="pi_total">' + total + '</div></td></tr></table>';
@@ -163,7 +163,8 @@
         <legend id="booking_summary_title">Booking Summary</legend> 
         <div id="table">
 
-        </div>                  
+        </div>   
+        
     </div>
 
     <?php echo form_open('room_booking/personal_info', 'name="myForm"', 'onSubmit="validate()"'); ?>               
