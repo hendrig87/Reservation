@@ -605,13 +605,26 @@ color: #fff;}
     max-height: 100px;
  }
 
- 
+ .popup{
+    min-height: 400px;
+    background-color:white;
+    box-shadow: 0px 0px 20px 1px #161616;
+    position:absolute;
+    
+    z-index: 1002;
+}
  
  @media only screen and (max-width : 2500px), only screen and(max-device-width : 2500px)
 {
  #menuImage
  {
      display: none;
+ }
+ .popup
+ {
+     width: 84%;
+    top: 30%;
+    left: 8%;
  }
  #reservation_temp
  {
@@ -658,6 +671,12 @@ color: #fff;}
     width: 78%;
     padding: 0% 1% 0% 1%;
 }
+.popup
+ {
+     width: 90%;
+    top: 30%;
+    left: 5%;
+ }
 }
  
   

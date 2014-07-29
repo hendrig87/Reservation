@@ -119,7 +119,7 @@ $this->load->helper('availableroom');
 //$available_room = $roomTotal - $roomAvailable;
 ?>
 <!--      -->
-<table class="room-listing-tbl" style="width: 100%;">
+<table class="room-listing-tbl" style="width: 85%;">
     <tr id="checkinStyle">
         <td><b>Checkin Date:</b>&nbsp;<?php echo $abc['checkin']; ?></td>
         <td><b>Checkout Date:</b>&nbsp;<?php echo $abc['checkout']; ?></td>
