@@ -124,6 +124,8 @@
 
                 <script>
                     function openPouUp() {
+                        
+                         $('#loading').show();
                         var checkin = $("#fromDate").val();
                         var checkout = $("#toDate").val();
                         var adult = $("#adults").val();
@@ -140,21 +142,111 @@
                                 'child': child,
                                 'hotelId': hotelId
                             },
-                            success: function(msg)
-                            {
-                                $(".middleLayer").show();
-                                $("#path").show();
-                                $('#one').css({'background-color': '#0077b3'});
-                                $('.first').css({'color': '#0077b3'});
-                                $('.first').css({'font-weight': 'bold'});
-                                $(".popup").show();
+                            
+                                success: function(msg)
+        {
 
-                                $("#replaceMe").html(msg);
+            $("#replaceMe").html(msg);
+
+        },
+         complete: function(){
+        $('#loading').hide();
+      }
+    });
+}
+
+$(document).ready(function(event){
+    
+    $("#fromDate").click(function(){
+        $(".errormsgs").fadeOut(2000);
+    });
+    
+     $("#toDate").click(function(){
+        $(".errormsgs").fadeOut(2000);
+    });
+    
+    $("#tags").click(function(){
+        $(".errormsgs").fadeOut(2000);
+    });
+    
+    
+     var replaced = $("#changePopup").html();
+         $("#search").click(function(){
+             
+      // checks for valid date code part
+     
+   var dtVal=$('#fromDate').val();
+   if(ValidateDate(dtVal))   //calling ValidateDate function
+   {
+      $('.errormsgs').hide();
+   }
+   else
+   {
+     $('.errormsgs').fadeIn(1500);
+     event.preventDefault();
+   }
+             
+             
+              var dtVal=$('#toDate').val();
+   if(ValidateDate(dtVal))   //calling ValidateDate function
+   {
+      $('.errormsgs').fadeOut(1500);
+   }
+   else
+   {
+     $('.errormsgs').fadeIn(1500);
+     event.preventDefault();
+   }
+   
+   var hotel=$('#tags').val();
+   if(hotel!=="")   //calling ValidateDate function
+   {
+      $('.errormsgs').fadeOut(1500);
+   }
+   else
+   {
+     $('.errormsgs').fadeIn(1500);
+     event.preventDefault();
+   }
+   
+   var adult=$('#adults').val();
+   if(adult > "0")   //calling ValidateDate function
+   {
+      $('.errormsgs').fadeOut(1500);
+   }
+   else
+   {
+     $('.errormsgs').fadeIn(1500);
+     event.preventDefault();
+   }
+    // end for checks for valid date code part         
+             
+             
+      $("#changePopup").html(replaced); 
+$(".middleLayer").fadeToggle(1000);
+        $(".popup").fadeToggle(1300);
+                path();
+                $('#one').css({'background-color': '#0077b3'});
+                $('.first').css({'color': '#0077b3'});
+                $('.first').css({'font-weight': 'bold'});
+                openPouUp(); // function show popup
+    });
+});
 
 
-                            }
-                        });
-                    }
+$(document).keydown(function(e){
+if (e.keyCode == 27)
+{
+$(".popup").hide();
+        $(".middleLayer").fadeOut(300);
+}
+});
+
+
+
+function path() {
+$("#path").show();
+}
 
                 </script>         
 
@@ -165,7 +257,7 @@
                 $adultsNumber = 15;
                 $children = 15;
                 ?>
-
+<span class="errormsgs"><span class="error_sign">!</span>&nbsp;Please select hotel, check in, check out date and no of person. </span>
                 <div class="ui-widget">
                     <label for="tags">Search by hotel name, address or contact.</label>
                     <input placeholder="Select a Hotel..." id="tags" style="width:397px; margin: 5px 0px 10px 0px;">
@@ -205,7 +297,7 @@
                     ?>
                 </select>
 
-                <input type ="button" class="search" onclick="openPouUp()"  value="PROCEED TO BOOKING" />
+                <input type ="button" id="search" class="search" onclick="openPouUp()"  value="PROCEED TO BOOKING" />
         </div>
 
     </div>

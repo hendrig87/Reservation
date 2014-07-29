@@ -5,7 +5,6 @@
    var checkIn=$("#checkin").val();
    var checkOut=$("#checkout").val();
    
-   
  
   
 $.ajax({
@@ -26,6 +25,11 @@ success: function(msgs)
 
  </script>
 
+ 
+<script src="<?php echo base_url() . "contents/scripts/jquery.js"; ?>"></script>
+        <script src="<?php echo base_url() . "contents/scripts/jquery-ui.js"; ?>"></script>
+        <script src="<?php echo base_url() . "contents/scripts/jquery1.10.2.js"; ?>"></script>
+        <script src="<?php echo base_url() . "contents/scripts/datepicker.js"; ?>"></script>
 
   <!-- hotel selection complete -->
      <script>

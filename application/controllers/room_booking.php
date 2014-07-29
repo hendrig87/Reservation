@@ -167,8 +167,7 @@ class room_booking extends CI_Controller {
                
                 }
                }
-              // $stack = array("orange", "banana");
-                //array_push($stack, "apple", "raspberry");
+              
 $data['value']= array( $totalPrice);
           $this->load->view('ReservationInformation/payment', $data);
           

@@ -79,6 +79,7 @@ function payment()
             $('#three').css({'background-color': '#999999'});
             $('.third').css({'color': 'black'});
             $('.third').css({'font-weight': 'normal'});
+            $("#room-listing-tbl").show;
             $("#replaceMe").html(msgs);
             
         }
@@ -204,7 +205,18 @@ $this->load->helper('availableRoom');
                 <td style="width:400px;">
                 <fieldset  style="margin-left:90px;">
                     <legend style="border-bottom: solid thin #CCC;width: 80%;">Other Payment Method</legend>
-                    
+              <form action = "http://esewa.f1dev.com/epay/main" method="POST">
+<input value="<?php echo $totalPrice; ?>" name="tAmt" type="hidden">
+<input value="<?php echo $totalPrice; ?>" name="amt" type="hidden">
+<input value="0" name="txAmt" type="hidden">
+<input value="0" name="psc" type="hidden">
+<input value="0" name="pdc" type="hidden">
+<input value="testmerchant" name="scd" type="hidden">
+<input value="XYZ-1234" name="pid" type="hidden">
+<input value="<?php echo base_url().'index.php' ?>" type="hidden" name="su">
+<input value="<?php echo base_url().'index.php' ?>" type="hidden" name="fu">
+<input value="Pay with e-Sewa" type="submit">
+</form>     
               <img src='<?php echo base_url().'contents/images/esewa.jpg' ;?>'  >
             
               <img src='<?php echo base_url().'contents/images/payway.jpg' ;?>'  >
