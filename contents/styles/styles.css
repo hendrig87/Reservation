@@ -339,16 +339,17 @@ color: #fff;}
         
         .navigationTop
         {
-           width: 99.9%;
+          
             margin: 0px;
             padding: 0px;
             text-align: right;
             height: 35px;
+            float: left;
         }
         .navigationTop ul
         {
             margin: 0px;
-            padding: 15px 0px 15px 0px;
+            padding: 15px 0px 0px 0px;
         }
         
         .navigationTop ul li
@@ -612,6 +613,21 @@ color: #fff;}
  {
      display: none;
  }
+ #reservation_temp
+ {
+     width: 405px;
+    border-radius: 5px;
+    padding:25px;
+ }
+ #tags
+ {
+      width:397px; margin: 5px 0px 10px 0px;
+ }
+ .search
+ {
+     width: 400px;
+ }
+ .navigationTop{ width: 81%;}
 }
  
  #room_book table tr th {
@@ -656,6 +672,7 @@ color: #fff;}
         position:relative;
        opacity: 0.9;
     }
+    .navigationTop{ width: 75%;}
     #room_book table tr th {
     padding: 2px;
     text-align: left;
@@ -736,6 +753,34 @@ color: #fff;}
         width: 80%;
     }
     
+    .sitemap
+    {
+        width: 42%;
+    }
+    #chechinbtn
+    {
+        width: 310px;
+    }
+    #container
+    {
+        padding: 2% 0% 0% 6%;
+        width: 94%;
+    }
+    .centerDiv
+    {
+       right: 0px;
+       padding: 0px;
+    }
+    #reservation_temp
+    {
+        width: 300px;
+        padding: 10px;
+    }
+    .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button, #tags, .search, #fromDate, #toDate, #adults, #childs
+    {
+        width: 300px;
+    }
+    
     
 }
 
@@ -765,5 +810,43 @@ color: #fff;}
     {
         width: 80%;
     }
+    .sitemap
+    {
+        width: 42%;
+    }
+    #chechinbtn
+    {
+        width: 310px;
+    }
+    #container
+    {
+        padding: 2% 0% 0% 4%;
+        width: 96%;
+    }
+    .centerDiv
+    {
+       right: 0px;
+       padding: 0px;
+    }
+    #reservation_temp
+    {
+        width: 300px;
+        padding: 10px;
+    }
+    .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button, #tags, .search, #fromDate, #toDate, #adults, #childs
+    {
+        width: 300px;
+    }
 }
 
+#reservation_temp
+{
+
+    font-size:12px;
+    color: #666;
+    border-top: 3px solid red;
+    font-weight:bold;
+    background-color: #333;
+    min-height: 250px;
+    
+}

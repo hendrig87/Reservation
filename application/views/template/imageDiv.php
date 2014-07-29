@@ -61,7 +61,7 @@
         margin: 0px;
         padding: 12px;
         background-color: #cf2100;
-        width: 400px;
+        //width: 400px;
         border-radius: 1px;
         border: 0px;
         font-size: 16px;
@@ -257,10 +257,10 @@ $("#path").show();
                 $adultsNumber = 15;
                 $children = 15;
                 ?>
-<span class="errormsgs"><span class="error_sign">!</span>&nbsp;Please select hotel, check in, check out date and no of person. </span>
+<span class="errormsgs"><span class="error_sign">!</span>&nbsp;Please select hotel, from, to date and no of person. </span>
                 <div class="ui-widget">
                     <label for="tags">Search by hotel name, address or contact.</label>
-                    <input placeholder="Select a Hotel..." id="tags" style="width:397px; margin: 5px 0px 10px 0px;">
+                    <input placeholder="Select a Hotel..." id="tags" >
                 </div>
                 <!-- till here-->
 

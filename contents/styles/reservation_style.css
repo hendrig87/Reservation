@@ -1,19 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 
-#reservation_temp
-{
 
-    font-size:12px;
-    color: #666;
-    border-top: 3px solid red;
-    font-weight:bold;
-    background-color: #333;
-    min-height: 250px;
-    width: 405px;
-    border-radius: 5px;
-    padding:25px;
-}
 
 #title
 {
