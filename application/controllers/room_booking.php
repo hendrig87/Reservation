@@ -43,7 +43,7 @@ class room_booking extends CI_Controller {
                     );
            
             $hotel= $_POST['hotelId'];
-          
+         
             $hotels= $this->dashboard_model->get_hotel_id($hotel);
             if(!empty($hotels)){
             foreach ($hotels as $hotelData)

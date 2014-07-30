@@ -172,9 +172,9 @@
         <tr>
 
             <td id="vertical_line"></td>
-            <td style="width:400px;float: left;">
+            <td id="personsInfo">
 
-                <fieldset style="margin-left:70px;">
+                <fieldset id="field">
                     <strong id="msg" style="color:#990000 ;"></strong>
                     <legend id="booking_summary_title">Personal Information</legend>
 

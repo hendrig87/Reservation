@@ -2,7 +2,7 @@
     $(function () {
 
     $('#cssmenu ul li').click(function () {
-  $("li").removeClass("active has-sub");
+  $("li").removeClass("has-sub");
   $(this).addClass("active has-sub");
 });
 
@@ -24,7 +24,13 @@
         <li class='has-sub'><a href="<?php echo base_url().'index.php/dashboard/calender'; ?>"><span>Calendar</span></a></li>
       </ul>
    </li>
-   <li class='has-sub'><a href="#"><span>Apps</span></a>
+   <li class='has-sub'><a href="<?php echo base_url().'index.php/application/index'; ?>"><span>Apps</span></a>
+       <ul>
+         <li class='has-sub'><a href="<?php echo base_url().'index.php/application/index'; ?>"><span>Create New API</span></a></li>
+         <li class='has-sub'><a href="<?php echo base_url().'index.php/application/getCode'; ?>"><span>Get Code</span></a></li>
+         <li class='has-sub'><a href="<?php echo base_url().'index.php/application/apiListing'; ?>"><span>View API's</span></a></li>
+      </ul>
+   </li>
    <li class='has-sub'><a href="<?php echo base_url().'index.php/documentation/index'; ?>"><span>Documentation</span></a>
    <ul>
          <li class='has-sub'><a href="#ttoopp"><span>What Is It ?</span></a></li>

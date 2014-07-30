@@ -613,8 +613,20 @@ color: #fff;}
     
     z-index: 1002;
 }
+#room_book table tr th {
+   padding: 2px;
+    text-align: left;
+    font-size: 14px;
+}
+    #room_book table tr td, #alignright {
+    padding: 2px;
+    text-align: left;
+    font-size: 14px;
+}
+
+
  
- @media only screen and (max-width : 2500px), only screen and(max-device-width : 2500px)
+ @media only screen and (max-width : 2500px)
 {
  #menuImage
  {
@@ -641,20 +653,49 @@ color: #fff;}
      width: 400px;
  }
  .navigationTop{ width: 81%;}
+ 
+ #nav
+{
+    width: 80%;
+}
+#mainNav
+{
+    width: 100%;
+    margin-left:10%;
+    position: relative;
+    top: -25px;
+}
+#pi_booking_summary
+{
+    margin-top: 10px;
+    float: left;
+    width: 400px;
+}
+#personsInfo
+{
+    width:400px;
+    float: left;
+}
+#field
+{
+     margin-left:70px;
+}
+#fromDate, #toDate
+    {
+       
+         width:185px; cursor:pointer;
+    }
+    #adults, #childs
+    {
+        border-radius:0px 5px 5px 0px;
+        width: 199px;
+    }
+    
 }
  
- #room_book table tr th {
-   padding: 2px;
-    text-align: left;
-    font-size: 14px;
-}
-    #room_book table tr td, #alignright {
-    padding: 2px;
-    text-align: left;
-    font-size: 14px;
-}
  
- @media only screen and (max-width : 1025px), only screen and(max-device-width : 1025px)
+ 
+ @media only screen and (max-width : 1025px)
 {
  #menuImage
  {
@@ -677,11 +718,37 @@ color: #fff;}
     top: 30%;
     left: 5%;
  }
+ #nav
+{
+    width: 86%;
+}
+#mainNav
+{
+    width: 100%;
+    margin-left:50px;
+    position: relative;
+    top: -25px;
+}
+#pi_booking_summary
+{
+    margin-top: 10px;
+    float: left;
+    width: 345px;
+}
+#personsInfo
+{
+    width:365px;
+    float: left;
+}
+#field
+{
+    margin-left:10px;
+}
 }
  
   
  
- @media only screen and (max-width : 800px), only screen and(max-device-width : 800px)
+ @media only screen and (max-width : 800px)
 {
     #left
     {
@@ -726,12 +793,22 @@ color: #fff;}
         height: 35px;
         border-radius: 5px;
     }
-    
+    #pi_booking_summary
+{
+    margin-top: 10px;
+    float: left;
+    width: 345px;
+}
+#personsInfo
+{
+    width:365px;
+    float: left;
+}
     
 }
 
 
-@media only screen and (max-width : 640px), only screen and(max-device-width : 640px)
+@media only screen and (max-width : 640px)
 {
     #left
     {
@@ -795,16 +872,21 @@ color: #fff;}
         width: 300px;
         padding: 10px;
     }
-    .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button, #tags, .search, #fromDate, #toDate, #adults, #childs
+    .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button, #tags, .search, #adults, #childs
     {
         width: 300px;
+    }
+   #fromDate, #toDate
+    {
+        width: 290px;
+        cursor:pointer;
     }
     
     
 }
 
 
-@media only screen and (max-width : 380px), only screen and(max-device-width : 380px)
+@media only screen and (max-width : 380px)
 {
     #full
     {
@@ -852,9 +934,13 @@ color: #fff;}
         width: 300px;
         padding: 10px;
     }
-    .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button, #tags, .search, #fromDate, #toDate, #adults, #childs
+    .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button, #tags, .search, #adults, #childs
     {
         width: 300px;
+    }
+    #fromDate, #toDate
+    {
+        width: 290px;
     }
 }
 

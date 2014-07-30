@@ -123,7 +123,7 @@
                 </script>
 
                 <script>
-                    function openPouUp() {
+                    function openPopUp() {
                         
                          $('#loading').show();
                         var checkin = $("#fromDate").val();
@@ -272,24 +272,24 @@ $("#path").show();
 
 
 
-                <input name="CheckIn" type="text" placeholder="From" required="required" style="width:185px; cursor:pointer;" id="fromDate" >
+                <input name="CheckIn" type="text" placeholder="From" required="required" id="fromDate" >
 
 
 
-                <input name="CheckOut" type="text" placeholder="To" style="width:185px; cursor:pointer;" value="" id="toDate"  required="required">
+                <input name="CheckOut" type="text" placeholder="To"  value="" id="toDate"  required="required">
 
 
 
-                <select name="adults" id="adults" style="border-radius:0px 5px 5px 0px; width: 199px;">
-                    <option value="0" > Select no. of adults</option> 
+                <select name="adults" id="adults">
+                    <option value="0" > Select no. of adult</option> 
                     <?php
                     for ($i = 1; $i <= $adultsNumber; $i++) {
                         echo "<option value=" . $i . ">" . $i . "</option>";
                     }
                     ?>
                 </select>
-                <select name="children" required id="childs" style="border-radius:0px 5px 5px 0px; width: 199px;">
-                    <option value="0" > Select no. of Childs</option>
+                <select name="children" required id="childs">
+                    <option value="0" > Select no. of child</option>
                     <?php
                     for ($i = 1; $i <= $children; $i++) {
                         echo "<option value=" . $i . ">" . $i . "</option>";
@@ -297,7 +297,7 @@ $("#path").show();
                     ?>
                 </select>
 
-                <input type ="button" id="search" class="search" onclick="openPouUp()"  value="PROCEED TO BOOKING" />
+                <input type ="button" id="search" class="search" onclick="openPopUp()"  value="PROCEED TO BOOKING" />
         </div>
 
     </div>

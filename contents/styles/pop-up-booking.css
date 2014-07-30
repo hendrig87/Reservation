@@ -120,18 +120,7 @@
     padding: 10px 0px 5px 0px;
 }
 
-#nav
-{
-    width: 85%;
-}
 
-#mainNav
-{
-    width: 100%;
-    margin-left:50px;
-    position: relative;
-    top: -25px;
-}
 
 #nav_description
 {
@@ -158,12 +147,7 @@
 }
 
 
-#pi_booking_summary
-{
-    margin-top: 10px;
-    float: left;
-    width: 400px;
-}
+
 
 #booking_summary_title
 {
