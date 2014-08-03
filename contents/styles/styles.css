@@ -622,8 +622,12 @@ color: #fff;}
     padding: 2px;
     text-align: left;
     font-size: 14px;
+   
 }
-
+#personsInfo
+{
+    margin-left: 50px;
+}
 
  
  @media only screen and (max-width : 2500px)

@@ -14,9 +14,8 @@
         <link rel="stylesheet" href="<?php echo base_url() . "contents/styles/pop-up-booking.css"; ?>"> 
         <link rel="shortcut icon" href="<?php echo base_url() . "contents/images/favicon1.jpg"; ?>" type="image/x-icon"> 
         <link rel="stylesheet" href="<?php echo base_url() . "contents/styles/dashboardStyle.css"; ?>"> 
-        <link rel="stylesheet" href="<?php echo base_url() . "contents/styles/jquery.tinytooltip.css"; ?>">
-        <script src="<?php echo base_url() . "contents/scripts/jquery.tinytooltip.js"; ?>"></script>
-        <script src="<?php echo base_url() . "contents/scripts/jquery.tinytooltip.min.js"; ?>"></script>
+       
+       
         <link type="text/css" rel="stylesheet" href="<?php echo base_url() . "contents/styles/styles.css"; ?>"/>
         <link type="text/css" rel="stylesheet" href="<?php echo base_url() . "contents/styles/reservation_style.css"; ?>"/>
         <link rel="stylesheet" href="/resources/demos/style.css" />

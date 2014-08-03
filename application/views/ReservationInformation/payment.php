@@ -158,7 +158,7 @@ $this->load->helper('availableRoom');
 <table style="width: 100%;">
     <tr>
                 <td style="width:400px;">
-                <fieldset>
+               
                    
                     <legend style="border-bottom: solid thin #CCC;width: 80%;top: -10px;">Secure Payment Info</legend>
                     
@@ -197,13 +197,13 @@ $this->load->helper('availableRoom');
                 </div> 
                     </div>
                
-            </fieldset>
+            
             
               
                 </td>
                 <td  style="width:10px;border-right: solid thin #cccccc;"></td>
                 <td style="width:400px;">
-                <fieldset  style="margin-left:90px;">
+                <div id="personsInfo">
                     <legend style="border-bottom: solid thin #CCC;width: 80%;">Other Payment Method</legend>
               <form action = "http://esewa.f1dev.com/epay/main" method="POST">
 <input value="<?php echo $totalPrice; ?>" name="tAmt" type="hidden">
@@ -222,7 +222,7 @@ $this->load->helper('availableRoom');
               <img src='<?php echo base_url().'contents/images/payway.jpg' ;?>'  >
               
               
-            </fieldset>
+            </div>
           
                 </td>
             </tr>

@@ -1,18 +1,5 @@
-<?php var_dump($abc) ?>
-<pre>
-<code>
-    <textarea readonly  style="border: none;background-color:white; min-height:600px; width: 750px; margin:  0px ; padding: 0px;">
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Welcome to Online Reservation System</title>
-        <script src="<?php echo base_url() . "contents/scripts/jquery.js"; ?>"></script>
-       <script src="<?php echo base_url() . "contents/scripts/reservation.js"; ?>"></script>
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'contents/styles/styles.css'; ?> " />
-           
-    </head>
-    <body>
+<script src="<?php echo base_url() . "contents/scripts/jquery.js"; ?>"></script>
+       <script src="<?php echo base_url() . "apiTesting/scripts/second.js"; ?>"></script>
 
 
         <?php
@@ -21,14 +8,14 @@
         ?>
        <div id="reservation">
          
-               <span class="error"><span class="error_sign">!</span>&nbsp;Invalid Date. Enter (yyyy/mm/dd) date format. </span>
+               <span class="error"><span class="error_sign">!</span> Invalid Date. Enter (yyyy/mm/dd) date format. </span>
                <form method="post" action="#" id="checkin_room">
                    
                  
                       <div class="input-prepend input-append">
-                <span class="add-on">Check In</span>
-                <input name="CheckIn" type="text" required="required" style="width:185px; cursor:pointer;" id="CheckIn">
-                <span onclick="movecursor()" class="add-on" style="width:auto; cursor:pointer; "><img src='<?php echo base_url().'contents/images/ParkReserve.png' ;?>' alt="" width="15" height="20" ></span>
+              
+                <input name="CheckIn" type="text" placeholder="Check In " required="required" style="width:185px; cursor:pointer;" id="CheckIn">
+              
                 </div> 
                    
                     
@@ -36,30 +23,23 @@
                     
                    
                         <div class="input-prepend input-append">
-                     <span class="add-on">Adults</span> 
+                     
                                        
-                        <select name="adults" id="adult" style="border-radius:0px 5px 5px 0px;">
-                                 
-                            <?php
-                            for ($i = 1; $i <= $adultsNumber; $i++) {
-                                echo "<option value=" . $i . ">" . $i . "</option>";
-                            }
-                            ?>
-                        </select>
+                       
                         </div>
                    
-                       <div class="clear"></div>
+                      
                 <div class="input-prepend input-append">
-                <span class="add-on">Check Out</span>
-                <input name="CheckOut" type="text" style="width:185px; cursor:pointer;" id="CheckOut" value=""  required="required">
-                <span onclick="movecursornext()" class="add-on" style="width:auto; cursor:pointer;"><img src='<?php echo base_url().'contents/images/ParkReserve.png' ;?>' alt="" width="15" height="20" ></span>
+                
+                    <input name="CheckOut" type="text" placeholder="Check Out" style="width:185px; cursor:pointer;" id="CheckOut" value=""  required="required">
+               
                 </div>
                   
                          <div class="input-prepend input-append">
-                             <span class="add-on">Children</span>
+                           
                        
                              <select name="children" required id="child" style="border-radius:0px 5px 5px 0px;">
-                                 <option value="0" > Select</option>
+                                 <option value="0" > Guests</option>
                             <?php
                             for ($i = 1; $i <= $children; $i++) {
                                 echo "<option value=" . $i . ">" . $i . "</option>";
@@ -68,7 +48,7 @@
                         </select>
                              </div>
                    
-                       <input type="hidden" id="hotelId" value="4"/>
+                       <input type="hidden" id="hotelId" value="My hotel added"/>
                        
                         <input type ="button" value="Check availability" class="checkinbtn" id="checkinbtn">
                       
@@ -93,7 +73,7 @@
    
     <div>
         <div id="popupTitleBox" style="width:100%;">
-            <span class="back" style="float:left;width:40%;text-align: left;">&nbsp; <!--<a href="" id="back"> < </a>--></span>
+            <span class="back" style="float:left;width:40%;text-align: left;">  <!--<a href="" id="back"> < </a>--></span>
         <span class="popupTitleText" style="float:left;width:10%;color: white;margin-top: 5px;">Booking</span>
         <span style="float:right;width:40%;text-align: right; color: white;"><a href="#" id="closePopup" > X </a></span>
     </div> 
@@ -115,7 +95,7 @@
     border: 0; border-top: 1px solid #ccc; padding: 0; margin-top: 18px;">
     </div>
     
-    <div id="loading"> <img width="30" src="<?php echo base_url().'contents/images/page-loader.gif' ; ?>" alt="loading.."/><br><b>Loading...</b></div>
+    <div id="loading"> <img width="30" src="<?php echo base_url()."contents/images/page-loader.gif" ; ?>" alt="loading.."/><br><b>Loading...</b></div>
     <div id="replaceMe">
         
     </div>
@@ -137,8 +117,4 @@ echo $xyz;
 
 ?>
 
-    </body>
-</html>
-    </textarea>
-    </code>
-</pre>
+    

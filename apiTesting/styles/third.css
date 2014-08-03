@@ -1,4 +1,456 @@
-select,textarea,input[type="text"],input[type="password"],input[type="datetime"],input[type="datetime-local"],input[type="date"],input[type="month"],input[type="time"],input[type="week"],input[type="number"],input[type="email"],input[type="url"],input[type="search"],input[type="tel"],input[type="color"],.uneditable-input{display:inline-block;height:20px;padding:4px 6px;margin-bottom:10px;font-size:14px;line-height:20px;color:#555555;vertical-align:middle;}
+
+
+#loading
+{
+    display: none;
+    z-index: 9999;
+    top: 50%;
+    left: 50%;
+    position:absolute;
+    margin-left: -10px;
+}
+
+
+.middleLayer 
+{
+    background-color:#111;
+    opacity: 0.8;
+    z-index: 1000; 
+    overflow:auto;
+    width: 100%; 
+    height: 100%; 
+    margin: 0em;    
+    left: 0em; 
+    top: 0em; 
+    position: fixed;
+}
+
+#popupTitleBox
+{
+    background: #0077b3; 
+    height:30px; 
+    text-align:center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.popup_personal_info
+{
+    background-color:#E6E9F2;
+    position:absolute;
+    min-height:300px;
+    width:auto;
+    border: solid 2px #B9EAF0;
+    top: 30%;
+    left: 15%;
+    z-index: 1002;
+}
+
+#popupBtn
+{
+     background-color: #2a61d5;
+    border-radius:5px 5px 5px 5px;
+    color: white;
+    font-weight: bolder;
+    border: none;
+    width: 100px;
+    line-height: 30px;
+}
+.backBtn, .backBtnPerson, .backBtnPayment
+{
+    float: left;
+}
+
+#checkinStyle
+{
+    font-size: 14px;
+}
+
+#changePopup
+{
+    padding: 20px;
+}
+
+#popuptbl th{background-color: #d5e4fb;}
+#popuptbl tr:nth-child(even) {background: #f1f2f7}
+#popuptbl tr:nth-child(odd) {background: #e6e9f2}
+
+
+#closePopup
+{
+    border-radius:45px;
+    border:1px solid white;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:12px;
+    font-weight: bold;
+    padding:0px 5px 0px 5px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #2b665e;  
+    margin-top: 3px;
+    margin-right: 14px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.number
+{
+    font-size:16px;
+    font-weight: bold;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #2b665e;  
+    float: left;
+    border-radius: 35px;
+    background:#999999;
+    color: white;
+    padding: 5px 10px 5px 10px;
+    cursor:pointer;
+}
+
+#action
+{
+    text-align: right;
+    padding: 10px 0px 5px 0px;
+}
+
+#nav_description
+{
+    position: relative;top:30px;float: left;font-size: 12px;right:45px; 
+}
+
+.room-listing-tbl
+{
+    margin-left: 40px;  
+}
+
+#room_book
+{
+ margin-left: 10px;   
+}
+
+#room_book th
+{
+  text-align: left;
+  border-bottom: solid thin #ccc;
+}
+#personsInfo
+{
+    margin-left: 50px;
+}
+
+#booking_summary_title
+{
+      margin: 10px 0px 10px 0px;
+    width: 80%;
+    border-bottom: solid thin #ccc;
+}
+
+#vertical_line
+{
+    width:60px;
+    border-right: solid thin #cccccc;
+}
+
+#disablebtnInfo
+{
+    display: none;
+    margin-left: 500px;
+    letter-spacing: 1px;
+    font-size:12px; 
+    border: #eb4545 thin solid;
+    border-radius: 5px;
+    background: whitesmoke;
+    padding: 5px;
+    //float: left;
+    font-weight: bold;
+}
+
+.error, .errormsgs
+{
+    letter-spacing: 1px;
+    font-size:12px; 
+    display: none;
+    border: #eb4545 thin solid;
+    border-radius: 5px;
+    background: whitesmoke;
+    margin-left: 5px;
+    padding: 2px;    
+    font-weight: bold;
+}
+
+
+
+.error_sign
+{
+    font-weight: bolder;
+    padding: 3px 6px;
+    color: white;
+    background:#eb4545;
+    border-radius: 20px;
+}
+
+#totalPrice
+{
+    font-size: 35px;
+font-weight: bolder;
+background: #cccccc;
+width: 200px;
+padding: 14px;
+}
+
+#adds, #subs
+{
+    width: 20px;
+    text-align: center;
+    padding-bottom: 3px;
+}
+
+#sucess
+{
+ 
+    font-weight: bold;
+    padding: 5px;
+    
+}
+
+#clear
+{
+    clear: both;
+}
+
+#room_book
+{
+ margin: 0px;   
+}
+
+#room_book th
+{
+  text-align: left;
+  border-bottom: solid thin #ccc;
+}
+
+#room_book table tr td
+{
+   text-align: left;
+}
+
+.topLine
+{
+   display: block; 
+   height: 1px;
+   border-top: 3px solid #ccc;
+   margin: 1em 0;
+   padding: 0;
+}
+  
+#api-data-reserve
+{
+    width: 420px;
+    margin: 0%;
+    padding: 0%;
+		
+}
+	#reservation{
+            padding: 2% 0% 0% 4%;
+            width: 400px;
+		margin: 0%;
+                
+		background-color: rgb(111, 150, 216);
+		-webkit-box-shadow: 0 0 8px #D0D0D0;
+                font-weight:bold;
+            font-size: 18px;
+            min-height: 120px;
+	}
+          
+        #checkinbtn
+    {
+        width: 345px;
+        margin: 0px;
+        padding: 5px 0px 5px 0px;
+        height: 35px;
+        border-radius: 5px;
+    }   
+
+ //for popup
+ pre
+ { 
+     font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+     margin: 0px;
+     overflow: auto;
+     width: auto;
+     padding: 0px;
+     background-color: #eee; 
+    max-height: 100px;
+ }
+
+ .popup{
+    min-height: 400px;
+    background-color:white;
+    box-shadow: 0px 0px 20px 1px #161616;
+    position:absolute;
+    
+    z-index: 1002;
+}
+#room_book table tr th {
+   padding: 2px;
+    text-align: left;
+    font-size: 14px;
+}
+    #room_book table tr td, #alignright {
+    padding: 2px;
+    text-align: left;
+    font-size: 14px;
+}
+ 
+ @media only screen and (max-width : 2500px)
+{
+ 
+ .popup
+ {
+     width: 84%;
+    top: 30%;
+    left: 8%;
+ }
+ 
+ #nav
+{
+    width: 80%;
+}
+#mainNav
+{
+    width: 100%;
+    margin-left:10%;
+    position: relative;
+    top: -25px;
+}
+#pi_booking_summary
+{
+    margin-top: 10px;
+    float: left;
+    width: 400px;
+}
+#personsInfo
+{
+    width:400px;
+    float: left;
+}
+#field
+{
+     margin-left:70px;
+}
+
+    
+}
+ 
+ 
+ 
+ @media only screen and (max-width : 1025px)
+{
+ 
+ 
+   #room_book table tr th, #room_book table tr td, #alignright {
+    padding: 2px;
+    text-align: left;
+   font-size: 13px;
+}
+
+.popup
+ {
+     width: 90%;
+    top: 30%;
+    left: 5%;
+ }
+ #nav
+{
+    width: 86%;
+}
+#mainNav
+{
+    width: 100%;
+    margin-left:50px;
+    position: relative;
+    top: -25px;
+}
+#pi_booking_summary
+{
+    margin-top: 10px;
+    float: left;
+    width: 345px;
+}
+#personsInfo
+{
+    width:365px;
+    float: left;
+}
+#field
+{
+    margin-left:10px;
+}
+}
+ 
+  
+ 
+ @media only screen and (max-width : 800px)
+{
+    
+    #room_book table tr td, #alignright {
+    padding: 2px;
+    text-align: left;
+    font-size: 12px;
+}
+   
+    
+    #pi_booking_summary
+{
+    margin-top: 10px;
+    float: left;
+    width: 345px;
+}
+#personsInfo
+{
+    width:365px;
+    float: left;
+}
+    
+}
+
+
+@media only screen and (max-width : 640px)
+{
+    
+    #room_book table tr th {
+    padding: 2px;
+    text-align: left;
+    font-size: 12px;
+}
+    #room_book table tr td, #alignright {
+    padding: 2px;
+    text-align: left;
+    font-size: 11px;
+}
+    
+    
+    #chechinbtn
+    {
+        width: 310px;
+    }
+    
+    
+}
+
+@media only screen and (max-width : 380px)
+{
+   
+    #chechinbtn
+    {
+        width: 310px;
+    }
+   
+   
+}
+select,textarea,input[type="text"],input[type="password"],input[type="datetime"],input[type="datetime-local"],input[type="date"],input[type="month"],input[type="time"],input[type="week"],input[type="number"],input[type="email"],input[type="url"],input[type="search"],input[type="tel"],input[type="color"],.uneditable-input{display:inline-block;height:30px;padding:4px 6px;margin-bottom:10px;font-size:14px;line-height:20px;color:#555555;vertical-align:middle;}
 textarea,input[type="text"],input[type="password"],input[type="datetime"],input[type="datetime-local"],input[type="date"],input[type="month"],input[type="time"],input[type="week"],input[type="number"],input[type="email"],input[type="url"],input[type="search"],input[type="tel"],input[type="color"],.uneditable-input{background-color:#ffffff;border:1px solid #cccccc;-webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.075);-moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.075);box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.075);-webkit-transition:border linear .2s, box-shadow linear .2s;-moz-transition:border linear .2s, box-shadow linear .2s;-o-transition:border linear .2s, box-shadow linear .2s;transition:border linear .2s, box-shadow linear .2s;}textarea:focus,input[type="text"]:focus,input[type="password"]:focus,input[type="datetime"]:focus,input[type="datetime-local"]:focus,input[type="date"]:focus,input[type="month"]:focus,input[type="time"]:focus,input[type="week"]:focus,input[type="number"]:focus,input[type="email"]:focus,input[type="url"]:focus,input[type="search"]:focus,input[type="tel"]:focus,input[type="color"]:focus,.uneditable-input:focus{border-color:rgba(82, 168, 236, 0.8);outline:0;outline:thin dotted \9;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);-moz-box-shadow:inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);box-shadow:inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);}
 input[type="radio"],input[type="checkbox"]{margin:4px 0 0;*margin-top:0;margin-top:1px \9;line-height:normal;}
 select,input[type="file"]{height:30px;*margin-top:4px;line-height:30px;}
@@ -17,9 +469,8 @@ select{width:220px;border:1px solid #cccccc;background-color:#ffffff;}
 .input-prepend.input-append .add-on:last-child,.input-prepend.input-append .btn:last-child{margin-left:-1px;-webkit-border-radius:0 4px 4px 0;-moz-border-radius:0 4px 4px 0;border-radius:0 4px 4px 0;}
 .input-prepend.input-append .btn-group:first-child{margin-left:0;}
 input[type="submit"].btn-block,input[type="reset"].btn-block,input[type="button"].btn-block{width:100%;}
-.input-large{ width: 200px; -webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;}
 .dropdown-menu{position:absolute;top:100%;left:0;z-index:1000;display:none;float:left;min-width:160px;padding:5px 0;margin:2px 0 0;list-style:none;background-color:#ffffff;border:1px solid #ccc;border:1px solid rgba(0, 0, 0, 0.2);*border-right-width:2px;*border-bottom-width:2px;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;-webkit-box-shadow:0 5px 10px rgba(0, 0, 0, 0.2);-moz-box-shadow:0 5px 10px rgba(0, 0, 0, 0.2);box-shadow:0 5px 10px rgba(0, 0, 0, 0.2);-webkit-background-clip:padding-box;-moz-background-clip:padding;background-clip:padding-box;}.dropdown-menu.pull-right{right:0;left:auto;}
-
+.input-large{ width: 200px; -webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;}
 
 .datepicker {
   top: 0;
@@ -199,3 +650,4 @@ input[type="submit"].btn-block,input[type="reset"].btn-block,input[type="button"
   height: 16px;
   background-image: url(../images/ParkReserve.png); background-size: 14px 14px;
 }
+

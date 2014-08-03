@@ -174,7 +174,7 @@
             <td id="vertical_line"></td>
             <td id="personsInfo">
 
-                <fieldset id="field">
+               
                     <strong id="msg" style="color:#990000 ;"></strong>
                     <legend id="booking_summary_title">Personal Information</legend>
 
@@ -213,7 +213,7 @@
                         <input class="input input-large" type="text" placeholder="Email Address" required="required" name="Email" id="email" >
                     </div>
                     <textarea name="Remarks" placeholder="Remarks & Extra Instructions Like Pickup & Dropoff Information." style="width:330px;height:100px;resize:none;" id="remarks"></textarea>
-                </fieldset>
+           
 
 
             </td>

@@ -1,72 +1,20 @@
-<script src="<?php echo base_url().'contents/scripts/datepicker.js' ?>"></script>
-<link rel="stylesheet" type="text/css" href="<?php echo base_url().'contents/styles/tableStyles.css';?> " />
 
-<script>
-$(document).ready(function(){
-   var replaced = $("#changePopup").html();
-    $("#closePopup").click(function(){
-        $("#changePopup").html(replaced);
-         });
-         
-    
-    $("#checkin").click(function(){
-         $(".middleLayer").show();
-         $(".popup").show();
-        
-   loading(); // loading
-	            setTimeout(function(){ // then show popup, deley in .1 second
-	closeloading();
-        path();
-         $('#one').css({'background-color': '#0077b3'}); 
-         $('.first').css({'color': '#0077b3'}); 
-         $('.first').css({'font-weight': 'bold'});
-         
-      
-        changeFunc(); // function show popup
-	            }, 1000); // .1 second
-	    
-     
-    });
-    });
-</script>
-
-
-<script type="text/javascript">
-    
-  
-    $(document).ready(function(){   
-        //close popup.
-        $("#closePopup").click(function(){
-           $("#pop_up").hide();
-            $(".middleLayer").fadeOut(300);
-        });
-          
-    });
-</script>
-<script>
-
-
- </script>
-    
-    <?php
+        <script src="<?php echo base_url() . "contents/scripts/jquery.js"; ?>"></script>
+       <script src="<?php echo base_url() . "apiTesting/scripts/first.js"; ?>"></script>
+        <?php
         $adultsNumber = 5;
         $children = 5;
         ?>
-<div id="container">
-    
-	
-	
+       <div id="reservation">
          
-               <span class="error"><span class="error_sign">!</span>&nbsp;Invalid Date. Enter (yyyy/mm/dd) date format. </span>
+               <span class="error"><span class="error_sign">!</span> Invalid Date. Enter (yyyy/mm/dd) date format. </span>
                <form method="post" action="#" id="checkin_room">
                    
-                
-                    
-                   
+                 
                       <div class="input-prepend input-append">
                 <span class="add-on">Check In</span>
                 <input name="CheckIn" type="text" required="required" style="width:185px; cursor:pointer;" id="CheckIn">
-                <span onclick="movecursor()" class="add-on" style="width:auto; cursor:pointer; "><img src='<?php echo base_url().'contents/images/ParkReserve.png' ;?>' alt="" width="15" height="20" ></span>
+                <span onclick="movecursor()" class="add-on" style="width:auto; cursor:pointer; "><img src="<?php echo base_url()."contents/images/ParkReserve.png" ;?>" alt="" width="15" height="20" ></span>
                 </div> 
                    
                     
@@ -90,7 +38,7 @@ $(document).ready(function(){
                 <div class="input-prepend input-append">
                 <span class="add-on">Check Out</span>
                 <input name="CheckOut" type="text" style="width:185px; cursor:pointer;" id="CheckOut" value=""  required="required">
-                <span onclick="movecursornext()" class="add-on" style="width:auto; cursor:pointer;"><img src='<?php echo base_url().'contents/images/ParkReserve.png' ;?>' alt="" width="15" height="20" ></span>
+                <span onclick="movecursornext()" class="add-on" style="width:auto; cursor:pointer;"><img src="<?php echo base_url()."contents/images/ParkReserve.png" ;?>" alt="" width="15" height="20" ></span>
                 </div>
                   
                          <div class="input-prepend input-append">
@@ -106,6 +54,8 @@ $(document).ready(function(){
                         </select>
                              </div>
                    
+                       <input type="hidden" id="hotelId" value="My hotel added"/>
+                       
                         <input type ="button" value="Check availability" class="checkinbtn" id="checkinbtn">
                       
                    
@@ -129,7 +79,7 @@ $(document).ready(function(){
    
     <div>
         <div id="popupTitleBox" style="width:100%;">
-            <span class="back" style="float:left;width:40%;text-align: left;">&nbsp; <!--<a href="" id="back"> < </a>--></span>
+            <span class="back" style="float:left;width:40%;text-align: left;">  <!--<a href="" id="back"> < </a>--></span>
         <span class="popupTitleText" style="float:left;width:10%;color: white;margin-top: 5px;">Booking</span>
         <span style="float:right;width:40%;text-align: right; color: white;"><a href="#" id="closePopup" > X </a></span>
     </div> 
@@ -151,7 +101,7 @@ $(document).ready(function(){
     border: 0; border-top: 1px solid #ccc; padding: 0; margin-top: 18px;">
     </div>
     
-    <div id="loading"> <img width="30" src="<?php echo base_url().'contents/images/page-loader.gif' ; ?>" alt="loading.."/><br><b>Loading...</b></div>
+    <div id="loading"> <img width="30" src="<?php echo base_url()."contents/images/page-loader.gif" ; ?>" alt="loading.."/><br><b>Loading...</b></div>
     <div id="replaceMe">
         
     </div>
@@ -172,3 +122,6 @@ if(isset($xyz))
 echo $xyz;
 
 ?>
+
+   
+    
