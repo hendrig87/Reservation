@@ -96,7 +96,7 @@ class room_booking extends CI_Controller {
                 
         public function personal_info()
         {  
-             
+            
              if(isset($_POST['total_price'])){
              $totalPrice = $_POST['total_price'];}
              
@@ -133,7 +133,7 @@ class room_booking extends CI_Controller {
             if(isset($_POST['child'])){
             $child_s = $_POST['child'];}
            
-           $id=0;
+           $id="0";
             $bookingId = $this->booking_room->get_biiking_id();
 
             foreach ($bookingId as $bId) {
@@ -142,8 +142,10 @@ class room_booking extends CI_Controller {
             
             $id = $id + 1;
             $bookId = $id;
-          $this->booking_room->personal_info($fullName,$address,$occupation,$nationality,$contactNo,$email,$remarks,$totalPrice,$child_s,$adult_s,$bookId);
           
+            
+          $this->booking_room->personal_info($fullName,$address,$occupation,$nationality,$contactNo,$email,$remarks,$totalPrice,$child_s,$adult_s,$bookId);
+         
             $jsondatas = $_POST['updated_json'];
             
             $jsonDecode = json_decode($jsondatas,true);
@@ -167,7 +169,7 @@ class room_booking extends CI_Controller {
                
                 }
                }
-              
+             
 $data['value']= array( $totalPrice);
           $this->load->view('ReservationInformation/payment', $data);
           
@@ -198,7 +200,7 @@ $data['value']= array( $totalPrice);
         
  function payment_options()
         {  
-              $hotelId= $_POST['hotelId'];
+              //$hotelId= $_POST['hotelId'];
               $fullName= $_POST['fullName'];
               $cardNumber = $_POST['cardNumber'];
               $securityNumber = $_POST['securityNumber'];

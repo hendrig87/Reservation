@@ -1,45 +1,34 @@
-//Global variable 
-
 var base_url = "http://localhost/reservation/";
 
 
-function ValidateDate(dtValue)                   //checks valid date Format.
-{
+function changeFunc() {
+    $('#loading').show();
     
-var dtRegex = new RegExp(/\b\d{4}[-]\d{1,2}[-]\d{1,2}\b/);
-return dtRegex.test(dtValue);
-}
+    var checkin = $("#CheckIn").val();
+    var checkout = $("#CheckOut").val();
+    var adult = $("#adults").val();
+    var child = $("#childs").val();
+     var hotelId = $("#hotelId").val();
+    $.ajax({
+        type: "POST",
+        url: base_url + "index.php/room_booking/post_action",
+        data: {
+            'checkin': checkin,
+            'checkout': checkout,
+            'adult': adult,
+            'child': child,
+           'hotelId': hotelId
+        },
+        success: function(msg)
+        {
 
+            $("#replaceMe").html(msg);
 
-
-function calculateSum() {   //function to calculate the total price of the booked room.
-   
-    var sum = 0;
-// iterate through each td based on class and add the values
-    $(".subTotal").each(function() {
-    var value = $(this).text();
-    // add only if the value is number
-    if (!isNaN(value) && value.length != 0) {
-        sum += parseFloat(value);
-    }
+        },
+         complete: function(){
+        $('#loading').hide();
+      }
     });
-    $("#total_price").text(sum);
-
-}
-
-function makeActiveLink()    //function to make the link deactive when no rooms number is selected.
-{
-    if (($("#total_price").text() == '.00') || ($("#total_price").text() == '0'))
-    {
-        $('#disablebtn').val('yes');
-        //$('#popupBtn').attr('disabled', 'disabled');
-    }
-    else
-    {
-        $('#disablebtn').val('no');
-        //$('#popupBtn').removeAttr('disabled');            
-    }
-
 }
 
 function book()         //function to be calle for personal info view.
@@ -65,6 +54,66 @@ function book()         //function to be calle for personal info view.
     });
 }
 
+function back() {
+      
+      var checkin = $("#CheckIn").val();
+      var checkout = $("#CheckOut").val();
+     var adult = $("#adult").val();
+      var child = $("#child").val();
+       var hotelId= $('#selectedHotelId').val();
+ $.ajax({
+ type: "POST",
+ url: base_url + "index.php/room_booking/post_action",
+ data: {
+     'checkin' : checkin,
+     'checkout' : checkout,
+     'adult' : adult,
+     'child' : child,
+     'hotelId':hotelId
+        },
+  success: function(msg) 
+        {    
+            $('#one').css({'background-color': '#0077b3'}); 
+         $('.first').css({'color': '#0077b3'}); 
+         $('.first').css({'font-weight': 'bold'});
+         $('#two').css({'background-color': '#999999'});
+                $('.second').css({'color': 'black'});
+                $('.second').css({'font-weight': 'normal'});
+            $("#replaceMe").html(msg);  
+            
+        }
+ });
+ 
+ }
+ 
+ function backbutton()
+ {
+    var hotelId = 'hotelId=' + '1';
+      
+ $.ajax({
+ type: "POST",
+ url: base_url + "index.php/room_booking/book_now",
+ data: hotelId,
+  success: function(msgs) 
+        {
+     $('#one').css({'background-color': '#999999'});
+            $('.first').css({'color': 'black'});
+            $('.first').css({'font-weight': 'normal'});
+            $('#two').css({'background-color': '#0077b3'});
+            $('.second').css({'color': '#0077b3'});
+            $('.second').css({'font-weight': 'bold'});
+            $('#three').css({'background-color': '#999999'});
+            $('.third').css({'color': 'black'});
+            $('.third').css({'font-weight': 'normal'});
+            $("#room-listing-tbl").show;
+            $("#replaceMe").html(msgs);
+            
+        }
+ });
+ }
+ 
+ 
+ 
 
 function roomBook()      // function to call for payment info view.
 {
@@ -80,8 +129,8 @@ function roomBook()      // function to call for payment info view.
     var contactno = $('#contactno').val();
     var email = $('#email').val();
     var remarks = $('#remarks').val();
-    var checkin = $("#fromDate").val();
-    var checkout = $("#toDate").val();
+    var checkin = $("#CheckIn").val();
+    var checkout = $("#CheckOut").val();
     var adult = $("#adults").val();
     var child = $("#childs").val();
     
@@ -115,6 +164,7 @@ function roomBook()      // function to call for payment info view.
     });
     $('#one').css({'background-color': '#999999'});
 }
+
 
 function roomBookView()      // function to call for payment info view.
 {
@@ -170,35 +220,23 @@ function roomBookView()      // function to call for payment info view.
 
 
 
-function changeFunc() {
-    $('#loading').show();
-    
-    var checkin = $("#CheckIn").val();
-    var checkout = $("#CheckOut").val();
-    var adult = $("#adult").val();
-    var child = $("#child").val();
-    var hotel = $("#hotelId").val();
-    
-    $.ajax({
-        type: "POST",
-        url: base_url + "index.php/room_booking/post_action",
-        data: {
-            'checkin': checkin,
-            'checkout': checkout,
-            'adult': adult,
-            'child': child,
-           'hotelId': hotel
-        },
-        success: function(msg)
-        {
 
-            $("#replaceMe").html(msg);
 
-        },
-         complete: function(){
-        $('#loading').hide();
-      }
-    });
+$(document).keydown(function(e){
+if (e.keyCode == 27)
+{
+$(".popup").hide();
+        $(".middleLayer").fadeOut(300);
+}
+});
+
+
+
+
+
+
+function path() {
+$("#path").show();
 }
 
 
@@ -246,8 +284,8 @@ $(document).ready(function(event){
              
              
       $("#changePopup").html(replaced); 
-$(".middleLayer").fadeToggle(1000);
-        $(".popup").fadeToggle(1300);
+$(".middleLayer").show();
+        $(".popup").show();
                 path();
                 $('#one').css({'background-color': '#0077b3'});
                 $('.first').css({'color': '#0077b3'});
@@ -256,41 +294,49 @@ $(".middleLayer").fadeToggle(1000);
     });
 });
 
-
-$(document).keydown(function(e){
-if (e.keyCode == 27)
+function ValidateDate(dtValue)                   //checks valid date Format.
 {
-$(".popup").hide();
-        $(".middleLayer").fadeOut(300);
-}
-});
-
-
-
-function path() {
-$("#path").show();
+    
+var dtRegex = new RegExp(/\b\d{4}[-]\d{1,2}[-]\d{1,2}\b/);
+return dtRegex.test(dtValue);
 }
 
-$(document).ready(function(){
-  $(document).ajaxStart(function(){
-    $("#loading").css("display","block");
-  });
-  $(document).ajaxComplete(function(){
-    $("#loading").css("display","none");
-  });
-  });
-  
-   function hide(obj) {
-   
-    var el = document.getElementById(obj);
-
-        el.style.display = 'none';
-         $(".middleLayer").fadeOut(300);
-         
-         
-         $('#right').drags();
+function makeActiveLink()    //function to make the link deactive when no rooms number is selected.
+{
+    if (($("#total_price").text() == '.00') || ($("#total_price").text() == '0'))
+    {
+        $('#disablebtn').val('yes');
+        //$('#popupBtn').attr('disabled', 'disabled');
     }
- $(document).ready(function(){   
+    else
+    {
+        $('#disablebtn').val('no');
+        //$('#popupBtn').removeAttr('disabled');            
+    }
+
+}
+
+
+function calculateSum() {   //function to calculate the total price of the booked room.
+   
+    var sum = 0;
+// iterate through each td based on class and add the values
+    $(".subTotal").each(function() {
+    var value = $(this).text();
+    // add only if the value is number
+    if (!isNaN(value) && value.length != 0) {
+        sum += parseFloat(value);
+    }
+    });
+    $("#total_price").text(sum);
+
+}
+
+
+
+
+
+  $(document).ready(function(){   
         //close popup.
         $("#closePopup").click(function(){
            $("#pop_up").hide();
@@ -298,6 +344,34 @@ $(document).ready(function(){
         });
           
     });
+
+
+$(function(){
+var nowTemp = new Date();
+var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+var checkin = $('#fromDate').datepicker({
+  onRender: function(date) {
+	return date.valueOf() < now.valueOf() ? 'disabled' : '';
+  }
+}).on('changeDate', function(ev) {
+  if (ev.date.valueOf() > checkout.date.valueOf()) {
+	var newDate = new Date(ev.date)
+	newDate.setDate(newDate.getDate() + 1);
+	checkout.setValue(newDate);
+  }
+  checkin.hide();
+  $('#toDate')[0].focus();
+}).data('datepicker');
+var checkout = $('#toDate').datepicker({
+  onRender: function(date) {
+	return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
+  }
+}).on('changeDate', function(ev) {
+  checkout.hide();
+}).data('datepicker');
+});
+
+
 
 $(function(){
 var nowTemp = new Date();
@@ -324,13 +398,16 @@ var checkout = $('#CheckOut').datepicker({
 }).data('datepicker');
 });
 
-
-
-
-
-
-
-
+/* =========================================================
+ 
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * ========================================================= */
+ 
 !function( $ ) {
 	
 	// Picker object
@@ -786,95 +863,3 @@ var checkout = $('#CheckOut').datepicker({
 						'</div>';
 
 }( window.jQuery );
-
- $(".onlyNumber").keydown(function (event) {
-    var num = event.keyCode;
-    if ((num > 95 && num < 106) || (num > 36 && num < 41) || num == 9) {
-        return;
-    }
-    if (event.shiftKey || event.ctrlKey || event.altKey) {        
-        event.preventDefault();
-    } else if (num != 46 && num != 8) {
-        if (isNaN(parseInt(String.fromCharCode(event.which)))) {
-            event.preventDefault();
-        }
-    }
-});
-
-
-$(document).ready(function() {
-
-$("#adds").click(function() {
-    var a = $("#noOfRoom").val();
-    a++;
-     if (a>999) {
-        $("#adds").die();
-    }
-    $("#noOfRoom").val(a);
-});
-
-
-
- 
-$("#subs").click(function() {
-    var b = $("#noOfRoom").val();
-    if (b<1) {
-        $("#subs").die();
-    }
-    b--;
-    $("#noOfRoom").val(b);
-});
-      
-      
-//sucess message 
-   setTimeout(function(){
-  $("#sucess").fadeOut("slow", function () {
-  $("#sucess").remove();
-      });
-
-}, 5000);
-//sucess message finished
- 
-  
-  // for booking room
-  
-  
- });
-  
-  
-  var currenttime = "Apr 28, 2014 2:41:06 PM";
-var greeting = " PM";
-var montharray=new Array("January","February","March","April","May","June","July","August","September","October","November","December")
-var numbers = Array("&#2406;", "&#2407;", "&#2408;", "&#2409;", "&#2410;", "&#2411;", "&#2412;", "&#2413;", "&#2414;", "&#2415;");
-var numbersEng = Array(0,1, 2, 3, 4, 5, 6, 7, 8, 9);
-var serverdate=new Date(currenttime);					
-function padlength(what){
-	var output=(what.toString().length==1)? "0"+what : what
-	return output
-}					
-function displaytime(){
-	serverdate.setSeconds(serverdate.getSeconds()+1)
-	var datestring=montharray[serverdate.getMonth()]+" "+padlength(serverdate.getDate())+", "+serverdate.getFullYear()
-	var timestring=padlength(serverdate.getHours())+":"+padlength(serverdate.getMinutes())+":"+padlength(serverdate.getSeconds())
-		if(timestring == "23:59:59"){
-			window.location.reload()
-		} else {
-			var arr = timestring.split("");
-				for(i=0; i < arr.length; i++){
-					if(arr[i] != ":"){
-					arr[i] = numbersEng[arr[i]];
-				}
-			}
-			timestring = arr.join("");
-			document.getElementById("NepaliTime").innerHTML= timestring + greeting ;
-		}
-}
-setInterval("displaytime()", 1000);
-
-function movecursor() {
-    $("#CheckIn").focus();
-}
-function movecursornext() {
-    $("#CheckOut").focus();
-}
-  

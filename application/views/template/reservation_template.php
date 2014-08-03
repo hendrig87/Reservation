@@ -1,52 +1,5 @@
 <script src="<?php echo base_url().'contents/scripts/datepicker.js' ?>"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url().'contents/styles/tableStyles.css';?> " />
-
-<script>
-$(document).ready(function(){
-   var replaced = $("#changePopup").html();
-    $("#closePopup").click(function(){
-        $("#changePopup").html(replaced);
-         });
-         
-    
-    $("#checkin").click(function(){
-         $(".middleLayer").show();
-         $(".popup").show();
-        
-   loading(); // loading
-	            setTimeout(function(){ // then show popup, deley in .1 second
-	closeloading();
-        path();
-         $('#one').css({'background-color': '#0077b3'}); 
-         $('.first').css({'color': '#0077b3'}); 
-         $('.first').css({'font-weight': 'bold'});
-         
-      
-        changeFunc(); // function show popup
-	            }, 1000); // .1 second
-	    
-     
-    });
-    });
-</script>
-
-
-<script type="text/javascript">
-    
-  
-    $(document).ready(function(){   
-        //close popup.
-        $("#closePopup").click(function(){
-           $("#pop_up").hide();
-            $(".middleLayer").fadeOut(300);
-        });
-          
-    });
-</script>
-<script>
-
-
- </script>
     
     <?php
         $adultsNumber = 5;

@@ -1,7 +1,11 @@
 <script src="<?php echo base_url() . "contents/scripts/jquery.js"; ?>"></script>
-       <script src="<?php echo base_url() . "apiTesting/scripts/second.js"; ?>"></script>
+       <script src="<?php echo base_url() . "contents/scripts/apiused.js"; ?>"></script>
 
-
+<?php if(!empty($api)){
+     foreach ($api as $tempInfo){
+         $hotel= $tempInfo->hotel_id;
+     }
+} ?>
         <?php
         $adultsNumber = 5;
         $children = 5;
@@ -34,12 +38,23 @@
                     <input name="CheckOut" type="text" placeholder="Check Out" style="width:185px; cursor:pointer;" id="CheckOut" value=""  required="required">
                
                 </div>
+                   
+                    <div class="input-prepend input-append">
+                                       
+                        <select name="adults" id="adults" style="border-radius:0px 5px 5px 0px;">
+                               <option value="0" > Adults</option>   
+                            <?php
+                            for ($i = 1; $i <= $adultsNumber; $i++) {
+                                echo "<option value=" . $i . ">" . $i . "</option>";
+                            }
+                            ?>
+                        </select>
+                        </div>
                   
                          <div class="input-prepend input-append">
                            
-                       
-                             <select name="children" required id="child" style="border-radius:0px 5px 5px 0px;">
-                                 <option value="0" > Guests</option>
+                             <select name="children" required id="childs" style="border-radius:0px 5px 5px 0px;">
+                                 <option value="0" > Childs</option>
                             <?php
                             for ($i = 1; $i <= $children; $i++) {
                                 echo "<option value=" . $i . ">" . $i . "</option>";
@@ -48,7 +63,7 @@
                         </select>
                              </div>
                    
-                       <input type="hidden" id="hotelId" value="My hotel added"/>
+                       <input type="hidden" id="hotelId" value="<?php echo $hotel; ?>"/>
                        
                         <input type ="button" value="Check availability" class="checkinbtn" id="checkinbtn">
                       

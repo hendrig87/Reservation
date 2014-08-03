@@ -41,38 +41,7 @@
 
 <script type="text/javascript">
     
-    function back() {
       
-      var checkin = $("#CheckIn").val();
-      var checkout = $("#CheckOut").val();
-     var adult = $("#adult").val();
-      var child = $("#child").val();
-      
- $.ajax({
- type: "POST",
- url: "<?php echo base_url().'index.php/room_booking/post_action' ;?>",
- data: {
-     'checkin' : checkin,
-     'checkout' : checkout,
-     'adult' : adult,
-     'child' : child,
-     'hotelId':"1"
-        },
-  success: function(msg) 
-        {    
-            $('#one').css({'background-color': '#0077b3'}); 
-         $('.first').css({'color': '#0077b3'}); 
-         $('.first').css({'font-weight': 'bold'});
-         $('#two').css({'background-color': '#999999'});
-                $('.second').css({'color': 'black'});
-                $('.second').css({'font-weight': 'normal'});
-            $("#replaceMe").html(msg);  
-            
-        }
- });
- 
- }
-   
     
     function validate() {
 

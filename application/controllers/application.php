@@ -196,41 +196,37 @@ class application extends CI_Controller {
             $a= '<pre>
 <code>
     <textarea readonly  style="border: none;background-color:white; min-height:170px; width: 750px; margin:  0px ; padding: 0px;">
-        <script src="http://localhost/reservation/contents/scripts/jquery-1.9.1.min.js" ></script>
         <script src="http://localhost/reservation/contents/scripts/jquery.js" ></script> 
-       <script src="http://localhost/reservation/apiTesting/scripts/first.js" ></script>
+       <script src="http://localhost/reservation/apiTesting/scripts/common.js" ></script>
         <link rel="stylesheet" type="text/css" href="http://localhost/reservation/apiTesting/styles/first.css" /> 
-        <div id="reservation" name="'.$apiName.'" data="'.$api.'"></div></textarea></code></pre>';
+        <div id="api-data-reserve" name="'.$apiName.'" data="'.$api.'"></div></textarea></code></pre>';
         }
  if($template==2){
            $a= '<pre>
 <code>
     <textarea readonly  style="border: none;background-color:white; min-height:170px; width: 750px; margin:  0px ; padding: 0px;">
-  <script src="http://localhost/reservation/contents/scripts/jquery-1.9.1.min.js" ></script>
-        <script src="http://localhost/reservation/contents/scripts/jquery.js" ></script> 
-       <script src="http://localhost/reservation/apiTesting/scripts/second.js" ></script>
+ <script src="http://localhost/reservation/contents/scripts/jquery.js" ></script> 
+       <script src="http://localhost/reservation/apiTesting/scripts/common.js" ></script>
         <link rel="stylesheet" type="text/css" href="http://localhost/reservation/apiTesting/styles/second.css" /> 
-        <div id="reservation" name="'.$apiName.'" data="'.$api.'"></div></textarea></code></pre>';
+        <div id="api-data-reserve" name="'.$apiName.'" data="'.$api.'"></div></textarea></code></pre>';
         }
  if($template==3){
             $a= '<pre>
 <code>
     <textarea readonly  style="border: none;background-color:white; min-height:170px; width: 750px; margin:  0px ; padding: 0px;">
-  <script src="http://localhost/reservation/contents/scripts/jquery-1.9.1.min.js" ></script>
-        <script src="http://localhost/reservation/contents/scripts/jquery.js" ></script> 
-       <script src="http://localhost/reservation/apiTesting/scripts/third.js" ></script>
+  <script src="http://localhost/reservation/contents/scripts/jquery.js" ></script> 
+       <script src="http://localhost/reservation/apiTesting/scripts/common.js" ></script>
         <link rel="stylesheet" type="text/css" href="http://localhost/reservation/apiTesting/styles/third.css" /> 
-        <div id="reservation" name="'.$apiName.'" data="'.$api.'"></div></textarea></code></pre>';
+        <div id="api-data-reserve" name="'.$apiName.'" data="'.$api.'"></div></textarea></code></pre>';
         }
          if($template==4){
             $a= '<pre>
 <code>
     <textarea readonly  style="border: none;background-color:white; min-height:170px; width: 750px; margin:  0px ; padding: 0px;">
-  <script src="http://localhost/reservation/contents/scripts/jquery-1.9.1.min.js" ></script>
-        <script src="http://localhost/reservation/contents/scripts/jquery.js" ></script> 
-       <script src="http://localhost/reservation/apiTesting/scripts/fourth.js" ></script>
+  <script src="http://localhost/reservation/contents/scripts/jquery.js" ></script> 
+       <script src="http://localhost/reservation/apiTesting/scripts/common.js" ></script>
         <link rel="stylesheet" type="text/css" href="http://localhost/reservation/apiTesting/styles/fourth.css" /> 
-        <div id="reservation" name="'.$apiName.'" data="'.$api.'"></div></textarea></code></pre>';
+        <div id="api-data-reserve" name="'.$apiName.'" data="'.$api.'"></div></textarea></code></pre>';
         }
 
 echo $a;  
@@ -248,7 +244,7 @@ echo $a;
       foreach($data['api'] as $temps){
           $template = $temps->template_id;
       }
-      //die($template);
+    
       if($template =="1"){
       $this->load->view('apiTesting/first', $data);}
        if($template =="2"){

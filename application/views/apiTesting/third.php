@@ -1,6 +1,10 @@
 <script src="<?php echo base_url() . "contents/scripts/jquery.js"; ?>"></script>
-       <script src="<?php echo base_url() . "apiTesting/scripts/third.js"; ?>"></script>
-
+        <script src="<?php echo base_url() . "contents/scripts/apiused.js"; ?>"></script>
+<?php if(!empty($api)){
+     foreach ($api as $tempInfo){
+         $hotel= $tempInfo->hotel_id;
+     }
+} ?>
         <?php
         $adultsNumber = 5;
         $children = 5;
@@ -24,7 +28,7 @@
                         <div class="input-prepend input-append">
                      <span class="add-on">Adults</span> 
                                        
-                        <select name="adults" id="adult" style="border-radius:0px 5px 5px 0px;">
+                        <select name="adults" id="adults" style="border-radius:0px 5px 5px 0px;">
                                  
                             <?php
                             for ($i = 1; $i <= $adultsNumber; $i++) {
@@ -44,7 +48,7 @@
                          <div class="input-prepend input-append">
                              <span class="add-on">Children</span>
                        
-                             <select name="children" required id="child" style="border-radius:0px 5px 5px 0px;">
+                             <select name="children" required id="childs" style="border-radius:0px 5px 5px 0px;">
                                  <option value="0" > Select</option>
                             <?php
                             for ($i = 1; $i <= $children; $i++) {
@@ -54,7 +58,7 @@
                         </select>
                              </div>
                    
-                       <input type="hidden" id="hotelId" value="My hotel added"/>
+                       <input type="hidden" id="hotelId" value="<?php echo $hotel; ?>"/>
                        
                         <input type ="button" value="Check availability" class="checkinbtn" id="checkinbtn">
                       
