@@ -9,8 +9,17 @@
     <h3>Reservation code API: Documentation</h3>
 
     <p>Using our API, you can create Your own code for online reservation system in your websites for hotels. The documents listed here are mainly targeted at application/web developers – but don’t let that scare you away in case you’re new to the subject. We’re pretty sure that using the API is rather straightforward, even for beginners.</p>
+<h3>How to use:</h3>
+<p>Here is step wise procedure to accomplish the working functionality of api:</p>
+<p><strong>1.</strong> First You are required to add your hotel. For this click on hotel menu and then click on add new hotel.</p>
+<p><strong>2.</strong> Then click on apps and then click on create new api. provide the name of api you desire.</p>
+<p><strong>3.</strong> Then click on apps and then get code. provide the title as your requirement, select your api, select your hotel to which you want to use the code and then select the predefined template and then click on getcode button.</P>
+<p><strong>4.</strong> Copy that code and paste into your webpage file where you want reservation template.</p>
+    
 
-    <h3>Using the code</h3>
+
+
+<h3>Using the code</h3>
     <p>You can simply copy and paste the code as shown below to your website<strong> html</strong> code. </p>
 </div>
 <div id='code'>

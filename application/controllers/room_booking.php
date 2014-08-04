@@ -200,7 +200,7 @@ $data['value']= array( $totalPrice);
         
  function payment_options()
         {  
-              //$hotelId= $_POST['hotelId'];
+              
               $fullName= $_POST['fullName'];
               $cardNumber = $_POST['cardNumber'];
               $securityNumber = $_POST['securityNumber'];
