@@ -10,10 +10,12 @@ class application extends CI_Controller {
         $this->load->library('session');
         $this->load->model('api_model');
         $this->load->model('dbmodel');
+        $this->load->model('report_model');
         $this->load->model('dashboard_model');
         $this->load->helper('url');
         $this->load->helper(array('form', 'url'));
         $this->load->library("pagination");
+        $this->load->helper('captcha');
     }
 
     function getRandomStringForCoupen($length) {
@@ -38,7 +40,18 @@ class application extends CI_Controller {
             foreach ($user as $id) {
                 $user_id = $id->id;
             }
-
+     $vals = array(
+'img_path' => './captcha/',
+'img_url' => base_url().'/captcha/',
+'img_width' => 150,
+'img_height' => '50',
+'expiration' => 7200
+);
+         
+            
+ $cap = create_captcha($vals);
+//print_r($cap['word']);
+//echo $cap['image'];
             $this->load->view('template/header');
             $this->load->view("dashboard/reservationSystem");
 
@@ -255,6 +268,13 @@ echo $a;
       $this->load->view('apiTesting/fourth', $data);}
     }
     
-    
+    public function barTest()
+    {
+        $data['test']= $this->report_model->get_chart_data();
+         $this->load->view('template/header');
+            $this->load->view("dashboard/reservationSystem");
+        $this->load->view('apiTesting/graphChart', $data);
+         $this->load->view('template/footer');
+    }
 
 }
