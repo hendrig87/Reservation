@@ -27,7 +27,7 @@ $children = 5;
         <pre>
 <code>
     <textarea readonly  style="border: none;background-color:white; min-height:400px; width: 930px; margin:  0px ; padding: 0px;">
-    <!dictype html>
+    <!doctype html>
     <html>
     <head>
     <title>Online reservation system</title>
@@ -140,10 +140,11 @@ $children = 5;
     
     
     <div id='bottom'>
-        <p>You can download necessary files here also. <a href="<?php echo base_url() . 'index.php/documentation/download/?download=' . 'test.js'; ?>" ><?php echo'Javascript file'; ?></a></p>
+        <p>You can download demo files here <a href="<?php echo base_url() . 'index.php/documentation/download/?download=' . 'package.zip'; ?>" >Download Now</a></p>
 
         <h3>Using Package</h3>
-        <p>You can download necessary file from the download link. After completion of download include welcome_message.php file in your code and link to javascript files </p>
+        <p>You can download necessary file from above download link. After completion of download include sampleCode.php file in your code and link to javascript and css files contained within the package that you downloaded.
+        Then you can have the look in your webpage as in above images.</p>
 
 
 

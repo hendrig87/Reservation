@@ -240,9 +240,9 @@ class Login extends CI_Controller {
                 $this->dbmodel->update_emailed_user($to, $token);
                 $this->test($token);
 
-                // $this->mailresetlink($to, $token);
-                // $this->session->set_flashdata('message', 'Instructions to reset your password have been emailed to you. Please check your email and login ');
-                //redirect('welcome/mailSentMessage', 'refresh');    
+                 $this->passwordresetemail($to, $userName, $token);
+                 $this->session->set_flashdata('message', 'Instructions to reset your password have been emailed to you. Please check your email and login ');
+                redirect('welcome/mailSentMessage', 'refresh');    
             }
         } else {
             $this->session->set_flashdata('message', 'Please type valid Email Address');
@@ -250,6 +250,16 @@ class Login extends CI_Controller {
         }
     }
 
+     public function passwordresetemail($to, $userName, $token) {
+        $this->load->helper('emailsender_helper');
+        $subject = "Password Reset";
+        $link = base_url();
+        $message = password_reset_email($to, $userName, $token, $link);
+
+
+        send_password_reset_email($to, $subject, $message);
+    }
+    
     public function test($token) {
 
         $data['query'] = $this->dbmodel->find_user_auth_key($token);
@@ -272,28 +282,7 @@ class Login extends CI_Controller {
         return $result;
     }
 
-    function mailresetlink($to, $token) {
-        $to;
-        $uri = 'http://' . $_SERVER['HTTP_HOST'];
-        $subject = "This is subject";
-        $message = '
-    <html>
-    <head>
-    <title>Password reset link</title>
-    </head>
-    <body>
-    <p>Click on the given link to reset your password <a href="' . $uri . '/reset.php?token=' . $token . '">Reset Password</a></p>
-
-    </body>
-    </html>';
-        $header = 'From: admin<info@smartaservices.com>' . "\r\n";
-        $retval = mail($to, $subject, $message, $header);
-        if ($retval == true) {
-            echo "Email sent successfully...";
-        } else {
-            echo "Message could not be sent...";
-        }
-    }
+    
 
     public function resetPassword() {
 

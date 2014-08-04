@@ -6,6 +6,44 @@
  * and open the template in the editor.
  */
 
+function send_password_reset_email($to, $subject, $message) {
+    $headers = 'From: admin<info@smartaservices.com>' . "\r\n";
+    $headers .="CC: info@salyani.com.np". "\r\n";
+    $headers .="MIME-Version: 1.0" . "\r\n";
+    $headers .="Content-type:text/html;charset=UTF-8" . "\r\n";
+
+    if (mail($to, $subject, $message, $headers)) {
+        
+        redirect('view/index');
+    } else {
+        echo '<h3>Sorry email could not be sent</h3>';
+    }
+}
+
+function password_reset_email($to, $userName, $token, $link) {
+    $body = '<div style="width: 750px; margin: 0 auto 0 auto; padding: 0px;" >
+        <div style="display:table-cell; vertical-align:middle; text-align:center; height: 70px; width: 1000px; alignment-adjust: central; background-color: #ccc; margin: 0 auto 0 auto;">
+            <h3>Reservation system</h3>
+            </div>
+
+   <div style="padding: 10px 20px 10px 20px; background-color: #eee;">
+   
+    
+    <h4>Dear ' . $userName . '  !</h4>
+
+    <h3>Your request to reset password for email ' . $to . ' has been confirmed.</h3>
+    
+    <p>Click on the given link to reset your password <a href="' . $link . 'index.php/login/resetPassword?id=' . $to . '&&resetPassword=' . $token . '">Reset Password</a></p>
+</div>
+            
+            <div style="display:table-cell; vertical-align:middle; text-align:center; height: 70px; width: 1000px; alignment-adjust: central; background-color: #ccc; margin: 0 auto 0 auto;">
+           <p>&copy; smartaccessservices</p>
+
+            </div>
+
+</div>';
+    return $body;
+}
 
 function send_email($useremail,$subject,$message)
                 {
