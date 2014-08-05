@@ -176,7 +176,7 @@
     font-weight: bold;
 }
 
-.error, .errormsgs
+.error, .errormsgs, #errormsgs
 {
     letter-spacing: 1px;
     font-size:12px; 

@@ -1,13 +1,16 @@
-<script type="text/javascript">
+<script src="<?php echo base_url() . "contents/scripts/jquery.js"; ?>"></script>
+        <script src="<?php echo base_url() . "contents/scripts/jquery-ui.js"; ?>"></script>
+        <script src="<?php echo base_url() . "contents/scripts/jquery1.10.2.js"; ?>"></script>
+        <script src="<?php echo base_url() . "contents/scripts/datepicker.js"; ?>"></script>
+        
+        <script type="text/javascript">
   function changeFunc() {
-   var selectBox = document.getElementById("selectBox");
-   var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+   
+   var selectedValue = $("#selectBox").val();//selectBox.options[selectBox.selectedIndex].value;
    var checkIn=$("#checkin").val();
    var checkOut=$("#checkout").val();
    
- 
-  
-$.ajax({
+ $.ajax({
 type: "POST",
 url: "<?php echo base_url().'index.php/dashboard/searchManagedBooking' ;?>",
 data: {
@@ -25,11 +28,6 @@ success: function(msgs)
 
  </script>
 
- 
-<script src="<?php echo base_url() . "contents/scripts/jquery.js"; ?>"></script>
-        <script src="<?php echo base_url() . "contents/scripts/jquery-ui.js"; ?>"></script>
-        <script src="<?php echo base_url() . "contents/scripts/jquery1.10.2.js"; ?>"></script>
-        <script src="<?php echo base_url() . "contents/scripts/datepicker.js"; ?>"></script>
 
   <!-- hotel selection complete -->
      <script>

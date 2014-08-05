@@ -1,4 +1,6 @@
-
+<script src="<?php echo base_url() . "contents/scripts/jquery-ui.js"; ?>"></script>
+        <script src="<?php echo base_url() . "contents/scripts/jquery1.10.2.js"; ?>"></script>
+       
 <script src="<?php echo base_url() . 'contents/scripts/jquery.js'; ?>" type="text/javascript"></script>
 <style type="text/css">
     /* popup_box DIV-Styles*/
@@ -172,35 +174,36 @@
    
 
         if ((apiName == null) || (apiName == "") || (!apiName.match(/^[a-z,0-9,A-Z_ ]{5,35}$/))) {
-            //if (valid)//only receive focus if its the first error
+           
             $("#apiName").focus();
-
-            document.myForm.fullname.style.border = "solid 1px red";
-            //msg="You need to fill the name field in correct format!\n";
-            valid = false;
-
+            msg="You need to fill the title field in correct format!\n";
+           // $("#apiName").style.border = "solid 1px red";
+            
+           valid = false;
+          
         }
 
-        if ((api == null) || (api == "")) {
+        if ((api == null) || (api == "0")) {
             $("#selectApi").focus();
-            document.myForm.address.style.border = "solid 1px red";
-            // msg="You need to fill the address field in correct format!\n";
+          // $("#selectApi").style.border = "solid 1px red";
+           msg="You need to select the api!\n";
             valid = false;
         }
 
-        if ((hotel == null) || (hotel == "")) {
+        if ((hotel == null) || (hotel == "0")) {
             $("#selectHotel").focus();
-            document.myForm.occupation.style.border = "solid 1px red";
-            //msg="You need to fill the occupation field in correct format!\n";
+          // $("#selectHotel").style.border = "solid 1px red";
+           msg="You need to select the hotel!\n";
             valid = false;
         }
         if ((template == null) || (template == "")) {
             $(".radioButton").focus();
-            document.myForm.occupation.style.border = "solid 1px red";
-            //msg="You need to fill the occupation field in correct format!\n";
+         //  $(".radioButton").style.border = "solid 1px red";
+          msg="You need to select at least one template!\n";
             valid = false;
         }
         if (valid === false) {
+            //alert('msg');
             $("#msgs").html(msg);
         }
         else {
@@ -225,8 +228,10 @@
 
     $(document).ready(function() {
         $('#popUpClose').click(function() {
-
+            var location = window.location;   
+                location.reload(true);
             $("#popup_box_get_code").hide();
+            
         });
     });
 </script>
@@ -247,7 +252,7 @@
         ?>
 
     </div>
-    <strong id="msgs" style="color:#990000 ;"></strong>
+    <div id="msgs" style="color:#990000 ;"></div>
     <div id="form">
         <table>
             <tr>
@@ -260,7 +265,7 @@
 
                 <td id="alignright">Select API:</td>
                 <td><select name="selectApi"  id="selectApi" onchange="changeFunc();">
-
+                        <option value="0">Select Api</option>
                         <?php
                         if (!empty($apiName)) {
                             foreach ($apiName as $data) {
@@ -281,7 +286,7 @@
 
                 <td id="alignright">Select Hotel:</td>
                 <td><select name="selectHotel"  id="selectHotel" onchange="changeFunc();">
-
+                        <option value="0">Select Hotel</option>
                         <?php
                         if (!empty($hotelName)) {
                             foreach ($hotelName as $data) {

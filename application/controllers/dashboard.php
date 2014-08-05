@@ -390,6 +390,7 @@ class dashboard extends CI_Controller {
     
     function searchManagedBooking(){
          if ($this->session->userdata('logged_in')) {
+             
              /*for pagination */
  $config = array();
         $config["base_url"] = base_url() . "index.php/dashboard/searchManagedBooking";
@@ -427,7 +428,7 @@ class dashboard extends CI_Controller {
               $hotelId= $_POST['hotel'];
               $checkIn= $_POST['checkIn'];
               $checkOut = $_POST['checkOut'];
-              
+           
              if(($hotelId!=0 && $hotelId!=NULL && $hotelId!="") || ($checkIn!="" && $checkIn!=NULL) || ($checkOut!="" && $checkOut!=NULL) ){       
              $data['hotelName'] = $this->dbmodel->get_user_hotel($user_id);
                  $data['roomInfo'] = $this->dashboard_model->get_booked_room_info_search($config["per_page"], $page, $hotelId, $checkIn, $checkOut);     
