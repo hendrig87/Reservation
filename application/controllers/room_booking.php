@@ -171,8 +171,12 @@ class room_booking extends CI_Controller {
                }
              
 $data['value']= array( $totalPrice);
+if($paymant=1){
           $this->load->view('ReservationInformation/payment', $data);
-          
+}
+else{
+    $this->load->view('ReservationInformation/thankYouNote');
+}
             
         }
        
@@ -201,9 +205,9 @@ $data['value']= array( $totalPrice);
  function payment_options()
         {  
               
-              $fullName= $_POST['fullName'];
-              $cardNumber = $_POST['cardNumber'];
-              $securityNumber = $_POST['securityNumber'];
+             // $fullName= $_POST['fullName'];
+              //$cardNumber = $_POST['cardNumber'];
+             // $securityNumber = $_POST['securityNumber'];
            
          
           
