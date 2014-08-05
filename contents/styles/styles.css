@@ -913,6 +913,17 @@ color: #fff;}
   float: none;
 }
 
+#header
+{
+    width: 100%;
+    padding: 0%;
+}
+.navigationTop
+{
+    width: 100%;
+    background-color: #000;
+    height: 45px;
+}
 
     #room_book table tr th {
     padding: 2px;
@@ -926,7 +937,7 @@ color: #fff;}
 }
     #menuImage
     {
-        width: 6%;
+        width: 35%;
         margin: 0px;
         padding: 0px;
         float: left;

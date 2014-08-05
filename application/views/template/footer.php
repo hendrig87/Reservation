@@ -6,7 +6,7 @@
 				<p class="caption">
 					<a href="#" >What We Offer</a>
                                         <br>
-					<a href="#">Help and FAQ</a>
+                                        <a href="<?php echo base_url().'index.php/faq'; ?>">Help and FAQ</a>
 					<br>
 					<a href="#">Feedback Program</a>
 				</p>
