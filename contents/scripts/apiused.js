@@ -9,6 +9,7 @@ function changeFunc() {
     var adult = $("#adults").val();
     var child = $("#childs").val();
      var hotelId = $("#hotelId").val();
+     var title= $("#title").val();
     $.ajax({
         type: "POST",
         url: base_url + "index.php/room_booking/post_action",
@@ -17,7 +18,8 @@ function changeFunc() {
             'checkout': checkout,
             'adult': adult,
             'child': child,
-           'hotelId': hotelId
+           'hotelId': hotelId,
+           'title': title
         },
         success: function(msg)
         {
@@ -35,13 +37,15 @@ function book()         //function to be calle for personal info view.
 {
     $('#loading').show();
     var hotelId= $('#selectedHotelId').val();
-    
-    var dataString = 'hotelId=' + hotelId;
+    var title= $('#title').val();
 
     $.ajax({
         type: "POST",
         url: base_url + 'index.php/room_booking/book_now',
-        data: dataString,
+        data: {
+            'hotelId': hotelId,
+           'title': title
+        },
         success: function(msgs)
         {
 
@@ -133,6 +137,8 @@ function roomBook()      // function to call for payment info view.
     var checkout = $("#CheckOut").val();
     var adult = $("#adults").val();
     var child = $("#childs").val();
+     var hotelId= $('#selectedHotelId').val();
+    var title= $('#title').val();
     
     $.ajax({
         type: "POST",
@@ -150,7 +156,9 @@ function roomBook()      // function to call for payment info view.
             'checkin': checkin,
             'checkout': checkout,
             'adult': adult,
-            'child': child
+            'child': child,
+            'hotelId': hotelId,
+            'title':title
         },
         success: function(msgs)
         {

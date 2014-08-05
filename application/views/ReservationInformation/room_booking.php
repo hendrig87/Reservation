@@ -98,7 +98,7 @@ $this->load->helper('availableroom');
 } ?></td>
     </tr>
 </table>
-
+<input type="hidden" id="title" value="<?php echo $abc['title']; ?>" >
 <input type="hidden" id="selectedHotelId" value="<?php echo $abc['hotelId']; ?>" >
 <!-- ----------------->
 <div id="room_book">

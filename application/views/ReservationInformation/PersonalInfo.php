@@ -127,7 +127,8 @@
 </script>
 
 <div id="room_book">
-
+<input type="hidden" id="title" value="<?php echo $abc['title']; ?>" >
+<input type="hidden" id="selectedHotelId" value="<?php echo $abc['hotelId']; ?>" >
     <div id="pi_booking_summary">
         <legend id="booking_summary_title">Booking Summary</legend> 
         <div id="table">

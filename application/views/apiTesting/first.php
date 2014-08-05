@@ -6,6 +6,7 @@
 <?php if(!empty($api)){
      foreach ($api as $tempInfo){
          $hotel= $tempInfo->hotel_id;
+         $title = $tempInfo->title;
      }
 } ?>
  <?php
@@ -62,7 +63,7 @@
                              </div>
                    
                        <input type="hidden" id="hotelId" value="<?php echo $hotel; ?>"/>
-                       
+                        <input type="hidden" id="title" value="<?php echo $title; ?>"/>
                         <input type ="button" value="Check availability" class="checkinbtn" id="checkinbtn">
                       
                    

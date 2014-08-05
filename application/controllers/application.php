@@ -254,6 +254,7 @@ echo $a;
          $api = $_POST['api'];
         
          $data['api']= $this->api_model->get_api_detail( $apiName, $api);
+       
       foreach($data['api'] as $temps){
           $template = $temps->template_id;
       }

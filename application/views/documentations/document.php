@@ -15,13 +15,13 @@ $children = 5;
         <p><strong>1.</strong> First You are required to add your hotel. For this click on hotel menu and then click on add new hotel.</p>
         <p><strong>2.</strong> Then click on apps and then click on create new api. provide the name of api you desire.</p>
         <p><strong>3.</strong> Then click on apps and then get code. provide the title as your requirement, select your api, select your hotel to which you want to use the code and then select the predefined template and then click on getcode button.</P>
-        <p><strong>4.</strong> Copy that code and paste into your webpage file where you want reservation template.</p>
+        <p><strong>4.</strong> Copy that code and paste into your web page file where you want reservation template.</p>
 
 
 
 
         <h3>Using the code</h3>
-        <p>You can simply copy and paste the code as shown below to your website<strong> html</strong> code. </p>
+        <p>You can simply copy and paste the code as shown below to your web site<strong> html</strong> code. </p>
     </div>
     <div id='code'>
         <pre>
@@ -153,3 +153,6 @@ $children = 5;
 </div>
 <div id="clear"></div>
 </div>
+
+
+

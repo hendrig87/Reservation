@@ -75,6 +75,14 @@ class Api_model extends CI_Model {
         return $query->result();
      
  }
+ 
+ public function get_code_info($hotelId, $title)
+ {
+      $this->db->where('title', $title);
+     $this->db->where('hotel_id', $hotelId);
+     $query = $this->db->get('code_info');
+        return $query->result();
+ }
     
     
 }

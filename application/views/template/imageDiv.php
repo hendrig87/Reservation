@@ -131,6 +131,7 @@
                         var adult = $("#adults").val();
                         var child = $("#childs").val();
                         var hotelId = $("#tags").val();
+                        var title = "";
                         // alert( adult);
                         $.ajax({
                             type: "POST",
@@ -140,7 +141,8 @@
                                 'checkout': checkout,
                                 'adult': adult,
                                 'child': child,
-                                'hotelId': hotelId
+                                'hotelId': hotelId,
+                                'title':title,
                             },
                             
                                 success: function(msg)
