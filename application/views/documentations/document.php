@@ -26,7 +26,7 @@ $children = 5;
     <div id='code'>
         <pre>
 <code>
-    <textarea readonly  style="border: none;background-color:white; min-height:400px; width: 930px; margin:  0px ; padding: 0px;">
+    <textarea readonly  style="border: none;background-color:white; min-height:400px; width: 93%; margin:  0px ; padding: 0px;">
     <!doctype html>
     <html>
     <head>
@@ -151,6 +151,7 @@ $children = 5;
 
     </div>
 </div>
+
 <div id="clear"></div>
 </div>
 

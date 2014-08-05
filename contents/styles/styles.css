@@ -754,14 +754,60 @@ color: #fff;}
  
  @media only screen and (max-width : 800px)
 {
+    #menuImage
+    {
+        position: relative;
+    }
+    
     #left
     {
         display: none;
-        width: 30%;
+        width: 100%;
         z-index: 1;
-        position:relative;
+        position:unset;
        opacity: 0.9;
     }
+    
+    #cssmenu ul {
+  position: unset;
+    }
+    #cssmenu ul li{
+        width: 32.6%;
+        display: inline-block;
+        float: left;
+    }
+    
+    #cssmenu ul li.hover,
+#cssmenu ul li:hover {
+  position: relative;
+  z-index: 599;
+  cursor: default;
+}
+#cssmenu ul ul {
+  visibility: hidden;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 598;
+  width: 100%;
+}
+#cssmenu ul ul li {
+  
+        width: 100%;
+        display: inline-block;
+        float: left;
+    
+}
+#cssmenu ul li:hover > ul {
+  visibility: visible;
+}
+
+#cssmenu ul li {
+  float: none;
+}
+    
+    
+    
     .navigationTop{ width: 75%;}
     #room_book table tr th {
     padding: 2px;
@@ -787,8 +833,8 @@ color: #fff;}
         width: 96%;
         padding: 0% 2% 0% 2%;
         border-left: 0px;
-        position: absolute;
     }
+        
     #checkinbtn
     {
         width: 345px;
@@ -814,11 +860,60 @@ color: #fff;}
 
 @media only screen and (max-width : 640px)
 {
+    #menuImage
+    {
+        position: relative;
+    }
+    
     #left
     {
         display: none;
-        width: 45%;
+        width: 100%;
+        z-index: 1;
+        position:unset;
+       opacity: 0.9;
     }
+    
+    #cssmenu ul {
+  position: unset;
+    }
+    #cssmenu ul li{
+        width: 100%;
+        display: inline-block;
+        float: left;
+    }
+    
+    #cssmenu ul li.hover,
+#cssmenu ul li:hover {
+  position: relative;
+  z-index: 599;
+  cursor: default;
+}
+#cssmenu ul ul {
+  visibility: hidden;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 598;
+  width: 100%;
+}
+#cssmenu ul ul li {
+  
+        width: 100%;
+        display: inline-block;
+        float: left;
+    
+}
+#cssmenu ul li:hover > ul {
+  visibility: visible;
+  position: inherit;
+}
+
+#cssmenu ul li {
+  float: none;
+}
+
+
     #room_book table tr th {
     padding: 2px;
     text-align: left;
@@ -843,14 +938,12 @@ color: #fff;}
         width: 96%;
         padding: 0% 2% 0% 2%;
         border-left: 0px;
-        position: absolute;
+       
     }
-    #cssmenu ul ul {
-        width: 175px;
-    }
+    
     #cssmenu a
     {
-        width: 80%;
+        width: 70%;
     }
     
     .sitemap
@@ -892,7 +985,59 @@ color: #fff;}
 
 @media only screen and (max-width : 380px)
 {
-    #full
+       #menuImage
+    {
+        position: relative;
+    }
+    
+    #left
+    {
+        display: none;
+        width: 100%;
+        z-index: 1;
+        position:unset;
+       opacity: 0.9;
+    }
+    
+    #cssmenu ul {
+  position: unset;
+    }
+    #cssmenu ul li{
+        width: 100%;
+        display: inline-block;
+        float: left;
+    }
+    
+    #cssmenu ul li.hover,
+#cssmenu ul li:hover {
+  position: relative;
+  z-index: 599;
+  cursor: default;
+}
+#cssmenu ul ul {
+  visibility: hidden;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 598;
+  width: 100%;
+}
+#cssmenu ul ul li {
+  
+        width: 100%;
+        display: inline-block;
+        float: left;
+    
+}
+#cssmenu ul li:hover > ul {
+  visibility: visible;
+  position: inherit;
+}
+
+#cssmenu ul li {
+  float: none;
+}
+#full
     {
         width: 363px;
         padding: 0px;
@@ -903,17 +1048,10 @@ color: #fff;}
         padding: 0%;
         border-left: 0px;
     }
-    #left
-    {
-        display: none;
-        width: 50%;
-    }
-    #cssmenu ul ul {
-        width: 175px;
-    }
+   
     #cssmenu a
     {
-        width: 80%;
+        width: 70%;
     }
     .sitemap
     {

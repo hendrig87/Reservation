@@ -6,8 +6,8 @@
         display:none; /* Hide the DIV */
         position:absolute;  
         _position:absolute; /* hack for internet explorer 6 */  
-        height:300px;  
-        width:300px;  
+        height:200px;  
+        width:800px;  
         background:#FFFFFF;  
         left: 300px;
         top: 50px;
@@ -129,13 +129,7 @@
         function openPopUp() {
                         
                          $('#loading').show();
-                      //  var checkin = $("#fromDate").val();
-                      //  var checkout = $("#toDate").val();
-                      //  var adult = $("#adults").val();
-                      //  var child = $("#childs").val();
-                      //  var hotelId = $("#tags").val();
-                        // alert( adult);
-                        //alert('here');
+                     var title=""
                         $.ajax({
                             type: "POST",
                             url: "<?php echo base_url() . 'index.php/room_booking/post_action'; ?>",
@@ -144,7 +138,8 @@
                     'checkout': 2014 - 05 - 08,
                     'adult': 2,
                     'child': 2,
-                    'hotelId': 4
+                    'hotelId': 4,
+                    'title': title
                 },
                 success: function(msg)
                 {
@@ -165,9 +160,6 @@
 
 </script>
 <script>
-//$('#getCodeButton').click(function(){
-    //alert('here');
-//});
 
     function getCode()
     {
@@ -339,7 +331,7 @@
 
     </div>
     <div class="popup_box">	<!-- OUR PopupBox DIV-->
-        <img  src="" width="300" height="300" id="pqr"  />
+        <img  src="" width="800" height="200" id="pqr"  />
         <a id="popupBoxClose">Close</a>
         <a id="popupaction">View in action</a>
     </div> 

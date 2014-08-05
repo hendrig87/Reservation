@@ -12,14 +12,21 @@ class Welcome extends CI_Controller {
         
       
  }
+ 
 	public function index()
 	{
+        // $this->load->library('user_agent');
+        // $a= $this->agent->browser();
+        //$b= $this->agent->version();
+        //$c = $this->agent->mobile();
+        //$d= array($a, $b, $c);
+        //var_dump($d);
+      
              $this->load->library('session');
           
                 $this->load->view('template/header');
                 $this->load->view('login/loginOnHover');
                 $this->load->view('template/imageDiv');
-                 //$this->load->view('template/search');
 		$this->load->view('template/reservation_template');
                 $this->load->view('template/footer');
           
