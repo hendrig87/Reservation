@@ -67,14 +67,17 @@ $( ".datepicker" ).datepicker();
    <?php
     if(!empty($roomInfo))
     { ?>
-    <table width="100%">
+    <table width="100%" style="border-collapse: collapse">
         <tr>
-            <th width="17%">Room/No.of room</th>
-            
-            <th width="10%">From</th>
-            <th width="10%">To</th>
+            <th width="17%">Room</th>
+            <th width="7%">No.of room</th>
+           
+            <th width="9%">From</th>
+            <th width="9%">To</th>
+            <th width="10%">Total Days</th>
+            <th width="10%">Remain days</th>
             <th width="9%">No. of individuals</th>
-            <th width="22%">Contact Person/ Address</th>
+            <th width="15%">Contact Person/ Address</th>
             <th width="10%">Contact Number</th>
              <th width="20%">Booked Hotel Info</th>
              <th width="4%">Action</th>
@@ -89,27 +92,70 @@ $( ".datepicker" ).datepicker();
             $checkOut = $book->check_out_date;
             $bookingId= $book->booking_id;
             $hotelId = $book->hotel_id;
+            $inYear = date("y", strtotime($checkIn));
+            $inMth = date("m", strtotime($checkIn));
+            $outMth = date("m", strtotime($checkOut));
+            $inDate=date("d", strtotime($checkIn));
+            $outDate = date("d", strtotime($checkOut));
+            $currentDate = date("Y-m-d");
+            $currentMth = date("m", strtotime($currentDate));
+            $currentDay = date("d", strtotime($currentDate));
+            if($inMth === $outMth)
+            {
+               
+                $days= $outDate - $inDate;
+            }
+ else {
+     $noOfMths = $outMth - $inMth;
+     
+     if($noOfMths>1){ $days="many months";}else{
+     
+     $daysInMonth = cal_days_in_month(CAL_GREGORIAN, $inMth, $inYear);
+     $chkDays = $daysInMonth - $inDate;
+     $days = $chkDays + $outDate;
+     //$days="different months";
+ }}
             
-         $bookedRoomInfo= $this->dashboard_model->get_all_booked_room_info($bookingId); ?>
-        <tr>
+         $bookedRoomInfo= $this->dashboard_model->get_all_booked_room_info($bookingId);
+     
+         if ($checkIn <= $currentDate && $checkOut >= $currentDate)
+        { $remain= "current";
+         
+         } else { 
+             if($currentMth == $inMth)
+             {
+                 $remain = $inDate- $currentDay;
+             }
+ else {
+     $remain ="remaining days";
+     
+ }   
+   }         
+    if ($checkIn <= $currentDate && $checkOut >= $currentDate)
+        { ?>
+          <tr class="current" >
+        <?php } else { ?>
+       <tr class="upcomming">
+  <?php  }   ?>
+        
             <td>
         <?php foreach ($bookedRoomInfo as $bookedRooms){
              $room= $bookedRooms->room_type;
              $noOfRooms = $bookedRooms->no_of_rooms_booked; ?>
         
                 
-        <?php echo $room."&nbsp;&nbsp; (".$noOfRooms.")"; }?>  <br/>
+        <?php echo $room;?> <br/> <?php }?> 
                 
                 
             </td> 
             
-           <!-- <td>
-        <?php //foreach ($bookedRoomInfo as $bookedRooms){
-           //  $room= $bookedRooms->room_type;
-            // $noOfRooms = $bookedRooms->no_of_rooms_booked; ?>
+           <td>
+        <?php foreach ($bookedRoomInfo as $bookedRooms){
+             $room= $bookedRooms->room_type;
+             $noOfRooms = $bookedRooms->no_of_rooms_booked; ?>
         
                 
-        <?php// echo  $noOfRooms; }?> <br/></td>-->
+        <?php echo $noOfRooms;?> <br/> <?php }?> </td>
             
             <td>
                 <?php echo $checkIn; ?>
@@ -128,6 +174,8 @@ $( ".datepicker" ).datepicker();
         $totalPupil = $child + $adult;
         
         ?>
+            <td><?php if($days>1){ echo $days." days";}else{ echo $days." day";} ?></td>
+            <td><?php if($remain>1){ echo $remain." days";}else{ echo $remain." day";} ?></td>
         <td> <?php echo $totalPupil; ?></td>
         <td> <?php echo $bookingName."<br>". $bookingEmail."<br>".$bookAddress; ?></td>
         <td> <?php echo $contact ; ?></td>
