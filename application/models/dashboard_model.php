@@ -141,6 +141,16 @@ function record_count_all_booking_info()
         return $query->result();
     }
 
+    function get_all_booked_room_info($bookingId)
+    {
+         $this->db->where('booking_id', $bookingId);
+
+        $query = $this->db->get('booked_room_info');
+
+        return $query->result();
+    }
+
+
     //======== find out total num. of rooms=====================//
 
     function total_room() {

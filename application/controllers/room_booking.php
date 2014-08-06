@@ -184,11 +184,15 @@ class room_booking extends CI_Controller {
 
         foreach ($jsonArray as $item) {
             if ($item['no_of_room'] != "0") {
-                mysql_query("INSERT INTO `booking_info` (check_in_date, check_out_date, room_type, no_of_rooms_booked, booking_id, hotel_id)
-       VALUES ('" . $item['check_in_date'] . "', '" . $item['check_out_date'] . "' ,'" . $item['room_name'] . "', '" . $item['no_of_room'] . "','" . $bookId . "','" . $item['hotel_id'] . "' )");
+               // mysql_query("INSERT INTO `booking_info` (check_in_date, check_out_date, booking_id, hotel_id)
+      // VALUES ('" . $item['check_in_date'] . "', '" . $item['check_out_date'] . "','" . $bookId . "','" . $item['hotel_id'] . "' )");
+                 mysql_query("INSERT INTO `booked_room_info` (booking_id, room_type, no_of_rooms_booked)
+       VALUES ('" . $bookId . "','" . $item['room_name'] . "', '" . $item['no_of_room'] . "')");
             }
         }
-
+if ($item['no_of_room'] != "0") {
+                mysql_query("INSERT INTO `booking_info` (check_in_date, check_out_date, booking_id, hotel_id)
+VALUES ('" . $item['check_in_date'] . "', '" . $item['check_out_date'] . "','" . $bookId . "','" . $item['hotel_id'] . "' )");}
         $data['value'] = array($totalPrice);
         if ($payment == "1") {
             $this->load->view('ReservationInformation/payment', $data);

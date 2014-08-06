@@ -378,7 +378,6 @@ class dashboard extends CI_Controller {
             $data['roomInfo'] = $this->dashboard_model->get_booked_room_info($config["per_page"], $page);}
              $config['display_pages'] = FALSE;
              $data["links"] = $this->pagination->create_links();
-             
             $this->load->view('template/header');
             $this->load->view('dashboard/reservationSystem');
             $this->load->view('ReservationInformation/bookedRoomInformation', $data);

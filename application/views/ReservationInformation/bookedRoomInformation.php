@@ -42,8 +42,8 @@ $( ".datepicker" ).datepicker();
       <hr class="topLine" />
        <div class="filter">
            
-          <input type="text" class="datepicker" id="checkin">
-          <input type="text" class="datepicker" id="checkout">
+           <input type="text" class="datepicker" placeholder="Check In date" id="checkin">
+          <input type="text" class="datepicker" placeholder="Check Out date" id="checkout">
           <select name="selectMenu"  id="selectBox">
             <option value="0" selected="selected"> All Hotels                    
                </option>
@@ -69,8 +69,8 @@ $( ".datepicker" ).datepicker();
     { ?>
     <table width="100%">
         <tr>
-            <th width="10%">Room</th>
-            <th width="7%">No. of rooms</th>
+            <th width="17%">Room/No.of room</th>
+            
             <th width="10%">From</th>
             <th width="10%">To</th>
             <th width="9%">No. of individuals</th>
@@ -83,24 +83,34 @@ $( ".datepicker" ).datepicker();
    
         foreach($roomInfo as $book)
     {
-            $room = $book->room_type;
-            $noOfRooms = $book->no_of_rooms_booked;
+           // $room = $book->room_type;
+            //$noOfRooms = $book->no_of_rooms_booked;
             $checkIn= $book->check_in_date;
             $checkOut = $book->check_out_date;
             $bookingId= $book->booking_id;
             $hotelId = $book->hotel_id;
             
-            
-    ?>
-            
+         $bookedRoomInfo= $this->dashboard_model->get_all_booked_room_info($bookingId); ?>
         <tr>
             <td>
+        <?php foreach ($bookedRoomInfo as $bookedRooms){
+             $room= $bookedRooms->room_type;
+             $noOfRooms = $bookedRooms->no_of_rooms_booked; ?>
+        
                 
-               <?php echo $room; ?>  
+        <?php echo $room."&nbsp;&nbsp; (".$noOfRooms.")"; }?>  <br/>
                 
                 
             </td> 
-            <td><?php echo $noOfRooms; ?></td>
+            
+           <!-- <td>
+        <?php //foreach ($bookedRoomInfo as $bookedRooms){
+           //  $room= $bookedRooms->room_type;
+            // $noOfRooms = $bookedRooms->no_of_rooms_booked; ?>
+        
+                
+        <?php// echo  $noOfRooms; }?> <br/></td>-->
+            
             <td>
                 <?php echo $checkIn; ?>
             </td>
