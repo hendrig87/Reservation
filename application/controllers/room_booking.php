@@ -41,8 +41,7 @@ class room_booking extends CI_Controller {
         );
 
         $hotel = $_POST['hotelId'];
-
-
+      
         $hotels = $this->dashboard_model->get_hotel_id($hotel);
         if (!empty($hotels)) {
             foreach ($hotels as $hotelData) {
@@ -54,8 +53,9 @@ class room_booking extends CI_Controller {
         }
 
         $data['query'] = $this->dashboard_model->booking_room($hotelId);
-
+  
         $data['json'] = json_encode($data['query']);
+       
         if (!$_POST['checkin'] && !$_POST['checkout']) {
             $this->load->view('ReservationInformation/room_booking_empty_view');
         } else {
@@ -169,10 +169,11 @@ class room_booking extends CI_Controller {
         $this->booking_room->personal_info($fullName, $address, $occupation, $nationality, $contactNo, $email, $remarks, $totalPrice, $child_s, $adult_s, $bookId);
 
         $jsondatas = $_POST['updated_json'];
-
+       
         $jsonDecode = json_decode($jsondatas, true);
         $jsonArray = $jsonDecode;
-
+ 
+        
         array_walk($jsonArray, function (&$subarray) use ($check_in) {
             $subarray['check_in_date'] = $check_in;
         });
@@ -186,13 +187,12 @@ class room_booking extends CI_Controller {
             if ($item['no_of_room'] != "0") {
                // mysql_query("INSERT INTO `booking_info` (check_in_date, check_out_date, booking_id, hotel_id)
       // VALUES ('" . $item['check_in_date'] . "', '" . $item['check_out_date'] . "','" . $bookId . "','" . $item['hotel_id'] . "' )");
-                 mysql_query("INSERT INTO `booked_room_info` (booking_id, room_type, no_of_rooms_booked)
-       VALUES ('" . $bookId . "','" . $item['room_name'] . "', '" . $item['no_of_room'] . "')");
+                 mysql_query("INSERT INTO `booked_room_info` (booking_id, room_type, no_of_rooms_booked, check_in_date, check_out_date)
+       VALUES ('" . $bookId . "','" . $item['room_name'] . "', '" . $item['no_of_room'] . "','" . $item['check_in_date'] . "', '" . $item['check_out_date'] . "')");
             }
         }
-if ($item['no_of_room'] != "0") {
                 mysql_query("INSERT INTO `booking_info` (check_in_date, check_out_date, booking_id, hotel_id)
-VALUES ('" . $item['check_in_date'] . "', '" . $item['check_out_date'] . "','" . $bookId . "','" . $item['hotel_id'] . "' )");}
+VALUES ('" . $item['check_in_date'] . "', '" . $item['check_out_date'] . "','" . $bookId . "','" . $item['hotel_id'] . "' )");
         $data['value'] = array($totalPrice);
         if ($payment == "1") {
             $this->load->view('ReservationInformation/payment', $data);

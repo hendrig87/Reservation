@@ -142,7 +142,7 @@
                                 'adult': adult,
                                 'child': child,
                                 'hotelId': hotelId,
-                                'title':title,
+                                'title':title
                             },
                             
                                 success: function(msg)

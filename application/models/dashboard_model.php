@@ -212,7 +212,7 @@ function record_count_all_booking_info()
         $this->db->where('check_in_date <=', $OutDate);
         $this->db->where('check_out_date >=', $InDate);
         $this->db->where('room_type', $r_type);
-        $availableRoom = $this->db->get('booking_info');
+        $availableRoom = $this->db->get('booked_room_info');
 
         return $availableRoom->result();
     }
