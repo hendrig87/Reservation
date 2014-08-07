@@ -170,6 +170,7 @@
         var apiName = $("#apiName").val();
         var api = $("#selectApi").val();
         var hotel = $("#selectHotel").val();
+        var payment = $("input[type='radio'][name='payment']:checked").val();
         var template = $("input[type='radio'][name='temp']:checked").val();
    
 
@@ -199,7 +200,13 @@
         if ((template == null) || (template == "")) {
             $(".radioButton").focus();
          //  $(".radioButton").style.border = "solid 1px red";
-          msg="You need to select at least one template!\n";
+          msg="You need to select template!\n";
+            valid = false;
+        }
+        if ((payment == null) || (payment == "")) {
+            $(".paymentButton").focus();
+         //  $(".radioButton").style.border = "solid 1px red";
+          msg="You need to select payment option!\n";
             valid = false;
         }
         if (valid === false) {
@@ -214,6 +221,7 @@
                     'apiName': apiName,
                     'api': api,
                     'hotel': hotel,
+                    'payment':payment,
                     'template': template
                 },
                 success: function(msg)
@@ -256,7 +264,6 @@
     <div id="form">
         <table>
             <tr>
-<?php //echo form_open_multipart('application/addApi');  ?>
                 <td id="alignright">Title:</td>
                 <td><input type="text" name="api_title" id='apiName' value="<?php echo set_value('api_title'); ?>" ></td>
 
@@ -302,6 +309,14 @@
                     </select></td>
 
             </tr>
+            
+            <tr>
+                <td id="alignright">payment Option:</td>
+               <td><input type="radio" name='payment' value='0' class="payButton"/> I want to make payment compulsion.
+                   <input type="radio" name='payment' value='1' class="payButton"/> I want to make payment optional.</td>
+
+            </tr>
+            
             <tr>
                 <td>Select Template:</td>
                 <td> 

@@ -92,46 +92,16 @@ $( ".datepicker" ).datepicker();
             $checkOut = $book->check_out_date;
             $bookingId= $book->booking_id;
             $hotelId = $book->hotel_id;
-            $inYear = date("y", strtotime($checkIn));
-            $inMth = date("m", strtotime($checkIn));
-            $outMth = date("m", strtotime($checkOut));
-            $inDate=date("d", strtotime($checkIn));
-            $outDate = date("d", strtotime($checkOut));
+           
             $currentDate = date("Y-m-d");
-            $currentMth = date("m", strtotime($currentDate));
-            $currentDay = date("d", strtotime($currentDate));
-            if($inMth === $outMth)
-            {
-               
-                $days= $outDate - $inDate;
-            }
- else {
-     $noOfMths = $outMth - $inMth;
-     
-     if($noOfMths>1){ $days="many months";}else{
-     
-     $daysInMonth = cal_days_in_month(CAL_GREGORIAN, $inMth, $inYear);
-     $chkDays = $daysInMonth - $inDate;
-     $days = $chkDays + $outDate;
-     //$days="different months";
- }}
+    $days = floor( ( strtotime( $checkOut ) - strtotime(  $checkIn ) ) / 86400 );
+    $remain = floor( ( strtotime( $checkIn ) - strtotime(  $currentDate ) ) / 86400 );
+            
+
             
          $bookedRoomInfo= $this->dashboard_model->get_all_booked_room_info($bookingId);
      
-         if ($checkIn <= $currentDate && $checkOut >= $currentDate)
-        { $remain= "current";
-         
-         } else { 
-             if($currentMth == $inMth)
-             {
-                 $remain = $inDate- $currentDay;
-             }
- else {
-      $noOfMths = $inMth- $currentMth;
-     $remain ="remaining";
-     
- }   
-   }         
+                
     if ($checkIn <= $currentDate && $checkOut >= $currentDate)
         { ?>
           <tr class="current" >
@@ -176,7 +146,7 @@ $( ".datepicker" ).datepicker();
         
         ?>
             <td><?php if($days>1){ echo $days." days";}else{ echo $days." day";} ?></td>
-            <td><?php if($remain>1){ echo $remain." days";}else{ echo $remain." day";} ?></td>
+            <td><?php if($remain>=1){ echo $remain." days";}else{ echo "currently running";} ?></td>
         <td> <?php echo $totalPupil; ?></td>
         <td> <?php echo $bookingName."<br>". $bookingEmail."<br>".$bookAddress; ?></td>
         <td> <?php echo $contact ; ?></td>

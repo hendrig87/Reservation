@@ -15,7 +15,7 @@ class Api_model extends CI_Model {
         
          $this->db->insert('app_info', $data);
     }
-    function add_new_code_user($apiName, $api, $hotelId, $template, $a, $user_id)
+    function add_new_code_user($apiName, $api, $hotelId, $template,$payment, $a, $user_id)
     {
         
         $data = array(
@@ -23,6 +23,7 @@ class Api_model extends CI_Model {
             'api_id'=>$api,
             'hotel_id'=>$hotelId,
             'template_id'=>$template,
+            'payment_info'=>$payment,
             'code'=>$a,
             'user_id'=>$user_id);
          $this->db->insert('code_info', $data);

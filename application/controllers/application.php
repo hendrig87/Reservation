@@ -206,6 +206,7 @@ class application extends CI_Controller {
         $apiName = $_POST['apiName'];
         $api = $_POST['api'];
         $hotelId = $_POST['hotel'];
+        $payment = $_POST['payment'];
         $template = $_POST['template'];
 
         //$this->api_model->add_new_code_user($apiName, $api, $hotelId, $template);
@@ -219,11 +220,27 @@ class application extends CI_Controller {
        <script src="http://localhost/reservation/apiTesting/scripts/common.js" ></script>
         <link rel="stylesheet" type="text/css" href="http://localhost/reservation/apiTesting/styles/first.css" /> 
         <div id="api-data-reserve" name="'.$apiName.'" data="'.$api.'"></div></textarea></code></pre>';
+            
+        $b= '<pre>
+<code>
+    <textarea readonly  style="border: none; min-height:170px; width: 400px; margin:  0px ; padding: 0px;">
+        <script src="http://localhost/reservation/contents/scripts/jquery.js" ></script> 
+       <script src="http://localhost/reservation/apiTesting/scripts/common.js" ></script>
+        <link rel="stylesheet" type="text/css" href="http://localhost/reservation/apiTesting/styles/first.css" /> 
+        <div id="api-data-reserve" name="'.$apiName.'" data="'.$api.'"></div></textarea></code></pre>';
         }
  if($template==2){
            $a= '<pre>
 <code>
     <textarea readonly  style="border: none;background-color:white; min-height:170px; width: 750px; margin:  0px ; padding: 0px;">
+ <script src="http://localhost/reservation/contents/scripts/jquery.js" ></script> 
+       <script src="http://localhost/reservation/apiTesting/scripts/common.js" ></script>
+        <link rel="stylesheet" type="text/css" href="http://localhost/reservation/apiTesting/styles/second.css" /> 
+        <div id="api-data-reserve" name="'.$apiName.'" data="'.$api.'"></div></textarea></code></pre>';
+           
+           $b= '<pre>
+<code>
+    <textarea readonly  style="border: none; min-height:170px; width: 400px; margin:  0px ; padding: 0px;">
  <script src="http://localhost/reservation/contents/scripts/jquery.js" ></script> 
        <script src="http://localhost/reservation/apiTesting/scripts/common.js" ></script>
         <link rel="stylesheet" type="text/css" href="http://localhost/reservation/apiTesting/styles/second.css" /> 
@@ -237,6 +254,14 @@ class application extends CI_Controller {
        <script src="http://localhost/reservation/apiTesting/scripts/common.js" ></script>
         <link rel="stylesheet" type="text/css" href="http://localhost/reservation/apiTesting/styles/third.css" /> 
         <div id="api-data-reserve" name="'.$apiName.'" data="'.$api.'"></div></textarea></code></pre>';
+            
+            $b= '<pre>
+<code>
+    <textarea readonly  style="border: none; min-height:170px; width: 400px; margin:  0px ; padding: 0px;">
+  <script src="http://localhost/reservation/contents/scripts/jquery.js" ></script> 
+       <script src="http://localhost/reservation/apiTesting/scripts/common.js" ></script>
+        <link rel="stylesheet" type="text/css" href="http://localhost/reservation/apiTesting/styles/third.css" /> 
+        <div id="api-data-reserve" name="'.$apiName.'" data="'.$api.'"></div></textarea></code></pre>';
         }
          if($template==4){
             $a= '<pre>
@@ -246,8 +271,16 @@ class application extends CI_Controller {
        <script src="http://localhost/reservation/apiTesting/scripts/common.js" ></script>
         <link rel="stylesheet" type="text/css" href="http://localhost/reservation/apiTesting/styles/fourth.css" /> 
         <div id="api-data-reserve" name="'.$apiName.'" data="'.$api.'"></div></textarea></code></pre>';
+            
+            $b= '<pre>
+<code>
+    <textarea readonly  style="border: none; min-height:170px; width: 400px; margin:  0px ; padding: 0px;">
+  <script src="http://localhost/reservation/contents/scripts/jquery.js" ></script> 
+       <script src="http://localhost/reservation/apiTesting/scripts/common.js" ></script>
+        <link rel="stylesheet" type="text/css" href="http://localhost/reservation/apiTesting/styles/fourth.css" /> 
+        <div id="api-data-reserve" name="'.$apiName.'" data="'.$api.'"></div></textarea></code></pre>';
         }
-$this->api_model->add_new_code_user($apiName, $api, $hotelId, $template, $a, $user_id);
+$this->api_model->add_new_code_user($apiName, $api, $hotelId, $template, $payment, $b, $user_id);
 echo $a;  
  } else {
 

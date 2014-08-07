@@ -194,10 +194,10 @@ class room_booking extends CI_Controller {
                 mysql_query("INSERT INTO `booking_info` (check_in_date, check_out_date, booking_id, hotel_id)
 VALUES ('" . $item['check_in_date'] . "', '" . $item['check_out_date'] . "','" . $bookId . "','" . $item['hotel_id'] . "' )");
         $data['value'] = array($totalPrice);
-        if ($payment == "1") {
+        if ($payment == "0") {
             $this->load->view('ReservationInformation/payment', $data);
         } else {
-            $this->load->view('ReservationInformation/thankYouNote');
+            $this->load->view('ReservationInformation/paymentWithSkip', $data);
         }
     }
 

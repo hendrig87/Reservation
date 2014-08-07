@@ -29,7 +29,7 @@
          <li class='has-sub'><a href="<?php echo base_url().'index.php/application/index'; ?>"><span>Create New API</span></a></li>
          <li class='has-sub'><a href="<?php echo base_url().'index.php/application/getCode'; ?>"><span>Get Code</span></a></li>
          <li class='has-sub'><a href="<?php echo base_url().'index.php/application/apiListing'; ?>"><span>View API's</span></a></li>
-         <li class='has-sub'><a href="<?php echo base_url().'index.php/application/codeListing'; ?>"><span>View Codes</span></a></li>
+         <li class='has-sub'><a href="<?php echo base_url().'index.php/application/codeListing'; ?>"><span>View My Codes</span></a></li>
       </ul>
    </li>
    <li class='has-sub'><a href="<?php echo base_url().'index.php/documentation/index'; ?>"><span>Documentation</span></a>

@@ -21,10 +21,10 @@
         ?>
         <table width="100%">
             <tr>
-                <th> API ID</th>
-                <th>API Title</th>
-                <th>Hotel</th>
-                <th>Code</th>
+                <th width="20%"> API ID</th>
+                <th width="20%">API Title</th>
+                <th width="20%">Hotel</th>
+                <th width="40%">Code</th>
             </tr>
             <?php
             foreach ($code as $allCodes) {
