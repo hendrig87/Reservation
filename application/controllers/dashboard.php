@@ -117,26 +117,27 @@ class dashboard extends CI_Controller {
                 $noOfRoom = $this->input->post('noOfRoom');
                 $price = $this->input->post('price');
                 $description = $this->input->post('description');
+                
+                if($hotel_id=="0" || $hotel_id=="")
+                {
+                    $data['error'] = "Please select hotel";
+                     $this->load->view('template/header');
+                $this->load->view("dashboard/reservationSystem");
 
-                $this->addNewRoomEmail($useremail, $room_type, $hotel_id);
-                $data['add_room'] = $this->dashboard_model->add_new_room($room_type, $noOfRoom, $price, $description, $img_name, $hotel_id);
-
-                if ($data) {
-                    $this->session->set_flashdata('message', 'Data sucessfully Added');
-                }
-
-
-
-                $this->load->library('session');
-
-                $this->load->view('template/header');
-                $this->load->view('dashboard/reservationSystem', $data);
-                $this->load->view('dashboard/roomInformation', $data);
+                $this->load->view("dashboard/addNewRoom", $data);
 
                 $this->load->view('template/footer');
+                }
+                else
+                {
+                   
+               
+                $data['add_room'] = $this->dashboard_model->add_new_room($room_type, $noOfRoom, $price, $description, $img_name, $hotel_id);
 
+              $this->addNewRoomEmail($useremail, $room_type, $hotel_id);
+                    $this->session->set_flashdata('message', 'Data sucessfully Added');
                 redirect('dashboard/roomInfo', 'refresh');
-            }
+            }}
         } else {
             redirect('login', 'refresh');
         }

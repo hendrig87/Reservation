@@ -322,19 +322,19 @@
                 <td> 
 
                         <div class="container">
-                            <input type="radio" name='temp' value='1' class="radioButton"/><a href="#"><img class="srcimage" src="<?php echo base_url() . "contents/images/1.png"; ?>" height="150" width="150"/></a>
+                            <input type="radio" name='temp' value='1' class="radioButton"/><a href="#"><img class="srcimage" src="<?php echo base_url() . "contents/images/1.jpg"; ?>" height="150" width="150"/></a>
                         </div>
 
                         <div class="container">
-                            <input type="radio" name='temp' value='2' class="radioButton"/><a href="#"><img class="srcimage" src="<?php echo base_url() . "contents/images/2.png"; ?>" height="150" width="150"/></a>
+                            <input type="radio" name='temp' value='2' class="radioButton"/><a href="#"><img class="srcimage" src="<?php echo base_url() . "contents/images/2.jpg"; ?>" height="150" width="150"/></a>
                         </div>
 
                         <div class="container">
-                            <input type="radio" name='temp' value='3' class="radioButton"/><a href="#"><img class="srcimage" src="<?php echo base_url() . "contents/images/3.png"; ?>" height="150" width="150"/></a>
+                            <input type="radio" name='temp' value='3' class="radioButton"/><a href="#"><img class="srcimage" src="<?php echo base_url() . "contents/images/3.jpg"; ?>" height="150" width="150"/></a>
                         </div>
                     
                         <div class="container">
-                            <input type="radio" name='temp' value='4' class="radioButton"/><a href="#"><img class="srcimage" src="<?php echo base_url() . "contents/images/4.png"; ?>" height="150" width="150"/></a>
+                            <input type="radio" name='temp' value='4' class="radioButton"/><a href="#"><img class="srcimage" src="<?php echo base_url() . "contents/images/4.jpg"; ?>" height="150" width="150"/></a>
                         </div>
                     
                 </td>

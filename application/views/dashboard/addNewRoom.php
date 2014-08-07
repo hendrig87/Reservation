@@ -13,8 +13,8 @@
               echo validation_errors();
               if($this->session->flashdata('message')) { ?>
             <img src="<?php echo base_url() . "contents/images/success.jpg"; ?>" height="15px" width="15px"/>
-            <?php echo $this->session->flashdata('message');
-            }
+            <?php echo $this->session->flashdata('message');}
+            if(!empty($error)){ echo $error; }
               ?>
             
     </div>
@@ -49,9 +49,8 @@
     </tr>
     <tr>
         <td id="alignright"> To Hotel:</td>
-        <td><select name="selectHotel"  id="selectBox" onchange="changeFunc();">
-             <option> Select Hotel                    
-                </option>
+        <td><select name="selectHotel"  id="selectBox">
+             <option value="0"> Select Hotel  </option>
                <?php
                 foreach ($hotelName as $data)
                 {

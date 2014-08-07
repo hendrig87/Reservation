@@ -122,10 +122,10 @@ function send_room_add_email($useremail,$subject,$message)
             $headers .="Content-type:text/html;charset=UTF-8" . "\r\n";
 
     if (mail($useremail, $subject, $message, $headers)) {
-        echo "Email sent successfully...";
+        
     } else {
         
-        echo "Message could not be sent...";
+      
          
    }    
    }

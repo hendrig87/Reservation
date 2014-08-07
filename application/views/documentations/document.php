@@ -23,6 +23,7 @@ $children = 5;
         <h3>Using the code</h3>
         <p>You can simply copy and paste the code as shown below to your web site<strong> html</strong> code. </p>
     </div>
+    
     <div id='code'>
         <pre>
 <code>
@@ -31,9 +32,9 @@ $children = 5;
     <html>
     <head>
     <title>Online reservation system</title>
-    <script src="http://localhost/reservation/contents/scripts/jquery.js" ></script> 
-    <script src="http://localhost/reservation/contents/scripts/apiused.js"></script>
-    <link rel="stylesheet" type="text/css" href="http://localhost/reservation/apiTesting/styles/first.css" /> 
+   <script src="<?php echo base_url().'contents/scripts/jquery.js'; ?>" ></script> 
+       <script src="<?php echo base_url().'apiTesting/scripts/common.js'; ?>" ></script>
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url().'apiTesting/styles/first.css'; ?>" /> 
     </head>
     <body>      
      <?php $adultsNumber = 5; $children = 5;   ?>
@@ -120,17 +121,17 @@ $children = 5;
     </div>
     
     <h4>After using the above code you will get the view as:</h4>
-        <img src="<?php echo base_url() . "contents/images/1.png"; ?>" alt="" width="100%" >
+        <img src="<?php echo base_url() . "contents/images/1.jpg"; ?>" alt="" width="100%" >
         <h4>When you enter check in date, check out date, no of adults and no. of childs and click on check availability button, you will get popup window as:</h4>
-        <img src="<?php echo base_url() . "contents/images/roomselection.png"; ?>" alt="" width="100%" >
+        <img src="<?php echo base_url() . "contents/images/roomselection.jpg"; ?>" alt="" width="100%" >
         <h4>When you select required number of rooms from listed rooms and click on next button, you will get view as:</h4>
-    <img src="<?php echo base_url() . "contents/images/personalInfo.png"; ?>" alt="" width="100%" ><br/>
-    <img src="<?php echo base_url() . "contents/images/personalInfoFilled.png"; ?>" alt="" width="100%" >
+    <img src="<?php echo base_url() . "contents/images/personalInfo.jpg"; ?>" alt="" width="100%" ><br/>
+    <img src="<?php echo base_url() . "contents/images/personalInfoFilled.jpg"; ?>" alt="" width="100%" >
     <h4>When you provide your personal info and click on next button, you will get view as:</h4>
-    <img src="<?php echo base_url() . "contents/images/payment.png"; ?>" alt="" width="100%" ><br/>    
+    <img src="<?php echo base_url() . "contents/images/payment.jpg"; ?>" alt="" width="100%" ><br/>    
     <p>Note: The above view of payment is optional. If you don't want your user to force to pay, you can exclude this view.</p>    
     <h4>When you provide payment info and click on next button you will get the following view and at the same time the email with booking information will be sent to your email inbox.</h4>    
-     <img src="<?php echo base_url() . "contents/images/thankYouNote.png"; ?>" alt="" width="100%" ><br/>     
+     <img src="<?php echo base_url() . "contents/images/thankYouNote.jpg"; ?>" alt="" width="100%" ><br/>     
     
      
      <h3>Pre-requisites:</h3>
