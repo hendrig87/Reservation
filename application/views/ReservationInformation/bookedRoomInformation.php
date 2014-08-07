@@ -127,7 +127,8 @@ $( ".datepicker" ).datepicker();
                  $remain = $inDate- $currentDay;
              }
  else {
-     $remain ="remaining days";
+      $noOfMths = $inMth- $currentMth;
+     $remain ="remaining";
      
  }   
    }         
@@ -208,11 +209,13 @@ $( ".datepicker" ).datepicker();
     ?>
         
     </table>
-     </div>
-      <?php if (strlen($links) > 2) { ?>
+         
+       <?php if (strlen($links) > 2) { ?>
         <div class="pagination">
             <?php echo $links; ?>
         </div>
-    <?php } ?>
+    <?php } ?>    
+     </div>
+    
   </div>
     </div>

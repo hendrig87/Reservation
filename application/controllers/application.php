@@ -10,7 +10,6 @@ class application extends CI_Controller {
         $this->load->library('session');
         $this->load->model('api_model');
         $this->load->model('dbmodel');
-        $this->load->model('report_model');
         $this->load->model('dashboard_model');
         $this->load->helper('url');
         $this->load->helper(array('form', 'url'));
@@ -195,6 +194,13 @@ class application extends CI_Controller {
     }
 
     function requestCode() {
+        if ($this->session->userdata('logged_in')) {
+
+            $useremail = $this->session->userdata('useremail');
+            $user = $this->dbmodel->get_user_info($useremail);
+            foreach ($user as $id) {
+                $user_id = $id->id;
+            }
         $this->load->helper('availableroom');
 
         $apiName = $_POST['apiName'];
@@ -202,7 +208,7 @@ class application extends CI_Controller {
         $hotelId = $_POST['hotel'];
         $template = $_POST['template'];
 
-        $this->api_model->add_new_code_user($apiName, $api, $hotelId, $template);
+        //$this->api_model->add_new_code_user($apiName, $api, $hotelId, $template);
 
        
         if($template==1){
@@ -241,9 +247,12 @@ class application extends CI_Controller {
         <link rel="stylesheet" type="text/css" href="http://localhost/reservation/apiTesting/styles/fourth.css" /> 
         <div id="api-data-reserve" name="'.$apiName.'" data="'.$api.'"></div></textarea></code></pre>';
         }
-
+$this->api_model->add_new_code_user($apiName, $api, $hotelId, $template, $a, $user_id);
 echo $a;  
+ } else {
 
+            redirect('login', 'refresh');
+        }
         
     }
     
@@ -269,13 +278,33 @@ echo $a;
       $this->load->view('apiTesting/fourth', $data);}
     }
     
-    public function barTest()
+    
+    public function codeListing()
     {
-        $data['test']= $this->report_model->get_chart_data();
-         $this->load->view('template/header');
-            $this->load->view("dashboard/reservationSystem");
-        $this->load->view('apiTesting/graphChart', $data);
-         $this->load->view('template/footer');
-    }
+         if ($this->session->userdata('logged_in')) {
+            $useremail = $this->session->userdata('useremail');
+            $user = $this->dbmodel->get_user_info($useremail);
+            foreach ($user as $id) {
+                $user_id = $id->id;
+            }
 
+            $data['code'] = $this->api_model->get_all_code_by_user($user_id);
+
+            $this->load->view('template/header');
+            $this->load->view("dashboard/reservationSystem");
+            $this->load->view("apps/listCode", $data);
+            $this->load->view('template/footer');
+        } else {
+            redirect('login', 'refresh');
+        }
+    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
 }

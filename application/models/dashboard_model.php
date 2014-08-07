@@ -45,7 +45,14 @@ function record_count_all_booking_info()
     function record_count_all_personal_info()
     {
         
-        $this->db->from("personal_info");
+        $this->db->from("booking_info");
+        return $this->db->count_all_results();
+    }
+    
+    function record_count_all_booking_info_search($hotelId)
+    {
+          $this->db->where('hotel_id', $hotelId);
+        $this->db->from("booking_info");
         return $this->db->count_all_results();
     }
     

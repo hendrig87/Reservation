@@ -389,11 +389,29 @@ class dashboard extends CI_Controller {
     
     function searchManagedBooking(){
          if ($this->session->userdata('logged_in')) {
-             
+        
+         $useremail = $this->session->userdata('useremail');
+            $user = $this->dbmodel->get_user_info($useremail);
+            foreach ($user as $id) {
+                $user_id = $id->id;
+            }
+            if(isset($_POST['hotel']))
+            {
+              $hotelId= $_POST['hotel'];
+            }
+            if(isset($_POST['checkIn']))
+            {
+              $checkIn= $_POST['checkIn'];
+            }
+            if(isset($_POST['checkOut']))
+            {
+              $checkOut = $_POST['checkOut'];     
+            }
+            
              /*for pagination */
  $config = array();
         $config["base_url"] = base_url() . "index.php/dashboard/searchManagedBooking";
-        $config["total_rows"] = $this->dashboard_model->record_count_all_personal_info();
+        $config["total_rows"] = $this->dashboard_model->record_count_all_booking_info_search($hotelId);
         $config["per_page"] = 5;
         $this->pagination->initialize($config);
         $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
@@ -418,6 +436,8 @@ class dashboard extends CI_Controller {
         $config['first_link'] = '&lt;&lt;';
         $config['last_link'] = '&gt;&gt;';
         $this->pagination->initialize($config);
+         $config['display_pages'] = FALSE;
+             $data["links"] = $this->pagination->create_links();
         /*pagination ends here */
             $useremail = $this->session->userdata('useremail');
             $user = $this->dbmodel->get_user_info($useremail);

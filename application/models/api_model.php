@@ -15,14 +15,16 @@ class Api_model extends CI_Model {
         
          $this->db->insert('app_info', $data);
     }
-    function add_new_code_user($apiName, $api, $hotelId, $template)
+    function add_new_code_user($apiName, $api, $hotelId, $template, $a, $user_id)
     {
         
         $data = array(
             'title'=>$apiName,
             'api_id'=>$api,
             'hotel_id'=>$hotelId,
-            'template_id'=>$template);
+            'template_id'=>$template,
+            'code'=>$a,
+            'user_id'=>$user_id);
          $this->db->insert('code_info', $data);
     }
 
@@ -81,6 +83,13 @@ class Api_model extends CI_Model {
       $this->db->where('title', $title);
      $this->db->where('hotel_id', $hotelId);
      $query = $this->db->get('code_info');
+        return $query->result();
+ }
+ 
+ public function get_all_code_by_user($user_id)
+ {
+        $this->db->where('user_id', $user_id);
+        $query = $this->db->get('code_info');
         return $query->result();
  }
     
