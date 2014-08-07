@@ -208,7 +208,7 @@ class application extends CI_Controller {
         $hotelId = $_POST['hotel'];
         $payment = $_POST['payment'];
         $template = $_POST['template'];
-
+$base_url= base_url();
         //$this->api_model->add_new_code_user($apiName, $api, $hotelId, $template);
 
        
@@ -216,68 +216,68 @@ class application extends CI_Controller {
             $a= '<pre>
 <code>
     <textarea readonly  style="border: none;background-color:white; min-height:170px; width: 750px; margin:  0px ; padding: 0px;">
-        <script src="http://localhost/reservation/contents/scripts/jquery.js" ></script> 
-       <script src="http://localhost/reservation/apiTesting/scripts/common.js" ></script>
-        <link rel="stylesheet" type="text/css" href="http://localhost/reservation/apiTesting/styles/first.css" /> 
+        <script src="'.$base_url.'contents/scripts/jquery.js" ></script> 
+       <script src="'.$base_url.'apiTesting/scripts/common.js" ></script>
+        <link rel="stylesheet" type="text/css" href="'.$base_url.'apiTesting/styles/first.css" /> 
         <div id="api-data-reserve" name="'.$apiName.'" data="'.$api.'"></div></textarea></code></pre>';
             
         $b= '<pre>
 <code>
     <textarea readonly  style="border: none; min-height:170px; width: 400px; margin:  0px ; padding: 0px;">
-        <script src="http://localhost/reservation/contents/scripts/jquery.js" ></script> 
-       <script src="http://localhost/reservation/apiTesting/scripts/common.js" ></script>
-        <link rel="stylesheet" type="text/css" href="http://localhost/reservation/apiTesting/styles/first.css" /> 
+        <script src="'.$base_url.'contents/scripts/jquery.js" ></script> 
+       <script src="'.$base_url.'apiTesting/scripts/common.js" ></script>
+        <link rel="stylesheet" type="text/css" href="'.$base_url.'apiTesting/styles/first.css" /> 
         <div id="api-data-reserve" name="'.$apiName.'" data="'.$api.'"></div></textarea></code></pre>';
         }
  if($template==2){
            $a= '<pre>
 <code>
     <textarea readonly  style="border: none;background-color:white; min-height:170px; width: 750px; margin:  0px ; padding: 0px;">
- <script src="http://localhost/reservation/contents/scripts/jquery.js" ></script> 
-       <script src="http://localhost/reservation/apiTesting/scripts/common.js" ></script>
-        <link rel="stylesheet" type="text/css" href="http://localhost/reservation/apiTesting/styles/second.css" /> 
+ <script src="'.$base_url.'contents/scripts/jquery.js" ></script> 
+       <script src="'.$base_url.'apiTesting/scripts/common.js" ></script>
+        <link rel="stylesheet" type="text/css" href="'.$base_url.'apiTesting/styles/second.css" /> 
         <div id="api-data-reserve" name="'.$apiName.'" data="'.$api.'"></div></textarea></code></pre>';
            
            $b= '<pre>
 <code>
     <textarea readonly  style="border: none; min-height:170px; width: 400px; margin:  0px ; padding: 0px;">
- <script src="http://localhost/reservation/contents/scripts/jquery.js" ></script> 
-       <script src="http://localhost/reservation/apiTesting/scripts/common.js" ></script>
-        <link rel="stylesheet" type="text/css" href="http://localhost/reservation/apiTesting/styles/second.css" /> 
+ <script src="'.$base_url.'contents/scripts/jquery.js" ></script> 
+       <script src="'.$base_url.'apiTesting/scripts/common.js" ></script>
+        <link rel="stylesheet" type="text/css" href="'.$base_url.'apiTesting/styles/second.css" /> 
         <div id="api-data-reserve" name="'.$apiName.'" data="'.$api.'"></div></textarea></code></pre>';
         }
  if($template==3){
             $a= '<pre>
 <code>
     <textarea readonly  style="border: none;background-color:white; min-height:170px; width: 750px; margin:  0px ; padding: 0px;">
-  <script src="http://localhost/reservation/contents/scripts/jquery.js" ></script> 
-       <script src="http://localhost/reservation/apiTesting/scripts/common.js" ></script>
-        <link rel="stylesheet" type="text/css" href="http://localhost/reservation/apiTesting/styles/third.css" /> 
+  <script src="'.$base_url.'contents/scripts/jquery.js" ></script> 
+       <script src="'.$base_url.'apiTesting/scripts/common.js" ></script>
+        <link rel="stylesheet" type="text/css" href="'.$base_url.'apiTesting/styles/third.css" /> 
         <div id="api-data-reserve" name="'.$apiName.'" data="'.$api.'"></div></textarea></code></pre>';
             
             $b= '<pre>
 <code>
     <textarea readonly  style="border: none; min-height:170px; width: 400px; margin:  0px ; padding: 0px;">
-  <script src="http://localhost/reservation/contents/scripts/jquery.js" ></script> 
-       <script src="http://localhost/reservation/apiTesting/scripts/common.js" ></script>
-        <link rel="stylesheet" type="text/css" href="http://localhost/reservation/apiTesting/styles/third.css" /> 
+  <script src="'.$base_url.'contents/scripts/jquery.js" ></script> 
+       <script src="'.$base_url.'apiTesting/scripts/common.js" ></script>
+        <link rel="stylesheet" type="text/css" href="'.$base_url.'apiTesting/styles/third.css" /> 
         <div id="api-data-reserve" name="'.$apiName.'" data="'.$api.'"></div></textarea></code></pre>';
         }
          if($template==4){
             $a= '<pre>
 <code>
     <textarea readonly  style="border: none;background-color:white; min-height:170px; width: 750px; margin:  0px ; padding: 0px;">
-  <script src="http://localhost/reservation/contents/scripts/jquery.js" ></script> 
-       <script src="http://localhost/reservation/apiTesting/scripts/common.js" ></script>
-        <link rel="stylesheet" type="text/css" href="http://localhost/reservation/apiTesting/styles/fourth.css" /> 
+  <script src="'.$base_url.'contents/scripts/jquery.js" ></script> 
+       <script src="'.$base_url.'apiTesting/scripts/common.js" ></script>
+        <link rel="stylesheet" type="text/css" href="'.$base_url.'apiTesting/styles/fourth.css" /> 
         <div id="api-data-reserve" name="'.$apiName.'" data="'.$api.'"></div></textarea></code></pre>';
             
             $b= '<pre>
 <code>
     <textarea readonly  style="border: none; min-height:170px; width: 400px; margin:  0px ; padding: 0px;">
-  <script src="http://localhost/reservation/contents/scripts/jquery.js" ></script> 
-       <script src="http://localhost/reservation/apiTesting/scripts/common.js" ></script>
-        <link rel="stylesheet" type="text/css" href="http://localhost/reservation/apiTesting/styles/fourth.css" /> 
+  <script src="'.$base_url.'contents/scripts/jquery.js" ></script> 
+       <script src="'.$base_url.'apiTesting/scripts/common.js" ></script>
+        <link rel="stylesheet" type="text/css" href="'.$base_url.'apiTesting/styles/fourth.css" /> 
         <div id="api-data-reserve" name="'.$apiName.'" data="'.$api.'"></div></textarea></code></pre>';
         }
 $this->api_model->add_new_code_user($apiName, $api, $hotelId, $template, $payment, $b, $user_id);

@@ -37,6 +37,7 @@ class dashboard_model extends CI_Model {
 function record_count_all_booking_info()
     {
         $today= date("Y-m-d");
+         $this->db->where('status', "0");
         $this->db->where('check_out_date >=', $today);
         $this->db->from("booking_info");
         return $this->db->count_all_results();
@@ -51,6 +52,9 @@ function record_count_all_booking_info()
     
     function record_count_all_booking_info_search($hotelId)
     {
+        $today= date("Y-m-d");
+         $this->db->where('status', "0");
+        $this->db->where('check_out_date >=', $today);
           $this->db->where('hotel_id', $hotelId);
         $this->db->from("booking_info");
         return $this->db->count_all_results();
@@ -97,6 +101,7 @@ function record_count_all_booking_info()
         $today= date("Y-m-d");
        
         $this->db->limit($limit, $start);
+        $this->db->where("status", "0");
         $this->db->where('check_out_date >=', $today);
         $this->db->order_by('id','DESC');
         $query = $this->db->get('booking_info');
@@ -106,6 +111,7 @@ function record_count_all_booking_info()
 
     function get_booked_room_info_search($limit, $start, $hotelId, $checkIn, $checkOut) {
         $this->db->limit($limit, $start);
+          $this->db->where("status", "0");
         if($hotelId!=0 && $hotelId!=NULL && $hotelId!=""){
         $this->db->where('hotel_id', $hotelId);}
          if($checkIn!="" && $checkIn!=NULL){
@@ -270,6 +276,23 @@ function record_count_all_booking_info()
     public function delete_hotel($id) {
 
         $this->db->delete('hotel_info', array('id' => $id));
+    }
+    
+    public function findbooking($id) {
+        $this->db->select();
+        $this->db->from('booking_info');
+        $this->db->where('id', $id);
+        $query = $this->db->get();
+        return $query->result();
+    }
+    
+    public function updateBooking($id) {
+
+       $data = array(
+            'status' => "1");
+
+        $this->db->where('id', $id);
+        $this->db->update('booking_info', $data);
     }
 
 }

@@ -14,7 +14,7 @@ function send_password_reset_email($to, $subject, $message) {
 
     if (mail($to, $subject, $message, $headers)) {
         
-        redirect('view/index');
+        redirect('login/index');
     } else {
         echo '<h3>Sorry email could not be sent</h3>';
     }

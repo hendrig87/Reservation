@@ -1,5 +1,5 @@
 <script type="text/javascript">
-  function changeFunc() {
+  function changed() {
    var selectBox = document.getElementById("selectBox");
    var selectedValue = selectBox.options[selectBox.selectedIndex].value;
    
@@ -33,7 +33,7 @@ success: function(msgs)
   
  
    
-<select name="selectMenu" style="width: 125px"  id="selectBox" onchange="changeFunc();">
+<select name="selectMenu" style="width: 125px"  id="selectBox" onchange="changed();">
             <option value="0" selected="selected"> Select Hotel                    
                </option>
               <?php

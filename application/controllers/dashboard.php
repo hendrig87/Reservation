@@ -395,18 +395,15 @@ class dashboard extends CI_Controller {
             foreach ($user as $id) {
                 $user_id = $id->id;
             }
-            if(isset($_POST['hotel']))
-            {
+            
               $hotelId= $_POST['hotel'];
-            }
-            if(isset($_POST['checkIn']))
-            {
+           
+            
               $checkIn= $_POST['checkIn'];
-            }
-            if(isset($_POST['checkOut']))
-            {
+            
+            
               $checkOut = $_POST['checkOut'];     
-            }
+           
             
              /*for pagination */
  $config = array();
@@ -439,14 +436,8 @@ class dashboard extends CI_Controller {
          $config['display_pages'] = FALSE;
              $data["links"] = $this->pagination->create_links();
         /*pagination ends here */
-            $useremail = $this->session->userdata('useremail');
-            $user = $this->dbmodel->get_user_info($useremail);
-            foreach ($user as $id) {
-                $user_id = $id->id;
-            }
-              $hotelId= $_POST['hotel'];
-              $checkIn= $_POST['checkIn'];
-              $checkOut = $_POST['checkOut'];
+           
+             
            
              if(($hotelId!=0 && $hotelId!=NULL && $hotelId!="") || ($checkIn!="" && $checkIn!=NULL) || ($checkOut!="" && $checkOut!=NULL) ){       
              $data['hotelName'] = $this->dbmodel->get_user_hotel($user_id);
@@ -457,11 +448,37 @@ class dashboard extends CI_Controller {
         {
             $data['hotelName'] = $this->dbmodel->get_user_hotel($user_id);
            $data['roomInfo'] = $this->dashboard_model->get_booked_room_info($config["per_page"], $page);
+           
  }
         
          $this->load->view('reservationInformation/bookedRoomInfoAjax', $data);
     }
      else {
+            redirect('login', 'refresh');
+        }
+    }
+    
+     function editBooking($id) {
+        if ($this->session->userdata('logged_in')) {
+            $data['username'] = Array($this->session->userdata('logged_in'));
+            $data['query'] = $this->dashboard_model->findbooking($id);
+
+            $this->load->view('template/header');
+            $this->load->view('dashboard/reservationSystem');
+            $this->load->view('reservationInformation/editBooking', $data);
+            $this->load->view('template/footer');
+        } else {
+            redirect('login', 'refresh');
+        }
+    }
+    
+    public function deleteBooking($id) {
+        if ($this->session->userdata('logged_in')) {
+            $data['username'] = Array($this->session->userdata('logged_in'));
+            $this->dashboard_model->updateBooking($id);
+            $this->session->set_flashdata('message', 'Data Deleted Sucessfully');
+            redirect('dashboard/bookingInfo', 'refresh');
+        } else {
             redirect('login', 'refresh');
         }
     }

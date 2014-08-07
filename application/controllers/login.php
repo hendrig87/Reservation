@@ -234,13 +234,14 @@ class Login extends CI_Controller {
 
             foreach ($username as $dbemail) {
                 $to = $dbemail->user_email;
+                $user= $dbemail->user_name;
             }
             if ($to == $useremail) {
                 $token = $this->getRandomString(10);
                 $this->dbmodel->update_emailed_user($to, $token);
                 $this->test($token);
 
-                 $this->passwordresetemail($to, $userName, $token);
+                 $this->passwordresetemail($to, $user, $token);
                  $this->session->set_flashdata('message', 'Instructions to reset your password have been emailed to you. Please check your email and login ');
                 redirect('welcome/mailSentMessage', 'refresh');    
             }
@@ -251,7 +252,7 @@ class Login extends CI_Controller {
     }
 
      public function passwordresetemail($to, $userName, $token) {
-        $this->load->helper('emailsender_helper');
+        $this->load->helper('send_email_helper');
         $subject = "Password Reset";
         $link = base_url();
         $message = password_reset_email($to, $userName, $token, $link);

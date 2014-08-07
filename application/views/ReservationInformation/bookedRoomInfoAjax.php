@@ -27,46 +27,14 @@
             $checkOut = $book->check_out_date;
             $bookingId= $book->booking_id;
             $hotelId = $book->hotel_id;
-            $inYear = date("y", strtotime($checkIn));
-            $inMth = date("m", strtotime($checkIn));
-            $outMth = date("m", strtotime($checkOut));
-            $inDate=date("d", strtotime($checkIn));
-            $outDate = date("d", strtotime($checkOut));
+
             $currentDate = date("Y-m-d");
-            $currentMth = date("m", strtotime($currentDate));
-            $currentDay = date("d", strtotime($currentDate));
-            if($inMth === $outMth)
-            {
-               
-                $days= $outDate - $inDate;
-            }
- else {
-     $noOfMths = $outMth - $inMth;
-     
-     if($noOfMths>1){ $days="many months";}else{
-     
-     $daysInMonth = cal_days_in_month(CAL_GREGORIAN, $inMth, $inYear);
-     $chkDays = $daysInMonth - $inDate;
-     $days = $chkDays + $outDate;
-     //$days="different months";
- }}
+    $days = floor( ( strtotime( $checkOut ) - strtotime(  $checkIn ) ) / 86400 );
+    $remain = floor( ( strtotime( $checkIn ) - strtotime(  $currentDate ) ) / 86400 );
             
          $bookedRoomInfo= $this->dashboard_model->get_all_booked_room_info($bookingId);
      
-         if ($checkIn <= $currentDate && $checkOut >= $currentDate)
-        { $remain= "current";
-         
-         } else { 
-             if($currentMth == $inMth)
-             {
-                 $remain = $inDate- $currentDay;
-             }
- else {
-      $noOfMths = $inMth- $currentMth;
-     $remain ="remaining";
-     
- }   
-   }         
+                 
     if ($checkIn <= $currentDate && $checkOut >= $currentDate)
         { ?>
           <tr class="current" >
@@ -144,11 +112,13 @@
     ?>
         
     </table>
-     </div>
-      <?php if (strlen($links) > 2) { ?>
+     <?php if (strlen($links) > 2) { ?>
         <div class="pagination">
             <?php echo $links; ?>
         </div>
     <?php } ?>
+     
+     </div>
+      
 </div>
 </div>
