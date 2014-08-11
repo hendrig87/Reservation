@@ -60,8 +60,9 @@ function record_count_all_booking_info()
         return $this->db->count_all_results();
     }
     
-    function record_count_all_room_registration()
+    function record_count_all_room_registration($hotelId)
     {
+        $this->db->where('hotel_id', $hotelId);
         $this->db->from('room_registration');
         return $this->db->count_all_results();
     }
@@ -73,8 +74,9 @@ function record_count_all_booking_info()
         return $query->result();
     }
             
-    function get_all_rooms($limit, $start) {
+    function get_all_rooms($limit, $start, $hotelId) {
           $this->db->limit($limit, $start);
+           $this->db->where('hotel_id', $hotelId);
         $this->db->order_by("hotel_id", "desc");
         $query = $this->db->get('room_registration');
         return $query->result();
@@ -97,12 +99,13 @@ function record_count_all_booking_info()
         return $query->result();
     }
  
-    function get_booked_room_info($limit, $start) {
+    function get_booked_room_info($limit, $start, $hotelId) {
         $today= date("Y-m-d");
        
         $this->db->limit($limit, $start);
         $this->db->where("status", "0");
         $this->db->where('check_out_date >=', $today);
+         $this->db->where('hotel_id', $hotelId);
         $this->db->order_by('id','DESC');
         $query = $this->db->get('booking_info');
 

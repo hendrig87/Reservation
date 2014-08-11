@@ -231,24 +231,26 @@ class Login extends CI_Controller {
             $useremail = $_POST['userEmail'];
 
             $username = $this->dbmodel->get_selected_user($useremail);
-
+             if(!empty($username)) {      
             foreach ($username as $dbemail) {
                 $to = $dbemail->user_email;
                 $user= $dbemail->user_name;
             }
-            if ($to == $useremail) {
+            
                 $token = $this->getRandomString(10);
                 $this->dbmodel->update_emailed_user($to, $token);
-                $this->test($token);
 
                  $this->passwordresetemail($to, $user, $token);
                  $this->session->set_flashdata('message', 'Instructions to reset your password have been emailed to you. Please check your email and login ');
                 redirect('welcome/mailSentMessage', 'refresh');    
-            }
-        } else {
+             }
+        else {
             $this->session->set_flashdata('message', 'Please type valid Email Address');
             redirect("login/forgotPassword");
-        }
+        }}
+ else {
+     redirect("login/index");
+ }
     }
 
      public function passwordresetemail($to, $userName, $token) {

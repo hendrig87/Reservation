@@ -7,8 +7,8 @@
  */
 
 function send_password_reset_email($to, $subject, $message) {
-    $headers = 'From: admin<info@smartaservices.com>' . "\r\n";
-    $headers .="CC: info@salyani.com.np". "\r\n";
+    $headers = 'From: admin<admin@tech.net.np>' . "\r\n";
+    $headers .="CC: info@tech.net.np". "\r\n";
     $headers .="MIME-Version: 1.0" . "\r\n";
     $headers .="Content-type:text/html;charset=UTF-8" . "\r\n";
 
@@ -47,13 +47,14 @@ function password_reset_email($to, $userName, $token, $link) {
 
 function send_email($useremail,$subject,$message)
                 {
-     $headers = 'From: admin<info@smartaservices.com>' ."\r\n" ;
-             $headers .="CC: info@salyani.com.np";
+     $headers = 'From: admin<admin@tech.net.np>' . "\r\n";
+    $headers .="CC: info@tech.net.np". "\r\n";
     $headers .="MIME-Version: 1.0" . "\r\n";
-            $headers .="Content-type:text/html;charset=UTF-8" . "\r\n";
+    $headers .="Content-type:text/html;charset=UTF-8" . "\r\n";
+           
 
     if (mail($useremail, $subject, $message, $headers)) {
-        echo "Email sent successfully...";
+        
     } else {
         echo "Message could not be sent...";
          
@@ -116,10 +117,10 @@ function room_add_email($username,$imglink, $hotelname, $room_type)
 }
 function send_room_add_email($useremail,$subject,$message)
                 {
-     $headers = 'From: admin<info@smartaservices.com>' ."\r\n" ;
-             $headers .="CC: info@salyani.com.np";
+     $headers = 'From: admin<admin@tech.net.np>' . "\r\n";
+    $headers .="CC: info@tech.net.np". "\r\n";
     $headers .="MIME-Version: 1.0" . "\r\n";
-            $headers .="Content-type:text/html;charset=UTF-8" . "\r\n";
+    $headers .="Content-type:text/html;charset=UTF-8" . "\r\n";
 
     if (mail($useremail, $subject, $message, $headers)) {
         
@@ -132,10 +133,10 @@ function send_room_add_email($useremail,$subject,$message)
    
    function send_hotel_add_email($useremail,$subject,$message)
                 {
-    $headers = 'From: admin<info@smartaservices.com>' ."\r\n" ;
-             $headers .="CC: info@salyani.com.np";
+     $headers = 'From: admin<admin@tech.net.np>' . "\r\n";
+    $headers .="CC: info@tech.net.np". "\r\n";
     $headers .="MIME-Version: 1.0" . "\r\n";
-            $headers .="Content-type:text/html;charset=UTF-8" . "\r\n";
+    $headers .="Content-type:text/html;charset=UTF-8" . "\r\n";
 
     if (mail($useremail, $subject, $message, $headers)) {
         echo "Email sent successfully...";
@@ -203,11 +204,10 @@ function room_book_email($hotelname, $totalPrice, $fullName, $check_in, $check_o
 
 function send_room_book_email($email,$subject,$message)
                 {
-    $headers = 'From: admin<info@smartaservices.com>' ."\r\n" ;
-             $headers .="CC: info@salyani.com.np";
-             
+     $headers = 'From: admin<admin@tech.net.np>' . "\r\n";
+    $headers .="CC: info@tech.net.np". "\r\n";
     $headers .="MIME-Version: 1.0" . "\r\n";
-            $headers .="Content-type:text/html;charset=UTF-8" . "\r\n";
+    $headers .="Content-type:text/html;charset=UTF-8" . "\r\n";
 
     if (mail($email, $subject, $message, $headers)) {
         echo "Email sent successfully...";

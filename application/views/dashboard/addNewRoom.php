@@ -1,8 +1,34 @@
+<script src="<?php echo base_url() . "contents/scripts/jquery.js"; ?>"></script>
 
 
 <!-- ------------------calling currency_modify helper for currency--------------------------------- -->
  
 <!-- ------------------finish calling currency_modify helper for currency--------------------------------- -->
+<script>
+function add() {
+    var a = $("#noOfRoom").val();
+    a++;
+     if (a>999) {
+        $("#adds").die();
+    }
+    $("#noOfRoom").val(a);
+};
+
+
+
+ 
+function sub() {
+    var b = $("#noOfRoom").val();
+    if (b<1) {
+        $("#subs").die();
+    }
+    b--;
+    $("#noOfRoom").val(b);
+};
+
+ 
+</script>
+
 <div class="right">
     
     <h2>Add New Room&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url().'index.php/dashboard/roomInfo'; ?>">View Rooms</a></h2><hr class="topLine" />
@@ -24,12 +50,12 @@
     <tr>
         <?php echo form_open_multipart('dashboard/addRoom'); ?>
         <td id="alignright"> Room Type:</td>
-        <td><input type="text" name="room_type" value="<?php echo set_value('room_type'); ?>" ></td>
+        <td><input type="text" name="room_type" value="<?php echo set_value('room_type'); ?>" required ></td>
        <!-- <td><a href="" class="example1 r" id="help" onclick="return false;" style="cursor: default;">?</a></td> -->
     </tr>
     <tr>
         <td id="alignright"> No. of Rooms:</td>
-        <td><input type="button" value="-" id="subs">&nbsp;<input type="text" style="width: 50px; color: black; text-align: center; margin: 0px;" class="onlyNumber" id="noOfRoom" value="1" name="noOfRoom" maxlength="3">&nbsp;<input type="button" value="+" id="adds"></td>
+        <td><input type="button" value="-" id="subs" onclick="sub()">&nbsp;<input type="text" style="width: 50px; color: black; text-align: center; margin: 0px;" class="onlyNumber" id="noOfRoom" value="1" name="noOfRoom" maxlength="3">&nbsp;<input type="button" value="+" id="adds" onclick="add()"></td>
       <!--  <td><a href="" class="example2 r" id="help" onclick="return false;" style="cursor: default;">?</a></td> -->
     </tr>
     <tr>
@@ -39,7 +65,7 @@
     </tr>
     <tr>
         <td id="alignright"> Description:</td>
-        <td><textarea name="description" value="<?php echo set_value('description'); ?>" ></textarea></td>
+        <td><textarea name="description" value="<?php echo set_value('description'); ?>" required ></textarea></td>
        <!-- <td><a href="" class="example4 r" id="help" onclick="return false;" style="cursor: default;">?</a></td> -->
     </tr>
     <tr>

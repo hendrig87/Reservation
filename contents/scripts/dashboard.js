@@ -94,43 +94,12 @@ $(document).ready(function() {
         
                 
    
-      $(".onlyNumber").keydown(function (event) {
-    var num = event.keyCode;
-    if ((num > 95 && num < 106) || (num > 36 && num < 41) || num == 9) {
-        return;
-    }
-    if (event.shiftKey || event.ctrlKey || event.altKey) {        
-        event.preventDefault();
-    } else if (num != 46 && num != 8) {
-        if (isNaN(parseInt(String.fromCharCode(event.which)))) {
-            event.preventDefault();
-        }
-    }
-});
+     
 
 
 
 
-$("#adds").click(function() {
-    var a = $("#noOfRoom").val();
-    a++;
-     if (a>999) {
-        $("#adds").die();
-    }
-    $("#noOfRoom").val(a);
-});
 
-
-
- 
-$("#subs").click(function() {
-    var b = $("#noOfRoom").val();
-    if (b<1) {
-        $("#subs").die();
-    }
-    b--;
-    $("#noOfRoom").val(b);
-});
       
       
 //sucess message 

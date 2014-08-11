@@ -50,6 +50,8 @@ class Hotels extends CI_Controller {
       $user=  $this->dbmodel->get_user_info($useremail);
       foreach ($user as $data){
           $user_id=$data->id;
+          $username= $data->user_name;
+          $useremail= $data->user_email;
       }
        $this->load->library('form_validation');
        
@@ -70,7 +72,7 @@ class Hotels extends CI_Controller {
                     $address= $this->input->post('address');
                     $contact= $this->input->post('contact');
                     
-                     $this->addHotelEmail($username, $hotel_name);
+                     $this->addHotelEmail($username, $useremail, $hotel_name);
                    $this->dbmodel->add_new_hotel($hotel_name, $address, $contact, $user_id);
 
                     
@@ -90,14 +92,7 @@ class Hotels extends CI_Controller {
  
 }
 
- public function addHotelEmail($username, $hotel_name){
-              $user= $this->dbmodel->get_current_user($username);
-  
-   if (!empty($user)) {
-        foreach ($user as $data) {
-            $username = $data->user_name;
-            $useremail= $data->user_email;
-}}
+ public function addHotelEmail($username, $useremail, $hotel_name){
  
     $this->load->helper('send_email_helper');
    $subject = "Hotel Addition Successful";

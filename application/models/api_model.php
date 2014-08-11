@@ -93,6 +93,7 @@ class Api_model extends CI_Model {
         $query = $this->db->get('code_info');
         return $query->result();
  }
-    
+ 
+ 
     
 }
