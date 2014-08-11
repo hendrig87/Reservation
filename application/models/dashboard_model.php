@@ -34,11 +34,12 @@ class dashboard_model extends CI_Model {
         return $query->result();
     }
     
-function record_count_all_booking_info()
+function record_count_all_booking_info($user_id)
     {
         $today= date("Y-m-d");
          $this->db->where('status', "0");
         $this->db->where('check_out_date >=', $today);
+        $this->db->where('user_id', $user_id);
         $this->db->from("booking_info");
         return $this->db->count_all_results();
     }
@@ -98,14 +99,23 @@ function record_count_all_booking_info()
 
         return $query->result();
     }
- 
-    function get_booked_room_info($limit, $start, $hotelId) {
+    
+    public function get_hotel_user($hotelId)
+    {
+         $this->db->where('name', $hotelId);
+
+        $query = $this->db->get('hotel_info');
+
+        return $query->result();
+    }
+            
+    function get_booked_room_info($limit, $start, $user_id) {
         $today= date("Y-m-d");
        
         $this->db->limit($limit, $start);
         $this->db->where("status", "0");
         $this->db->where('check_out_date >=', $today);
-         $this->db->where('hotel_id', $hotelId);
+         $this->db->where('user_id', $user_id);
         $this->db->order_by('id','DESC');
         $query = $this->db->get('booking_info');
 

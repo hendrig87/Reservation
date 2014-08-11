@@ -145,6 +145,11 @@ class room_booking extends CI_Controller {
         if (isset($_POST['title'])) {
             $title = $_POST['title'];
         }
+        $user = $this->dashboard_model->get_hotel_user($hotelId);
+       if(!empty($user)){
+        foreach ($user as $users){
+            $userId = $users->user_id;
+        }}
         $temp = $this->api_model->get_code_info($hotelId, $title);
         if(!empty($temp)){
         foreach ($temp as $tempo){
@@ -191,8 +196,9 @@ class room_booking extends CI_Controller {
        VALUES ('" . $bookId . "','" . $item['room_name'] . "', '" . $item['no_of_room'] . "','" . $item['check_in_date'] . "', '" . $item['check_out_date'] . "')");
             }
         }
-                mysql_query("INSERT INTO `booking_info` (check_in_date, check_out_date, booking_id, hotel_id)
-VALUES ('" . $item['check_in_date'] . "', '" . $item['check_out_date'] . "','" . $bookId . "','" . $item['hotel_id'] . "' )");
+        
+                mysql_query("INSERT INTO `booking_info` (check_in_date, check_out_date, booking_id, hotel_id, status, user_id)
+VALUES ('" . $item['check_in_date'] . "', '" . $item['check_out_date'] . "','" . $bookId . "','" . $item['hotel_id'] . "','0' , '" . $userId. "' )");
         $data['value'] = array($totalPrice);
         if ($payment == "0") {
             $this->load->view('ReservationInformation/payment', $data);

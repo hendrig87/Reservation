@@ -382,16 +382,10 @@ $data['query']= $datas;
             foreach ($user as $id) {
                 $user_id = $id->id;
             }
-            $datas= array();
-             $data['hotelName'] = $this->dbmodel->get_user_hotel($user_id);
-             if(!empty($data['hotelName'])){
-                 foreach ($data['hotelName'] as $hotels)
-                 {
-                 $hotelId= $hotels->id;
 /*for pagination*/
             $config = array();
         $config["base_url"] = base_url() . "index.php/dashboard/bookingInfo";
-        $config["total_rows"] = $this->dashboard_model->record_count_all_booking_info();
+        $config["total_rows"] = $this->dashboard_model->record_count_all_booking_info($user_id);
         $config["per_page"] = 5;
         $this->pagination->initialize($config);
         $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
@@ -417,13 +411,10 @@ $data['query']= $datas;
         $config['last_link'] = '&gt;&gt;';
         $this->pagination->initialize($config);
         /* pagination ends here */
-           
+            
             $data['hotelName'] = $this->dbmodel->get_user_hotel($user_id);
             if(!empty($data['hotelName'])){
-                 $booking = $this->dashboard_model->get_booked_room_info($config["per_page"], $page, $hotelId);
-                 $datas = array_merge($datas, $booking);
-             }}}
-$data['roomInfo']= $datas;
+            $data['roomInfo'] = $this->dashboard_model->get_booked_room_info($config["per_page"], $page, $user_id);}
              $config['display_pages'] = FALSE;
              $data["links"] = $this->pagination->create_links();
             $this->load->view('template/header');
@@ -455,7 +446,7 @@ $data['roomInfo']= $datas;
             
              /*for pagination */
  $config = array();
-        $config["base_url"] = base_url() . "index.php/dashboard/searchManagedBooking";
+        $config["base_url"] = base_url() . "index.php/dashboard/bookingInfo";
         $config["total_rows"] = $this->dashboard_model->record_count_all_booking_info_search($hotelId);
         $config["per_page"] = 5;
         $this->pagination->initialize($config);
@@ -495,7 +486,7 @@ $data['roomInfo']= $datas;
         else
         {
             $data['hotelName'] = $this->dbmodel->get_user_hotel($user_id);
-           $data['roomInfo'] = $this->dashboard_model->get_booked_room_info($config["per_page"], $page, $hotelId);
+           $data['roomInfo'] = $this->dashboard_model->get_booked_room_info($config["per_page"], $page, $user_id);
            
  }
         
