@@ -38,6 +38,7 @@ class SimpleCalendar {
 		}
 
 		$working_date = $start_date;
+               
 		do {
 			$tDate = getdate($working_date);
 			$working_date += 86400;
@@ -65,7 +66,7 @@ class SimpleCalendar {
 		if( $this->wday_names ) {
 			$wdays = $this->wday_names;
 		} else {
-			$today = (86400 * (date("N")));
+			$today = (86400 * (date('N')));
 			$wdays = array();
 			for( $i = 0; $i < 7; $i++ ) {
 				$wdays[] = strftime('%A', time() - $today + ($i * 86400));
@@ -88,8 +89,8 @@ $nexvdate = date ( 'Y/m' , $nextdate );
                 
                 $prevMth = $this->now['mon'] - 01;
                 $nextMth = $this->now['mon'] + 01;
-                $prevurl= base_url().'index.php/calendar/demo/'.$prevdate;
-                $nexturl= base_url().'index.php/calendar/demo/'.$nexvdate;
+                $prevurl= base_url().'index.php/dashboard/calender/'.$prevdate;
+                $nexturl= base_url().'index.php/dashboard/calender/'.$nexvdate;
                 
 		$out = '<table cellpadding="0" cellspacing="0" class="SimpleCalendar"><thead><tr>';
                 $out .='<th><a href="'.$prevurl.'">Prev. Month</a></th>';

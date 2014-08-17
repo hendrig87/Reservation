@@ -16,8 +16,8 @@
         border-top: none; }
     table.SimpleCalendar tbody td {
         vertical-align: top;
-        width: 90px;
-        height: 90px;
+        width: 150px;
+        height: 110px;
         border: 1px solid #bbb;
         background: #e6e6e6; }
     table.SimpleCalendar tbody td time {
@@ -38,7 +38,8 @@
         background: #858585;
         color: white; }
     table.SimpleCalendar tbody td#today {
-        background: palegoldenrod; }
+       // background: palegoldenrod;
+    }
     .days
     {
         border: 1px solid #bbb;
@@ -56,10 +57,32 @@
         font-size: 18px;
     }
 
+    #hour, #mins, #ampm
+    {
+        width: 70px;
+    }
 
 </style>
 
 <!-- here the tab starts-->
+
+<div class="right">
+    
+    <h2>Edit Hotel</h2><hr class="topLine" />
+    
+    
+    <div id="sucessmsg"> 
+            <?php echo validation_errors();
+              if($this->session->flashdata('message')) { ?>
+            <img src="<?php echo base_url() . "contents/images/success.jpg"; ?>" height="15px" width="15px"/>
+            <?php echo $this->session->flashdata('message');
+            }
+              ?>
+            
+    </div>
+
+
+
 <div class="tabs">
     <ul class="tab-links">
         <li class="active"><a href="#tab1">Booking Calendar</a></li>
@@ -106,6 +129,8 @@ $mthYr = $monthName.' '.$year;
 $year = $months['0'];
 $month = $months['1'];
 
+
+
 $timestamp = mktime(0, 0, 0, $month, 1);
 $monthName = date('F', $timestamp );
 $mthYr = $monthName.' '.$year;
@@ -129,18 +154,62 @@ if (!empty($mthEvents)) {
 
 $calendar->show(true);
 ?>
+            
         </div>
 
         <div id="tab3" class="tab">
+            <?php
+                $hours = 12;
+                $mins = 60;
+                ?>
             <form>
             <p>Event Title:
-            <input type="text" placeholder="event title" required /></p>
+            <input type="text" placeholder="event title" required />
+           </p>
             <p>Start Date:
-            <input type="text" placeholder="event title" required /></p>
+            <input type="text" placeholder="event title" required />
+            Time: <select id="hour"><option value="0" >Hour </option> 
+                    <?php
+                    for ($i = 1; $i <= $hours; $i++) {
+                        echo "<option value=" . $i . ">" . $i . "</option>";
+                    }
+                    ?>
+            </select>
+            <select id="mins"><option value="0" > Minute</option> 
+                    <?php
+                    for ($i = 1; $i <= $mins; $i++) {
+                        echo "<option value=" . $i . ">" . $i . "</option>";
+                    }
+                    ?>
+            </select>
+            <select id="ampm"><option value="0" > am</option> 
+                <option value="0" > pm</option>
+                   
+            </select>
+            </p>
             <p>End Date:
-            <input type="text" placeholder="event title" required /></p>
+            <input type="text" placeholder="event title" required />
+             Time: <select id="hour"><option value="0" >Hour </option> 
+                    <?php
+                    for ($i = 1; $i <= $hours; $i++) {
+                        echo "<option value=" . $i . ">" . $i . "</option>";
+                    }
+                    ?>
+            </select>
+            <select id="mins"><option value="0" > Minute</option> 
+                    <?php
+                    for ($i = 1; $i <= $mins; $i++) {
+                        echo "<option value=" . $i . ">" . $i . "</option>";
+                    }
+                    ?>
+            </select>
+            <select id="ampm"><option value="0" > am</option> 
+                <option value="0" > pm</option>
+                   
+            </select>
+            </p>
             <p>Location:
-            <input type="text" placeholder="event title" required /></p>
+            <input type="text" placeholder="Location" required /></p>
             <input type="submit" value="Add Event"/>
             </form>
         </div>
@@ -150,12 +219,15 @@ $calendar->show(true);
         </div>
     </div>
 </div>
+    
+    
+    
+    </div>
+
+</div>
+<div id="clear"></div>
 <style>
-    /*----- Tabs -----*/
-    .tabs {
-        width:100%;
-        display:inline-block;
-    }
+   
 
     /*----- Tab Links -----*/
     /* Clearfix */
@@ -175,7 +247,7 @@ $calendar->show(true);
         padding:9px 15px;
         display:inline-block;
         border-radius:3px 3px 0px 0px;
-        background:#7FB5DA;
+        background:#10B0DA;
         font-size:16px;
         font-weight:600;
         color:#4c4c4c;
@@ -188,16 +260,8 @@ $calendar->show(true);
     }
 
     li.active a, li.active a:hover {
-        background:#fff;
         color:#4c4c4c;
-    }
-
-    /*----- Content of Tabs -----*/
-    .tab-content {
-        padding:15px;
-        border-radius:3px;
-        box-shadow:-1px 1px 1px rgba(0,0,0,0.15);
-        background:#fff;
+        background-color: rgb(111, 150, 216);
     }
 
     .tab {

@@ -364,7 +364,7 @@ class dashboard extends CI_Controller {
         }
     }
 
-    public function calender($year=null, $month=NULL) {
+    public function calender($year=NULL, $month=NULL) {
           if ($this->session->userdata('logged_in')) {
             $useremail = $this->session->userdata('useremail');
             $user = $this->dbmodel->get_user_info($useremail);
