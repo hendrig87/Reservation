@@ -132,7 +132,7 @@ class dashboard extends CI_Controller {
                 {
                    
                
-                $data['add_room'] = $this->dashboard_model->add_new_room($room_type, $noOfRoom, $price, $description, $img_name, $hotel_id);
+                $data['add_room'] = $this->dashboard_model->add_new_room($room_type, $noOfRoom, $price, $description, $img_name, $hotel_id, $user_id);
 
               $this->addNewRoomEmail($useremail, $room_type, $hotel_id);
                     $this->session->set_flashdata('message', 'Data sucessfully Added');
@@ -168,51 +168,62 @@ class dashboard extends CI_Controller {
     }
 
     public function get_hotel_id() {
-        $data['query']= array();
-          $config["per_page"] = 5;
-        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-        if (isset($_POST['id'])) {
-            $hotel_id = $_POST['id'];
-            if($hotel_id!=0){
-                
-            $data['query'] = $this->dashboard_model->get_all_rooms($config["per_page"], $page, $hotel_id);
-        }
-        else
-        {
-             $useremail = $this->session->userdata('useremail');
-            $user = $this->dbmodel->get_user_info($useremail);
-            foreach ($user as $id) {
-                $user_id = $id->id;
-            }
-             
-             $data['hotelName'] = $this->dbmodel->get_user_hotel($user_id);
-             if(!empty($data['hotelName'])){
-                 foreach ($data['hotelName'] as $hotels)
-                 {
-                 $hotelId= $hotels->id;
-            $room = $this->dashboard_model->get_all_rooms($config["per_page"], $page, $hotelId);
-            $data['query'] = array_merge($data['query'], $room);
-        }}
-
-        }
-        }else {
+        if ($this->session->userdata('logged_in')) {
             $useremail = $this->session->userdata('useremail');
             $user = $this->dbmodel->get_user_info($useremail);
             foreach ($user as $id) {
                 $user_id = $id->id;
             }
+            $hotel_id = $_POST['id'];
+          
+         $data['hotelName'] = $this->dbmodel->get_user_hotel($user_id);
+         /*for pagination*/
+            $config = array();
+        $config["base_url"] = base_url() . "index.php/dashboard/roomInfo";
+          if($hotel_id!=0){$config["total_rows"] = $this->dashboard_model->record_count_all_room_registration($hotel_id);}
+          else{$config["total_rows"] = $this->dashboard_model->record_count_all_room_registration($user_id);}
+        $config["per_page"] = 8;
+        $this->pagination->initialize($config);
+        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+       
+        $config["num_links"] = $config["total_rows"] / $config["per_page"];
+        $config['full_tag_open'] = '<ul class="tsc_pagination tsc_paginationA tsc_paginationA01">';
+        $config['full_tag_close'] = '</ul>';
+        $config['prev_link'] = 'First';
+        $config['prev_tag_open'] = '<li>';
+        $config['prev_tag_close'] = '</li>';
+        $config['next_link'] = 'Next';
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
+        $config['cur_tag_open'] = '<li class="current"><a href="#">';
+        $config['cur_tag_close'] = '</a></li>';
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        $config['first_tag_open'] = '<li>';
+        $config['first_tag_close'] = '</li>';
+        $config['last_tag_open'] = '<li>';
+        $config['last_tag_close'] = '</li>';
+        $config['first_link'] = '&lt;&lt;';
+        $config['last_link'] = '&gt;&gt;';
+        $this->pagination->initialize($config);
+        /* pagination ends here */
+        $config['display_pages'] = FALSE;
+             $data["links"] = $this->pagination->create_links();
              
-             $data['hotelName'] = $this->dbmodel->get_user_hotel($user_id);
-             if(!empty($data['hotelName'])){
-                 foreach ($data['hotelName'] as $hotels)
-                 {
-                 $hotelId= $hotels->id;
-            $room = $this->dashboard_model->get_all_rooms($config["per_page"], $page, $hotelId);
-             $data['query'] = array_merge($data['query'], $room);
-        }}}
+            $hotel_id = $_POST['id'];
+            if($hotel_id!=0){
+                
+            $data['query'] = $this->dashboard_model->get_all_rooms_by_hotel($config["per_page"], $page, $hotel_id);
+        }
+        else
+        {        
+             $data['query'] = $this->dashboard_model->get_all_rooms($config["per_page"], $page, $user_id);
+        }
      
         $this->load->view('dashboard/roomInformation', $data);
-
+} else {
+            redirect('login', 'refresh');
+        }
     }
 
     public function roomInfo() {
@@ -222,18 +233,15 @@ class dashboard extends CI_Controller {
             foreach ($user as $id) {
                 $user_id = $id->id;
             }
-            $datas= array();
+           
              $data['hotelName'] = $this->dbmodel->get_user_hotel($user_id);
-             if(!empty($data['hotelName'])){
-                 foreach ($data['hotelName'] as $hotels)
-                 {
-                 $hotelId= $hotels->id;
+            
                 
 /*for pagination*/
             $config = array();
         $config["base_url"] = base_url() . "index.php/dashboard/roomInfo";
-        $config["total_rows"] = $this->dashboard_model->record_count_all_room_registration($hotelId);
-        $config["per_page"] = 5;
+        $config["total_rows"] = $this->dashboard_model->record_count_all_room_registration($user_id);
+        $config["per_page"] = 8;
         $this->pagination->initialize($config);
         $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
        
@@ -260,10 +268,8 @@ class dashboard extends CI_Controller {
         /* pagination ends here */
            
           
-             $room = $this->dashboard_model->get_all_rooms($config["per_page"], $page, $hotelId);
-             $datas = array_merge($datas, $room);
-                 }}
-$data['query']= $datas;
+             $data['query'] = $this->dashboard_model->get_all_rooms($config["per_page"], $page, $user_id);
+            
              $config['display_pages'] = FALSE;
              $data["links"] = $this->pagination->create_links();
             $this->load->view('template/header');
@@ -358,22 +364,45 @@ $data['query']= $datas;
         }
     }
 
-    public function calender() {
-        $this->load->view('template/header');
-        $this->load->view('dashboard/reservationSystem');
-        $this->load->view('dashboard/calender');
+    public function calender($year=null, $month=NULL) {
+          if ($this->session->userdata('logged_in')) {
+            $useremail = $this->session->userdata('useremail');
+            $user = $this->dbmodel->get_user_info($useremail);
+            foreach ($user as $id) {
+                $user_id = $id->id;
+            }
+            
+           
+            
+            
+     if (!$year) {
+$year = date('Y');
+}
+if (!$month) {
+$month = date('m');
+}  
+ 
+        $data['mthBooking'] = $this->dashboard_model->get_booking_info_this_month($user_id, $year, $month);
+        $data['mthEvents'] = $this->dashboard_model->get_event_info_this_month($year, $month);
+        $data['months']= array($year, $month);
+$this->load->helper('date_helper');
 
-        $this->load->view('template/footer');
+  $this->load->view('template/header');
+            $this->load->view('dashboard/reservationSystem');
+      $this->load->view('template/demo', $data);
+      $this->load->view('template/footer');
+}
+     else {
+            redirect('login', 'refresh');
+        }        
+       
+
+
+       
+
     }
-
   
-        
-
-        
-
-      
-        
-        
+    
         
     public function bookingInfo() {
         if ($this->session->userdata('logged_in')) {
@@ -386,7 +415,7 @@ $data['query']= $datas;
             $config = array();
         $config["base_url"] = base_url() . "index.php/dashboard/bookingInfo";
         $config["total_rows"] = $this->dashboard_model->record_count_all_booking_info($user_id);
-        $config["per_page"] = 5;
+        $config["per_page"] = 8;
         $this->pagination->initialize($config);
         $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
        
@@ -447,8 +476,10 @@ $data['query']= $datas;
              /*for pagination */
  $config = array();
         $config["base_url"] = base_url() . "index.php/dashboard/bookingInfo";
-        $config["total_rows"] = $this->dashboard_model->record_count_all_booking_info_search($hotelId);
-        $config["per_page"] = 5;
+        if($hotelId!="0"){
+        $config["total_rows"] = $this->dashboard_model->record_count_all_booking_info_search($hotelId);}
+        else{  $config["total_rows"] = $this->dashboard_model->record_count_all_booking_info($user_id);}
+        $config["per_page"] = 8;
         $this->pagination->initialize($config);
         $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
        

@@ -5,15 +5,21 @@ class dashboard_model extends CI_Model {
     public function __construct() {
         $this->load->database();
     }
+    
+    
 
-    public function add_new_room($room_type, $noOfRoom, $price, $description, $img_name, $hotel_id) {
+
+    
+
+    public function add_new_room($room_type, $noOfRoom, $price, $description, $img_name, $hotel_id, $user_id) {
         $data = array(
             'room_name' => $room_type,
             'no_of_room' => $noOfRoom,
             'price' => $price,
             'description' => $description,
             'image' => $img_name,
-            'hotel_id' => $hotel_id);
+            'hotel_id' => $hotel_id,
+            'user_id'=> $user_id);
 
         $this->db->insert('room_registration', $data);
     }
@@ -61,9 +67,9 @@ function record_count_all_booking_info($user_id)
         return $this->db->count_all_results();
     }
     
-    function record_count_all_room_registration($hotelId)
+    function record_count_all_room_registration($user_id)
     {
-        $this->db->where('hotel_id', $hotelId);
+        $this->db->where('user_id', $user_id);
         $this->db->from('room_registration');
         return $this->db->count_all_results();
     }
@@ -75,15 +81,51 @@ function record_count_all_booking_info($user_id)
         return $query->result();
     }
             
-    function get_all_rooms($limit, $start, $hotelId) {
+    function get_all_rooms($limit, $start, $user_id) {
+          $this->db->limit($limit, $start);
+           $this->db->where('user_id', $user_id);
+        $this->db->order_by("hotel_id", "desc");
+        $query = $this->db->get('room_registration');
+        return $query->result();
+    }
+    
+    function get_all_rooms_by_hotel($limit, $start, $hotelId) {
           $this->db->limit($limit, $start);
            $this->db->where('hotel_id', $hotelId);
         $this->db->order_by("hotel_id", "desc");
         $query = $this->db->get('room_registration');
         return $query->result();
     }
+    
+    function get_booking_info_this_month($user_id, $year, $month)
+    {   
+        $this->db->select('check_in_date, check_out_date, booking_id');
+        $this->db->where("status", "0");
+         $this->db->where('user_id', $user_id);
+         $this->db->like('check_in_date', $year.'-'.$month);
+        $query = $this->db->get('booking_info');
 
-    function get_booked_room_no($hotel_id, $roomName) {
+        return $query->result();
+    }
+    
+    function get_event_info_this_month($year, $month)
+    {   
+       //  $this->db->where('user_id', $user_id);
+         $this->db->like('start_date', $year.'-'.$month);
+        $query = $this->db->get('calendar');
+
+        return $query->result();
+    }
+    
+    function get_booking_personal_info_this_day($book_id)
+    {
+       $this->db->where('booking_id', $book_id);
+       $query = $this->db->get('personal_info');
+
+        return $query->result();
+    }
+            
+        function get_booked_room_no($hotel_id, $roomName) {
         $this->db->select('no_of_rooms_booked');
         $this->db->where('hotel_id', $hotel_id);
         $this->db->where('room_type', $roomName);

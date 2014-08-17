@@ -7,6 +7,8 @@
 this file is called by welcome_message in view
 folder login inside view filder also uses these styles
 */
+
+
 /*for pagination*/
  ul.tsc_pagination { margin:4px 0; padding:0px; overflow:hidden; font:12px 'Tahoma'; list-style-type:none; }
 ul.tsc_pagination li { float:left; margin:0px; padding:0px; margin-left:5px; }
