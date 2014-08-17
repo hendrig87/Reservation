@@ -156,7 +156,22 @@ $calendar->show(true);
 ?>
             
         </div>
-
+        <script>
+          function getValue()
+          {
+                var title = $("#eventTitle").val();
+                var s_date = $("#startDate").val();
+                var adult = $("#adults").val();
+                var child = $("#childs").val();
+                var hotelId = $("#tags").val();
+                alert()
+          }
+            
+            
+            
+            
+            
+            </script>
         <div id="tab3" class="tab">
             <?php
                 $hours = 12;
@@ -164,10 +179,10 @@ $calendar->show(true);
                 ?>
             <form>
             <p>Event Title:
-            <input type="text" placeholder="Event Title" required />
+            <input type="text" id="eventTitle" placeholder="Event Title" required />
            </p>
             <p>Start Date:
-            <input type="text" placeholder="Start Date" required />
+            <input type="text" id="startDate" placeholder="Start Date" required />
             Time: <select id="hour"><option value="0" >Hour </option> 
                     <?php
                     for ($i = 1; $i <= $hours; $i++) {
