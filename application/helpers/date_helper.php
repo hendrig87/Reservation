@@ -93,7 +93,7 @@ $nexvdate = date ( 'Y/m' , $nextdate );
                 
 		$out = '<table cellpadding="0" cellspacing="0" class="SimpleCalendar"><thead><tr>';
                 $out .='<th><a href="'.$prevurl.'">Prev. Month</a></th>';
-                $out .= '<th colspan="5" id="mthName">'.date('F').'-'.date('Y').'</th>';
+                $out .= '<th colspan="5" id="mthName">'.date("F", mktime(0, 0, 0, $this->now['mon'], 10)).'-'.$this->now['year'].'</th>';
                 $out .='<th><a href="'.$nexturl.'">Next Month</a></th></tr><tr>';
 		for( $i = 0; $i < 7; $i++ ) {
 			$out .= '<td class="days">' . $wdays[$i] . '</td>';
