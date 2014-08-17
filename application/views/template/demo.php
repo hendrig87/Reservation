@@ -164,10 +164,10 @@ $calendar->show(true);
                 ?>
             <form>
             <p>Event Title:
-            <input type="text" placeholder="event title" required />
+            <input type="text" placeholder="Event Title" required />
            </p>
             <p>Start Date:
-            <input type="text" placeholder="event title" required />
+            <input type="text" placeholder="Start Date" required />
             Time: <select id="hour"><option value="0" >Hour </option> 
                     <?php
                     for ($i = 1; $i <= $hours; $i++) {
@@ -188,7 +188,7 @@ $calendar->show(true);
             </select>
             </p>
             <p>End Date:
-            <input type="text" placeholder="event title" required />
+            <input type="text" placeholder="End Date" required />
              Time: <select id="hour"><option value="0" >Hour </option> 
                     <?php
                     for ($i = 1; $i <= $hours; $i++) {
