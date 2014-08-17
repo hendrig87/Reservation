@@ -311,12 +311,24 @@ $calendar->show(true);
 
 <!-- tab ends here-->
 
+<div class="event-popup" style="display: none; width: 300px; height: 300px; position: fixed; top:200px; left: 600px; color: red; z-index: 100; background-color: #10B0DA;">
+    <span class="close"><a href="#">Close</a></span>
+</div>
+
 <script type="text/javascript">
     $(document).ready(function() {
         $('.SimpleCalendar .asdf').click(function() {
+           
+            $('.event-popup').css('display','block');
+            var close = '<span class="close"><a href="#">Close</a></span>';
+             var date = $(this).find('.test').val();
+             var pdate = '<h3>'+date+'</h3>';
+             var finaloutput = pdate+close;
+            $('.event-popup').html(finaloutput);
+           
             day_num = $(this).find('.day_num').html();
-            day_data = prompt('Enter Stuff', $(this).find('.content').html());
-            no_day = prompt('For how many days', $(this).find('.no_day').html());
+            //day_data = prompt('Enter Stuff', $(this).find('.content').html());
+           // no_day = prompt('For how many days', $(this).find('.no_day').html());
             if (day_data != null) {
 
                 $.ajax({
@@ -334,6 +346,9 @@ $calendar->show(true);
 
             }
 
+        });
+        $('.close').click(function(){
+            $('.event-popup').css('display','none');
         });
 
     });

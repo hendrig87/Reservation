@@ -6,7 +6,6 @@ class SimpleCalendar {
 
 	
 	public $wday_names = false;
-
 	private $now;
 	private $daily_html = array();
 	private $offset = 0;
@@ -116,7 +115,7 @@ $nexvdate = date ( 'Y/m' , $nextdate );
 
 			$datetime = mktime(0, 0, 1, $this->now['mon'], $i, $this->now['year']);
 
-			$out .= '<time datetime="' . date('Y-m-d', $datetime) . '">' . $i . '</time>';
+			$out .= '<time datetime="' . date('Y-m-d', $datetime) . '">' . $i . '</time><input type="hidden" class="test" value="'.$i.'"/>';
 
 			$dHtml_arr = false;
 			if( isset($this->daily_html[$this->now['year']][$this->now['mon']][$i]) ) {
