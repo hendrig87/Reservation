@@ -110,13 +110,21 @@ function record_count_all_booking_info($user_id)
     
     function get_event_info_this_month($year, $month)
     {   
-       //  $this->db->where('user_id', $user_id);
+        // $this->db->where('user_id', $user_id);
          $this->db->like('start_date', $year.'-'.$month);
-        $query = $this->db->get('calendar');
-
+        $query = $this->db->get('events');
         return $query->result();
     }
     
+    public function add_new_event($eventTitle, $startDate, $startHour, $startMin, $ampm, $endDate, $endHour, $endMin, $endampm, $location)
+    {
+         $data = array(
+            'event' => $eventTitle,
+            'start_date' => $startDate.$startHour.$startMin.$ampm,
+            'end_date' => $endDate.$endHour.$endMin.$endampm,
+             'location'=> $location);
+        $this->db->insert('events', $data);
+    }
     function get_booking_personal_info_this_day($book_id)
     {
        $this->db->where('booking_id', $book_id);

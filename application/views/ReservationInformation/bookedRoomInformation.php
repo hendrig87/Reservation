@@ -70,16 +70,13 @@ $( ".datepicker" ).datepicker();
     <table width="100%" style="border-collapse: collapse">
         <tr>
             <th width="17%">Room</th>
-            <th width="7%">No.of room</th>
+            <th width="7%">No. of room</th>
            
-            <th width="9%">From</th>
-            <th width="9%">To</th>
-            <th width="10%">Total Days</th>
+            <th width="12%">From - To</th>
             <th width="10%">Remain days</th>
-            <th width="9%">No. of individuals</th>
-            <th width="15%">Contact Person/ Address</th>
-            <th width="10%">Contact Number</th>
-             <th width="20%">Booked Hotel Info</th>
+            <th width="9%">No. of Pupil</th>
+            <th width="25%">Contact Person/ Address</th>
+             <th width="15%">Booked Hotel</th>
              <th width="4%">Action</th>
         </tr>  
     <?php
@@ -104,9 +101,9 @@ $( ".datepicker" ).datepicker();
                 
     if ($checkIn <= $currentDate && $checkOut >= $currentDate)
         { ?>
-          <tr class="current" >
+        <tr class="current" style="border-bottom:1px solid #ccc;" >
         <?php } else { ?>
-       <tr class="upcomming">
+       <tr class="upcomming" style="border-bottom:1px solid #ccc;">
   <?php  }   ?>
         
             <td>
@@ -129,9 +126,9 @@ $( ".datepicker" ).datepicker();
         <?php echo $noOfRooms;?> <br/> <?php }?> </td>
             
             <td>
-                <?php echo $checkIn; ?>
+                <?php echo $checkIn.' to '.$checkOut.'<br/>('.$days.' days)'; ?>
             </td>
-            <td> <?php echo $checkOut; ?></td>
+            
             
             <?php $personalInfo = $this->dashboard_model->get_booking_personal_info($bookingId);
     if(!empty($personalInfo))
@@ -145,11 +142,11 @@ $( ".datepicker" ).datepicker();
         $totalPupil = $child + $adult;
         
         ?>
-            <td><?php if($days>1){ echo $days." days";}else{ echo $days." day";} ?></td>
+<!--            <td><?php// if($days>1){ echo $days." days";}else{ echo $days." day";} ?></td>-->
             <td><?php if($remain>=1){ echo $remain." days";}else{ echo "currently running";} ?></td>
         <td> <?php echo $totalPupil; ?></td>
-        <td> <?php echo $bookingName."<br>". $bookingEmail."<br>".$bookAddress; ?></td>
-        <td> <?php echo $contact ; ?></td>
+        <td> <?php echo $bookingName."<br>". $bookingEmail."<br>".$bookAddress."<br>".$contact; ?></td>
+       
         
         
     <?php }} ?>
@@ -161,7 +158,7 @@ $( ".datepicker" ).datepicker();
         $contact = $bookHotel->contact;
     
         ?>
-        <td><?php echo $hotelName."<br>". $hotelAddress."<br>".$contact;  ?></td> <?php }} else{ ?><td><?php echo 'hotel not found';  ?></td><?php } ?>
+        <td><?php echo $hotelName;  ?></td> <?php }} else{ ?><td><?php echo 'hotel not found';  ?></td><?php } ?>
    <td>    
                 <?php echo anchor('dashboard/editBooking/'.$book->id,'<img src="'.  base_url().'contents/images/edit.png"  alt="Edit" class="edit_room">'); ?>&nbsp;&nbsp;&nbsp;
                 <?php echo anchor('dashboard/deleteBooking/'.$book->id,'<img src="'.  base_url().'contents/images/delete.png" alt="Delete" class="delete_room">'); ?>

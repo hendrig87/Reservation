@@ -389,21 +389,58 @@ $this->load->helper('date_helper');
 
   $this->load->view('template/header');
             $this->load->view('dashboard/reservationSystem');
-      $this->load->view('template/demo', $data);
+      $this->load->view('template/calendar', $data);
       $this->load->view('template/footer');
 }
      else {
             redirect('login', 'refresh');
         }        
-       
-
-
-       
-
+   
     }
-  
     
+    public function addEvent()
+    {
+       if (isset($_POST['eventTitle'])) {
+            $eventTitle = $_POST['eventTitle'];
+        }
+         if (isset($_POST['startDate'])) {
+            $startDate = $_POST['startDate'];
+        }
+         if (isset($_POST['startHour'])) {
+            $startHour = $_POST['startHour'];
+        }
+         if (isset($_POST['startMin'])) {
+            $startMin = $_POST['startMin'];
+        }
+        if (isset($_POST['ampm'])) {
+            $ampm = $_POST['ampm'];
+        }
+         if (isset($_POST['endDate'])) {
+            $endDate = $_POST['endDate'];
+        }
+        if (isset($_POST['endHour'])) {
+            $endHour = $_POST['endHour'];
+        }
+        if (isset($_POST['endMin'])) {
+            $endMin = $_POST['endMin'];
+        }
+        if (isset($_POST['endampm'])) {
+            $endampm = $_POST['endampm'];
+        }
+        if (isset($_POST['location'])) {
+            $location = $_POST['location'];
+        }
         
+        $this->dashboard_model->add_new_event($eventTitle, $startDate, $startHour, $startMin, $ampm, $endDate, $endHour, $endMin, $endampm, $location);
+        
+        
+    }
+
+
+
+
+
+
     public function bookingInfo() {
         if ($this->session->userdata('logged_in')) {
             $useremail = $this->session->userdata('useremail');
