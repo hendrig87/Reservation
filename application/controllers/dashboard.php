@@ -431,11 +431,11 @@ class dashboard extends CI_Controller {
             $config = array();
         $config["base_url"] = base_url() . "index.php/dashboard/bookingInfo";
         $config["total_rows"] = $this->dashboard_model->record_count_all_booking_info($user_id);
-<<<<<<< HEAD
+
         $config["per_page"] = 2;
-=======
+
         $config["per_page"] = 12;
->>>>>>> origin/master
+
         $this->pagination->initialize($config);
         $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
        
@@ -499,11 +499,11 @@ class dashboard extends CI_Controller {
         if($hotelId!="0"){
         $config["total_rows"] = $this->dashboard_model->record_count_all_booking_info_search($hotelId);}
         else{  $config["total_rows"] = $this->dashboard_model->record_count_all_booking_info($user_id);}
-<<<<<<< HEAD
+
         $config["per_page"] = 2;
-=======
+
         $config["per_page"] = 12;
->>>>>>> origin/master
+
         $this->pagination->initialize($config);
         $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
        
