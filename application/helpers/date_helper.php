@@ -115,7 +115,7 @@ $nexvdate = date ( 'Y/m' , $nextdate );
 
 			$datetime = mktime(0, 0, 1, $this->now['mon'], $i, $this->now['year']);
 
-			$out .= '<time datetime="' . date('Y-m-d', $datetime) . '">' . $i . '</time><input type="hidden" class="test" value="'.$i.'"/>';
+			$out .= '<time id="dateTime" datetime="' . date('Y-m-d', $datetime) . '">' . $i . '</time>';
 
 			$dHtml_arr = false;
 			if( isset($this->daily_html[$this->now['year']][$this->now['mon']][$i]) ) {
@@ -124,7 +124,7 @@ $nexvdate = date ( 'Y/m' , $nextdate );
 
 			if( is_array($dHtml_arr) ) {
 				foreach( $dHtml_arr as $dHtml ) {
-					$out .= '<div class="event">' . $dHtml . '</div>';
+					$out .= '<div class="event">' . $dHtml . '</div><input type="hidden" class="test" value="'.$dHtml.'"/>';
 				}
 			}
 

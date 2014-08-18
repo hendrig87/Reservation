@@ -115,52 +115,36 @@ $mthYr = $monthName.' '.$year;
 
 </div>
 <div id="clear"></div>      
-<script>
 
-    jQuery(document).ready(function() {
-        jQuery('.tabs .tab-links a').on('click', function(e) {
-            var currentAttrValue = jQuery(this).attr('href');
-
-            // Show/Hide Tabs
-            jQuery('.tabs ' + currentAttrValue).show().siblings().hide();
-
-            // Change/remove current tab to active
-            jQuery(this).parent('li').addClass('active').siblings().removeClass('active');
-
-            e.preventDefault();
-        });
-    });
-</script>
+<div class="event-popup" style="display: none; width: 300px; height: 300px; position: fixed; top:200px; left: 600px; z-index: 100; background-color: #10B0DA;">
+   <a href="#" id="popUpClose">Close</a>
+    <div id='replaceable'></div>
+</div>
 
 
 
-<!-- tab ends here-->
+
 
 <script type="text/javascript">
     $(document).ready(function() {
-        $('.SimpleCalendar .asdf').click(function() {
-            day_num = $(this).find('.day_num').html();
-            day_data = prompt('Enter Stuff', $(this).find('.content').html());
-            no_day = prompt('For how many days', $(this).find('.no_day').html());
-            if (day_data != null) {
-
-                $.ajax({
-                    url: window.location,
-                    type: 'POST',
-                    data: {
-                        day: day_num,
-                        data: day_data,
-                        howlong: no_day
-                    },
-                    success: function(msg) {
-                        location.reload();
-                    }
-                });
-
-            }
+        $('.SimpleCalendar .event').click(function() {
+             $(".event-popup").show();
+             var date =  $(this).parent('#dateTime').val(); 
+             alert(date);
+             var pdate = '<h3>'+date+'</h3>';
+             var finaloutput = pdate;
+            $('#replacable').html(finaloutput);
+           
 
         });
-
+            
+    });
+    
+    $(document).ready(function() {
+        $('#popUpClose').click(function() {
+            $(".event-popup").hide();
+            
+        });
     });
 
 </script>
