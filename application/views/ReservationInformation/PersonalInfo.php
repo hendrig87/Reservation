@@ -46,7 +46,7 @@
     function validate() {
 
         var valid = true;
-        var msg = "Incomplete form, please fill the form correctly\n";
+        var msg = "Incomplete form, please fill the form correctly \n (minimum 5 charecter)";
         var fullName = document.myForm.fullname.value;
 
         var address = document.myForm.address.value;
