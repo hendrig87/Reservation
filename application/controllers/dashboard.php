@@ -452,7 +452,7 @@ $this->load->helper('date_helper');
             $config = array();
         $config["base_url"] = base_url() . "index.php/dashboard/bookingInfo";
         $config["total_rows"] = $this->dashboard_model->record_count_all_booking_info($user_id);
-        $config["per_page"] = 8;
+        $config["per_page"] = 12;
         $this->pagination->initialize($config);
         $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
        
@@ -516,7 +516,7 @@ $this->load->helper('date_helper');
         if($hotelId!="0"){
         $config["total_rows"] = $this->dashboard_model->record_count_all_booking_info_search($hotelId);}
         else{  $config["total_rows"] = $this->dashboard_model->record_count_all_booking_info($user_id);}
-        $config["per_page"] = 8;
+        $config["per_page"] = 12;
         $this->pagination->initialize($config);
         $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
        

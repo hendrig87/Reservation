@@ -112,7 +112,7 @@
     ?>
         
     </table>
-     <?php if (strlen($links) > 2) { ?>
+     <?php if (strlen($links) > 0) { ?>
         <div class="pagination">
             <?php echo $links; ?>
         </div>
