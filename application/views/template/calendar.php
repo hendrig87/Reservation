@@ -150,6 +150,8 @@ $mthYr = $monthName.' '.$year;
   $('.event-popup').css({left:leftVal,top:topVal}).show();
             //$(".event-popup").show();
              var bookId =   $(this).attr('name');
+             var date = $(this).prev.('#dateTime').attr('datetime');
+             alert(date);
              //alert(bookId);
             $.ajax({
                 type: "POST",
@@ -159,7 +161,7 @@ $mthYr = $monthName.' '.$year;
                     success: function(msgs) 
                       {
                       
-                            $("#replacable").html(msgs);
+                         //   $("#replacable").html(msgs);
           
                     }
                 });
