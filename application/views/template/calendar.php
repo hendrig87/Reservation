@@ -19,16 +19,16 @@
         width: 150px;
         height: 110px;
         border: 1px solid #bbb;
-        background: #e6e6e6; }
+      }
     table.SimpleCalendar tbody td time {
-        font-size: .7em;
+        font-size: 1.3em;
         display: block;
         background: white;
         padding: 2px;
         text-align: right;
         font-weight: bold; }
     table.SimpleCalendar tbody td.SCsuffix, table.SimpleCalendar tbody td.SCprefix {
-        background: white; }
+        }
     table.SimpleCalendar tbody td div.event {
         color: #355;
         font-size: .65em;
@@ -116,9 +116,9 @@ $mthYr = $monthName.' '.$year;
 </div>
 <div id="clear"></div>      
 
-<div class="event-popup" style="display: none; width: 300px; height: 300px; position: fixed; top:200px; left: 600px; z-index: 100; background-color: #10B0DA;">
+<div class="event-popup" style="display: none; width: 300px; height: 200px; position: fixed; top:200px; left: 600px; z-index: 100; background-color: #aaa;">
    <a href="#" id="popUpClose">Close</a>
-    <div id='replaceable'></div>
+   <div id='replacable' style="padding: 15px;"></div>
 </div>
 
 
@@ -126,21 +126,29 @@ $mthYr = $monthName.' '.$year;
 
 
 <script type="text/javascript">
-    $(document).ready(function() {
-        $('.SimpleCalendar .event').click(function() {
-             $(".event-popup").show();
-             var date =  $(this).parent('#dateTime').val(); 
-             alert(date);
-             var pdate = '<h3>'+date+'</h3>';
-             var finaloutput = pdate;
-            $('#replacable').html(finaloutput);
-           
-
-        });
-            
-    });
     
     $(document).ready(function() {
+        $('.SimpleCalendar .event').click(function() {
+            //$(".event-popup").show();
+             var bookId =   $(this).attr('name');
+             //alert(bookId);
+            $.ajax({
+                type: "POST",
+                url: "<?php echo base_url().'index.php/dashboard/getBookingDetails' ;?>",
+                data: {
+                        'book' : bookId},
+                    success: function(msgs) 
+                      {
+                            $(".event-popup").show();
+                            $("#replacable").html(msgs);
+          
+                    }
+                });
+        });
+            
+    
+    
+   
         $('#popUpClose').click(function() {
             $(".event-popup").hide();
             

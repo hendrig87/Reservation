@@ -6,10 +6,23 @@ class dashboard_model extends CI_Model {
         $this->load->database();
     }
     
+    public function get_booking_personal_info_by_booking_id($id)
+    {
+        $this->db->where('booking_id', $id);
+         $query = $this->db->get('personal_info');
+
+        return $query->result();
+    }
+ public function get_booking_info_by_booking_id($id)
+    {
+        $this->db->where('booking_id', $id);
+         $query = $this->db->get('booking_info');
+
+        return $query->result();
+    }
+
     
 
-
-    
 
     public function add_new_room($room_type, $noOfRoom, $price, $description, $img_name, $hotel_id, $user_id) {
         $data = array(

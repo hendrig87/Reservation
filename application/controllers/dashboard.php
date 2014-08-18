@@ -370,70 +370,49 @@ class dashboard extends CI_Controller {
             $user = $this->dbmodel->get_user_info($useremail);
             foreach ($user as $id) {
                 $user_id = $id->id;
-            }
-            
-           
-            
-            
+            }    
      if (!$year) {
-$year = date('Y');
-}
-if (!$month) {
-$month = date('m');
-}  
+                $year = date('Y');
+            }
+    if (!$month) {
+            $month = date('m');
+            }  
  
         $data['mthBooking'] = $this->dashboard_model->get_booking_info_this_month($user_id, $year, $month);
         $data['mthEvents'] = $this->dashboard_model->get_event_info_this_month($year, $month);
         $data['months']= array($year, $month);
-$this->load->helper('date_helper');
+        $this->load->helper('date_helper');
 
-  $this->load->view('template/header');
-            $this->load->view('dashboard/reservationSystem');
-      $this->load->view('template/calendar', $data);
-      $this->load->view('template/footer');
-}
+        $this->load->view('template/header');
+        $this->load->view('dashboard/reservationSystem');
+        $this->load->view('template/calendar', $data);
+        $this->load->view('template/footer');
+            }
      else {
             redirect('login', 'refresh');
         }        
    
     }
     
-    public function addEvent()
+    public function getBookingDetails()
     {
-       if (isset($_POST['eventTitle'])) {
-            $eventTitle = $_POST['eventTitle'];
-        }
-         if (isset($_POST['startDate'])) {
-            $startDate = $_POST['startDate'];
-        }
-         if (isset($_POST['startHour'])) {
-            $startHour = $_POST['startHour'];
-        }
-         if (isset($_POST['startMin'])) {
-            $startMin = $_POST['startMin'];
-        }
-        if (isset($_POST['ampm'])) {
-            $ampm = $_POST['ampm'];
-        }
-         if (isset($_POST['endDate'])) {
-            $endDate = $_POST['endDate'];
-        }
-        if (isset($_POST['endHour'])) {
-            $endHour = $_POST['endHour'];
-        }
-        if (isset($_POST['endMin'])) {
-            $endMin = $_POST['endMin'];
-        }
-        if (isset($_POST['endampm'])) {
-            $endampm = $_POST['endampm'];
-        }
-        if (isset($_POST['location'])) {
-            $location = $_POST['location'];
-        }
-        
-        $this->dashboard_model->add_new_event($eventTitle, $startDate, $startHour, $startMin, $ampm, $endDate, $endHour, $endMin, $endampm, $location);
-        
-        
+     $id = $_POST['book'];
+     $book = $this->dashboard_model->get_booking_personal_info_by_booking_id($id);
+     foreach($book as $booker)
+     {
+         $name= $booker->full_name;
+         $address= $booker->address;
+         $contactNo = $booker->contact_no; 
+     }
+     $booking = $this->dashboard_model->get_booking_info_by_booking_id($id);
+     foreach ($booking as $books)
+     {
+         $bookId = $books->id;
+     }
+  $url= base_url().'index.php/dashboard/editBooking/'.$bookId;
+    $view= '<h3> Booked by '.$name.'</h3><p>Address: '.$address.'<br/>Conatct No: '.$contactNo.'</p>'
+            . '<a href="'.$url.'">Edit entry</a>';
+        echo $view;
     }
 
 
@@ -452,7 +431,7 @@ $this->load->helper('date_helper');
             $config = array();
         $config["base_url"] = base_url() . "index.php/dashboard/bookingInfo";
         $config["total_rows"] = $this->dashboard_model->record_count_all_booking_info($user_id);
-        $config["per_page"] = 8;
+        $config["per_page"] = 2;
         $this->pagination->initialize($config);
         $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
        
@@ -516,7 +495,7 @@ $this->load->helper('date_helper');
         if($hotelId!="0"){
         $config["total_rows"] = $this->dashboard_model->record_count_all_booking_info_search($hotelId);}
         else{  $config["total_rows"] = $this->dashboard_model->record_count_all_booking_info($user_id);}
-        $config["per_page"] = 8;
+        $config["per_page"] = 2;
         $this->pagination->initialize($config);
         $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
        

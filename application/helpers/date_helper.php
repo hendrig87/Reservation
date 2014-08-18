@@ -124,7 +124,7 @@ $nexvdate = date ( 'Y/m' , $nextdate );
 
 			if( is_array($dHtml_arr) ) {
 				foreach( $dHtml_arr as $dHtml ) {
-					$out .= '<div class="event">' . $dHtml . '</div><input type="hidden" class="test" value="'.$dHtml.'"/>';
+					$out .= '<div class="event" name="'.$dHtml.'">' . $dHtml . '</div>';
 				}
 			}
 
