@@ -36,7 +36,9 @@
         line-height: 1em;
         border-bottom: 1px solid #bbb;
         background: #858585;
-        color: white; }
+        color: white;
+        //position: relative;
+        }
     table.SimpleCalendar tbody td#today {
        // background: palegoldenrod;
     }
@@ -116,19 +118,31 @@ $mthYr = $monthName.' '.$year;
 </div>
 <div id="clear"></div>      
 
-<div class="event-popup" style="display: none; width: 300px; height: 200px; position: fixed; top:200px; left: 600px; z-index: 100; background-color: #aaa;">
+<div class="event-popup" style="display: none; width: 300px; position: absolute; z-index: 10; height: 200px; top:200px; left: 600px; z-index: 100; background-color: #aaa;">
    <a href="#" id="popUpClose">Close</a>
    <div id='replacable' style="padding: 15px;"></div>
 </div>
 
-
+<div id="popuup_div" class="popup_msg">
+    
+ <a href="#" id="popUpClose">Close</a>
+   <div id='replacable' style="padding: 15px;"></div>
+    </div>
 
 
 
 <script type="text/javascript">
     
     $(document).ready(function() {
-        $('.SimpleCalendar .event').click(function() {
+        $('.SimpleCalendar .event').click(function(e) {
+            //getting height and width of the message box
+  var height = $('.event-popup').height();
+  var width = $('.event-popup').width();
+  //calculating offset for displaying popup message
+  leftVal=e.pageX-(width/2)+"px";
+  topVal=e.pageY-(height)-5+"px";
+ 
+  $('.event-popup').css({left:leftVal,top:topVal}).show();
             //$(".event-popup").show();
              var bookId =   $(this).attr('name');
              //alert(bookId);
@@ -139,7 +153,7 @@ $mthYr = $monthName.' '.$year;
                         'book' : bookId},
                     success: function(msgs) 
                       {
-                            $(".event-popup").show();
+                      
                             $("#replacable").html(msgs);
           
                     }
@@ -154,5 +168,11 @@ $mthYr = $monthName.' '.$year;
             
         });
     });
+    
+    
+    
+     
+
+
 
 </script>

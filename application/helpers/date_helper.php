@@ -38,6 +38,7 @@ class SimpleCalendar {
 
 		$working_date = $start_date;
                
+              
 		do {
 			$tDate = getdate($working_date);
 			$working_date += 86400;
