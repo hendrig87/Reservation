@@ -1,5 +1,5 @@
 <div id="loginOnHover" style="display: none; position: absolute; left: 1009px;
-     top: 49px; min-height: 100px;" onMouseOver="show_loginForm()" onMouseOut="hide_loginForm()" >
+     top: 49px; min-height: 100px; z-index: 1" onMouseOver="show_loginForm()" onMouseOut="hide_loginForm()" >
 <div id="loginHover">
 
 	<div class="body">
