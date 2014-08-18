@@ -63,6 +63,15 @@
     {
         width: 70px;
     }
+    
+    .event-popup:after {
+        top: 100%;
+        left: 50%;
+        border: solid transparent;
+        content: " "; height: 0; width: 0; position: absolute;
+        pointer-events: none; border-top-color: #f0f0f0; 
+        border-width: 10px; margin-left: -20px; 
+    }
 
 </style>
 
@@ -118,16 +127,12 @@ $mthYr = $monthName.' '.$year;
 </div>
 <div id="clear"></div>      
 
-<div class="event-popup" style="display: none; width: 300px; position: absolute; z-index: 10; height: 200px; top:200px; left: 600px; z-index: 100; background-color: #aaa;">
-   <a href="#" id="popUpClose">Close</a>
+<div class="event-popup" style="display: none; border: 1px solid #000; padding: 5px 10px 5px 5px; width: 300px; position: absolute; z-index: 10; height: 200px; top:200px; left: 600px; z-index: 100; background-color: #f0f0f0;">
+   <a href="#" id="popUpClose" style="text-decoration: none; color: red; font-size: 20px; font-weight: bolder; float: right;">X</a>
    <div id='replacable' style="padding: 15px;"></div>
 </div>
 
-<div id="popuup_div" class="popup_msg">
-    
- <a href="#" id="popUpClose">Close</a>
-   <div id='replacable' style="padding: 15px;"></div>
-    </div>
+
 
 
 
@@ -140,7 +145,7 @@ $mthYr = $monthName.' '.$year;
   var width = $('.event-popup').width();
   //calculating offset for displaying popup message
   leftVal=e.pageX-(width/2)+"px";
-  topVal=e.pageY-(height)-5+"px";
+  topVal=e.pageY-(height)-10+"px";
  
   $('.event-popup').css({left:leftVal,top:topVal}).show();
             //$(".event-popup").show();

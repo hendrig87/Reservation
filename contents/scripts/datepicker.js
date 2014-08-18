@@ -287,6 +287,7 @@ $(document).ready(function(event){
      $('.error').fadeIn(1500);
      event.preventDefault();
    }
+  
     // end for checks for valid date code part         
              
              
