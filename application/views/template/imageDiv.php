@@ -125,9 +125,15 @@
                 <script>
                     function openPopUp() {
                         
+                            
+                      
                          $('#loading').show();
+                         
                         var checkin = $("#fromDate").val();
                         var checkout = $("#toDate").val();
+                        
+                         
+                        
                         var adult = $("#adults").val();
                         var child = $("#childs").val();
                         var hotelId = $("#tags").val();
@@ -158,7 +164,23 @@
 }
 
 $(document).ready(function(event){
-    
+      
+                   $('#search').click(function (){
+                       var checkin = $("#fromDate").val();
+                        var checkout = $("#toDate").val();
+     var stDate = new Date(checkin);
+                          var enDate = new Date(checkout);
+            var compDate = enDate - stDate;
+            if(compDate >= 0)
+                {
+              $('.errormsgs').hide();
+                }
+            else 
+            {
+                $('.errormsgs').fadeIn(1500);
+     event.preventDefault();
+            } 
+                   });
     $("#fromDate").click(function(){
         $(".errormsgs").fadeOut(2000);
     });

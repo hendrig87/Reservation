@@ -255,9 +255,7 @@ $(document).ready(function(event){
     
      $("#CheckOut").click(function(){
         $(".error").fadeOut(2000);
-    });
-    
-    
+    }); 
     
     
      var replaced = $("#changePopup").html();
@@ -265,6 +263,7 @@ $(document).ready(function(event){
              
       // checks for valid date code part
      
+      
    var dtVal=$('#CheckIn').val();
    if(ValidateDate(dtVal))   //calling ValidateDate function
    {
@@ -287,7 +286,13 @@ $(document).ready(function(event){
      $('.error').fadeIn(1500);
      event.preventDefault();
    }
+<<<<<<< HEAD
   
+=======
+   
+   
+
+>>>>>>> origin/master
     // end for checks for valid date code part         
              
              

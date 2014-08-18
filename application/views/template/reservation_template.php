@@ -10,7 +10,7 @@
 	
 	
          
-               <span class="error"><span class="error_sign">!</span>&nbsp;Invalid Date. Enter (yyyy/mm/dd) date format. </span>
+               <span class="error"><span class="error_sign">!</span>&nbsp;Invalid Date. Enter (yyyy-mm-dd) date format. </span>
                <form method="post" action="#" id="checkin_room">
                    
                 
