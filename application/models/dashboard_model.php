@@ -370,7 +370,14 @@ function record_count_all_booking_info($user_id)
         return $query->result();
     }
     
-    public function updateBooking($id) {
+    public function get_room_detail_by_room_name($roomName)
+    {
+        $this->db->where('room_name', $roomName);
+        $query = $this->db->get('room_registration');
+        return $query->result();
+    }
+
+        public function updateBooking($id) {
 
        $data = array(
             'status' => "1");

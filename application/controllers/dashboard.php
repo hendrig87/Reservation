@@ -567,7 +567,7 @@ class dashboard extends CI_Controller {
         }
     }
     
-     function editBooking($id) {
+     function editBooking($id=NULL) {
         if ($this->session->userdata('logged_in')) {
             $data['username'] = Array($this->session->userdata('logged_in'));
             $data['query'] = $this->dashboard_model->findbooking($id);
@@ -575,11 +575,12 @@ class dashboard extends CI_Controller {
             {
                 $booking_id= $book->booking_id;
             }
+            if(!empty($booking_id)){
             $data['book'] = $this->dashboard_model->get_booking_personal_info_by_booking_id($booking_id);
      
     
      $data['room'] = $this->dashboard_model->get_booked_room_info_by_booking_id($booking_id);
-
+            }
             $this->load->view('template/header');
             $this->load->view('dashboard/reservationSystem');
             $this->load->view('reservationInformation/editBooking', $data);
@@ -589,7 +590,20 @@ class dashboard extends CI_Controller {
         }
     }
     
-    public function deleteBooking($id) {
+    public function updateBooking()
+    {
+        if ($this->session->userdata('logged_in')) {
+            $data['username'] = Array($this->session->userdata('logged_in'));
+            $id= $this->input->post('id');
+            die($id);
+            $this->session->set_flashdata('message', 'Data Updated Sucessfully');
+            redirect('dashboard/bookingInfo', 'refresh');
+        } else {
+            redirect('login', 'refresh');
+        }
+    }
+
+        public function deleteBooking($id) {
         if ($this->session->userdata('logged_in')) {
             $data['username'] = Array($this->session->userdata('logged_in'));
             $this->dashboard_model->updateBooking($id);
