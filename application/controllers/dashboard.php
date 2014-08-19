@@ -412,6 +412,8 @@ class dashboard extends CI_Controller {
      foreach ($booking as $books)
      {
          $bookId = $books->id;
+         $from = $books->check_in_date;
+         $to = $books->check_out_date;
      }
      $room = $this->dashboard_model->get_booked_room_info_by_booking_id($id);
      $array= array();
@@ -419,13 +421,13 @@ class dashboard extends CI_Controller {
      {
          $roomName= $rooms->room_type;
          $roomNo = $rooms->no_of_rooms_booked;
-         $roomDet = $roomName.'->'.$roomNo;
+         $roomDet = $roomName.'->'.$roomNo.' room/s';
          array_push($array, $roomDet);
      }
-     //var_dump($array);
+     
   $editUrl= base_url().'index.php/dashboard/editBooking/'.$bookId;
   $deleteUrl = base_url().'index.php/dashboard/deleteBooking/'.$bookId;
-    $view= '<h3> Name: '.$name.'</h3><p>Date: '.$day.'-'.$monthyr.'<br/>Address: '.$address.'<br/>Conatct No: '.$contactNo.'<br/>Adults: '.$adult.'<br/>Childs: '.$child.'<br/>Rooms: '.$array['0'].'</p>'
+    $view= '<h4 style="margin:0px; float:left;">Today: '.$day.'-'.$monthyr.'</h4><a href="#" id="popUpClose" style="text-decoration: none; color: red; font-size: 20px; font-weight: bolder; float: right;">X</a><div style="clear:both;"></div><h3 style="margin:5px;"> Name: '.$name.'</h3><p style="margin:5px;">'.$from.' to '.$to.'<br/>Address: '.$address.'<br/>Conatct No: '.$contactNo.'<br/>Adults: '.$adult.'<br/>Childs: '.$child.'<br/>Rooms: '.implode('<br/>',$array).'</p>'
             . '<a href="'.$editUrl.'">Edit entry</a>'.'<a style="float:right;" href="'.$deleteUrl.'">Delete entry</a>';
         echo $view;
     }
