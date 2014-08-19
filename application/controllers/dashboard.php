@@ -571,6 +571,14 @@ class dashboard extends CI_Controller {
         if ($this->session->userdata('logged_in')) {
             $data['username'] = Array($this->session->userdata('logged_in'));
             $data['query'] = $this->dashboard_model->findbooking($id);
+            foreach ($data['query'] as $book)
+            {
+                $booking_id= $book->booking_id;
+            }
+            $data['book'] = $this->dashboard_model->get_booking_personal_info_by_booking_id($booking_id);
+     
+    
+     $data['room'] = $this->dashboard_model->get_booked_room_info_by_booking_id($booking_id);
 
             $this->load->view('template/header');
             $this->load->view('dashboard/reservationSystem');
