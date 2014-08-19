@@ -427,7 +427,7 @@ class dashboard extends CI_Controller {
      
   $editUrl= base_url().'index.php/dashboard/editBooking/'.$bookId;
   $deleteUrl = base_url().'index.php/dashboard/deleteBooking/'.$bookId;
-    $view= '<h4 style="margin:0px; float:left;">Today: '.$day.'-'.$monthyr.'</h4><a href="#" id="popUpClose" style="text-decoration: none; color: red; font-size: 20px; font-weight: bolder; float: right;">X</a><div style="clear:both;"></div><h3 style="margin:5px;"> Name: '.$name.'</h3><p style="margin:5px;">'.$from.' to '.$to.'<br/>Address: '.$address.'<br/>Conatct No: '.$contactNo.'<br/>Adults: '.$adult.'<br/>Childs: '.$child.'<br/>Rooms: '.implode('<br/>',$array).'</p>'
+    $view= '<h4 style="margin:0px; float:left; color:#0092b4;">'.$day.'-'.$monthyr.'</h4><div style="clear:both;"></div><h3 style="margin:5px;"> Name: '.$name.'</h3><p style="margin:5px;">'.$from.' to '.$to.'<br/>Address: '.$address.'<br/>Conatct No: '.$contactNo.'<br/>Adults: '.$adult.'<br/>Childs: '.$child.'<br/>Rooms: '.implode('<br/>',$array).'</p>'
             . '<a href="'.$editUrl.'">Edit entry</a>'.'<a style="float:right;" href="'.$deleteUrl.'">Delete entry</a>';
         echo $view;
     }

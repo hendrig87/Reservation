@@ -127,7 +127,7 @@ $mthYr = $monthName.' '.$year;
 </div>
 <div id="clear"></div>      
 
-<div class="event-popup" style="display: none; border: 1px solid #000; padding: 5px 10px 5px 5px; width: 300px; position: absolute; z-index: 10; height: 230px; top:200px; left: 600px; z-index: 100; background-color: #f0f0f0;">
+<div class="event-popup" style="display: none; border: 1px solid #000; padding: 5px 10px 5px 5px; width: 300px; position: absolute; z-index: 10; height: 250px; top:200px; left: 600px; z-index: 100; background-color: #f0f0f0;">
    <a href="#" id="popUpClose" style="text-decoration: none; color: red; font-size: 20px; font-weight: bolder; float: right;">X</a>
    <div id='replacable' style="padding: 15px;"></div>
 </div>
