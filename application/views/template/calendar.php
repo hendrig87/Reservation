@@ -127,7 +127,7 @@ $mthYr = $monthName.' '.$year;
 </div>
 <div id="clear"></div>      
 
-<div class="event-popup" style="display: none; border: 1px solid #000; padding: 5px 10px 5px 5px; width: 300px; position: absolute; z-index: 10; height: 200px; top:200px; left: 600px; z-index: 100; background-color: #f0f0f0;">
+<div class="event-popup" style="display: none; border: 1px solid #000; padding: 5px 10px 5px 5px; width: 300px; position: absolute; z-index: 10; height: 230px; top:200px; left: 600px; z-index: 100; background-color: #f0f0f0;">
    <a href="#" id="popUpClose" style="text-decoration: none; color: red; font-size: 20px; font-weight: bolder; float: right;">X</a>
    <div id='replacable' style="padding: 15px;"></div>
 </div>
@@ -145,23 +145,25 @@ $mthYr = $monthName.' '.$year;
   var width = $('.event-popup').width();
   //calculating offset for displaying popup message
   leftVal=e.pageX-(width/2)+"px";
-  topVal=e.pageY-(height)-10+"px";
+  topVal=e.pageY-(height)-20+"px";
  
   $('.event-popup').css({left:leftVal,top:topVal}).show();
             //$(".event-popup").show();
              var bookId =   $(this).attr('name');
-             var date = $(this).prev.('#dateTime').attr('datetime');
-             alert(date);
+            var day =  $(this).parent('.asdf').find("#dateTime").text();
+            var monthyr = $('#mthName').text();
              //alert(bookId);
             $.ajax({
                 type: "POST",
                 url: "<?php echo base_url().'index.php/dashboard/getBookingDetails' ;?>",
                 data: {
-                        'book' : bookId},
+                        'book' : bookId,
+                        'day': day, 
+                        'monYr': monthyr},
                     success: function(msgs) 
                       {
                       
-                         //   $("#replacable").html(msgs);
+                            $("#replacable").html(msgs);
           
                     }
                 });

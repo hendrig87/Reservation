@@ -116,7 +116,7 @@ $nexvdate = date ( 'Y/m' , $nextdate );
 
 			$datetime = mktime(0, 0, 1, $this->now['mon'], $i, $this->now['year']);
 
-			$out .= '<time id="dateTime" datetime="' . date('Y-m-d', $datetime) . '">' . $i . '</time>';
+			$out .= '<div id="dateTime"><time datetime="' . date('Y-m-d', $datetime) . '">' . $i . '</time></div>';
 
 			$dHtml_arr = false;
 			if( isset($this->daily_html[$this->now['year']][$this->now['mon']][$i]) ) {

@@ -397,21 +397,35 @@ class dashboard extends CI_Controller {
     public function getBookingDetails()
     {
      $id = $_POST['book'];
+     $day = $_POST['day'];
+     $monthyr = $_POST['monYr'];
      $book = $this->dashboard_model->get_booking_personal_info_by_booking_id($id);
      foreach($book as $booker)
      {
          $name= $booker->full_name;
          $address= $booker->address;
-         $contactNo = $booker->contact_no; 
+         $contactNo = $booker->contact_no;
+         $child = $booker->child;
+         $adult = $booker->adult;
      }
      $booking = $this->dashboard_model->get_booking_info_by_booking_id($id);
      foreach ($booking as $books)
      {
          $bookId = $books->id;
      }
+     $room = $this->dashboard_model->get_booked_room_info_by_booking_id($id);
+     $array= array();
+     foreach ($room as $rooms)
+     {
+         $roomName= $rooms->room_type;
+         $roomNo = $rooms->no_of_rooms_booked;
+         $roomDet = $roomName.'->'.$roomNo;
+         array_push($array, $roomDet);
+     }
+     //var_dump($array);
   $url= base_url().'index.php/dashboard/editBooking/'.$bookId;
-    $view= '<h3> Booked by '.$name.'</h3><p>Address: '.$address.'<br/>Conatct No: '.$contactNo.'</p>'
-            . '<a href="'.$url.'">Edit entry</a>';
+    $view= '<h3> Name: '.$name.'</h3><p>Date: '.$day.'-'.$monthyr.'<br/>Address: '.$address.'<br/>Conatct No: '.$contactNo.'<br/>Adults: '.$adult.'<br/>Childs: '.$child.'<br/>Rooms: '.$array['0'].'</p>'
+            . '<a href="'.$url.'">Edit entry</a>'.'<a style="float:right;" href="'.$url.'">Delete entry</a>';
         echo $view;
     }
 

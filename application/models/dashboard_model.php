@@ -20,6 +20,14 @@ class dashboard_model extends CI_Model {
 
         return $query->result();
     }
+    
+    public function get_booked_room_info_by_booking_id($id)
+    {
+         $this->db->where('booking_id', $id);
+         $query = $this->db->get('booked_room_info');
+
+        return $query->result();
+    }
 
     
 
