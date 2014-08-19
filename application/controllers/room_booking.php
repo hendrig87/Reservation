@@ -182,7 +182,12 @@ class room_booking extends CI_Controller {
             'email'=>$email,
             'remark'=>$remarks,            
         );
+        
         $this->session->set_userdata($data['personalDetail']);
+      
+        
+        
+        
         $this->booking_room->personal_info($fullName, $address, $occupation, $nationality, $contactNo, $email, $remarks, $totalPrice, $child_s, $adult_s, $bookId);
 
         $jsondatas = $_POST['updated_json'];
@@ -246,6 +251,21 @@ VALUES ('" . $item['check_in_date'] . "', '" . $item['check_out_date'] . "','" .
 
 
         $this->load->view('ReservationInformation/thankYouNote');
+    }
+    
+    function destroy_session()
+    {
+       // die($_POST['title']);
+        $data['a']= array(
+            'fullname'=>NULL,
+            'address'=>NULL,
+            'occupation'=>NULL,
+            'nationality'=>NULL,
+            'contactno'=>NULL,
+            'email'=>NULL,
+            'remark'=>NULL,            
+        );
+        $this->session->unset_userdata($data['a']);
     }
 
 }

@@ -60,18 +60,15 @@ function book()         //function to be calle for personal info view.
 
 function back() {
       
-     // var checkin = $("#CheckIn").val();
-     // var checkout = $("#CheckOut").val();
-    // var adult = $("#adult").val();
-    //  var child = $("#child").val();
-    //   var hotelId= $('#selectedHotelId').val();
-  //  var checkin = "2014-05-08";
-  //  var checkout = "'"+<%=Session["checkout"]%>+"'"
-  //  var adult = '<%= Session["adult"] %>';
-  //  var child = '<%= Session["child"] %>';
-  //  var hotelId = '<%= Session["hotelId"] %>';
-   var checkin = $('#checkin').val();
-   alert(checkin);
+      var checkin = $("#checkin").val();
+      var checkout = $("#checkout").val();
+     var adult = $("#adult").val();
+      var child = $("#child").val();
+       var hotelId= $('#selectedHotelId').val();
+       var title = $('#title').val();
+
+  
+   //alert(checkin);
  $.ajax({
  type: "POST",
  url: base_url + "index.php/room_booking/post_action",
@@ -80,7 +77,8 @@ function back() {
      'checkout' : checkout,
      'adult' : adult,
      'child' : child,
-     'hotelId':hotelId
+     'hotelId':hotelId,
+     'title':title
         },
   success: function(msg) 
         {    
@@ -100,11 +98,16 @@ function back() {
  function backbutton()
  {
     var hotelId = 'hotelId=' + '1';
+    var title = $('#title').val();
+   // var fullname = $('#fullname').val();
       
  $.ajax({
  type: "POST",
  url: base_url + "index.php/room_booking/book_now",
- data: hotelId,
+ data:{
+    'hotelID': hotelId,
+    'title':title
+ },
   success: function(msgs) 
         {
      $('#one').css({'background-color': '#999999'});
@@ -355,11 +358,28 @@ function calculateSum() {   //function to calculate the total price of the booke
   $(document).ready(function(){   
         //close popup.
         $("#closePopup").click(function(){
+            
+            var title = '1';
+           
+             $.ajax({
+        type: "POST",
+        url: base_url + 'index.php/room_booking/destroy_session',
+        data: {
+            
+            
+            'title':title
+        },
+        success: function(msgs)
+        {
+
            $("#pop_up").hide();
-            $(".middleLayer").fadeOut(300);
+        $(".middleLayer").fadeOut(300);
+        }          
+            
         });
           
     });
+  });
 
 
 $(function(){
