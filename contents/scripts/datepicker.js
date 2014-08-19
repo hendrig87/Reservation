@@ -65,12 +65,13 @@ function back() {
     // var adult = $("#adult").val();
     //  var child = $("#child").val();
     //   var hotelId= $('#selectedHotelId').val();
-    var checkin = '<%= Session["checkin"] %>';
-    var checkout = '<%= Session["checkout"] %>';
-    var adult = '<%= Session["adult"] %>';
-    var child = '<%= Session["child"] %>';
-    var hotelId = '<%= Session["hotelId"] %>';
-    alert(checkin);
+  //  var checkin = "2014-05-08";
+  //  var checkout = "'"+<%=Session["checkout"]%>+"'"
+  //  var adult = '<%= Session["adult"] %>';
+  //  var child = '<%= Session["child"] %>';
+  //  var hotelId = '<%= Session["hotelId"] %>';
+   var checkin = $('#checkin').val();
+   alert(checkin);
  $.ajax({
  type: "POST",
  url: base_url + "index.php/room_booking/post_action",

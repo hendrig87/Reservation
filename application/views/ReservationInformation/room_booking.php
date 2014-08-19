@@ -88,7 +88,8 @@ $this->load->helper('availableroom');
 <!--      -->
 <table class="room-listing-tbl" style="width: 85%;">
     <tr id="checkinStyle">
-        <td><b>Checkin Date:</b>&nbsp;<?php echo $abc['checkin']; ?></td>
+    
+        <td><b>Checkin Date:</b>&nbsp;<input type="text" id="checkin" value="<?php echo $abc['checkin']; ?>" readonly style="border:none;"/></td>
         <td><b>Checkout Date:</b>&nbsp;<?php echo $abc['checkout']; ?></td>
         <td><b>No. of Adults:</b>&nbsp;<?php echo $abc['adult']; ?></td>
         <td><b>No. of Children:</b>&nbsp;<?php if ($abc['child'] == "Select") {

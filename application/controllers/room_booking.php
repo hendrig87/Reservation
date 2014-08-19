@@ -40,6 +40,9 @@ class room_booking extends CI_Controller {
             'title'=>$_POST['title']
         );
         $this->session->set_userdata($data['abc']);
+        
+      // echo $this->session->userdata('checkin');
+       
         $hotel = $_POST['hotelId'];
       
         $hotels = $this->dashboard_model->get_hotel_id($hotel);
