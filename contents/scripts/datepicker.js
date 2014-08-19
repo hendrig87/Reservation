@@ -120,7 +120,7 @@ function back() {
             $('.third').css({'color': 'black'});
             $('.third').css({'font-weight': 'normal'});
             $("#room-listing-tbl").show;
-            $("#replaceMe").html(msgs);
+            $("#room_book").html(msgs);
             
         }
  });
@@ -172,7 +172,7 @@ function roomBook()      // function to call for payment info view.
         success: function(msgs)
         {
 
-            $("#replaceMe").html(msgs);
+            $("#room_book").html(msgs);
 
         },
          complete: function(){
