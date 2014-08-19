@@ -30,7 +30,9 @@ class room_booking extends CI_Controller {
 
     function post_action() {
         $this->load->helper('availableroom');
-
+        
+        if($_POST)
+        {
         $data['abc'] = array(
             'checkin' => $_POST['checkin'],
             'checkout' => $_POST['checkout'],
@@ -39,6 +41,7 @@ class room_booking extends CI_Controller {
             'hotelId' => $_POST['hotelId'],
             'title'=>$_POST['title']
         );
+        }
         $this->session->set_userdata($data['abc']);
         
       // echo $this->session->userdata('checkin');
@@ -68,12 +71,13 @@ class room_booking extends CI_Controller {
     }
 
     function book_now() {
-        
+        $hotel = $this->session->userdata('hotelId');
+       
         $j_son['abc'] = array(
-            'hotelId' => $_POST['hotelId'],
+            'hotelId' => $hotel,
             'title'=>$_POST['title']
         );
-        $hotel = $_POST['hotelId'];
+        $hotel = $this->session->userdata('hotelId');
         
         $data['hotels'] = $this->dashboard_model->get_hotel_id($hotel);
         if (!empty($data['hotels'])) {
@@ -82,7 +86,7 @@ class room_booking extends CI_Controller {
             }
         } 
  else {
-     $hotelId  = $_POST['hotelId'];
+     $hotelId  = $hotel;
  }
 
         $data['query'] = $this->dashboard_model->booking_room($hotelId);
@@ -244,11 +248,17 @@ VALUES ('" . $item['check_in_date'] . "', '" . $item['check_out_date'] . "','" .
 
     function payment_options() {
 
-        // $fullName= $_POST['fullName'];
-        //$cardNumber = $_POST['cardNumber'];
-        // $securityNumber = $_POST['securityNumber'];
-
-
+//         $fullName= $_POST['fullName'];
+//        $cardNumber = $_POST['cardNumber'];
+//        $securityNumber = $_POST['securityNumber'];
+//
+//        $data['option'] = array(
+//            'cardname'=>$fullName,
+//            'cardnumber'=>$cardNumber,
+//            'securitynumber'=>$securityNumber
+//        );
+//        
+//        $this->session->set_userdata($data['option']);
 
         $this->load->view('ReservationInformation/thankYouNote');
     }
@@ -263,7 +273,13 @@ VALUES ('" . $item['check_in_date'] . "', '" . $item['check_out_date'] . "','" .
             'nationality'=>NULL,
             'contactno'=>NULL,
             'email'=>NULL,
-            'remark'=>NULL,            
+            'remark'=>NULL,
+            'checkin' => NULL,
+            'checkout' => NULL,
+            'adult' => NULL,
+            'child' => NULL,
+            'hotelId' => NULL,
+            'title'=>NULL
         );
         $this->session->unset_userdata($data['a']);
     }

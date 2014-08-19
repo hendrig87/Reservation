@@ -3,7 +3,7 @@ var base_url = "http://localhost/reservation/";
 
 function changeFunc() {
     $('#loading').show();
-    
+   
     var checkin = $("#CheckIn").val();
     var checkout = $("#CheckOut").val();
     var adult = $("#adults").val();
@@ -360,7 +360,7 @@ function calculateSum() {   //function to calculate the total price of the booke
         $("#closePopup").click(function(){
             
             var title = '1';
-           
+         
              $.ajax({
         type: "POST",
         url: base_url + 'index.php/room_booking/destroy_session',
