@@ -13,6 +13,36 @@
             
     </div>
     
+    <input name="CheckIn" type="text" placeholder="From" required="required" id="fromDate" >
+
+
+
+                <input name="CheckOut" type="text" placeholder="To"  value="" id="toDate"  required="required">
+
+
+
+                <select name="adults" id="adults">
+                    <option value="0" > Select no. of adult</option> 
+                    <?php
+                    for ($i = 1; $i <= $adultsNumber; $i++) {
+                        echo "<option value=" . $i . ">" . $i . "</option>";
+                    }
+                    ?>
+                </select>
+                <select name="children" required id="childs">
+                    <option value="0" > Select no. of child</option>
+                    <?php
+                    for ($i = 1; $i <= $children; $i++) {
+                        echo "<option value=" . $i . ">" . $i . "</option>";
+                    }
+                    ?>
+                </select>
+    
+    
+    
+    
+    
+    
     
     
     </div>

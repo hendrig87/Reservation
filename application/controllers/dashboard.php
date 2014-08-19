@@ -423,13 +423,12 @@ class dashboard extends CI_Controller {
          array_push($array, $roomDet);
      }
      //var_dump($array);
-  $url= base_url().'index.php/dashboard/editBooking/'.$bookId;
+  $editUrl= base_url().'index.php/dashboard/editBooking/'.$bookId;
+  $deleteUrl = base_url().'index.php/dashboard/deleteBooking/'.$bookId;
     $view= '<h3> Name: '.$name.'</h3><p>Date: '.$day.'-'.$monthyr.'<br/>Address: '.$address.'<br/>Conatct No: '.$contactNo.'<br/>Adults: '.$adult.'<br/>Childs: '.$child.'<br/>Rooms: '.$array['0'].'</p>'
-            . '<a href="'.$url.'">Edit entry</a>'.'<a style="float:right;" href="'.$url.'">Delete entry</a>';
+            . '<a href="'.$editUrl.'">Edit entry</a>'.'<a style="float:right;" href="'.$deleteUrl.'">Delete entry</a>';
         echo $view;
     }
-
-
 
 
 
