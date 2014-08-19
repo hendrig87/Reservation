@@ -94,6 +94,7 @@
     <hr id="nav">
     <div id="mainNav">
         
+        
         <div class="number" id="one">1</div><span id="nav_description" class="first">Select Plan</span>
         <div class="number" id="two" style="margin-left: 18%;">2</div><span id="nav_description" class="second" style="left: -70px;">Booking Summary</span>
         <div class="number" id="three" style="margin-left: 18%;">3</div><span id="nav_description" class="third">Billing & Payments</span>

@@ -39,7 +39,7 @@ class room_booking extends CI_Controller {
             'hotelId' => $_POST['hotelId'],
             'title'=>$_POST['title']
         );
-
+        $this->session->set_userdata($data['abc']);
         $hotel = $_POST['hotelId'];
       
         $hotels = $this->dashboard_model->get_hotel_id($hotel);
@@ -170,7 +170,16 @@ class room_booking extends CI_Controller {
         $id = $id + 1;
         $bookId = $id;
 
-
+        $data['personalDetail']= array(
+            'fullname'=>$fullName,
+            'address'=>$address,
+            'occupation'=>$occupation,
+            'nationality'=>$nationality,
+            'contactno'=>$contactNo,
+            'email'=>$email,
+            'remark'=>$remarks,            
+        );
+        $this->session->set_userdata($data['personalDetail']);
         $this->booking_room->personal_info($fullName, $address, $occupation, $nationality, $contactNo, $email, $remarks, $totalPrice, $child_s, $adult_s, $bookId);
 
         $jsondatas = $_POST['updated_json'];

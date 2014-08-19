@@ -60,11 +60,17 @@ function book()         //function to be calle for personal info view.
 
 function back() {
       
-      var checkin = $("#CheckIn").val();
-      var checkout = $("#CheckOut").val();
-     var adult = $("#adult").val();
-      var child = $("#child").val();
-       var hotelId= $('#selectedHotelId').val();
+     // var checkin = $("#CheckIn").val();
+     // var checkout = $("#CheckOut").val();
+    // var adult = $("#adult").val();
+    //  var child = $("#child").val();
+    //   var hotelId= $('#selectedHotelId').val();
+    var checkin = '<%= Session["checkin"] %>';
+    var checkout = '<%= Session["checkout"] %>';
+    var adult = '<%= Session["adult"] %>';
+    var child = '<%= Session["child"] %>';
+    var hotelId = '<%= Session["hotelId"] %>';
+    alert(checkin);
  $.ajax({
  type: "POST",
  url: base_url + "index.php/room_booking/post_action",
@@ -286,13 +292,9 @@ $(document).ready(function(event){
      $('.error').fadeIn(1500);
      event.preventDefault();
    }
-<<<<<<< HEAD
-  
-=======
-   
-   
 
->>>>>>> origin/master
+   
+   
     // end for checks for valid date code part         
              
              
