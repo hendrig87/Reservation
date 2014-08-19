@@ -100,7 +100,7 @@ $this->load->helper('availableRoom');
     <tr>
                 <td style="width:400px;">
                
-                   
+                   <input type="hidden" id="title" value="<?php echo $this->session->userdata('title'); ?>" >
                     <legend style="border-bottom: solid thin #CCC;width: 80%;top: -10px;">Secure Payment Info</legend>
                     
                     <img src='<?php echo base_url().'contents/images/card-logos.jpg' ;?>' style="width: 380px; height: 100px;" >

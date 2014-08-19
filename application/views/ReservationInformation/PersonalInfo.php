@@ -150,39 +150,39 @@
 
                     <div class="input-prepend">
                         <span class="add-on">Full Name</span>
-                        <input class="input input-large" type="text" placeholder="Full Name" required="required" name="FullName" id="fullname" >
+                        <input class="input input-large" type="text" placeholder="Full Name" required="required" name="FullName" id="fullname" value="<?php echo $this->session->userdata('fullname'); ?>" >
                     </div>
 
                     <div class="clear"></div>
                     <div class="input-prepend">
                         <span class="add-on">Address</span>
-                        <input class="input input-large" type="text" placeholder="Full Address" required="required" name="Address" id="address" >
+                        <input class="input input-large" type="text" placeholder="Full Address" required="required" name="Address" id="address" value="<?php echo $this->session->userdata('address'); ?>" >
                     </div>
 
                     <div class="clear"></div>
                     <div class="input-prepend">
                         <span class="add-on">Occupation</span>
-                        <input class="input input-large" type="text" placeholder="Occupation" name="Occupation" id="occupation">
+                        <input class="input input-large" type="text" placeholder="Occupation" name="Occupation" id="occupation" value="<?php echo $this->session->userdata('occupation'); ?>">
                     </div>
 
                     <div class="clear"></div>
                     <div class="input-prepend">
                         <span class="add-on">Nationality</span>
-                        <input class="input input-large" type="text" placeholder="Nationality" required="required" name="Nationality" id="nationality" >
+                        <input class="input input-large" type="text" placeholder="Nationality" required="required" name="Nationality" id="nationality" value="<?php echo $this->session->userdata('nationality'); ?>" >
                     </div>
 
                     <div class="clear"></div>
                     <div class="input-prepend">
                         <span class="add-on">Contact No.</span>
-                        <input onkeypress='return isNumberKey(event)' class="input input-large" type="text" placeholder="Contact Number" required="required" name="ContactNumber" id="contactno" >
+                        <input onkeypress='return isNumberKey(event)' class="input input-large" type="text" placeholder="Contact Number" required="required" name="ContactNumber" id="contactno" value="<?php echo $this->session->userdata('contactno'); ?>" >
                     </div>
 
                     <div class="clear"></div>
                     <div class="input-prepend">
                         <span class="add-on">Email</span>
-                        <input class="input input-large" type="text" placeholder="Email Address" required="required" name="Email" id="email" >
+                        <input class="input input-large" type="text" placeholder="Email Address" required="required" name="Email" id="email" value="<?php echo $this->session->userdata('email'); ?>" >
                     </div>
-                    <textarea name="Remarks" placeholder="Remarks & Extra Instructions Like Pickup & Dropoff Information." style="width:330px;height:100px;resize:none;" id="remarks"></textarea>
+                    <textarea name="Remarks" placeholder="Remarks & Extra Instructions Like Pickup & Dropoff Information." style="width:330px;height:100px;resize:none;" id="remarks"><?php echo $this->session->userdata('remark'); ?></textarea>
            
 
 

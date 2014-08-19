@@ -89,14 +89,14 @@ $this->load->helper('availableroom');
 <table class="room-listing-tbl" style="width: 85%;">
     <tr id="checkinStyle">
     
-        <td><b>Checkin Date:</b>&nbsp;<input type="text" id="checkin" value="<?php echo $abc['checkin']; ?>" readonly style="border:none;"/></td>
-        <td><b>Checkout Date:</b>&nbsp;<?php echo $abc['checkout']; ?></td>
-        <td><b>No. of Adults:</b>&nbsp;<?php echo $abc['adult']; ?></td>
-        <td><b>No. of Children:</b>&nbsp;<?php if ($abc['child'] == "Select") {
+        <td><b>Checkin Date:</b><input type="text" id="checkin" value="<?php echo $abc['checkin']; ?>" readonly style="border:none;"/></td>
+        <td><b>Checkout Date:</b><input type="text" id="checkout" value="<?php echo $abc['checkout']; ?>" readonly style="border:none;"/></td>
+        <td><b>No. of Adults:</b><input type="text" id="adult" value="<?php echo $abc['adult']; ?>" readonly style="border:none;"/></td>
+        <td><b>No. of Children:</b><input type="text" id="child" value="<?php if ($abc['child'] == "Select") {
     echo "0";
 } else {
     echo $abc['child'];
-} ?></td>
+} ?>" readonly style="border:none;"/></td>
     </tr>
 </table>
 <input type="hidden" id="title" value="<?php echo $abc['title']; ?>" >
