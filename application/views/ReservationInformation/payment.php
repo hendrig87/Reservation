@@ -95,21 +95,8 @@ $this->load->helper('availableRoom');
      $totalPrice = $value['0'];
  } ?>
  
- <div id="totalPrice">Total sdfdsfdsfsdf:<?php echo $totalPrice; ?></div>
- <table class="room-listing-tbl" style="width: 85%;">
-    <tr id="checkinStyle">
-    
-        <td><b>Checkin Date:</b><input type="text" id="checkin" value="<?php echo $this->session->userdata('checkin'); ?>" readonly /></td>
-<!--        <td><b>Checkout Date:</b><input type="text" id="checkout" value="<?php //echo $abc['checkout']; ?>" readonly style="border:none;"/></td>
-        <td><b>No. of Adults:</b><input type="text" id="adult" value="<?php //echo $abc['adult']; ?>" readonly style="border:none;"/></td>
-        <td><b>No. of Children:</b><input type="text" id="child" value="<?php //if ($abc['child'] == "Select") {
-   // echo "0";
-//} else {
- //   echo $abc['child'];
-//} ?>" readonly style="border:none;"/></td>-->
-    </tr>
-</table>
-<a>sdfdsfdsfsdfdsfdsfds</a>
+ <div id="totalPrice">Total :<?php echo $totalPrice; ?></div>
+
 <table style="width: 100%;">
     <tr>
                 <td style="width:400px;">

@@ -147,7 +147,7 @@ function roomBook()      // function to call for payment info view.
     var checkout = $("#toDate").val();
     var adult = $("#adults").val();
     var child = $("#childs").val();
-    var hotelId= $('#selectedHotelId').val();
+    var hotelId= $('#hotelId').val();
     var title= "";
     $.ajax({
         type: "POST",
@@ -356,9 +356,27 @@ function calculateSum() {   //function to calculate the total price of the booke
   $(document).ready(function(){   
         //close popup.
         $("#closePopup").click(function(){
+            
+            var title = '1';
+         
+             $.ajax({
+        type: "POST",
+        url: base_url + 'index.php/room_booking/destroy_session',
+        data: {
+            
+            
+            'title':title
+        },
+        success: function(msgs)
+        {
+
            $("#pop_up").hide();
-            $(".middleLayer").fadeOut(300);
+        $(".middleLayer").fadeOut(300);
+        }          
+            
         });
+          
+    });
           
     });
 
