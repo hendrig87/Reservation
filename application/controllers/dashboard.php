@@ -595,6 +595,13 @@ class dashboard extends CI_Controller {
         if ($this->session->userdata('logged_in')) {
             $data['username'] = Array($this->session->userdata('logged_in'));
             $id= $this->input->post('id');
+            $checkIn= $this->input->post('CheckIn');
+            $checkOut = $this->input->post('CheckOut');
+            $adults = $this->input->post('adults');
+            $childs = $this->input->post('children');
+            $roomId = $this->input->post('roomId');
+            $roomNo = $this->input->post('rooms');
+            var_dump($roomNo);
             die($id);
             $this->session->set_flashdata('message', 'Data Updated Sucessfully');
             redirect('dashboard/bookingInfo', 'refresh');

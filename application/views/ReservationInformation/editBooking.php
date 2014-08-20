@@ -1,3 +1,38 @@
+<script>
+$(document).ready(function() {
+        makeActiveLink();
+        $('.available-room').change(function() {            //action performs when no of  rooms is selected
+
+            $("#disablebtnInfo").hide()                  //hides the information about disable button info.
+
+            var rooms = $(this).val();
+            var price = $(this).parent().prev('td').children('span.priceTag').text();
+            var total = rooms * price;
+            $(this).parent().next('td').children('span.subTotal').text(total);
+            calculateSum();
+            makeActiveLink();
+
+
+            // for updating the json data.
+            var room_id;
+            room_id = $(this).parent().prev().prev().prev('td').parent().attr('id');
+            var booked = $(this).val();
+            for (var i = 0; i < txtnext.length; i++) {
+                if (txtnext[i].id == room_id) {
+                    txtnext[i].no_of_room = booked;
+                    break;
+                }
+            }
+        });
+    });
+
+
+</script>
+
+<?php $this->load->helper('availableroom');
+$this->load->helper('currency'); ?>
+
+
 <div class="right">
     
     <h2>Edit Booking</h2><hr class="topLine" />
@@ -83,6 +118,7 @@
         $roomDetail = $this->dashboard_model->get_room_detail_by_room_name($roomName);
         foreach ($roomDetail as $roomInfo)
         {
+            $roomId = $roomInfo->id;
             $roomNames= $roomInfo->room_name;
             $detail = $roomInfo->description;
             $price = $roomInfo->price;
@@ -91,18 +127,17 @@
         
         ?>
         <tr style="text-align: center;">
+        <input type="hidden" name="roomId" value="<?php echo $roomId; ?>" />
             <td><?php echo $roomNames;  ?></td>
             <td><?php echo $detail;  ?></td>
-             <td><?php echo $price;  ?></td>
-             <td><select style="width: 70px;" name="rooms" required id="rooms">
+             <td><?php get_currency($price) ;  ?></td>
+             <td><!--<select style="width: 70px;" name="rooms" required id="rooms">
                      <option value="0">Select</option>
-                     <option value="<?php echo $noOfRooms; ?>" selected="<?php echo $noOfRooms; ?>"><?php echo $noOfRooms; ?></option>
-                    <?php
-                    for ($i = 1; $i <= $totalRooms; $i++) {
-                        echo "<option value=" . $i . ">" . $i . "</option>";
-                    }
-                    ?>
-                </select></td>
+                     <option value="<?php //echo $noOfRooms; ?>" selected="<?php //echo $noOfRooms; ?>"><?php //echo $noOfRooms; ?></option>-->
+                   <?php //$available_room = $book->no_of_room; 
+        check_available_room( $checkInDate,  $checkOutDate, $roomNames);
+        ?>
+                <!--</select>--></td>
                 <td></td>
         </tr>
         <?php  } } }?>
