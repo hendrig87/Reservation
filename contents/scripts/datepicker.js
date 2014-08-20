@@ -143,8 +143,8 @@ function roomBook()      // function to call for payment info view.
     var contactno = $('#contactno').val();
     var email = $('#email').val();
     var remarks = $('#remarks').val();
-    var checkin = $("#fromDate").val();
-    var checkout = $("#toDate").val();
+    var checkin = $("#checkin").val();
+    var checkout = $("#checkout").val();
     var adult = $("#adults").val();
     var child = $("#childs").val();
     var hotelId= $('#selectedHotelId').val();

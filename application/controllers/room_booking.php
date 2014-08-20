@@ -199,7 +199,7 @@ class room_booking extends CI_Controller {
         $jsonDecode = json_decode($jsondatas, true);
         $jsonArray = $jsonDecode;
  
-        
+       
         array_walk($jsonArray, function (&$subarray) use ($check_in) {
             $subarray['check_in_date'] = $check_in;
         });
