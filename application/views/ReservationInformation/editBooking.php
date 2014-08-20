@@ -1,28 +1,39 @@
+<script src="<?php echo base_url() . "contents/scripts/jquery.js"; ?>"></script>
+<script src="<?php echo base_url() . "contents/scripts/jquery-ui.js"; ?>"></script>
+<script src="<?php echo base_url() . "contents/scripts/jquery1.10.2.js"; ?>"></script>
 <script>
 $(document).ready(function() {
-        makeActiveLink();
+    
+//    var room= $('.available-room').val();
+//    var price = $('.available-room').parent().prev('td').children('span.priceTag').text();
+//            var total = room * price;
+//            alert(total);
+//           $('.available-room').parent().next('td').children('span.subTotal').text(total);
+//            calculateSum();
+//       
         $('.available-room').change(function() {            //action performs when no of  rooms is selected
 
-            $("#disablebtnInfo").hide()                  //hides the information about disable button info.
+           // $("#disablebtnInfo").hide()                  //hides the information about disable button info.
 
             var rooms = $(this).val();
+            
             var price = $(this).parent().prev('td').children('span.priceTag').text();
             var total = rooms * price;
             $(this).parent().next('td').children('span.subTotal').text(total);
             calculateSum();
-            makeActiveLink();
+           
 
 
             // for updating the json data.
-            var room_id;
-            room_id = $(this).parent().prev().prev().prev('td').parent().attr('id');
-            var booked = $(this).val();
-            for (var i = 0; i < txtnext.length; i++) {
-                if (txtnext[i].id == room_id) {
-                    txtnext[i].no_of_room = booked;
-                    break;
-                }
-            }
+//            var room_id;
+//            room_id = $(this).parent().prev().prev().prev('td').parent().attr('id');
+//            var booked = $(this).val();
+//            for (var i = 0; i < txtnext.length; i++) {
+//                if (txtnext[i].id == room_id) {
+//                    txtnext[i].no_of_room = booked;
+//                    break;
+//                }
+//            }
         });
     });
 
@@ -135,10 +146,12 @@ $this->load->helper('currency'); ?>
                      <option value="0">Select</option>
                      <option value="<?php //echo $noOfRooms; ?>" selected="<?php //echo $noOfRooms; ?>"><?php //echo $noOfRooms; ?></option>-->
                    <?php //$available_room = $book->no_of_room; 
-        check_available_room( $checkInDate,  $checkOutDate, $roomNames);
+        check_available_room_with_data( $checkInDate,  $checkOutDate, $roomNames, $noOfRooms);
         ?>
                 <!--</select>--></td>
-                <td></td>
+                <td><?php //$available_room = $book->no_of_room; 
+        calculate_sum($noOfRooms,  $price);
+        ?></td>
         </tr>
         <?php  } } }?>
             </table>
