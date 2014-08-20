@@ -570,7 +570,8 @@ class dashboard extends CI_Controller {
      function editBooking($id=NULL) {
         if ($this->session->userdata('logged_in')) {
             $data['username'] = Array($this->session->userdata('logged_in'));
-            $data['query'] = $this->dashboard_model->findbooking($id);
+            $data['query'] = $this->dashboard_model->findbooking($id);  
+          
             foreach ($data['query'] as $book)
             {
                 $booking_id= $book->booking_id;
@@ -580,8 +581,17 @@ class dashboard extends CI_Controller {
      
     
      $data['room'] = $this->dashboard_model->get_booked_room_info_by_booking_id($booking_id);
+    
+    if(!empty($data['room'])){
+         $array=array();
+     foreach ($data['room'] as $dataS)
+        { $roomName = $dataS->room_type;
+    $roomDetail = $this->dashboard_model->get_room_detail_by_room_name($roomName);  
+    $array= array_merge($array, $roomDetail);
+        }}
+        $json['json']= json_encode($array);   
             }
-            $this->load->view('template/header');
+            $this->load->view('template/header', $json);
             $this->load->view('dashboard/reservationSystem');
             $this->load->view('reservationInformation/editBooking', $data);
             $this->load->view('template/footer');

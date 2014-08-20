@@ -2,15 +2,13 @@
 <script src="<?php echo base_url() . "contents/scripts/jquery-ui.js"; ?>"></script>
 <script src="<?php echo base_url() . "contents/scripts/jquery1.10.2.js"; ?>"></script>
 <script>
+    var txtnext;
+    txtnext = <?php echo $json . ';'; ?>;
+    alert(txtnext);
+    for (var i = 0; i < txtnext.length; i++) {
+        txtnext[i].no_of_room = "0";
+    }
 $(document).ready(function() {
-    
-//    var room= $('.available-room').val();
-//    var price = $('.available-room').parent().prev('td').children('span.priceTag').text();
-//            var total = room * price;
-//            alert(total);
-//           $('.available-room').parent().next('td').children('span.subTotal').text(total);
-//            calculateSum();
-//       
         $('.available-room').change(function() {            //action performs when no of  rooms is selected
 
            // $("#disablebtnInfo").hide()                  //hides the information about disable button info.
@@ -25,16 +23,22 @@ $(document).ready(function() {
 
 
             // for updating the json data.
-//            var room_id;
-//            room_id = $(this).parent().prev().prev().prev('td').parent().attr('id');
-//            var booked = $(this).val();
-//            for (var i = 0; i < txtnext.length; i++) {
-//                if (txtnext[i].id == room_id) {
-//                    txtnext[i].no_of_room = booked;
-//                    break;
-//                }
-//            }
+            var room_id;
+            room_id =  $('.available-room').parent().prev().prev().prev('td').parent().attr('id');
+            var booked =  $('.available-room').val();
+           
+            for (var i = 0; i < txtnext.length; i++) {
+                if (txtnext[i].id == room_id) {
+                    txtnext[i].no_of_room = booked;
+                    break;
+                }
+            }
         });
+        
+         $("#updateBooking").click(function() {
+           alert('here');
+         });
+        
     });
 
 
@@ -60,8 +64,7 @@ $this->load->helper('currency'); ?>
     </div>
   <?php
                 $adultsNumber = 15;
-                $children = 15;
-               
+                $children = 15;         
  if(!empty($query)){
                             foreach ($query as $data)
         {
@@ -79,7 +82,7 @@ $this->load->helper('currency'); ?>
          
       }
   }  
- echo form_open_multipart('dashboard/updateBooking'); ?>
+ //echo form_open_multipart('dashboard/updateBooking'); ?>
     <input name="id" type="hidden" value="<?php echo $id; ?>" />
     <table>
         <tr>
@@ -137,7 +140,7 @@ $this->load->helper('currency'); ?>
         
         
         ?>
-        <tr style="text-align: center;">
+        <tr style="text-align: center;" id="<?php echo $roomId; ?>">
         <input type="hidden" name="roomId" value="<?php echo $roomId; ?>" />
             <td><?php echo $roomNames;  ?></td>
             <td><?php echo $detail;  ?></td>
@@ -156,8 +159,8 @@ $this->load->helper('currency'); ?>
         <?php  } } }?>
             </table>
     
-    <input type="submit" value="Update" />
-    <?php echo form_close(); ?>
+    <input type="submit" value="Update" id="updateBooking" />
+   
             <?php }else
         {
     echo '<h3>Sorry ! Edit not available.</h3>';
