@@ -3,13 +3,13 @@ var base_url = "http://localhost/reservation/";
 
 function changeFunc() {
     $('#loading').show();
-    
+   
     var checkin = $("#CheckIn").val();
     var checkout = $("#CheckOut").val();
     var adult = $("#adults").val();
     var child = $("#childs").val();
-     var hotelId = $("#hotelId").val();
-     var title= $("#title").val();
+     var hotelId = "10";
+     var title = "";
     $.ajax({
         type: "POST",
         url: base_url + "index.php/room_booking/post_action",
@@ -36,8 +36,8 @@ function changeFunc() {
 function book()         //function to be calle for personal info view.
 {
     $('#loading').show();
-    var hotelId= $('#selectedHotelId').val();
-    var title= $('#title').val();
+     var hotelId= $('#selectedHotelId').val();
+    var title= "";
 
     $.ajax({
         type: "POST",
@@ -60,11 +60,15 @@ function book()         //function to be calle for personal info view.
 
 function back() {
       
-      var checkin = $("#CheckIn").val();
-      var checkout = $("#CheckOut").val();
+      var checkin = $("#checkin").val();
+      var checkout = $("#checkout").val();
      var adult = $("#adult").val();
       var child = $("#child").val();
        var hotelId= $('#selectedHotelId').val();
+       var title = $('#title').val();
+
+  
+   //alert(checkin);
  $.ajax({
  type: "POST",
  url: base_url + "index.php/room_booking/post_action",
@@ -73,7 +77,8 @@ function back() {
      'checkout' : checkout,
      'adult' : adult,
      'child' : child,
-     'hotelId':hotelId
+     'hotelId':hotelId,
+     'title':title
         },
   success: function(msg) 
         {    
@@ -93,11 +98,16 @@ function back() {
  function backbutton()
  {
     var hotelId = 'hotelId=' + '1';
+    var title = $('#title').val();
+   // var fullname = $('#fullname').val();
       
  $.ajax({
  type: "POST",
  url: base_url + "index.php/room_booking/book_now",
- data: hotelId,
+ data:{
+    'hotelID': hotelId,
+    'title':title
+ },
   success: function(msgs) 
         {
      $('#one').css({'background-color': '#999999'});
@@ -110,7 +120,7 @@ function back() {
             $('.third').css({'color': 'black'});
             $('.third').css({'font-weight': 'normal'});
             $("#room-listing-tbl").show;
-            $("#replaceMe").html(msgs);
+            $("#room_book").html(msgs);
             
         }
  });
@@ -133,13 +143,12 @@ function roomBook()      // function to call for payment info view.
     var contactno = $('#contactno').val();
     var email = $('#email').val();
     var remarks = $('#remarks').val();
-    var checkin = $("#CheckIn").val();
-    var checkout = $("#CheckOut").val();
+    var checkin = $("#fromDate").val();
+    var checkout = $("#toDate").val();
     var adult = $("#adults").val();
     var child = $("#childs").val();
-     var hotelId= $('#selectedHotelId').val();
-    var title= $('#title').val();
-    
+    var hotelId= $('#selectedHotelId').val();
+    var title= "";
     $.ajax({
         type: "POST",
         url: base_url + 'index.php/room_booking/personal_info',
@@ -163,7 +172,7 @@ function roomBook()      // function to call for payment info view.
         success: function(msgs)
         {
 
-            $("#replaceMe").html(msgs);
+            $("#room_book").html(msgs);
 
         },
          complete: function(){
