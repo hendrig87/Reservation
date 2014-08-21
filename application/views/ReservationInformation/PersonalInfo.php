@@ -3,11 +3,7 @@
 <script>
 
     $(document).ready(function() {
-
-
-
-
-        //for displaying booked room
+    //for displaying booked room
         var total = 0;
 
         var predata = '<table width="400px" style="padding-top:20px;" id="popuptbl">' +

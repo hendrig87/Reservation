@@ -90,7 +90,7 @@ class room_booking extends CI_Controller {
  }
 
         $data['query'] = $this->dashboard_model->booking_room($hotelId);
-        //echo $data['query'];
+        
         $j_son['json'] = json_encode($data);
 
 

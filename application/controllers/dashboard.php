@@ -604,6 +604,13 @@ class dashboard extends CI_Controller {
     {
         if ($this->session->userdata('logged_in')) {
             $data['username'] = Array($this->session->userdata('logged_in'));
+            $jjj= $_POST['hotelId'];
+            var_dump($jjj);
+            die('');
+            
+            echo $jjj;
+            
+            
             $id= $this->input->post('id');
             $checkIn= $this->input->post('CheckIn');
             $checkOut = $this->input->post('CheckOut');

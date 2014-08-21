@@ -4,10 +4,11 @@
 <script>
     var txtnext;
     txtnext = <?php echo $json . ';'; ?>;
-    alert(txtnext);
+  
     for (var i = 0; i < txtnext.length; i++) {
         txtnext[i].no_of_room = "0";
     }
+   
 $(document).ready(function() {
         $('.available-room').change(function() {            //action performs when no of  rooms is selected
 
@@ -26,7 +27,7 @@ $(document).ready(function() {
             var room_id;
             room_id =  $('.available-room').parent().prev().prev().prev('td').parent().attr('id');
             var booked =  $('.available-room').val();
-           
+          
             for (var i = 0; i < txtnext.length; i++) {
                 if (txtnext[i].id == room_id) {
                     txtnext[i].no_of_room = booked;
@@ -36,7 +37,29 @@ $(document).ready(function() {
         });
         
          $("#updateBooking").click(function() {
-           alert('here');
+             var checkin = $("#fromDate").val();
+             var checkout = $("#toDate").val();
+             var adult = $("#adults").val();
+             var child = $("#childs").val();
+             var bookprimaryid= $("#hide").val();
+            alert(checkin);
+      
+
+    $.ajax({
+        type: "POST",
+        url: "<?php echo base_url().'index.php/dashboard/updateBooking'; ?>",
+        data: {
+            'hotelId': jsondata,
+           'title': title
+        },
+        success: function(msgs)
+        {
+            alert(msgs);
+            //$("#room_book").html(msgs);
+
+        }
+        
+    });
          });
         
     });
@@ -83,7 +106,7 @@ $this->load->helper('currency'); ?>
       }
   }  
  //echo form_open_multipart('dashboard/updateBooking'); ?>
-    <input name="id" type="hidden" value="<?php echo $id; ?>" />
+    <input name="id" id="hide" type="hidden" value="<?php echo $id; ?>" />
     <table>
         <tr>
             <td><span>Check In Date:</span></td>
@@ -158,7 +181,11 @@ $this->load->helper('currency'); ?>
         </tr>
         <?php  } } }?>
             </table>
-    
+     <script>
+
+        var updated_json = '<textarea  id="myjson" style="display:none;" >' + JSON.stringify(txtnext) + '</textarea>';
+        $('#action').append(updated_json);
+    </script>
     <input type="submit" value="Update" id="updateBooking" />
    
             <?php }else
