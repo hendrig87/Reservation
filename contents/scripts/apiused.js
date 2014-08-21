@@ -8,8 +8,8 @@ function changeFunc() {
     var checkout = $("#CheckOut").val();
     var adult = $("#adults").val();
     var child = $("#childs").val();
-     var hotelId = "10";
-     var title = "";
+     var hotelId = $("#hotelId").val();
+     var title = $("#title").val();;
     $.ajax({
         type: "POST",
         url: base_url + "index.php/room_booking/post_action",
