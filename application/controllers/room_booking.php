@@ -46,8 +46,9 @@ class room_booking extends CI_Controller {
         
       // echo $this->session->userdata('checkin');
        
-        $hotel = $_POST['hotelId'];
-      
+        $hotel = $_POST['hotelId'];// form top it got hotel name
+        var_dump($hotel);
+        die('');
         $hotels = $this->dashboard_model->get_hotel_id($hotel);
         if (!empty($hotels)) {
             foreach ($hotels as $hotelData) {

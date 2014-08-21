@@ -10,6 +10,7 @@ function changeFunc() {
     var child = $("#childs").val();
      var hotelId = $("#hotelId").val();
      var title= $("#title").val();
+     alert(hotelId);
     $.ajax({
         type: "POST",
         url: base_url + "index.php/room_booking/post_action",
