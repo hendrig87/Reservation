@@ -4,7 +4,7 @@
         <script src="<?php echo base_url() . "contents/scripts/datepicker.js"; ?>"></script>
         
         <script type="text/javascript">
-  function changeFunc() {
+  function changeFuncs() {
    
    var selectedValue = $("#selectBox").val();//selectBox.options[selectBox.selectedIndex].value;
    var checkIn=$("#checkin").val();
@@ -59,7 +59,7 @@ $( ".datepicker" ).datepicker();
                ?>
          
            </select>
-          <input type="submit" value="Search" onclick="changeFunc()" />
+          <input type="submit" value="Search" onclick="changeFuncs()" />
          
       </div> 
       

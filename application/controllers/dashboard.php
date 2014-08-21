@@ -449,7 +449,7 @@ class dashboard extends CI_Controller {
 
         $config["per_page"] = 2;
 
-        $config["per_page"] = 12;
+        $config["per_page"] = 10;
 
         $this->pagination->initialize($config);
         $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
@@ -517,7 +517,7 @@ class dashboard extends CI_Controller {
 
         $config["per_page"] = 2;
 
-        $config["per_page"] = 12;
+        $config["per_page"] = 5;
 
         $this->pagination->initialize($config);
         $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
