@@ -138,7 +138,7 @@
                         var child = $("#childs").val();
                         var hotelId = $("#tags").val();
                         var title = "";
-                        alert(hotelId);
+                        
                         // alert( adult);
                         $.ajax({
                             type: "POST",

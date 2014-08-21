@@ -385,5 +385,13 @@ function record_count_all_booking_info($user_id)
         $this->db->where('id', $id);
         $this->db->update('booking_info', $data);
     }
+    
+    
+    public function get_user_verified($bookId, $email){
+        $this->db->where('booking_id', $bookId );
+        $this->db->where('email', $email);
+        $query = $this->db->get('personal_info');
+        return $query->result();
+    }
 
 }
