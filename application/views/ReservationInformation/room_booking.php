@@ -2,6 +2,7 @@
 <script>
     var txtnext;
     txtnext = <?php echo $json . ';'; ?>;
+    
     for (var i = 0; i < txtnext.length; i++) {
         txtnext[i].no_of_room = "0";
     }
@@ -37,6 +38,7 @@ $(document).ready(function(){
             var booked = $(this).val();
             for (var i = 0; i < txtnext.length; i++) {
                 if (txtnext[i].id == room_id) {
+                    alert(room_id);
                     txtnext[i].no_of_room = booked;
                     break;
                 }

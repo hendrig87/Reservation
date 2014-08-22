@@ -1,5 +1,55 @@
-<div class="right">
+
+<script>
+    $(document).ready(function() {
+        $('.available-room').change(function() {            //action performs when no of  rooms is selected
+
+           // $("#disablebtnInfo").hide()                  //hides the information about disable button info.
+
+            var rooms = $(this).val();
+            
+            var price = $(this).parent().prev('td').children('span.priceTag').text();
+            var total = rooms * price;
+            $(this).parent().next('td').children('span.subTotal').text(total);
+            calculateSum();
+        });
+        
+        
+         $("#updatedBooking").click(function() {
+     
+             var checkin = $("#fromDate").val();
+             var checkout = $("#toDate").val();
+             var adult = $("#adults").val();
+             var child = $("#childs").val();
+             var bookprimaryid= $("#hide").val();
+             var hotelId= $("#hotelhide").val();
+             alert(checkin);
+                    $.ajax({
+        type: "POST",
+        url: "<?php echo base_url().'index.php/dashboard/updateBooking'; ?>",
+        data: {
+            'hotelId': jsondata,
+           'title': title
+        },
+        success: function(msgs)
+        {
+            alert(msgs);
+            //$("#room_book").html(msgs);
+
+        }
+        
+    });
     
+         });
+        
+        
+        
+        
+        
+    });
+    </script>
+   <?php $this->load->helper('availableroom');
+$this->load->helper('currency'); ?>
+
     <h2>Update Booking</h2><hr class="topLine" />
     
   <?php
@@ -16,7 +66,7 @@
         </tr>
         <tr>
             <td><span>Check Out Date:</span></td>
-            <td><input class="datepicker" name="CheckOut" type="text" placeholder="To"  id="toDate"  required="required" <?php echo $abc['checkout']; ?>" readonly ></td>
+            <td><input class="datepicker" name="CheckOut" type="text" placeholder="To"  id="toDate"  required="required" value="<?php echo $abc['checkout']; ?>" readonly ></td>
         </tr>
         <tr>
             <td><span>Adults:</span></td>
@@ -36,9 +86,8 @@
      <?php
         $room = $this->dashboard_model->get_rooms_by_hotel_id($abc['hotelId']);
         
-        if(!empty($room)){
-     foreach ($room as $book)
-        {    ?>
+        if(!empty($room)){ ?>
+    
     <table border="1px;" width="100%">
         <tr>
             <th>Room</th>
@@ -47,7 +96,8 @@
             <th>Select No. Of Rooms</th>
             <th>Total Price</th>
         </tr>
-       
+       <?php  foreach ($room as $book)
+        {    ?>
       <tr id="<?php echo $book->id; ?>"> <td>
                         <div style="float: left; margin-right: 10px;"><img src="<?php echo base_url() . 'uploads/' . $book->image; ?>" width="50px" height="50px"></div>
                         <div style="font-size: 16px;width: 60%; float: left;" id="room-name"><?php echo $book->room_name; ?></div><br>  
@@ -56,23 +106,15 @@
                     </td> 
                     <td><?php echo $book->description; ?></td>
                     <td>
-        <?php get_currency($book->price); //======  <!-- Sending price of room to currency_helper -->
+        <?php get_currency($book->price); 
         ?>
                     </td>
                     <td> 
-        <?php //$available_room = $book->no_of_room; 
+        <?php  
         check_available_room($abc['checkin'], $abc['checkout'], $book->room_name);
         ?>
 
-                               <!-- <select class="available-room" style="width: 80px;" id="roomToBook">
-                                    <option value="0">Select</option>
-                        <?php
-                        // for ($i = 1; $i <= $available_room; $i++) {
-                        //    echo "<option value=" . $i . ">" . $i . "</option>";
-                        // }
-                        ?>
-
-                                </select> -->
+                              
 
                     </td>
 
@@ -86,7 +128,7 @@
              } ?>
             </table>
     
-    <input type="submit" value="Updatess" id="updateBooking" />
+    <input type="submit" value="Update" id="updatedBooking" />
    
             <?php }else
         {
@@ -100,7 +142,4 @@
     
     
     
-    </div>
-
-</div>
-<div id="clear"></div>
+    

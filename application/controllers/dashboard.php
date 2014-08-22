@@ -653,8 +653,7 @@ class dashboard extends CI_Controller {
         );
          //   echo "unable to fetch the view sorry!";
         $this->load->view('ReservationInformation/checkAvailableOnUpdate', $data);
-            
-            
+              
         }
         else {
             redirect('login', 'refresh');

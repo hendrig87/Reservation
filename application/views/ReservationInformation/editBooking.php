@@ -5,7 +5,7 @@
  <script>
     var txtnext;
     txtnext = <?php echo $json . ';'; ?>;
-  
+  alert(txtnext);
     for (var i = 0; i < txtnext.length; i++) {
         txtnext[i].no_of_room = "0";
     }
@@ -26,12 +26,13 @@ $(document).ready(function() {
 
             // for updating the json data.
             var room_id;
-            room_id =  $('.available-room').parent().prev().prev().prev('td').parent().attr('id');
-            var booked =  $('.available-room').val();
+            room_id =  $(this).parent().prev().prev().prev('td').parent().attr('id');
+            var booked =  $(this).val();
           
             for (var i = 0; i < txtnext.length; i++) {
                 if (txtnext[i].id == room_id) {
                     txtnext[i].no_of_room = booked;
+                   
                     break;
                 }
             }
@@ -48,7 +49,7 @@ $(document).ready(function() {
              var bookprimaryid= $("#hide").val();
              var hotelId= $("#hotelhide").val();
              
-            if(oldcheckin !== checkin || oldcheckout !== checkout)
+            if(oldcheckin != checkin || oldcheckout != checkout)
             {
                 $.ajax({
         type: "POST",
@@ -62,15 +63,29 @@ $(document).ready(function() {
         },
         success: function(msgs)
         {
-          // alert(msgs);
-            (".right").html(msgs);
+           //alert(msgs);
+            $(".right").html(msgs);
 
         }
         
     });
             }
             else{
-               alert("unchanged");
+               $.ajax({
+        type: "POST",
+        url: "<?php echo base_url().'index.php/dashboard/updateBooking'; ?>",
+        data: {
+            'hotelId': jsondata,
+           'title': title
+        },
+        success: function(msgs)
+        {
+            alert(msgs);
+            //$("#room_book").html(msgs);
+
+        }
+        
+    });
             }
 
     
@@ -180,7 +195,7 @@ $this->load->helper('currency'); ?>
         
         ?>
         <tr style="text-align: center;" id="<?php echo $roomId; ?>">
-        <input type="hidden" name="roomId" value="<?php echo $roomId; ?>" />
+       
             <td><?php echo $roomNames;  ?></td>
             <td><?php echo $detail;  ?></td>
              <td><?php get_currency($price) ;  ?></td>
@@ -213,6 +228,6 @@ $this->load->helper('currency'); ?>
     
     
     </div>
-<div id="test"></div>
+
 </div>
 <div id="clear"></div>
