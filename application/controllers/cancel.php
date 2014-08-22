@@ -14,7 +14,7 @@ class cancel extends CI_Controller {
        // $this->load->model('booking_room');
        // $this->load->helper('url');
 
-      //  $this->load->helper(array('form', 'url'));
+        $this->load->helper(array('form', 'url'));
      //   $this->load->library("pagination");
     }
 
@@ -83,14 +83,33 @@ class cancel extends CI_Controller {
             $code = $_POST['code'];
         }
         
-        
-        
-        
-        
-        
+         $user = $this->dashboard_model->get_user_verified($code);
+       
+        if(!empty($user))
+        {
+            foreach ($user as $users)
+            {
+                $userName = $users->full_name;
+                $userEmail = $users->email;
+            }
+             $this->cancellationEmail($userName, $userEmail);
+            //$this->load->view('cancelBooking/secondView');
+        }
+        else
+        {
+            echo "<h3>Sorry! email or booking id did not match.";
+        }
+           
     }
     
-    
+     public function cancellationEmail($userName, $userEmail) {
+        $this->load->helper('send_email_helper');
+        $subject = "Verification Code";
+        $imglink = base_url() . "contents/images/ParkReserve.png";
+        $message = cancel_notification_email($userName, $imglink);
+
+        send_cancellation_email($userEmail, $subject, $message);
+    }
     
     
     

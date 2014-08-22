@@ -1,7 +1,8 @@
 <script src="<?php echo base_url() . "contents/scripts/jquery.js"; ?>"></script>
 <script src="<?php echo base_url() . "contents/scripts/jquery-ui.js"; ?>"></script>
 <script src="<?php echo base_url() . "contents/scripts/jquery1.10.2.js"; ?>"></script>
-<script>
+ <script src="<?php echo base_url() . "contents/scripts/datepicker.js"; ?>"></script>
+ <script>
     var txtnext;
     txtnext = <?php echo $json . ';'; ?>;
   
@@ -44,6 +45,10 @@ $(document).ready(function() {
              var bookprimaryid= $("#hide").val();
             alert(checkin);
       
+            if(checkin == "")
+            {
+                
+            }
 
     $.ajax({
         type: "POST",
@@ -110,11 +115,11 @@ $this->load->helper('currency'); ?>
     <table>
         <tr>
             <td><span>Check In Date:</span></td>
-            <td><input name="CheckIn" type="text" placeholder="From" required="required" id="fromDate" value="<?php echo $checkInDate; ?>" ></td>
+            <td><input class="datepicker" name="CheckIn" type="text" placeholder="From" required="required" id="fromDate" value="<?php echo $checkInDate; ?>" ></td>
         </tr>
         <tr>
             <td><span>Check Out Date:</span></td>
-            <td><input name="CheckOut" type="text" placeholder="To"  id="toDate"  required="required" value="<?php echo $checkOutDate; ?>" ></td>
+            <td><input class="datepicker" name="CheckOut" type="text" placeholder="To"  id="toDate"  required="required" value="<?php echo $checkOutDate; ?>" ></td>
         </tr>
         <tr>
             <td><span>Adults:</span></td>
@@ -181,11 +186,7 @@ $this->load->helper('currency'); ?>
         </tr>
         <?php  } } }?>
             </table>
-     <script>
-
-        var updated_json = '<textarea  id="myjson" style="display:none;" >' + JSON.stringify(txtnext) + '</textarea>';
-        $('#action').append(updated_json);
-    </script>
+    
     <input type="submit" value="Update" id="updateBooking" />
    
             <?php }else

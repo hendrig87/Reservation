@@ -176,7 +176,7 @@ function send_room_add_email($useremail,$subject,$message)
 }
 
 
-function room_book_email($hotelname, $totalPrice, $fullName, $check_in, $check_out, $child_s, $adult_s, $imglink){
+function room_book_email($hotelname, $totalPrice, $fullName, $check_in, $check_out, $child_s, $adult_s, $imglink, $bookId){
    $body = '<div style="width: 750px; margin: 0 auto 0 auto; padding: 0px;" >
         <div style="display:table-cell; vertical-align:middle; text-align:center; height: 70px; width: 1000px; alignment-adjust: central; background-color: #ccc; margin: 0 auto 0 auto;">
             <img src="'.$imglink.'" alt="salyani" style="height:50px; width:50px; margin:10px;"/>
@@ -190,7 +190,8 @@ function room_book_email($hotelname, $totalPrice, $fullName, $check_in, $check_o
 
   
     <h5>Thank you for your booking through reservation.</h5>
-    <p>You have successfully booked hotel '.$hotelname.' dated from '.$check_in.' to '.$check_out.' for '.$adult_s.' adults and '.$child_s.' for total price '.$totalPrice.'.</p>
+    <p>You have successfully booked hotel '.$hotelname.' dated from '.$check_in.' to '.$check_out.' for '.$adult_s.' adults and '.$child_s.' for total price '.$totalPrice.'.<br>
+        Your booking id is <strong>'.$bookId.'</strong></p>
 </div>
             
             <div style="display:table-cell; vertical-align:middle; text-align:center; height: 70px; width: 1000px; alignment-adjust: central; background-color: #ccc; margin: 0 auto 0 auto;">
@@ -249,6 +250,51 @@ function cancel_email($userName, $imglink, $key)
     <h3>Welcome to reservation.</h3>
     <h4>You are almost done with the cancellation process </h4>
     <h3>Your Verification code is '.$key.'</h3>
+</div>
+            
+            <div style="display:table-cell; vertical-align:middle; text-align:center; height: 70px; width: 1000px; alignment-adjust: central; background-color: #ccc; margin: 0 auto 0 auto;">
+           <p>&copy; Reservation</p>
+
+            </div>
+
+</div>';
+    return $body;
+    
+}
+
+
+function  send_cancellation_email($userEmail, $subject, $message)
+                {
+     $headers = 'From: admin<admin@tech.net.np>' . "\r\n";
+    $headers .="CC: info@tech.net.np". "\r\n";
+    $headers .="MIME-Version: 1.0" . "\r\n";
+    $headers .="Content-type:text/html;charset=UTF-8" . "\r\n";
+           
+
+    if (mail($userEmail, $subject, $message, $headers)) {
+        
+    } else {
+        echo "Message could not be sent...";
+         
+   }    
+   }
+
+function cancel_notification_email($userName, $imglink)
+{
+    $body = '<div style="width: 750px; margin: 0 auto 0 auto; padding: 0px;" >
+        <div style="display:table-cell; vertical-align:middle; text-align:center; height: 70px; width: 1000px; alignment-adjust: central; background-color: #ccc; margin: 0 auto 0 auto;">
+            <img src="'.$imglink.'" alt="salyani" style="height:50px; width:50px; margin:10px;"/>
+
+            </div>
+
+   <div style="padding: 10px 20px 10px 20px; background-color: #eee;">
+   
+    
+    <h4>Dear '.$userName.'  !</h4>
+
+    <h3>Sorry! We were willing to welcome you.</h3>
+    <h4>We hope you will give us a chance to welcome you in our hotel.</h4>
+    
 </div>
             
             <div style="display:table-cell; vertical-align:middle; text-align:center; height: 70px; width: 1000px; alignment-adjust: central; background-color: #ccc; margin: 0 auto 0 auto;">

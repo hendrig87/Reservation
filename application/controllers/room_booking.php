@@ -191,7 +191,7 @@ class room_booking extends CI_Controller {
       
         
         
-        
+      
         $this->booking_room->personal_info($fullName, $address, $occupation, $nationality, $contactNo, $email, $remarks, $totalPrice, $child_s, $adult_s, $bookId);
 
         $jsondatas = $_POST['updated_json'];
@@ -220,6 +220,9 @@ class room_booking extends CI_Controller {
         
                 mysql_query("INSERT INTO `booking_info` (check_in_date, check_out_date, booking_id, hotel_id, status, user_id)
 VALUES ('" . $item['check_in_date'] . "', '" . $item['check_out_date'] . "','" . $bookId . "','" . $item['hotel_id'] . "','0' , '" . $userId. "' )");
+                
+                $this->bookingEmail($hotelId, $totalPrice, $fullName, $email, $check_in, $check_out, $child_s, $adult_s, $bookId);
+                
         $data['value'] = array($totalPrice);
         if ($payment == "0") {
             $this->load->view('ReservationInformation/payment', $data);
@@ -228,19 +231,13 @@ VALUES ('" . $item['check_in_date'] . "', '" . $item['check_out_date'] . "','" .
         }
     }
 
-    function bookingEmail($hotelId, $totalPrice, $fullName, $email, $check_in, $check_out, $child_s, $adult_s) {
-
-        $hotel = $this->dbmodel->get_current_hotel_by_id($hotelId);
-        if (!empty($hotel)) {
-            foreach ($hotel as $data) {
-                $hotelname = $data->name;
-            }
-        }
+    function bookingEmail($hotelId, $totalPrice, $fullName, $email, $check_in, $check_out, $child_s, $adult_s, $bookId) {
+      
 
         $this->load->helper('send_email_helper');
         $subject = "Room Booking Successful";
         $imglink = base_url() . "contents/images/ParkReserve.png";
-        $message = room_book_email($hotelname, $totalPrice, $fullName, $check_in, $check_out, $child_s, $adult_s, $imglink);
+        $message = room_book_email($hotelId, $totalPrice, $fullName, $check_in, $check_out, $child_s, $adult_s, $imglink, $bookId);
 
 
         send_room_book_email($email, $subject, $message);
