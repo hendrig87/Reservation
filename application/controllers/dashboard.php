@@ -639,5 +639,28 @@ class dashboard extends CI_Controller {
     }
     
     
+    public function checkAvailable()
+    {
+        if ($this->session->userdata('logged_in')) {
+         
+            $data['abc'] = array(
+            'checkin' => $_POST['checkin'],
+            'checkout' => $_POST['checkout'],
+            'adult' => $_POST['adults'],
+            'child' => $_POST['childs'],
+            'hotelId' => $_POST['hotelId']
+        );
+         //   echo "unable to fetch the view sorry!";
+        $this->load->view('ReservationInformation/checkAvailableOnUpdate', $data);
+            
+            
+        }
+        else {
+            redirect('login', 'refresh');
+        }
+
+    }
+    
+    
     
 }

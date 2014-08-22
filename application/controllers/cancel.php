@@ -57,6 +57,9 @@ class cancel extends CI_Controller {
                 $userEmail = $users->email;
             }
             $key = $this->getRandomStringForVerification(10);
+            
+            $this->dashboard_model->add_verification_code($userName, $userEmail, $key);
+            
              $this->verificationEmail($userName, $userEmail, $key);
             $this->load->view('cancelBooking/secondView');
         }
@@ -83,7 +86,7 @@ class cancel extends CI_Controller {
             $code = $_POST['code'];
         }
         
-         $user = $this->dashboard_model->get_user_verified($code);
+         $user = $this->dashboard_model->get_user_verified_by_verification_code($code);
        
         if(!empty($user))
         {
@@ -104,7 +107,7 @@ class cancel extends CI_Controller {
     
      public function cancellationEmail($userName, $userEmail) {
         $this->load->helper('send_email_helper');
-        $subject = "Verification Code";
+        $subject = "Booking Cancelled";
         $imglink = base_url() . "contents/images/ParkReserve.png";
         $message = cancel_notification_email($userName, $imglink);
 

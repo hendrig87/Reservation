@@ -38,33 +38,42 @@ $(document).ready(function() {
         });
         
          $("#updateBooking").click(function() {
+     
+            var oldcheckin=  $("#fromDate").attr("oldval");
              var checkin = $("#fromDate").val();
+             var oldcheckout = $("#toDate").attr("oldval");
              var checkout = $("#toDate").val();
              var adult = $("#adults").val();
              var child = $("#childs").val();
              var bookprimaryid= $("#hide").val();
-            alert(checkin);
-      
-            if(checkin == "")
+             var hotelId= $("#hotelhide").val();
+             
+            if(oldcheckin !== checkin || oldcheckout !== checkout)
             {
-                
-            }
-
-    $.ajax({
+                $.ajax({
         type: "POST",
-        url: "<?php echo base_url().'index.php/dashboard/updateBooking'; ?>",
+        url: "<?php echo base_url().'index.php/dashboard/checkAvailable'; ?>",
         data: {
-            'hotelId': jsondata,
-           'title': title
+            'checkin': checkin,
+           'checkout': checkout,
+           'adults': adult,
+           'childs': child,
+           'hotelId': hotelId
         },
         success: function(msgs)
         {
-            alert(msgs);
-            //$("#room_book").html(msgs);
+          // alert(msgs);
+            (".right").html(msgs);
 
         }
         
     });
+            }
+            else{
+               alert("unchanged");
+            }
+
+    
          });
         
     });
@@ -99,6 +108,7 @@ $this->load->helper('currency'); ?>
             $checkInDate = $data-> check_in_date;
             $checkOutDate = $data-> check_out_date;
             $id= $data->id;
+            $hotelId= $data->hotel_id;
           
         }
         
@@ -112,14 +122,15 @@ $this->load->helper('currency'); ?>
   }  
  //echo form_open_multipart('dashboard/updateBooking'); ?>
     <input name="id" id="hide" type="hidden" value="<?php echo $id; ?>" />
+    <input name="hotelid" id="hotelhide" type="hidden" value="<?php echo $hotelId; ?>" />
     <table>
         <tr>
             <td><span>Check In Date:</span></td>
-            <td><input class="datepicker" name="CheckIn" type="text" placeholder="From" required="required" id="fromDate" value="<?php echo $checkInDate; ?>" ></td>
+            <td><input class="datepicker" oldval="<?php echo $checkInDate;  ?>" name="CheckIn" type="text" placeholder="From" required="required" id="fromDate" value="<?php echo $checkInDate; ?>" ></td>
         </tr>
         <tr>
             <td><span>Check Out Date:</span></td>
-            <td><input class="datepicker" name="CheckOut" type="text" placeholder="To"  id="toDate"  required="required" value="<?php echo $checkOutDate; ?>" ></td>
+            <td><input class="datepicker" oldval="<?php echo $checkOutDate;  ?>" name="CheckOut" type="text" placeholder="To"  id="toDate"  required="required" value="<?php echo $checkOutDate; ?>" ></td>
         </tr>
         <tr>
             <td><span>Adults:</span></td>
@@ -202,6 +213,6 @@ $this->load->helper('currency'); ?>
     
     
     </div>
-
+<div id="test"></div>
 </div>
 <div id="clear"></div>

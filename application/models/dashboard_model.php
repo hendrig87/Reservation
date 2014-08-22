@@ -393,5 +393,29 @@ function record_count_all_booking_info($user_id)
         $query = $this->db->get('personal_info');
         return $query->result();
     }
+    
+    public function add_verification_code($userName, $userEmail, $key)
+    {
+        $data = array(
+            'verification_code' => $key);
+
+        $this->db->where('full_name', $userName);
+        $this->db->where('email', $userEmail);
+        $this->db->update('personal_info', $data);
+    }
+    
+    public function get_user_verified_by_verification_code($code)
+    {
+         $this->db->where('verification_code', $code);
+        $query = $this->db->get('personal_info');
+        return $query->result();
+    }
+    
+    public function get_rooms_by_hotel_id($hotelId)
+    {
+        $this->db->where('hotel_id', $hotelId);
+        $query = $this->db->get('room_registration');
+        return $query->result();
+    }
 
 }
