@@ -651,7 +651,10 @@ class dashboard extends CI_Controller {
             'child' => $_POST['childs'],
             'hotelId' => $_POST['hotelId']
         );
-         //   echo "unable to fetch the view sorry!";
+            $hotelId= $_POST['hotelId'];
+          $data['room'] = $this->dashboard_model->get_rooms_by_hotel_id($hotelId);
+          $data['json']= json_encode($data['room']);   
+
         $this->load->view('ReservationInformation/checkAvailableOnUpdate', $data);
               
         }

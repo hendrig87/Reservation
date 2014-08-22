@@ -5,7 +5,7 @@
  <script>
     var txtnext;
     txtnext = <?php echo $json . ';'; ?>;
-  alert(txtnext);
+  
     for (var i = 0; i < txtnext.length; i++) {
         txtnext[i].no_of_room = "0";
     }
@@ -40,6 +40,9 @@ $(document).ready(function() {
         
          $("#updateBooking").click(function() {
      
+      var updated_json = '<textarea  id="myjson" style="display:none;" >' + JSON.stringify(txtnext) + '</textarea>';
+        $('#action').append(updated_json);
+  alert(updated_json);
             var oldcheckin=  $("#fromDate").attr("oldval");
              var checkin = $("#fromDate").val();
              var oldcheckout = $("#toDate").attr("oldval");

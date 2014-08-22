@@ -1,5 +1,13 @@
 
 <script>
+    var txtnext;
+    txtnext = <?php echo $json . ';'; ?>;
+  alert(txtnext);
+    for (var i = 0; i < txtnext.length; i++) {
+        txtnext[i].no_of_room = "0";
+    }
+    
+    
     $(document).ready(function() {
         $('.available-room').change(function() {            //action performs when no of  rooms is selected
 
@@ -11,11 +19,29 @@
             var total = rooms * price;
             $(this).parent().next('td').children('span.subTotal').text(total);
             calculateSum();
+            
+             // for updating the json data.
+            var room_id;
+            room_id =  $(this).parent().prev().prev().prev('td').parent().attr('id');
+            var booked =  $(this).val();
+          
+            for (var i = 0; i < txtnext.length; i++) {
+                if (txtnext[i].id == room_id) {
+                    txtnext[i].no_of_room = booked;
+                   
+                    break;
+                }
+            }
+            
+            
+            
         });
         
         
          $("#updatedBooking").click(function() {
-     
+       var updated_json = '<textarea  id="myjson" style="display:none;" >' + JSON.stringify(txtnext) + '</textarea>';
+        $('#action').append(updated_json);
+        alert(updated_json);
              var checkin = $("#fromDate").val();
              var checkout = $("#toDate").val();
              var adult = $("#adults").val();
@@ -27,7 +53,7 @@
         type: "POST",
         url: "<?php echo base_url().'index.php/dashboard/updateBooking'; ?>",
         data: {
-            'hotelId': jsondata,
+            'jsop': jsondata,
            'title': title
         },
         success: function(msgs)
@@ -83,10 +109,7 @@ $this->load->helper('currency'); ?>
                 </select></td>
         </tr>
     </table>
-     <?php
-        $room = $this->dashboard_model->get_rooms_by_hotel_id($abc['hotelId']);
-        
-        if(!empty($room)){ ?>
+     <?php  if(!empty($room)){ ?>
     
     <table border="1px;" width="100%">
         <tr>
