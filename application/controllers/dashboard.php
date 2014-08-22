@@ -490,8 +490,29 @@ class dashboard extends CI_Controller {
         }
     }
     
-   
-    function searchManagedBooking(){
+    function view(){
+      //  $hid = $_POST['hotel'];
+//die($hid);
+//die($hid);
+
+//Calculating no of pages
+   // $countP['page'] = $this->dbmodel->count_page($hid);
+  //  var_dump($countP);   
+     $useremail = $this->session->userdata('useremail');
+            $user['uid'] = $this->dbmodel->get_user_info($useremail);
+            
+        $this->load->view('test/view',$user);
+        
+    }
+    
+function pagination(){
+    $this->load->view('test/pagination_data');
+}
+
+
+
+
+function searchManagedBooking(){
          if ($this->session->userdata('logged_in')) {
         
          $useremail = $this->session->userdata('useremail');
