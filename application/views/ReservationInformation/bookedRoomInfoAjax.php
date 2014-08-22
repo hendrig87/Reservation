@@ -1,4 +1,13 @@
- <div id="room_book">
+<script >
+$(document).ready(function(){
+$(".test a").click(function(){
+    
+   changeFuncs();
+});
+});
+</script>
+
+<div id="room_book">
    <?php
     if(!empty($roomInfo))
     { ?>
