@@ -88,6 +88,27 @@ function record_count_all_booking_info($user_id)
         return $this->db->count_all_results();
     }
     
+    function pagination_query_test($hotelId,$checkIn,$checkOut){
+              
+        $today= date("Y-m-d");
+         $this->db->where("status", "0");
+        if($hotelId!=0 && $hotelId!=NULL && $hotelId!=""){
+        $this->db->where('hotel_id', $hotelId);}
+         if($checkIn!="" && $checkIn!=NULL){
+         $this->db->where('check_in_date >=', $checkIn);}
+         if($checkOut!="" && $checkOut!=NULL){
+         $this->db->where('check_out_date <=', $checkOut);}
+//         $this->db->where('status','0');
+//        
+//        //$this->db->where('check_out_date >=', $today);
+//         $this->db->or_where('check_in_date >=',$checkin);
+//         $this->db->or_where('check_out_date <=',$checkout);
+//          $this->db->or_where('hotel_id', $hotelId);
+        $this->db->from("booking_info");
+        return $this->db->count_all_results();
+    }
+
+
     function record_count_all_room_registration($user_id)
     {
         $this->db->where('user_id', $user_id);
@@ -191,6 +212,17 @@ function record_count_all_booking_info($user_id)
         $query = $this->db->get('booking_info');
 
         return $query->result();
+    }
+    
+    function query_test($user_id){
+        $today= date("Y-m-d");
+         $this->db->where('status', "0");
+        $this->db->where('check_out_date >=', $today);
+        // $this->db->where('check_in_date >=',$checkin);
+        // $this->db->where('check_out_date <=',$checkout);
+        $this->db->where('user_id', $user_id);
+        $this->db->from("booking_info");
+        return $this->db->count_all_results();
     }
 
     function get_booked_room_info_search($limit, $start, $hotelId, $checkIn, $checkOut) {

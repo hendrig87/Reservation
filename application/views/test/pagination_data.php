@@ -1,27 +1,10 @@
-<?php
-//include('config.php');
-
-$per_page = 9;
-if($_GET)
-{
-$page=$_GET['page'];
-$id = $_GET['i'];
-}
-
-//die($id);
-//die('he');
-$start = ($page-1)*$per_page;
-if($id==0){
-  $sql = "select * from booking_info limit $start,$per_page"; 
-  //redirect('dashboard/bookingInfo');
-}
-else{
-$sql = "select * from booking_info where hotel_id= $id  limit $start,$per_page";
-}
-$result = mysql_query($sql);
-?>
-<table width="100%" style="border-collapse: collapse">
-    <tr>
+      
+     <div id="room_book">
+   <?php
+    if(!empty($roomInfo))
+    { ?>
+    <table width="100%" style="border-collapse: collapse">
+        <tr>
             <th width="17%">Room</th>
             <th width="7%">No. of room</th>
            
@@ -31,50 +14,107 @@ $result = mysql_query($sql);
             <th width="25%">Contact Person/ Address</th>
              <th width="15%">Booked Hotel</th>
              <th width="4%">Action</th>
-        </tr> 
-<?php
+        </tr>  
+    <?php
+   
+        foreach($roomInfo as $book)
+    {
+           // $room = $book->room_type;
+            //$noOfRooms = $book->no_of_rooms_booked;
+            $checkIn= $book->check_in_date;
+            $checkOut = $book->check_out_date;
+            $bookingId= $book->booking_id;
+            $hotelId = $book->hotel_id;
+           
+            $currentDate = date("Y-m-d");
+    $days = floor( ( strtotime( $checkOut ) - strtotime(  $checkIn ) ) / 86400 );
+    $remain = floor( ( strtotime( $checkIn ) - strtotime(  $currentDate ) ) / 86400 );
+            
 
-while($row = mysql_fetch_array($result))
-{
-$b_id=$row['id'];
-$bookingId=$row['booking_id'];
-
-$checkIn = $row['check_in_date'];
-$checkOut = $row['check_out_date'];
- $days = floor( ( strtotime( $checkOut ) - strtotime(  $checkIn ) ) / 86400 );
-?>
-    
-<tr>
-<td>
- <?php
-  $bookedRoomInfo= $this->dashboard_model->get_all_booked_room_info($bookingId);
- foreach ($bookedRoomInfo as $bookedRooms){
+            
+         $bookedRoomInfo= $this->dashboard_model->get_all_booked_room_info($bookingId);
+     
+                
+    if ($checkIn <= $currentDate && $checkOut >= $currentDate)
+        { ?>
+        <tr class="current" style="border-bottom:1px solid #ccc;" >
+        <?php } else { ?>
+       <tr class="upcomming" style="border-bottom:1px solid #ccc;">
+  <?php  }   ?>
+        
+            <td>
+        <?php foreach ($bookedRoomInfo as $bookedRooms){
              $room= $bookedRooms->room_type;
              $noOfRooms = $bookedRooms->no_of_rooms_booked; ?>
         
                 
-        <?php echo $room;?> <br/> <?php }?> </td>
-<td> <?php foreach ($bookedRoomInfo as $bookedRooms){
+        <?php echo $room;?> <br/> <?php }?> 
+                
+                
+            </td> 
+            
+           <td>
+        <?php foreach ($bookedRoomInfo as $bookedRooms){
              $room= $bookedRooms->room_type;
              $noOfRooms = $bookedRooms->no_of_rooms_booked; ?>
         
                 
         <?php echo $noOfRooms;?> <br/> <?php }?> </td>
-
- <td>
+            
+            <td>
                 <?php echo $checkIn.' to '.$checkOut.'<br/>('.$days.' days)'; ?>
- </td>
- 
- <td></td>
- <td></td>
- <td></td>
- <td></td>
-<td>     <?php echo anchor('dashboard/editBooking/'.$b_id,'<img src="'.  base_url().'contents/images/edit.png"  alt="Edit" class="edit_room">'); ?>&nbsp;&nbsp;&nbsp;
-         <?php echo anchor('dashboard/deleteBooking/'.$b_id,'<img src="'.  base_url().'contents/images/delete.png" alt="Delete" class="delete_room">'); ?>
+            </td>
+            
+            
+            <?php $personalInfo = $this->dashboard_model->get_booking_personal_info($bookingId);
+    if(!empty($personalInfo))
+    {        foreach ($personalInfo as $bookPerson){
+        $bookingName= $bookPerson->full_name;
+        $bookingEmail= $bookPerson->email;
+        $bookAddress = $bookPerson->address;
+        $contact = $bookPerson->contact_no;
+        $child = $bookPerson->child;
+        $adult = $bookPerson->adult;
+        $totalPupil = $child + $adult;
+        
+        ?>
+<!--            <td><?php// if($days>1){ echo $days." days";}else{ echo $days." day";} ?></td>-->
+            <td><?php if($remain>=1){ echo $remain." days";}else{ echo "currently running";} ?></td>
+        <td> <?php echo $totalPupil; ?></td>
+        <td> <?php echo $bookingName."<br>". $bookingEmail."<br>".$bookAddress."<br>".$contact; ?></td>
+       
+        
+        
+    <?php }} ?>
+        <?php $hotelInfo = $this->dashboard_model->get_hotel_info($hotelId);
+        if(!empty($hotelInfo))
+    {        foreach ($hotelInfo as $bookHotel){
+        $hotelName= $bookHotel->name;
+        $hotelAddress = $bookHotel->address;
+        $contact = $bookHotel->contact;
+    
+        ?>
+        <td><?php echo $hotelName;  ?></td> <?php }} else{ ?><td><?php echo 'hotel not found';  ?></td><?php } ?>
+   <td>    
+                <?php echo anchor('dashboard/editBooking/'.$book->id,'<img src="'.  base_url().'contents/images/edit.png"  alt="Edit" class="edit_room">'); ?>&nbsp;&nbsp;&nbsp;
+                <?php echo anchor('dashboard/deleteBooking/'.$book->id,'<img src="'.  base_url().'contents/images/delete.png" alt="Delete" class="delete_room">'); ?>
                 
-</td> 
-</tr>
-<?php
-}
-?>
-</table>
+            </td>  
+            
+        </tr>
+            
+    <?php           
+    }
+    }else
+    {
+        echo '<h3>Sorry no booking are made.</h3>';
+    }
+    ?>
+        
+    </table>
+         
+      
+     </div>
+    
+  </div>
+    </div>

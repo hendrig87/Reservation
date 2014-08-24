@@ -437,6 +437,7 @@ class dashboard extends CI_Controller {
 
     public function bookingInfo() {
         if ($this->session->userdata('logged_in')) {
+           
             $useremail = $this->session->userdata('useremail');
             $user = $this->dbmodel->get_user_info($useremail);
             foreach ($user as $id) {
@@ -490,23 +491,72 @@ class dashboard extends CI_Controller {
         }
     }
     
+    
     function view(){
-      //  $hid = $_POST['hotel'];
-//die($hid);
-//die($hid);
-
-//Calculating no of pages
-   // $countP['page'] = $this->dbmodel->count_page($hid);
-  //  var_dump($countP);   
+      if ($this->session->userdata('logged_in')) {  
      $useremail = $this->session->userdata('useremail');
             $user['uid'] = $this->dbmodel->get_user_info($useremail);
-            
-        $this->load->view('test/view',$user);
+           $hid = $_POST['hotel'];
+$checkIn = $_POST['checkIn'];
+$checkOut = $_POST['checkOut'];
+             foreach ($user['uid'] as $id) {
+                $user_id = $id->id;
+            }
+           if(($hid!=0 && $hid!=NULL && $hid!="") || ($checkIn!="" && $checkIn!=NULL) || ($checkOut!="" && $checkOut!=NULL) ){
+        $roomInfo = $this->dashboard_model->pagination_query_test($hid,$checkIn,$checkOut);}
+        else{  $roomInfo = $this->dashboard_model->query_test($user_id);}
+         // $roomInfo = $this->dashboard_model->query_test($user_id);
+        // var_dump($roomInfo);
+          $per_page = 9;
+         $pages['pages'] = ceil($roomInfo/$per_page);
         
+        $this->load->view('test/view',$pages);
+        
+    }
+    else{
+        redirect('login', 'refresh');
+    }
     }
     
 function pagination(){
-    $this->load->view('test/pagination_data');
+     if ($this->session->userdata('logged_in')) {  
+    $useremail = $this->session->userdata('useremail');
+            $user['uid'] = $this->dbmodel->get_user_info($useremail);
+            foreach ($user['uid'] as $id) {
+                $user_id = $id->id;
+            }
+           
+    
+if($_GET)
+{
+$page=$_GET['page'];
+$id = $_POST['i'];
+$hid = $_POST['hotel'];
+$checkIn = $_POST['checkin'];
+$checkOut = $_POST['checkout'];
+}
+ //die($checkIn);
+//die($hid);
+$per_page = 9;
+$start = ($page-1)*$per_page;
+
+ if(($hid!=0 && $hid!=NULL && $hid!="") || ($checkIn!="" && $checkIn!=NULL) || ($checkOut!="" && $checkOut!=NULL) ){       
+             $data['hotelName'] = $this->dbmodel->get_user_hotel($user_id);
+                 $data['roomInfo'] = $this->dashboard_model->get_booked_room_info_search($per_page, $start, $hid, $checkIn, $checkOut);     
+            
+                 }
+        else
+        {
+            $data['hotelName'] = $this->dbmodel->get_user_hotel($user_id);
+           $data['roomInfo'] = $this->dashboard_model->get_booked_room_info($per_page, $start, $user_id);
+           
+ }
+            
+    $this->load->view('test/pagination_data',$data);
+}
+ else{
+        redirect('login', 'refresh');
+    }
 }
 
 
