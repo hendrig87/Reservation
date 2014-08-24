@@ -610,7 +610,8 @@ class dashboard extends CI_Controller {
         $jsonDecode = json_decode($jsondatas, true);
         $jsonArray = $jsonDecode;
 
-       foreach ($jsonArray as $item) {
+        var_dump($jsonArray);
+        foreach ($jsonArray as $item) {
             if ($item['no_of_room'] != "0") {
                 $room = $item['room_name'];
                // mysql_query("INSERT INTO `booking_info` (check_in_date, check_out_date, booking_id, hotel_id)
@@ -619,7 +620,7 @@ class dashboard extends CI_Controller {
       // VALUES ('" . $bookId . "','" . $item['room_name'] . "', '" . $item['no_of_room'] . "','" . $item['check_in_date'] . "', '" . $item['check_out_date'] . "')");
             }
         }
-        echo $room;
+       
             
 //            $id= $this->input->post('id');
 //            $checkIn= $this->input->post('CheckIn');
@@ -658,9 +659,11 @@ class dashboard extends CI_Controller {
             'checkout' => $_POST['checkout'],
             'adult' => $_POST['adults'],
             'child' => $_POST['childs'],
-            'hotelId' => $_POST['hotelId']
+            'hotelId' => $_POST['hotelId'],
+                'update'=> $_POST['update']
         );
             $hotelId= $_POST['hotelId'];
+            $data['update']= $_POST['update'];
           $data['room'] = $this->dashboard_model->get_rooms_by_hotel_id($hotelId);
           $data['json']= json_encode($data['room']);   
 

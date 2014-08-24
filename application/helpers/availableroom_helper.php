@@ -67,7 +67,7 @@ function get_available_rooms($data)
          foreach ($availableRoom as $rooms){
         $roomAvailable =  $rooms->no_of_rooms_booked;
         }
-        $available_room = $roomTotal - $roomAvailable;
+        $available_room = $roomTotal - $roomAvailable + $noOfRooms;
         $middata="";
         
        $predata = '<select class="available-room" style="width: 80px;" id="roomToBook"><option value="0">Select</option>'
