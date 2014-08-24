@@ -3,7 +3,7 @@
         <script src="<?php echo base_url() . "contents/scripts/jquery1.10.2.js"; ?>"></script>
         <script src="<?php echo base_url() . "contents/scripts/datepicker.js"; ?>"></script>
         
-        <script type="text/javascript">
+<!--        <script type="text/javascript">
   function changeFuncs() {
    
    var selectedValue = $("#selectBox").val();//selectBox.options[selectBox.selectedIndex].value;
@@ -12,7 +12,31 @@
    
  $.ajax({
 type: "POST",
-url: "<?php echo base_url().'index.php/dashboard/searchManagedBooking' ;?>",
+url: "<?php //echo base_url().'index.php/dashboard/searchManagedBooking' ;?>",
+data: {
+     'hotel' : selectedValue,
+     'checkIn' : checkIn,
+     'checkOut' : checkOut},
+success: function(msgs) 
+      {
+  
+          $("#room_book").html(msgs);
+          
+      }
+});
+}
+
+ </script>-->
+<script type="text/javascript">
+  function changeFuncs() {
+   
+   var selectedValue = $("#selectBox").val();//selectBox.options[selectBox.selectedIndex].value;
+   var checkIn=$("#checkin").val();
+   var checkOut=$("#checkout").val();
+   
+ $.ajax({
+type: "POST",
+url: "<?php echo base_url().'index.php/dashboard/view' ;?>",
 data: {
      'hotel' : selectedValue,
      'checkIn' : checkIn,
@@ -27,7 +51,6 @@ success: function(msgs)
 }
 
  </script>
-
 
   <!-- hotel selection complete -->
      <script>

@@ -186,4 +186,36 @@ class Dbmodel extends CI_Model {
         return $query->result();
  }
  
+ function count_page($hid)
+ {
+    
+     $per_page = 9;
+if($hid==0){
+  //$sql = "select * from booking_info"; 
+  $result = $this->db->get('booking_info');
+  $count = $this->db->count_all_results();
+  //redirect('dashboard/bookingInfo');
+}
+else{
+//$sql = "select * from booking_info where hotel_id=".$hid;
+    
+           $this->db->where('hotel_id',$hid);
+           $result = $this->db->get('booking_info');
+           $count = $this->db->count_all_results();
+           
+          
+}
+//$sql = "select * from booking_info where hotel_id=".$hid;
+//$result = mysql_query($sql);
+//$count = mysql_num_rows($result);
+//$count = $this->db->count_all_results();
+ //var_dump($count);
+ //          die('');
+//$pages = $this->db->ceil($count/$per_page);
+//$pages = $count/$per_page;
+//var_dump($pages);
+//die('');
+return $count->result();
+ }
+ 
  }
