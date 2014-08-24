@@ -196,7 +196,10 @@ $(document).ready(function() {
              var bookprimaryid= $("#hide").val();
              var hotelId= $("#hotelhide").val();
              
-                  
+             //if date changed
+             
+           if(oldcheckin != checkin || oldcheckout != checkout)
+            {
                 $.ajax({
         type: "POST",
         url: "<?php echo base_url().'index.php/dashboard/checkAvailable'; ?>",
@@ -205,18 +208,36 @@ $(document).ready(function() {
            'checkout': checkout,
            'adults': adult,
            'childs': child,
-           'hotelId': hotelId,
-           'update': updated_json
+           'hotelId': hotelId
         },
         success: function(msgs)
         {
-           //alert(msgs);
             $(".right").html(msgs);
 
         }
         
     });
-           
+            }
+            else{
+               $.ajax({
+        type: "POST",
+        url: "<?php echo base_url().'index.php/dashboard/checkRoomChange'; ?>",
+        data: {
+            'json': updated_json,
+            'checkin': checkin,
+           'checkout': checkout,
+           'adults': adult,
+           'childs': child,
+           'hotelId': hotelId },
+        success: function(msgs)
+        {
+           // alert(msgs);
+             $(".right").html(msgs);
+
+        }
+        
+    });
+            }
 
     
          });

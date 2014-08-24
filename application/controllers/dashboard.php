@@ -680,11 +680,35 @@ function searchManagedBooking(){
             'checkout' => $_POST['checkout'],
             'adult' => $_POST['adults'],
             'child' => $_POST['childs'],
-            'hotelId' => $_POST['hotelId'],
-                'update'=> $_POST['update']
+            'hotelId' => $_POST['hotelId']
         );
             $hotelId= $_POST['hotelId'];
-            $data['update']= $_POST['update'];
+          $data['room'] = $this->dashboard_model->get_rooms_by_hotel_id($hotelId);
+          $data['json']= json_encode($data['room']);   
+
+        $this->load->view('ReservationInformation/checkAvailableDateChange', $data);
+              
+        }
+        else {
+            redirect('login', 'refresh');
+        }
+
+    }
+    
+     public function checkRoomChange()
+    {
+        if ($this->session->userdata('logged_in')) {
+         
+            $data['abc'] = array(
+            'checkin' => $_POST['checkin'],
+            'checkout' => $_POST['checkout'],
+            'adult' => $_POST['adults'],
+            'child' => $_POST['childs'],
+            'hotelId' => $_POST['hotelId'],
+                'update'=> $_POST['json']
+        );
+            $hotelId= $_POST['hotelId'];
+            $data['update']= $_POST['json'];
           $data['room'] = $this->dashboard_model->get_rooms_by_hotel_id($hotelId);
           $data['json']= json_encode($data['room']);   
 

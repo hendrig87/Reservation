@@ -116,47 +116,11 @@ $children = 15;
             <th>Select No. Of Rooms</th>
             <th>Total Price</th>
         </tr>
+
     <?php 
-    $upps = json_decode($update);
-foreach($upps as $ups)
-{
-    $nnn= $ups->no_of_room_booked;
-
-   
-    
-            $roomId = $ups->id;
-            $roomNames= $ups->room_name;
-            $image = $ups->image;
-            $detail = $ups->description;
-            $price = $ups->price;
-            $totalRooms = $ups->no_of_room;
-            
-            ?>
-        <tr style="border-bottom:1px solid #ccc;" id="<?php echo $roomId; ?>"> <td>
-                    <div style="float: left; margin-right: 10px;"><img src="<?php echo base_url() . 'uploads/' . $image; ?>" width="50px" height="50px"></div>
-                    <div style="font-size: 16px;width: 60%; float: left;" id="room-name"><?php echo $roomNames; ?></div><br>  
-
-
-                </td> 
-                <td><?php echo $detail; ?></td>
-                <td>
-                    <?php get_currency($price); ?>
-                </td>
-                <td> 
-        <?php check_available_room_with_data( $abc['checkin'],  $abc['checkout'], $roomNames, $nnn); ?>
-
-                </td>
-
-                <td>    
-                    <span>Rs.</span> <span class="subTotal">.00</span>
-                </td>
-
-            </tr>
-
-    <?php } 
     foreach ($room as $book){
             
-        if ($book->id!=$roomId){
+       
         ?>
             <tr style="border-bottom:1px solid #ccc;" id="<?php echo $book->id; ?>"> <td>
                     <div style="float: left; margin-right: 10px;"><img src="<?php echo base_url() . 'uploads/' . $book->image; ?>" width="50px" height="50px"></div>
@@ -179,7 +143,7 @@ foreach($upps as $ups)
 
             </tr>
 
-<?php }} ?>
+<?php } ?>
     </table>
 
     <input type="submit" value="Update" id="updatedBooking" />
