@@ -2,7 +2,7 @@
 <script>
     var txtnext;
     txtnext = <?php echo $json . ';'; ?>;
-  alert(txtnext);
+ // alert(txtnext);
     for (var i = 0; i < txtnext.length; i++) {
         txtnext[i].no_of_room = "0";
     }
@@ -39,9 +39,9 @@
         
         
          $("#updatedBooking").click(function() {
-       var updated_json = '<textarea  id="myjson" style="display:none;" >' + JSON.stringify(txtnext) + '</textarea>';
-        $('#action').append(updated_json);
-        alert(updated_json);
+       var updated_json = JSON.stringify(txtnext);
+        $('#updatedBooking').append(updated_json);
+        
              var checkin = $("#fromDate").val();
              var checkout = $("#toDate").val();
              var adult = $("#adults").val();
@@ -53,9 +53,7 @@
         type: "POST",
         url: "<?php echo base_url().'index.php/dashboard/updateBooking'; ?>",
         data: {
-            'jsop': jsondata,
-           'title': title
-        },
+            'json': updated_json   },
         success: function(msgs)
         {
             alert(msgs);

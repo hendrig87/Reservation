@@ -605,24 +605,33 @@ class dashboard extends CI_Controller {
     {
         if ($this->session->userdata('logged_in')) {
             $data['username'] = Array($this->session->userdata('logged_in'));
-            $jjj= $_POST['hotelId'];
-            var_dump($jjj);
-            die('');
             
-            echo $jjj;
+        $jsondatas = $_POST['json'];
+        $jsonDecode = json_decode($jsondatas, true);
+        $jsonArray = $jsonDecode;
+
+       foreach ($jsonArray as $item) {
+            if ($item['no_of_room'] != "0") {
+                $room = $item['room_name'];
+               // mysql_query("INSERT INTO `booking_info` (check_in_date, check_out_date, booking_id, hotel_id)
+      // VALUES ('" . $item['check_in_date'] . "', '" . $item['check_out_date'] . "','" . $bookId . "','" . $item['hotel_id'] . "' )");
+      //           mysql_query("INSERT INTO `booked_room_info` (booking_id, room_type, no_of_rooms_booked, check_in_date, check_out_date)
+      // VALUES ('" . $bookId . "','" . $item['room_name'] . "', '" . $item['no_of_room'] . "','" . $item['check_in_date'] . "', '" . $item['check_out_date'] . "')");
+            }
+        }
+        echo $room;
             
-            
-            $id= $this->input->post('id');
-            $checkIn= $this->input->post('CheckIn');
-            $checkOut = $this->input->post('CheckOut');
-            $adults = $this->input->post('adults');
-            $childs = $this->input->post('children');
-            $roomId = $this->input->post('roomId');
-            $roomNo = $this->input->post('rooms');
-            var_dump($roomNo);
-            die($id);
-            $this->session->set_flashdata('message', 'Data Updated Sucessfully');
-            redirect('dashboard/bookingInfo', 'refresh');
+//            $id= $this->input->post('id');
+//            $checkIn= $this->input->post('CheckIn');
+//            $checkOut = $this->input->post('CheckOut');
+//            $adults = $this->input->post('adults');
+//            $childs = $this->input->post('children');
+//            $roomId = $this->input->post('roomId');
+//            $roomNo = $this->input->post('rooms');
+//            var_dump($roomNo);
+//            die($id);
+ //           $this->session->set_flashdata('message', 'Data Updated Sucessfully');
+//            redirect('dashboard/bookingInfo', 'refresh');
         } else {
             redirect('login', 'refresh');
         }

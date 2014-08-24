@@ -7,7 +7,7 @@
     txtnext = <?php echo $json . ';'; ?>;
   
     for (var i = 0; i < txtnext.length; i++) {
-        txtnext[i].no_of_room = "0";
+       // txtnext[i].no_of_room = "0";
     }
    
 $(document).ready(function() {
@@ -31,8 +31,7 @@ $(document).ready(function() {
           
             for (var i = 0; i < txtnext.length; i++) {
                 if (txtnext[i].id == room_id) {
-                    txtnext[i].no_of_room = booked;
-                   
+                    txtnext[i].no_of_room = booked;   
                     break;
                 }
             }
@@ -40,9 +39,9 @@ $(document).ready(function() {
         
          $("#updateBooking").click(function() {
      
-      var updated_json = '<textarea  id="myjson" style="display:none;" >' + JSON.stringify(txtnext) + '</textarea>';
-        $('#action').append(updated_json);
-  alert(updated_json);
+      var updated_json =  JSON.stringify(txtnext);
+        $('#updateBooking').append(updated_json);
+        
             var oldcheckin=  $("#fromDate").attr("oldval");
              var checkin = $("#fromDate").val();
              var oldcheckout = $("#toDate").attr("oldval");
@@ -78,9 +77,7 @@ $(document).ready(function() {
         type: "POST",
         url: "<?php echo base_url().'index.php/dashboard/updateBooking'; ?>",
         data: {
-            'hotelId': jsondata,
-           'title': title
-        },
+            'json': updated_json   },
         success: function(msgs)
         {
             alert(msgs);
