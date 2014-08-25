@@ -2,7 +2,7 @@
 <script>
     
     var txtnext;
-    txtnext = <?php echo $json . ';'; ?>;
+    txtnext = <?php echo $update . ';'; ?>;
 
     for (var i = 0; i < txtnext.length; i++) {
         txtnext[i].no_of_room = "0";

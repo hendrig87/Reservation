@@ -213,7 +213,6 @@ $(document).ready(function() {
         success: function(msgs)
         {
             $(".right").html(msgs);
-
         }
         
     });
@@ -231,7 +230,7 @@ $(document).ready(function() {
            'hotelId': hotelId },
         success: function(msgs)
         {
-           // alert(msgs);
+           
              $(".right").html(msgs);
 
         }
