@@ -1,5 +1,7 @@
 var base_url = "http://localhost/reservation/";
 
+
+
  $(document).ready(function(e) { 
      var a = $('#api-data-reserve').attr('name');
       var b = $('#api-data-reserve').attr('data');
@@ -13,7 +15,6 @@ var base_url = "http://localhost/reservation/";
                 success: function(msg)
                 {
                     
-                  
                     $("#api-data-reserve").html(msg);
 
                 }
