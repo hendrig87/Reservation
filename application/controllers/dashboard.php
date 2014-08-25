@@ -507,6 +507,10 @@ $checkOut = $_POST['checkOut'];
         else{  $roomInfo = $this->dashboard_model->query_test($user_id);}
          // $roomInfo = $this->dashboard_model->query_test($user_id);
         // var_dump($roomInfo);
+//        $previous_btn = true;
+//$next_btn = true;
+//$first_btn = true;
+//$last_btn = true;
           $per_page = 9;
          $pages['pages'] = ceil($roomInfo/$per_page);
         

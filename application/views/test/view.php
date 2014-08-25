@@ -88,7 +88,11 @@ success: function(msgs)
 });
 </script>
 <style>
-
+    ul#pagination{
+       margin:4px 0; padding:0px; overflow:hidden; font:12px 'Tahoma'; list-style-type:none;
+        
+    }
+    
 li.ajax_pagination
 {
 list-style: none;
