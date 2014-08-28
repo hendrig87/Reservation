@@ -1,3 +1,5 @@
+<?php
+ header("Access-Control-Allow-Origin: *"); ?>  
 <script src="<?php echo base_url() . "contents/scripts/jquery.js"; ?>"></script>
         <script src="<?php echo base_url() . "contents/scripts/apiused.js"; ?>"></script>
 <?php

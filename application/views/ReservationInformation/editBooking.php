@@ -1,7 +1,5 @@
 <script src="<?php echo base_url() . "contents/scripts/jquery.js"; ?>"></script>
-<script src="<?php echo base_url() . "contents/scripts/jquery-ui.js"; ?>"></script>
-<script src="<?php echo base_url() . "contents/scripts/jquery1.10.2.js"; ?>"></script>
- <script src="<?php echo base_url() . "contents/scripts/datepicker.js"; ?>"></script>
+ <script src="<?php echo base_url() . "contents/scripts/pickdate.js"; ?>"></script>
  
 
 <?php $this->load->helper('availableroom');
@@ -208,7 +206,8 @@ $(document).ready(function() {
            'checkout': checkout,
            'adults': adult,
            'childs': child,
-           'hotelId': hotelId
+           'hotelId': hotelId,
+           'update': updated_json,
         },
         success: function(msgs)
         {
