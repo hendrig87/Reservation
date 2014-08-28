@@ -87,6 +87,7 @@ $(document).ready(function(){
 
 
 <?php
+ header("Access-Control-Allow-Origin: *");
 $this->load->helper('currency');
 $this->load->helper('availableRoom');
 ?>

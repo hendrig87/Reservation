@@ -75,6 +75,7 @@ $(document).ready(function(){
 
 <!--loading currency_helper  -->
 <?php
+ header("Access-Control-Allow-Origin: *");
 $this->load->helper('currency');
 $this->load->helper('availableroom');
 

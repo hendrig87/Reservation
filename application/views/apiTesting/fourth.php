@@ -1,7 +1,9 @@
 <script src="<?php echo base_url() . "contents/scripts/jquery.js"; ?>"></script>
        <script src="<?php echo base_url() . "contents/scripts/apiused.js"; ?>"></script>
 
-       <?php if(!empty($api)){
+       <?php
+ header("Access-Control-Allow-Origin: *");
+ if(!empty($api)){
      foreach ($api as $tempInfo){
          $hotel= $tempInfo->hotel_id;
          $title = $tempInfo->title;

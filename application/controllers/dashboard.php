@@ -762,10 +762,24 @@ function searchManagedBooking(){
                 'update'=> $_POST['json']
         );
             $hotelId= $_POST['hotelId'];
-            $data['update']= $_POST['json'];
-          $data['room'] = $this->dashboard_model->get_rooms_by_hotel_id($hotelId);
-          $data['json']= json_encode($data['room']);   
+            $jsp = json_decode($_POST['json']);
+         $room = $this->dashboard_model->get_rooms_by_hotel_id($hotelId);
+       
+        foreach ($room as &$i) {
+             $i->no_of_room_booked = "0";
+        }
+        unset($i);
+         
+          $a= array_merge($room, $jsp);
 
+        $uniques = array();
+            foreach ($a as $obj) {
+        $uniques[$obj->id] = $obj;
+        }
+        
+        $data['update'] = $uniques;
+        $data['js_on'] = json_encode($data['update']); 
+        
         $this->load->view('ReservationInformation/checkAvailableOnUpdate', $data);
               
         }

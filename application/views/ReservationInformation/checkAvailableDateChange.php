@@ -5,7 +5,7 @@
     txtnext = <?php echo $json . ';'; ?>;
 
     for (var i = 0; i < txtnext.length; i++) {
-        txtnext[i].no_of_room = "0";
+        txtnext[i].no_of_room_booked = "0";
     }
 
 
@@ -26,7 +26,7 @@
 
             for (var i = 0; i < txtnext.length; i++) {
                 if (txtnext[i].id == room_id) {
-                    txtnext[i].no_of_room = booked;
+                    txtnext[i].no_of_room_booked = booked;
 
                     break;
                 }

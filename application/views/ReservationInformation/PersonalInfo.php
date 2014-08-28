@@ -121,7 +121,8 @@
     }
 
 </script>
-
+<?php
+ header("Access-Control-Allow-Origin: *"); ?>
 <div id="room_book">
 <input type="hidden" id="title" value="<?php echo $abc['title']; ?>" >
 <input type="hidden" id="selectedHotelId" value="<?php echo $abc['hotelId']; ?>" >
