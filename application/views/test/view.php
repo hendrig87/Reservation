@@ -5,12 +5,20 @@ $checkOut = $_POST['checkOut'];
 
 ?>
 
+<<<<<<< HEAD
 
+=======
+<!--<script type="text/javascript" src="http://localhost/t/aa/jquery-1.11.1.min.js"></script> -->
+>>>>>>> origin/master
 
 <script>
 $(document).ready(function()
 { 
+<<<<<<< HEAD
 var url = "<?php echo base_url(); ?>";
+=======
+var url = "http://localhost/reservation/";
+>>>>>>> origin/master
 //alert('here');
 //Display Loading Image
 function Display_Load()
