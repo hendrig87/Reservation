@@ -22,7 +22,7 @@
                  
                       <div class="input-prepend input-append">
                 <span class="add-on">Check In</span>
-                <input name="CheckIn" type="text" required="required" style="width:185px; cursor:pointer;" id="CheckIn">
+                <input name="CheckIn" type="text" required="required" style="width:185px; cursor:pointer; height: 0px;" id="CheckIn">
                 <span onclick="movecursor()" class="add-on" style="width:auto; cursor:pointer; "><img src="<?php echo base_url()."contents/images/ParkReserve.png" ;?>" alt="" width="15" height="20" ></span>
                 </div> 
                    

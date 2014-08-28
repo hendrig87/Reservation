@@ -1,4 +1,5 @@
-<script src="<?php echo base_url() . 'contents/scripts/datepicker.js' ?>"></script>
+<!--<script src="<?php //echo base_url() . 'contents/scripts/datepicker.js' ?>"></script>-->
+<script src="<?php echo base_url() . 'contents/scripts/date.js' ?>"></script>
 <script>
     var currenttime = "Apr 28, 2014 2:41:06 PM";
     var greeting = " PM";
