@@ -1,5 +1,6 @@
-      
+
      <div id="room_book">
+        
    <?php
     if(!empty($roomInfo))
     { ?>
