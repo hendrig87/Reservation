@@ -2,10 +2,10 @@
 <script>
     
     var txtnext;
-    txtnext = <?php echo $update . ';'; ?>;
+    txtnext = <?php echo $js_on . ';'; ?>;
 
     for (var i = 0; i < txtnext.length; i++) {
-        txtnext[i].no_of_room = "0";
+        txtnext[i].no_of_room_booked = "0";
     }
 
 
@@ -21,12 +21,14 @@
 
             // for updating the json data.
             var room_id;
+            
             room_id = $(this).parent().prev().prev().prev('td').parent().attr('id');
+            alert(room_id);
             var booked = $(this).val();
-
+            
             for (var i = 0; i < txtnext.length; i++) {
                 if (txtnext[i].id == room_id) {
-                    txtnext[i].no_of_room = booked;
+                    txtnext[i].no_of_room_booked = booked;
 
                     break;
                 }
@@ -106,7 +108,7 @@ $children = 15;
             </select></td>
     </tr>
 </table>
-<?php //if (!empty($room)) { ?>
+<?php if (!empty($update)) { ?>
 
     <table width="100%">
         <tr style="border-bottom:1px solid #ccc; text-align: left;">
@@ -116,14 +118,9 @@ $children = 15;
             <th>Select No. Of Rooms</th>
             <th>Total Price</th>
         </tr>
-    <?php 
-    $upps = json_decode($update);
-foreach($upps as $ups)
-{
-    $nnn= $ups->no_of_room_booked;
-
-   
-    
+    <?php foreach($update as $ups)
+{  
+            $nnn= $ups->no_of_room_booked;
             $roomId = $ups->id;
             $roomNames= $ups->room_name;
             $image = $ups->image;
@@ -152,42 +149,15 @@ foreach($upps as $ups)
                 </td>
 
             </tr>
-
-    <?php } 
-    foreach ($room as $book){
-            
-        if ($book->id!=$roomId){
-        ?>
-            <tr style="border-bottom:1px solid #ccc;" id="<?php echo $book->id; ?>"> <td>
-                    <div style="float: left; margin-right: 10px;"><img src="<?php echo base_url() . 'uploads/' . $book->image; ?>" width="50px" height="50px"></div>
-                    <div style="font-size: 16px;width: 60%; float: left;" id="room-name"><?php echo $book->room_name; ?></div><br>  
-
-
-                </td> 
-                <td><?php echo $book->description; ?></td>
-                <td>
-                    <?php get_currency($book->price); ?>
-                </td>
-                <td> 
-        <?php check_available_room($abc['checkin'], $abc['checkout'], $book->room_name); ?>
-
-                </td>
-
-                <td>    
-                    <span>Rs.</span> <span class="subTotal">.00</span>
-                </td>
-
-            </tr>
-
-<?php }} ?>
+<?php } ?>
     </table>
 
     <input type="submit" value="Update" id="updatedBooking" />
 
-<?php
-//} else {
-//    echo '<h3>Sorry ! rooms are not available.</h3>';
-//}
+<?php 
+} else {
+   echo '<h3>Sorry ! rooms are not available.</h3>';
+}
 
     
 

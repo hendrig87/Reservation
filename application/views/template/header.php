@@ -6,7 +6,7 @@
         <title>Welcome to Online Reservation System</title>  
 
         
-        <script src="<?php echo base_url() . "contents/scripts/popup.js"; ?>"></script>
+     
         <script src="<?php echo base_url() . "contents/scripts/jquery.js"; ?>"></script>
         <script src="<?php echo base_url() . "contents/scripts/jquery-ui.js"; ?>"></script>
         <script src="<?php echo base_url() . "contents/scripts/jquery1.10.2.js"; ?>"></script>

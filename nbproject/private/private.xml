@@ -5,11 +5,10 @@
         <group>
             <file>file:/C:/wamp/www/Reservation/application/views/ReservationInformation/checkAvailableDateChange.php</file>
             <file>file:/C:/wamp/www/Reservation/application/views/ReservationInformation/editBooking.php</file>
+            <file>file:/C:/wamp/www/Reservation/contents/scripts/apiused.js</file>
             <file>file:/C:/wamp/www/Reservation/application/controllers/dashboard.php</file>
             <file>file:/C:/wamp/www/Reservation/application/views/ReservationInformation/checkAvailableOnUpdate.php</file>
             <file>file:/C:/wamp/www/Reservation/application/models/dashboard_model.php</file>
-            <file>file:/C:/wamp/www/Reservation/application/controllers/room_booking.php</file>
-            <file>file:/C:/wamp/www/Reservation/application/views/ReservationInformation/room_booking.php</file>
         </group>
     </open-files>
 </project-private>

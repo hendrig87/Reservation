@@ -1,4 +1,5 @@
 <?php
+ header("Access-Control-Allow-Origin: *");
 
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
