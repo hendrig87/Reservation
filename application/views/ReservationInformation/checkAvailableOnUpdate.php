@@ -41,9 +41,23 @@
 
  $('.add').click(function() {
      var room_id = $(this).parent().prev().prev().prev('td').parent().attr('id');
-   
-    $('.hides').html(room_id);
+   var room_name = $(this).parent().prev().prev().prev().prev().prev('td').text();
+   var desc = $(this).parent().prev().prev().prev().prev('td').text();
+   var price = $(this).parent().prev().prev().prev('td').text()
+ var data ='<td>' +
+                        room_name + '</td><td>' +
+                        desc + '</td><td>' +
+                        price + '</td><td></td></tr>';
+    $('.hides').html(data);
  });
+ 
+ $('.remove').click(function() {
+     var room_id = $(this).parent().prev().prev().prev('td').parent().attr('id');
+   
+    $('.shows').html(room_id);
+ });
+ 
+ 
         $("#updatedBooking").click(function() {
             var updated_json = JSON.stringify(txtnext);
             $('#updatedBooking').append(updated_json);
@@ -130,7 +144,6 @@ $uId = array_diff($ids1,$ids2);
 $rooms = array();
 foreach ($uId as $data){
     $room = $this->dashboard_model->get_room_info_by_room_id($data);
-    //array_push($rooms, $room);
     $rooms = array_merge($rooms, $room);
 }
 foreach ($rooms as &$i) {
@@ -147,6 +160,7 @@ foreach ($rooms as &$i) {
             <th>Price</th>
             <th>Select No. Of Rooms</th>
             <th>Total Price</th>
+            <th>Action</th>
         </tr>
     <?php foreach($jsp as $ups)
 {  
@@ -176,6 +190,7 @@ foreach ($rooms as &$i) {
                 <td>    
                     <span>Rs.</span> <span class="subTotal">.00</span>
                 </td>
+                 <td><img class="remove" src="<?php echo base_url() . 'contents/images/subtract.png'; ?>" width="30" height="30"></td>
             </tr>
             <tr class="hides"></tr>
 <?php } ?>
@@ -184,7 +199,7 @@ foreach ($rooms as &$i) {
    <h4>Other Available Room/s</h4>
    <hr class="topLine" />
 <!-- for other rooms -->
-
+<?php if(!empty($rooms)){ ?>
     <table width="100%">
         <tr style="border-bottom:1px solid #ccc; text-align: left;">
             <th>Room</th>
@@ -224,8 +239,12 @@ foreach ($rooms as &$i) {
                 </td>
                  <td><img class="add" src="<?php echo base_url() . 'contents/images/addition.png'; ?>" width="30" height="30"></td>
             </tr>
-           
-<?php } ?>
+           <tr class="shows"></tr>
+<?php }
+}else{
+    echo '<h3>Sorry! Other rooms are unavailable.</h3>';
+}
+?>
     </table>
     <input type="submit" value="Update" id="updatedBooking" />
 
