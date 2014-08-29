@@ -740,7 +740,7 @@ function searchManagedBooking(){
           $data['room'] = $this->dashboard_model->get_rooms_by_hotel_id($hotelId);
           $data['json']= json_encode($data['room']);   
           var_dump($_POST['update']);
-          die('');
+       
         $this->load->view('ReservationInformation/checkAvailableDateChange', $data);
               
         }

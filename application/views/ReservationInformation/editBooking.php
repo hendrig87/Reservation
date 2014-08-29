@@ -180,6 +180,8 @@ $(document).ready(function() {
             }
         });
         
+        
+        
          $("#updateBooking").click(function() {
      
       var updated_json =  JSON.stringify(txtnext);
@@ -198,9 +200,20 @@ $(document).ready(function() {
              
            if(oldcheckin != checkin || oldcheckout != checkout)
             {
-                $.ajax({
+               roomnotadd(checkin, checkout, adult, child, hotelId, updated_json);
+            }
+            else{
+              roomadd(checkin, checkout, adult, child, hotelId, updated_json);
+            }
+
+    
+         });
+         
+         function roomnotadd(checkin, checkout, adult, child, hotelId, updated_json){
+         
+          $.ajax({
         type: "POST",
-        url: "<?php echo base_url().'index.php/dashboard/checkAvailable'; ?>",
+        url: "<?php echo base_url().'index.php/dashboard/checkAvailable'; ?>", // this doesn't add booked rooms
         data: {
             'checkin': checkin,
            'checkout': checkout,
@@ -215,11 +228,13 @@ $(document).ready(function() {
         }
         
     });
-            }
-            else{
-               $.ajax({
+    }
+      
+         function roomadd(checkin, checkout, adult, child, hotelId, updated_json){
+         
+          $.ajax({
         type: "POST",
-        url: "<?php echo base_url().'index.php/dashboard/checkRoomChange'; ?>",
+        url: "<?php echo base_url().'index.php/dashboard/checkRoomChange'; ?>",//this adds booked rooms
         data: {
             'json': updated_json,
             'checkin': checkin,
@@ -235,10 +250,7 @@ $(document).ready(function() {
         }
         
     });
-            }
-
-    
-         });
+    }
         
     });
 
