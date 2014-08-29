@@ -449,5 +449,11 @@ function record_count_all_booking_info($user_id)
         $query = $this->db->get('room_registration');
         return $query->result();
     }
+    public function get_room_info_by_room_id($data)
+    {
+        $this->db->where('id', $data);
+        $query = $this->db->get('room_registration');
+        return $query->result();
+    }
 
 }

@@ -763,14 +763,11 @@ function searchManagedBooking(){
                 'update'=> $_POST['json']
         );
             $hotelId= $_POST['hotelId'];
-            $jsp = json_decode($_POST['json']);
+        $data['jsp'] = json_decode($_POST['json']);
+         $jsp = json_decode($_POST['json']);  
+        $data['room'] = $this->dashboard_model->get_rooms_by_hotel_id($hotelId);
          $room = $this->dashboard_model->get_rooms_by_hotel_id($hotelId);
-       
-        foreach ($room as &$i) {
-             $i->no_of_room_booked = "0";
-        }
-        unset($i);
-         
+        
           $a= array_merge($room, $jsp);
 
         $uniques = array();

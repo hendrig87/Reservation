@@ -23,11 +23,12 @@
             var room_id;
             
             room_id = $(this).parent().prev().prev().prev('td').parent().attr('id');
-            alert(room_id);
+            
             var booked = $(this).val();
             
             for (var i = 0; i < txtnext.length; i++) {
                 if (txtnext[i].id == room_id) {
+                   
                     txtnext[i].no_of_room_booked = booked;
 
                     break;
@@ -38,7 +39,10 @@
 
         });
 
-
+ $('.add').click(function() {
+     room_id = $(this).parent().prev().prev().prev('td').parent().attr('id');
+     alert(room_id);
+ });
         $("#updatedBooking").click(function() {
             var updated_json = JSON.stringify(txtnext);
             $('#updatedBooking').append(updated_json);
@@ -49,7 +53,7 @@
             var child = $("#childs").val();
             var bookprimaryid = $("#hide").val();
             var hotelId = $("#hotelhide").val();
-            alert(checkin);
+           
             $.ajax({
                 type: "POST",
                 url: "<?php echo base_url() . 'index.php/dashboard/updateBooking'; ?>",
@@ -108,7 +112,32 @@ $children = 15;
             </select></td>
     </tr>
 </table>
-<?php if (!empty($update)) { ?>
+
+   <h4>Booked Room/s</h4>
+   
+<?php if (!empty($room)) {
+    
+           $ids1 = array();
+foreach($room as $elem1)
+    $ids1[] = $elem1->id;
+
+$ids2 = array();
+foreach($jsp as $elem2)
+    $ids2[] = $elem2->id;
+
+$uId = array_diff($ids1,$ids2);
+$rooms = array();
+foreach ($uId as $data){
+    $room = $this->dashboard_model->get_room_info_by_room_id($data);
+    //array_push($rooms, $room);
+    $rooms = array_merge($rooms, $room);
+}
+foreach ($rooms as &$i) {
+             $i->no_of_room_booked = "0";
+        }
+        unset($i);
+
+    ?>
 
     <table width="100%">
         <tr style="border-bottom:1px solid #ccc; text-align: left;">
@@ -118,7 +147,7 @@ $children = 15;
             <th>Select No. Of Rooms</th>
             <th>Total Price</th>
         </tr>
-    <?php foreach($update as $ups)
+    <?php foreach($jsp as $ups)
 {  
             $nnn= $ups->no_of_room_booked;
             $roomId = $ups->id;
@@ -127,7 +156,6 @@ $children = 15;
             $detail = $ups->description;
             $price = $ups->price;
             $totalRooms = $ups->no_of_room;
-            
             ?>
         <tr style="border-bottom:1px solid #ccc;" id="<?php echo $roomId; ?>"> <td>
                     <div style="float: left; margin-right: 10px;"><img src="<?php echo base_url() . 'uploads/' . $image; ?>" width="50px" height="50px"></div>
@@ -147,11 +175,57 @@ $children = 15;
                 <td>    
                     <span>Rs.</span> <span class="subTotal">.00</span>
                 </td>
+               
 
             </tr>
 <?php } ?>
     </table>
+   
+   <h4>Other Available Room/s</h4>
+   <hr class="topLine" />
+<!-- for other rooms -->
 
+    <table width="100%">
+        <tr style="border-bottom:1px solid #ccc; text-align: left;">
+            <th>Room</th>
+            <th width="40%">Facility</th>
+            <th>Price</th>
+            <th>Select No. Of Rooms</th>
+            <th>Total Price</th>
+            <th>Action</th>
+        </tr>
+    <?php foreach($rooms as $ups)
+{  
+            $nnn= $ups->no_of_room_booked;
+            $roomId = $ups->id;
+            $roomNames= $ups->room_name;
+            $image = $ups->image;
+            $detail = $ups->description;
+            $price = $ups->price;
+            $totalRooms = $ups->no_of_room;
+            ?>
+        <tr style="border-bottom:1px solid #ccc;" id="<?php echo $roomId; ?>"> <td>
+                    <div style="float: left; margin-right: 10px;"><img src="<?php echo base_url() . 'uploads/' . $image; ?>" width="50px" height="50px"></div>
+                    <div style="font-size: 16px;width: 60%; float: left;" id="room-name"><?php echo $roomNames; ?></div><br>  
+
+
+                </td> 
+                <td><?php echo $detail; ?></td>
+                <td>
+                    <?php get_currency($price); ?>
+                </td>
+                <td> 
+        <?php check_available_room_with_data( $abc['checkin'],  $abc['checkout'], $roomNames, $nnn); ?>
+
+                </td>
+
+                <td>    
+                    <span>Rs.</span> <span class="subTotal">.00</span>
+                </td>
+                 <td><img class="add" src="<?php echo base_url() . 'contents/images/addition.png'; ?>" width="30" height="30"></td>
+            </tr>
+<?php } ?>
+    </table>
     <input type="submit" value="Update" id="updatedBooking" />
 
 <?php 
