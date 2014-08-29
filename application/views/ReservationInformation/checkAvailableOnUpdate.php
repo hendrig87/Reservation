@@ -40,8 +40,9 @@
         });
 
  $('.add').click(function() {
-     room_id = $(this).parent().prev().prev().prev('td').parent().attr('id');
-     alert(room_id);
+     var room_id = $(this).parent().prev().prev().prev('td').parent().attr('id');
+   
+    $('.hides').html(room_id);
  });
         $("#updatedBooking").click(function() {
             var updated_json = JSON.stringify(txtnext);
@@ -175,9 +176,8 @@ foreach ($rooms as &$i) {
                 <td>    
                     <span>Rs.</span> <span class="subTotal">.00</span>
                 </td>
-               
-
             </tr>
+            <tr class="hides"></tr>
 <?php } ?>
     </table>
    
@@ -224,6 +224,7 @@ foreach ($rooms as &$i) {
                 </td>
                  <td><img class="add" src="<?php echo base_url() . 'contents/images/addition.png'; ?>" width="30" height="30"></td>
             </tr>
+           
 <?php } ?>
     </table>
     <input type="submit" value="Update" id="updatedBooking" />
