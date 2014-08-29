@@ -207,7 +207,7 @@ $(document).ready(function() {
            'adults': adult,
            'childs': child,
            'hotelId': hotelId,
-           'update': updated_json,
+           'update': updated_json
         },
         success: function(msgs)
         {
