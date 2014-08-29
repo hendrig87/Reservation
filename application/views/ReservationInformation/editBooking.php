@@ -194,7 +194,7 @@ $(document).ready(function() {
              var checkout = $("#toDate").val();
              var adult = $("#adults").val();
              var child = $("#childs").val();
-             var bookprimaryid= $("#hide").val();
+            
              var hotelId= $("#hotelhide").val();
              
              //if date changed

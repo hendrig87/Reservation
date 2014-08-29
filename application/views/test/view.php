@@ -23,7 +23,7 @@ var url = "<?php echo base_url(); ?>";
 
 //Default Starting Page Results
 $("#pagination li:first")
-.css({'color' : '#FF0084'}).css({'border' : 'none'});
+.css({'color' : '#474747'}).css({'border-radius' : '3px'});
 //Display_Load();
 //alert('here');
  var i = <?php echo $hid; ?>;
@@ -54,12 +54,13 @@ $("#pagination li").click(function(){
 //Display_Load();
 //CSS Styles
 $("#pagination li")
-.css({'border' : 'solid #dddddd 1px'})
-.css({'color' : '#0063DC'});
+.css({'border-radius' : '3px'})
+.css({'color' : '#474747'});
 
 $(this)
-.css({'color' : '#FF0084'})
-.css({'border' : 'none'});
+.css({'color' : '#474747'})
+.css({'background':'#FFFFFF'})
+.css({'border-radius' : '3px'});
 
 //Loading Data
 var pageNum = this.id;
@@ -95,15 +96,18 @@ li.ajax_pagination
 list-style: none;
 float: left;
 margin-right: 16px;
-//padding:5px;
+
 border:solid 1px  ;
-//color:#0063DC;
+
 color:#474747;
 border:solid 1px #B6B6B6;
 padding:6px 9px 6px 9px;
 background:#E6E6E6;
 background:-moz-linear-gradient(top, #FFFFFF 1px, #F3F3F3 1px, #E6E6E6);
 background:-webkit-gradient(linear, 0 0, 0 100%, color-stop(0.02, #FFFFFF), color-stop(0.02, #F3F3F3), color-stop(1, #E6E6E6));
+border-radius:3px;
+-moz-border-radius:3px;
+-webkit-border-radius:3px;
 
 }
 li.ajax_pagination:hover
@@ -123,10 +127,14 @@ cursor: pointer;
 <?php
 //var_dump($pages);
 //Pagination Numbers
-if($pages!=1){
+
+if($pages!=1 && $pages!=0){
+    echo '<li class="ajax_pagination" id="1">First</li>';
 for($i=1; $i<=$pages; $i++)
 {
 echo '<li class="ajax_pagination" id="'.$i.'">'.$i.'</li>';
-}}
+}
+echo '<li class="ajax_pagination" id="'.$pages.'">Last</li>';
+}
 ?>
 </ul>
