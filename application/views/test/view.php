@@ -5,32 +5,18 @@ $checkOut = $_POST['checkOut'];
 
 ?>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
 <!--<script type="text/javascript" src="http://localhost/t/aa/jquery-1.11.1.min.js"></script> -->
->>>>>>> origin/master
-=======
+
 <script type="text/javascript" src="http://localhost/t/aa/jquery-1.11.1.min.js"></script>
->>>>>>> parent of 491babd... var_dump in view removed
+
 
 <script>
 $(document).ready(function()
 { 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 var url = "<?php echo base_url(); ?>";
-=======
-var url = "http://localhost/reservation/";
->>>>>>> origin/master
-=======
-var url = "http://localhost/t/";
->>>>>>> parent of 491babd... var_dump in view removed
-=======
-    var url = <?php echo base_url(); ?>;
->>>>>>> 9c954f969648d989c25626890f445806547d6250
+
 //alert('here');
 //Display Loading Image
 function Display_Load()
