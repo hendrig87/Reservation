@@ -8,7 +8,7 @@ $checkOut = $_POST['checkOut'];
 
 <!--<script type="text/javascript" src="http://localhost/t/aa/jquery-1.11.1.min.js"></script> -->
 
-<script type="text/javascript" src="http://localhost/t/aa/jquery-1.11.1.min.js"></script>
+
 
 
 <script>
