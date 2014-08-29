@@ -10,7 +10,7 @@ $checkOut = $_POST['checkOut'];
 <script>
 $(document).ready(function()
 { 
-var url = "http://localhost/reservation/";
+    var url = <?php echo base_url(); ?>;
 //alert('here');
 //Display Loading Image
 function Display_Load()
