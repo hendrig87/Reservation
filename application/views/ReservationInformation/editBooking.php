@@ -20,6 +20,7 @@ $this->load->helper('currency'); ?>
               ?>
             
     </div>
+    <div id="error_dateFormate"></div>
   <?php
                 $adultsNumber = 15;
                 $children = 15;         
@@ -197,14 +198,48 @@ $(document).ready(function() {
              var hotelId= $("#hotelhide").val();
              
              //if date changed
+            if(checkin > checkout){
+              var msgDateFormate = "<h3>Please select a correct date formate! </h3>";
+              $("#error_dateFormate").html(msgDateFormate);
              
-           if(oldcheckin != checkin || oldcheckout != checkout)
+            } 
+           else if(checkin > oldcheckin && checkout > oldcheckout)
             {
                roomnotadd(checkin, checkout, adult, child, hotelId, updated_json);
             }
-            else{
-              roomadd(checkin, checkout, adult, child, hotelId, updated_json);
+            else if(checkin < oldcheckin && checkout < oldcheckout)
+            {
+                roomnotadd(checkin, checkout, adult, child, hotelId, updated_json);
             }
+            else if(checkin > oldcheckin && checkout == oldcheckout)
+            {
+                roomnotadd(checkin, checkout, adult, child, hotelId, updated_json);
+            }
+            else if(checkin == oldcheckin && checkout > oldcheckout)
+            {
+                roomnotadd(checkin, checkout, adult, child, hotelId, updated_json);
+            }
+            else if(checkin < oldcheckin && checkout == oldcheckout)
+            {
+                roomnotadd(checkin, checkout, adult, child, hotelId, updated_json);
+            }
+            else if(checkin == oldcheckin && checkout < oldcheckout)
+            {
+                roomadd(checkin, checkout, adult, child, hotelId, updated_json);
+            }
+            else if(checkin < oldcheckin && checkout > oldcheckout)
+            {
+                roomnotadd(checkin, checkout, adult, child, hotelId, updated_json);
+            }
+            else if(checkin > oldcheckin && checkout < oldcheckout)
+            {
+                roomadd(checkin, checkout, adult, child, hotelId, updated_json);
+            }
+            else if(checkin == oldcheckin && checkout == oldcheckout)
+            {
+                   roomadd(checkin, checkout, adult, child, hotelId, updated_json); 
+            }
+            
 
     
          });

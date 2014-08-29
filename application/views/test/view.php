@@ -19,21 +19,12 @@ var url = "<?php echo base_url(); ?>";
 
 //alert('here');
 //Display Loading Image
-function Display_Load()
-{
-$("#loading").fadeIn(900,0);
-//$("#loading").html("<img src="bigLoader.gif" />");
-}
-//Hide Loading Image
-function Hide_Load()
-{
-$("#loading").fadeOut('slow');
-};
+
 
 //Default Starting Page Results
 $("#pagination li:first")
 .css({'color' : '#FF0084'}).css({'border' : 'none'});
-Display_Load();
+//Display_Load();
 //alert('here');
  var i = <?php echo $hid; ?>;
   var checkin = '<?php echo $checkIn; ?>';
@@ -52,7 +43,7 @@ success: function(msgs)
       {
   
           $("#content").html(msgs);
-          Hide_Load()
+         // Hide_Load()
       }
 });
 
@@ -60,7 +51,7 @@ success: function(msgs)
 
 //Pagination Click
 $("#pagination li").click(function(){
-Display_Load();
+//Display_Load();
 //CSS Styles
 $("#pagination li")
 .css({'border' : 'solid #dddddd 1px'})
@@ -85,7 +76,7 @@ success: function(msgs)
       {
   
           $("#content").html(msgs);
-          Hide_Load()
+         // Hide_Load()
       }
 });
 
@@ -104,27 +95,38 @@ li.ajax_pagination
 list-style: none;
 float: left;
 margin-right: 16px;
-padding:5px;
-border:solid 1px black ;
-color:#0063DC;
+//padding:5px;
+border:solid 1px  ;
+//color:#0063DC;
+color:#474747;
+border:solid 1px #B6B6B6;
+padding:6px 9px 6px 9px;
+background:#E6E6E6;
+background:-moz-linear-gradient(top, #FFFFFF 1px, #F3F3F3 1px, #E6E6E6);
+background:-webkit-gradient(linear, 0 0, 0 100%, color-stop(0.02, #FFFFFF), color-stop(0.02, #F3F3F3), color-stop(1, #E6E6E6));
 
 }
 li.ajax_pagination:hover
 {
-color:#FF0084;
+color:#474747;
 cursor: pointer;
 }
+::selection{ background-color: #E13300; color: white; }
+	::moz-selection{ background-color: #E13300; color: white; }
+	::webkit-selection{ background-color: #E13300; color: white; }
 </style>
 
 <div id="loading" ></div>
 <div id="content" ></div>
+
 <ul id="pagination">
 <?php
-//var_dump($page);
+//var_dump($pages);
 //Pagination Numbers
+if($pages!=1){
 for($i=1; $i<=$pages; $i++)
 {
 echo '<li class="ajax_pagination" id="'.$i.'">'.$i.'</li>';
-}
+}}
 ?>
 </ul>

@@ -448,9 +448,7 @@ class dashboard extends CI_Controller {
         $config["base_url"] = base_url() . "index.php/dashboard/bookingInfo";
         $config["total_rows"] = $this->dashboard_model->record_count_all_booking_info($user_id);
 
-        $config["per_page"] = 2;
-
-        $config["per_page"] = 10;
+        $config["per_page"] = 9;
 
         $this->pagination->initialize($config);
         $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
