@@ -8,8 +8,9 @@ function changeFunc() {
     var checkout = $("#CheckOut").val();
     var adult = $("#adults").val();
     var child = $("#childs").val();
-     var hotelId = $("#hotelId").val();
-     var title = $("#title").val();;
+     var hotelId = "sample hotel";
+     var title = "";
+    
     $.ajax({
         type: "POST",
         url: base_url + "index.php/room_booking/post_action",
@@ -25,14 +26,6 @@ function changeFunc() {
         {
 
             $("#replaceMe").html(msg);
-                  x=$(".checkinbtn").position();
-  var topvalue = x.top;
-        
-         var leftvalue = x.left;
-  //calculating offset for displaying popup message
-  leftVal="5"+"%";
-  topVal=x.top+"px";
-             $('.popup').css({left:leftVal,top:topVal}).show();
 
         },
          complete: function(){
@@ -151,11 +144,11 @@ function roomBook()      // function to call for payment info view.
     var contactno = $('#contactno').val();
     var email = $('#email').val();
     var remarks = $('#remarks').val();
-    var checkin = $("#fromDate").val();
-    var checkout = $("#toDate").val();
+    var checkin = $("#checkin").val();
+    var checkout = $("#checkout").val();
     var adult = $("#adults").val();
     var child = $("#childs").val();
-    var hotelId= $('#hotelId').val();
+    var hotelId= $('#selectedHotelId').val();
     var title= "";
     $.ajax({
         type: "POST",
@@ -273,9 +266,7 @@ $(document).ready(function(event){
     
      $("#CheckOut").click(function(){
         $(".error").fadeOut(2000);
-    });
-    
-    
+    }); 
     
     
      var replaced = $("#changePopup").html();
@@ -283,6 +274,7 @@ $(document).ready(function(event){
              
       // checks for valid date code part
      
+      
    var dtVal=$('#CheckIn').val();
    if(ValidateDate(dtVal))   //calling ValidateDate function
    {
@@ -305,6 +297,9 @@ $(document).ready(function(event){
      $('.error').fadeIn(1500);
      event.preventDefault();
    }
+
+   
+   
     // end for checks for valid date code part         
              
              
@@ -385,8 +380,7 @@ function calculateSum() {   //function to calculate the total price of the booke
         });
           
     });
-          
-    });
+  });
 
 
 $(function(){

@@ -19,8 +19,9 @@ $children = 5;
 
 
 
+<!-- 
 
-        <h3>Using the code</h3>
+        <h3>Using the code (Only for sample)</h3>
         <p>You can simply copy and paste the code as shown below to your web site<strong> html</strong> code. </p>
     </div>
     
@@ -32,12 +33,12 @@ $children = 5;
     <html>
     <head>
     <title>Online reservation system</title>
-   <script src="<?php echo base_url().'contents/scripts/jquery.js'; ?>" ></script> 
-       <script src="<?php echo base_url().'apiTesting/scripts/common.js'; ?>" ></script>
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url().'apiTesting/styles/first.css'; ?>" /> 
+   <script src="<?php //echo base_url().'contents/scripts/jquery.js'; ?>" ></script> 
+       <script src="<?php //echo base_url().'apiTesting/scripts/common.js'; ?>" ></script>
+        <link rel="stylesheet" type="text/css" href="<?php// echo base_url().'apiTesting/styles/first.css'; ?>" /> 
     </head>
     <body>      
-     <?php $adultsNumber = 5; $children = 5;   ?>
+     <?php //$adultsNumber = 5; $children = 5;   ?>
        <div id="reservation">
         <span class="error"><span class="error_sign">!</span> Invalid Date. Enter (yyyy/mm/dd) date format. </span>
         <form method="post" action="#" id="checkin_room">
@@ -50,9 +51,9 @@ $children = 5;
                 <span class="add-on">Adults</span> 
                     <select name="adults" id="adults" style="border-radius:0px 5px 5px 0px;">
                         <?php
-                            for ($i = 1; $i <= $adultsNumber; $i++) {
-                            echo "<option value=" . $i . ">" . $i . "</option>";
-                            }
+                      //      for ($i = 1; $i <= $adultsNumber; $i++) {
+                       //     echo "<option value=" . $i . ">" . $i . "</option>";
+                       //     }
                         ?>
                     </select>
             </div>
@@ -67,9 +68,9 @@ $children = 5;
                     <select name="children" required id="childs" style="border-radius:0px 5px 5px 0px;">
                         <option value="0" > Select</option>
                         <?php
-                            for ($i = 1; $i <= $children; $i++) {
-                            echo "<option value=" . $i . ">" . $i . "</option>";
-                            }
+                         //   for ($i = 1; $i <= $children; $i++) {
+                         //   echo "<option value=" . $i . ">" . $i . "</option>";
+                         //   }
                         ?>
                     </select>
             </div>
@@ -81,7 +82,8 @@ $children = 5;
         <div class="popup" id="pop_up"style="display: none">
          <div>
           <div id="popupTitleBox" style="width:100%;">
-            <span class="back" style="float:left;width:40%;text-align: left;">  <!--<a href="" id="back"> < </a>--></span>
+            <span class="back" style="float:left;width:40%;text-align: left;">  <!--<a href="" id="back"> < </a>-->
+   <!-- </span>
             <span class="popupTitleText" style="float:left;width:10%;color: white;margin-top: 5px;">Booking</span>
             <span style="float:right;width:40%;text-align: right; color: white;"><a href="#" id="closePopup" > X </a></span>
           </div> 
@@ -100,7 +102,7 @@ $children = 5;
         <br/>
        <hr style="display: block; height: 1px; border: 0; border-top: 1px solid #ccc; padding: 0; margin-top: 18px;">
        </div>
-    <div id="loading"> <img width="30" src="<?php echo base_url() . "contents/images/page-loader.gif"; ?>" alt="loading.."/><br><b>Loading...</b></div>
+    <div id="loading"> <img width="30" src="<?php// echo base_url() . "contents/images/page-loader.gif"; ?>" alt="loading.."/><br><b>Loading...</b></div>
     <div id="replaceMe">   
     </div>
     </div>
@@ -108,8 +110,8 @@ $children = 5;
    <div class="middleLayer" style="display:none"></div>
 
                             <?php
-                            if (isset($xyz))
-                                echo $xyz;
+                          //  if (isset($xyz))
+                          //      echo $xyz;
                             ?>
 
  </body>
@@ -121,17 +123,18 @@ $children = 5;
     </div>
     
     <h4>After using the above code you will get the view as:</h4>
-        <img src="<?php echo base_url() . "contents/images/1.jpg"; ?>" alt="" width="100%" >
+        <img src="<?php// echo base_url() . "contents/images/1.jpg"; ?>" alt="" width="100%" >
         <h4>When you enter check in date, check out date, no of adults and no. of childs and click on check availability button, you will get popup window as:</h4>
-        <img src="<?php echo base_url() . "contents/images/roomselection.jpg"; ?>" alt="" width="100%" >
+        <img src="<?php //echo base_url() . "contents/images/roomselection.jpg"; ?>" alt="" width="100%" >
         <h4>When you select required number of rooms from listed rooms and click on next button, you will get view as:</h4>
-    <img src="<?php echo base_url() . "contents/images/personalInfo.jpg"; ?>" alt="" width="100%" ><br/>
-    <img src="<?php echo base_url() . "contents/images/personalInfoFilled.jpg"; ?>" alt="" width="100%" >
+    <img src="<?php //echo base_url() . "contents/images/personalInfo.jpg"; ?>" alt="" width="100%" ><br/>
+    <img src="<?php// echo base_url() . "contents/images/personalInfoFilled.jpg"; ?>" alt="" width="100%" >
     <h4>When you provide your personal info and click on next button, you will get view as:</h4>
-    <img src="<?php echo base_url() . "contents/images/payment.jpg"; ?>" alt="" width="100%" ><br/>    
+    <img src="<?php //echo base_url() . "contents/images/payment.jpg"; ?>" alt="" width="100%" ><br/>    
     <p>Note: The above view of payment is optional. If you don't want your user to force to pay, you can exclude this view.</p>    
     <h4>When you provide payment info and click on next button you will get the following view and at the same time the email with booking information will be sent to your email inbox.</h4>    
-     <img src="<?php echo base_url() . "contents/images/thankYouNote.jpg"; ?>" alt="" width="100%" ><br/>     
+     <img src="<?php // echo base_url() . "contents/images/thankYouNote.jpg"; ?>" alt="" width="100%" ><br/> 
+-->    
     
      
      <h3>Pre-requisites:</h3>
@@ -141,7 +144,7 @@ $children = 5;
     
     
     <div id='bottom'>
-        <p>You can download demo files here <a href="<?php echo base_url() . 'index.php/documentation/download/?download=' . 'package.zip'; ?>" >Download Now</a></p>
+        <h3>  <p>You can download demo files here <a href="<?php echo base_url() . 'index.php/documentation/download/?download=' . 'package.zip'; ?>" >Download Now</a> | <a href="<?php echo base_url() . 'index.php/demo'; ?>" > See demo here</a> </p> </h3>
 
         <h3>Using Package</h3>
         <p>You can download necessary file from above download link. After completion of download include sampleCode.php file in your code and link to javascript and css files contained within the package that you downloaded.

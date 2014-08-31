@@ -122,7 +122,7 @@ cursor: pointer;
 //Pagination Numbers
 
 if($pages!=1 && $pages!=0){
-    echo '<li class="ajax_pagination" id="1">First</li>';
+   // echo '<li class="ajax_pagination" id="1">First</li>';
 for($i=1; $i<=$pages; $i++)
 {
 echo '<li class="ajax_pagination" id="'.$i.'">'.$i.'</li>';

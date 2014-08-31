@@ -124,9 +124,8 @@
 
                 <script>
                     function openPopUp() {
-                        
-                            
-                      
+                  
+    
                          $('#loading').show();
                          
                         var checkin = $("#fromDate").val();
@@ -156,7 +155,14 @@
         {
 
             $("#replaceMe").html(msg);
-
+          x=$(".search").position();
+          var topvalue = x.top;
+        
+        // var leftvalue = x.left;
+  //calculating offset for displaying popup message
+  leftVal="5"+"%";
+  topVal=x.top+"px";
+             $('.popup').css({left:leftVal,top:topVal}).show();
         },
          complete: function(){
         $('#loading').hide();
