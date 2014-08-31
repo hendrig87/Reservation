@@ -51,7 +51,6 @@ $(document).ready(function(){
         $(".choosedRoom").click(function(e) {
             if ($('#disablebtn').val() == 'yes')
             {
-
                 e.preventDefault();
                 $("#disablebtnInfo").html('<span class="error_sign">!</span>&nbsp;' + 'Please select the rooms');
                 $("#disablebtnInfo").fadeIn(1000);

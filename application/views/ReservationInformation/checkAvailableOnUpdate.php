@@ -12,6 +12,8 @@ $this->load->helper('currency');
 
     $(document).ready(function() {
         $('.available-room').change(function() {            //action performs when no of  rooms is selected
+            
+            $("#disablebtnInfo").hide();
 
             var rooms = $(this).val();
 
@@ -36,7 +38,7 @@ $this->load->helper('currency');
             }
             
 
-
+            
 
         });
 
@@ -102,7 +104,17 @@ $this->load->helper('currency');
  });
  
  
-        $("#updatedBooking").click(function() {
+        $("#updatedBooking").click(function(e) {
+            if ($('#disablebtn').val() == 'yes')
+            {
+
+                e.preventDefault();
+                $("#disablebtnInfo").html('<span class="error_sign">!</span>&nbsp;' + 'Please select the rooms');
+                $("#disablebtnInfo").fadeIn(1000);
+                return false;
+            }
+            else
+            {
             var updated_json = JSON.stringify(txtnext);
             alert(updated_json);
             
@@ -126,7 +138,7 @@ $this->load->helper('currency');
                 }
 
             });
-
+            }
         });
 
 
@@ -288,6 +300,8 @@ foreach ($rooms as &$i) {
 }
 ?>
     </table>
+        <span id="disablebtnInfo"></span>
+    <input type="hidden" name="disablebtn" id="disablebtn" value="yes"/>
     <input type="submit" value="Update" id="updatedBooking" />
 
 <?php 

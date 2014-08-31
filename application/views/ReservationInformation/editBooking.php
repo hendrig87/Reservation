@@ -123,7 +123,7 @@ $this->load->helper('currency'); ?>
         </tr>
         <?php  } } } ?>
             </table>
-    
+   
     <input type="submit" value="Next" id="updateBooking" />
    
             <?php }else

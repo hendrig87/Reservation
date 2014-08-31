@@ -1,4 +1,4 @@
-
+<script src="<?php echo base_url() . "contents/scripts/datepicker.js"; ?>"></script>
 <script>
     
     var txtnext;
@@ -9,7 +9,10 @@
     }
 
     $(document).ready(function() {
+         makeActiveLink();
         $('.available-room').change(function() {            //action performs when no of  rooms is selected
+
+                $("#disablebtnInfo").hide();
 
             var rooms = $(this).val();
 
@@ -17,6 +20,7 @@
             var total = rooms * price;
             $(this).parent().next('td').children('span.subTotal').text(total);
             calculateSum();
+            makeActiveLink();
 
             // for updating the json data.
             var room_id;
@@ -35,10 +39,22 @@
         });
 
 
-        $("#updatedBooking").click(function() {
+        $("#updatedBooking").click(function(e) {
+            
+           if ($('#disablebtn').val() == 'yes')
+            {
+
+                e.preventDefault();
+                $("#disablebtnInfo").html('<span class="error_sign">!</span>&nbsp;' + 'Please select the rooms');
+                $("#disablebtnInfo").fadeIn(1000);
+                return false;
+            }
+            else
+            { 
+            
+            
             var updated_json = JSON.stringify(txtnext);
-            //$('#updatedBooking').append(updated_json);
-alert(updated_json);
+
 
             var checkin = $("#fromDate").val();
             var checkout = $("#toDate").val();
@@ -59,7 +75,7 @@ alert(updated_json);
                 }
 
             });
-
+            }
         });
 
 
@@ -142,8 +158,14 @@ $children = 15;
             </tr>
 
 <?php } ?>
+            <tr>
+            <td colspan="3" style="text-align:right;"><td><b>Total</b></td>
+            <td><span>Rs.</span>
+                <span id="total_price">.00</span></td>
+        </tr>
     </table>
-
+       <span id="disablebtnInfo"></span>
+        <input type="hidden" name="disablebtn" id="disablebtn" value="yes"/>
     <input type="submit" value="Update" id="updatedBooking" />
 
 <?php
