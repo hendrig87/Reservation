@@ -1,4 +1,6 @@
-
+<?php $this->load->helper('availableroom');
+$this->load->helper('currency');
+?>
 <script>
     
     var txtnext;
@@ -40,6 +42,7 @@
 
  $('body').on('click', 'img.add', function() {
      var room_id = $(this).parent().prev().prev().prev('td').parent().attr('id');
+     var image = $(this).parent().prev().prev().prev().prev().prev('td').find('img').attr('src');
    var room_name = $(this).parent().prev().prev().prev().prev().prev('td').text();
    var desc = $(this).parent().prev().prev().prev().prev('td').text();
    var price = $(this).parent().prev().prev().prev('td').text();
@@ -49,7 +52,7 @@
   
                      
 
- var data ='<tr style="border-bottom:1px solid #ccc;" id="' + room_id + '"><td><div style="float: left; margin-right: 10px;"><img src="" width="50px" height="50px"></div><div style="font-size: 16px;width: 60%; float: left;" id="room-name">' +
+ var data ='<tr style="border-bottom:1px solid #ccc;" id="' + room_id + '"><td><div style="float: left; margin-right: 10px;"><img src="'+ image + '" width="50px" height="50px"></div><div style="font-size: 16px;width: 60%; float: left;" id="room-name">' +
                         room_name + '</div><br></td><td>' +
                         desc + '</td><td>' +
                         roomprice + '</td><td><select id="roomToBook" class="available-room" style="width: 80px;"><option>' +
@@ -68,10 +71,9 @@
  });
  
  $('body').on('click', 'img.remove', function() {
-     
-     var room_id = $(this).parent().prev().prev().prev('td').parent().attr('id');
    
    var room_id = $(this).parent().prev().prev().prev('td').parent().attr('id');
+    var image = $(this).parent().prev().prev().prev().prev().prev('td').find('img').attr('src');
    var room_name = $(this).parent().prev().prev().prev().prev().prev('td').text();
    var desc = $(this).parent().prev().prev().prev().prev('td').text();
    var price = $(this).parent().prev().prev().prev('td').text();
@@ -81,7 +83,7 @@
   
                       
 
- var data ='<tr style="border-bottom:1px solid #ccc;" id="' + room_id + '"><td><div style="float: left; margin-right: 10px;"><img src="" width="50px" height="50px"></div><div style="font-size: 16px;width: 60%; float: left;" id="room-name">' +
+ var data ='<tr style="border-bottom:1px solid #ccc;" id="' + room_id + '"><td><div style="float: left; margin-right: 10px;"><img src="' +image +'" width="50px" height="50px"></div><div style="font-size: 16px;width: 60%; float: left;" id="room-name">' +
                         room_name + '</div><br></td><td>' +
                         desc + '</td><td>' +
                         price + '</td><td><select id="roomToBook" class="available-room" style="width: 80px;"><option>' +
@@ -133,9 +135,7 @@
 
     });
 </script>
-<?php $this->load->helper('availableroom');
-$this->load->helper('currency');
-?>
+
 
 <h2>Update Booking</h2><hr class="topLine" />
 
