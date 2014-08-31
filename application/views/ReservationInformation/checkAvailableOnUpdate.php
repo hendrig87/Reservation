@@ -40,21 +40,49 @@
         });
 
  $('.add').click(function() {
+     alert('here');
      var room_id = $(this).parent().prev().prev().prev('td').parent().attr('id');
    var room_name = $(this).parent().prev().prev().prev().prev().prev('td').text();
    var desc = $(this).parent().prev().prev().prev().prev('td').text();
-   var price = $(this).parent().prev().prev().prev('td').text()
- var data ='<td>' +
-                        room_name + '</td><td>' +
+   var price = $(this).parent().prev().prev().prev('td').text();
+   var roomprice = price.replace( /^\D+/g, '');;
+   var rooms= $(this).parent().prev().prev('td').find('select').val();
+   var total= 'Rs.'+ parseFloat(rooms * roomprice);
+  
+                      
+
+ var data ='<tr style="border-bottom:1px solid #ccc;" id="' + room_id + '"><td><div style="float: left; margin-right: 10px;"><img src="" width="50px" height="50px"></div><div style="font-size: 16px;width: 60%; float: left;" id="room-name">' +
+                        room_name + '</div><br></td><td>' +
                         desc + '</td><td>' +
-                        price + '</td><td></td></tr>';
-    $('.hides').html(data);
+                        price + '</td><td><select style="width: 80px;"><option>' +
+                        rooms +'</option></td><td>' +
+                        total +'</td><td><img class="remove" src="<?php echo base_url() . 'contents/images/subtract.png'; ?>" width="30" height="30"></td></tr>';
+    $('#mytableID > tbody:last').append(data); 
+   $(this).closest("tr").remove();
  });
  
  $('.remove').click(function() {
+     
      var room_id = $(this).parent().prev().prev().prev('td').parent().attr('id');
    
-    $('.shows').html(room_id);
+    $('.shows').html(room_id);var room_id = $(this).parent().prev().prev().prev('td').parent().attr('id');
+   var room_name = $(this).parent().prev().prev().prev().prev().prev('td').text();
+   var desc = $(this).parent().prev().prev().prev().prev('td').text();
+   var price = $(this).parent().prev().prev().prev('td').text();
+   var roomprice = price.replace( /^\D+/g, '');;
+   var rooms= $(this).parent().prev().prev('td').find('select').val();
+   var total= 'Rs.'+ parseFloat(rooms * roomprice);
+  
+                      
+
+ var data ='<tr style="border-bottom:1px solid #ccc;" id="' + room_id + '"><td><div style="float: left; margin-right: 10px;"><img src="" width="50px" height="50px"></div><div style="font-size: 16px;width: 60%; float: left;" id="room-name">' +
+                        room_name + '</div><br></td><td>' +
+                        desc + '</td><td>' +
+                        price + '</td><td><select style="width: 80px;"><option>' +
+                        rooms +'</option></td><td>' +
+                        total +'</td><td><img class="add" src="<?php echo base_url() . 'contents/images/addition.png'; ?>" width="30" height="30"></td></tr>';
+    $('#mytablelow > tbody:last').append(data); 
+   $(this).closest("tr").remove();
  });
  
  
@@ -153,7 +181,7 @@ foreach ($rooms as &$i) {
 
     ?>
 
-    <table width="100%">
+    <table id="mytableID" width="100%">
         <tr style="border-bottom:1px solid #ccc; text-align: left;">
             <th>Room</th>
             <th width="40%">Facility</th>
@@ -192,7 +220,7 @@ foreach ($rooms as &$i) {
                 </td>
                  <td><img class="remove" src="<?php echo base_url() . 'contents/images/subtract.png'; ?>" width="30" height="30"></td>
             </tr>
-            <tr class="hides"></tr>
+           
 <?php } ?>
     </table>
    
@@ -200,7 +228,7 @@ foreach ($rooms as &$i) {
    <hr class="topLine" />
 <!-- for other rooms -->
 <?php if(!empty($rooms)){ ?>
-    <table width="100%">
+    <table id="mytablelow" width="100%">
         <tr style="border-bottom:1px solid #ccc; text-align: left;">
             <th>Room</th>
             <th width="40%">Facility</th>
@@ -239,7 +267,7 @@ foreach ($rooms as &$i) {
                 </td>
                  <td><img class="add" src="<?php echo base_url() . 'contents/images/addition.png'; ?>" width="30" height="30"></td>
             </tr>
-           <tr class="shows"></tr>
+          
 <?php }
 }else{
     echo '<h3>Sorry! Other rooms are unavailable.</h3>';
