@@ -1,3 +1,4 @@
+<script src="<?php echo base_url() . "contents/scripts/datepicker.js"; ?>"></script>
 <?php $this->load->helper('availableroom');
 $this->load->helper('currency');
 ?>
@@ -11,6 +12,7 @@ $this->load->helper('currency');
 
 
     $(document).ready(function() {
+         makeActiveLink();
         $('.available-room').change(function() {            //action performs when no of  rooms is selected
             
             $("#disablebtnInfo").hide();
@@ -20,7 +22,8 @@ $this->load->helper('currency');
             var price = $(this).parent().prev('td').children('span.priceTag').text();
             var total = rooms * price;
             $(this).parent().next('td').children('span.subTotal').text(total);
-            calculateSum();
+             calculateSum();
+            makeActiveLink();
 
             // for updating the json data.
             var room_id;
@@ -248,6 +251,11 @@ foreach ($rooms as &$i) {
             </tr>
            
 <?php } ?>
+            <tr>
+            <td colspan="3" style="text-align:right;"><td><b>Total</b></td>
+            <td><span>Rs.</span>
+                <span id="total_price">.00</span></td>
+        </tr>
     </table>
    
    <h4>Other Available Room/s</h4>
