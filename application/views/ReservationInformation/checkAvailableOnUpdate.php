@@ -75,7 +75,7 @@ $this->load->helper('currency');
             }
             else
             {
-    $('#mytableID > tbody:last').append(data); 
+    $('#mytableID > tbody:nth-last-child(2)').append(data); 
    $(this).closest("tr").remove();}
  });
  
@@ -216,6 +216,7 @@ foreach ($rooms as &$i) {
     ?>
 
     <table id="mytableID" width="100%">
+        <tbody>
         <tr style="border-bottom:1px solid #ccc; text-align: left;">
             <th>Room</th>
             <th width="40%">Facility</th>
@@ -254,7 +255,7 @@ foreach ($rooms as &$i) {
                 </td>
                  <td><img class="remove" src="<?php echo base_url() . 'contents/images/subtract.png'; ?>" width="30" height="30"></td>
             </tr>
-           
+        </tbody>
 <?php } ?>
             <tr>
             <td colspan="3" style="text-align:right;"><td><b>Total</b></td>
