@@ -24,8 +24,7 @@
             room_id = $(this).parent().prev().prev().prev('td').parent().attr('id');
            
             var booked = $(this).val();
-
-            for (var i = 0; i < txtnext.length; i++) {    
+                    for (var i = 0; i < txtnext.length; i++) {    
                 if (txtnext[i].id == room_id) {
                   
                     txtnext[i].no_of_room_booked = booked;
@@ -33,6 +32,7 @@
                     break;
                 }
             }
+            
 
 
 
@@ -55,6 +55,14 @@
                         roomprice + '</td><td><select id="roomToBook" class="available-room" style="width: 80px;"><option>' +
                         rooms +'</option></td><td>' +
                         total +'</td><td><img class="remove" src="<?php echo base_url() . 'contents/images/subtract.png'; ?>" width="30" height="30"></td></tr>';
+                for (var i = 0; i < txtnext.length; i++) {    
+                if (txtnext[i].id == room_id) {
+                  
+                    txtnext[i].no_of_room_booked = rooms;
+
+                    break;
+                }
+            }
     $('#mytableID > tbody:last').append(data); 
    $(this).closest("tr").remove();
  });
@@ -79,6 +87,14 @@
                         price + '</td><td><select id="roomToBook" class="available-room" style="width: 80px;"><option>' +
                         rooms +'</option></td><td>' +
                         total +'</td><td><img class="add" src="<?php echo base_url() . 'contents/images/addition.png'; ?>" width="30" height="30"></td></tr>';
+                for (var i = 0; i < txtnext.length; i++) {    
+                if (txtnext[i].id == room_id) {
+                  
+                    txtnext[i].no_of_room_booked = "0";
+
+                    break;
+                }
+            }
     $('#mytablelow > tbody:last').append(data); 
    $(this).closest("tr").remove();
  });
