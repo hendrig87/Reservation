@@ -34,9 +34,9 @@
    </li>
    <li class='has-sub'><a href="<?php echo base_url().'index.php/documentation/index'; ?>"><span>Documentation</span></a>
    <ul>
-         <li class='has-sub'><a href="#ttoopp"><span>What Is It ?</span></a></li>
-         <li class='has-sub'><a href="#code"><span>How It Works ?</span></a></li>
-         <li class='has-sub'><a href="#bottom"><span>How To Use ?</span></a></li>
+         <li class='has-sub'><a href="<?php echo base_url().'index.php/documentation/index/#ttoopp'; ?>"><span>What Is It ?</span></a></li>
+         <li class='has-sub'><a href="<?php echo base_url().'index.php/documentation/index/#code'; ?>"><span>How It Works ?</span></a></li>
+         <li class='has-sub'><a href="<?php echo base_url().'index.php/documentation/index/#bottom'; ?>"><span>How To Use ?</span></a></li>
       </ul>
    
    </li>

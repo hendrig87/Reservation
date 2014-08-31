@@ -24,8 +24,17 @@ function changeFunc() {
         },
         success: function(msg)
         {
-
-            $("#replaceMe").html(msg);
+  x=$(".checkinbtn").position();
+  var topvalue = x.top;
+        
+        // var leftvalue = x.left;
+  //calculating offset for displaying popup message
+  leftVal="5"+"%";
+  topVal=x.top+"px";
+             $('.popup').css({left:leftVal,top:topVal}).show();
+          
+              $("#replaceMe").html(msg);
+                      
 
         },
          complete: function(){
