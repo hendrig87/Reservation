@@ -2,8 +2,7 @@
 <script>
     
     var txtnext;
-    txtnext = <?php echo $js_on . ';'; ?>;
-
+    txtnext = <?php echo $json . ';'; ?>;
     for (var i = 0; i < txtnext.length; i++) {
         txtnext[i].no_of_room_booked = "0";
     }
@@ -23,12 +22,12 @@
             var room_id;
             
             room_id = $(this).parent().prev().prev().prev('td').parent().attr('id');
-            
+           
             var booked = $(this).val();
-            
-            for (var i = 0; i < txtnext.length; i++) {
+
+            for (var i = 0; i < txtnext.length; i++) {    
                 if (txtnext[i].id == room_id) {
-                   
+                  
                     txtnext[i].no_of_room_booked = booked;
 
                     break;
@@ -39,8 +38,7 @@
 
         });
 
- $('.add').click(function() {
-     alert('here');
+ $('body').on('click', 'img.add', function() {
      var room_id = $(this).parent().prev().prev().prev('td').parent().attr('id');
    var room_name = $(this).parent().prev().prev().prev().prev().prev('td').text();
    var desc = $(this).parent().prev().prev().prev().prev('td').text();
@@ -49,23 +47,23 @@
    var rooms= $(this).parent().prev().prev('td').find('select').val();
    var total= 'Rs.'+ parseFloat(rooms * roomprice);
   
-                      
+                     
 
  var data ='<tr style="border-bottom:1px solid #ccc;" id="' + room_id + '"><td><div style="float: left; margin-right: 10px;"><img src="" width="50px" height="50px"></div><div style="font-size: 16px;width: 60%; float: left;" id="room-name">' +
                         room_name + '</div><br></td><td>' +
                         desc + '</td><td>' +
-                        price + '</td><td><select style="width: 80px;"><option>' +
+                        roomprice + '</td><td><select id="roomToBook" class="available-room" style="width: 80px;"><option>' +
                         rooms +'</option></td><td>' +
                         total +'</td><td><img class="remove" src="<?php echo base_url() . 'contents/images/subtract.png'; ?>" width="30" height="30"></td></tr>';
     $('#mytableID > tbody:last').append(data); 
    $(this).closest("tr").remove();
  });
  
- $('.remove').click(function() {
+ $('body').on('click', 'img.remove', function() {
      
      var room_id = $(this).parent().prev().prev().prev('td').parent().attr('id');
    
-    $('.shows').html(room_id);var room_id = $(this).parent().prev().prev().prev('td').parent().attr('id');
+   var room_id = $(this).parent().prev().prev().prev('td').parent().attr('id');
    var room_name = $(this).parent().prev().prev().prev().prev().prev('td').text();
    var desc = $(this).parent().prev().prev().prev().prev('td').text();
    var price = $(this).parent().prev().prev().prev('td').text();
@@ -78,7 +76,7 @@
  var data ='<tr style="border-bottom:1px solid #ccc;" id="' + room_id + '"><td><div style="float: left; margin-right: 10px;"><img src="" width="50px" height="50px"></div><div style="font-size: 16px;width: 60%; float: left;" id="room-name">' +
                         room_name + '</div><br></td><td>' +
                         desc + '</td><td>' +
-                        price + '</td><td><select style="width: 80px;"><option>' +
+                        price + '</td><td><select id="roomToBook" class="available-room" style="width: 80px;"><option>' +
                         rooms +'</option></td><td>' +
                         total +'</td><td><img class="add" src="<?php echo base_url() . 'contents/images/addition.png'; ?>" width="30" height="30"></td></tr>';
     $('#mytablelow > tbody:last').append(data); 
@@ -88,8 +86,8 @@
  
         $("#updatedBooking").click(function() {
             var updated_json = JSON.stringify(txtnext);
-            $('#updatedBooking').append(updated_json);
-
+            alert(updated_json);
+            
             var checkin = $("#fromDate").val();
             var checkout = $("#toDate").val();
             var adult = $("#adults").val();

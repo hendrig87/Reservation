@@ -8,7 +8,6 @@
         txtnext[i].no_of_room_booked = "0";
     }
 
-
     $(document).ready(function() {
         $('.available-room').change(function() {            //action performs when no of  rooms is selected
 
@@ -23,11 +22,10 @@
             var room_id;
             room_id = $(this).parent().prev().prev().prev('td').parent().attr('id');
             var booked = $(this).val();
-
             for (var i = 0; i < txtnext.length; i++) {
                 if (txtnext[i].id == room_id) {
                     txtnext[i].no_of_room_booked = booked;
-
+                    
                     break;
                 }
             }
@@ -39,7 +37,8 @@
 
         $("#updatedBooking").click(function() {
             var updated_json = JSON.stringify(txtnext);
-            $('#updatedBooking').append(updated_json);
+            //$('#updatedBooking').append(updated_json);
+alert(updated_json);
 
             var checkin = $("#fromDate").val();
             var checkout = $("#toDate").val();
@@ -47,7 +46,6 @@
             var child = $("#childs").val();
             var bookprimaryid = $("#hide").val();
             var hotelId = $("#hotelhide").val();
-            alert(checkin);
             $.ajax({
                 type: "POST",
                 url: "<?php echo base_url() . 'index.php/dashboard/updateBooking'; ?>",
@@ -107,7 +105,7 @@ $children = 15;
     </tr>
 </table>
 <?php //if (!empty($room)) { ?>
-
+<h4>Available Rooms from same hotel</h4>
     <table width="100%">
         <tr style="border-bottom:1px solid #ccc; text-align: left;">
             <th>Room</th>
