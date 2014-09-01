@@ -156,7 +156,7 @@
 
             $("#replaceMe").html(msg);
           x=$(".search").position();
-          var topvalue = x.top;
+         // var topvalue = x.top;
         
         // var leftvalue = x.left;
   //calculating offset for displaying popup message

@@ -145,6 +145,7 @@ function record_count_all_booking_info($user_id)
         $this->db->where("status", "0");
          $this->db->where('user_id', $user_id);
          $this->db->like('check_in_date', $year.'-'.$month);
+         $this->db->or_like('check_out_date', $year.'-'.$month);
         $query = $this->db->get('booking_info');
 
         return $query->result();
@@ -154,6 +155,7 @@ function record_count_all_booking_info($user_id)
     {   
         // $this->db->where('user_id', $user_id);
          $this->db->like('start_date', $year.'-'.$month);
+         
         $query = $this->db->get('events');
         return $query->result();
     }
@@ -234,6 +236,7 @@ function record_count_all_booking_info($user_id)
          $this->db->where('check_in_date >=', $checkIn);}
          if($checkOut!="" && $checkOut!=NULL){
          $this->db->where('check_out_date <=', $checkOut);}
+          $this->db->order_by('id','DESC');
         $query = $this->db->get('booking_info');
         
         return $query->result();

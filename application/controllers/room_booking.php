@@ -64,10 +64,10 @@ class room_booking extends CI_Controller {
         $data['json'] = json_encode($data['query']);
        
         if (!$_POST['checkin'] && !$_POST['checkout']) {
-            $this->load->view('ReservationInformation/room_booking_empty_view');
+            $this->load->view('reservationInformation/room_booking_empty_view');
         } else {
 
-            $this->load->view('ReservationInformation/room_booking', $data);
+            $this->load->view('reservationInformation/room_booking', $data);
         }
     }
 
@@ -95,7 +95,7 @@ class room_booking extends CI_Controller {
         $j_son['json'] = json_encode($data);
 
 
-        $this->load->view('ReservationInformation/PersonalInfo', $j_son);
+        $this->load->view('reservationInformation/PersonalInfo', $j_son);
     }
 
     public function personal_info() {
@@ -226,9 +226,9 @@ VALUES ('" . $item['check_in_date'] . "', '" . $item['check_out_date'] . "','" .
                 
         $data['value'] = array($totalPrice);
         if ($payment == "0") {
-            $this->load->view('ReservationInformation/payment', $data);
+            $this->load->view('reservationInformation/payment', $data);
         } else {
-            $this->load->view('ReservationInformation/paymentWithSkip', $data);
+            $this->load->view('reservationInformation/paymentWithSkip', $data);
         }
     }
 
@@ -258,7 +258,7 @@ VALUES ('" . $item['check_in_date'] . "', '" . $item['check_out_date'] . "','" .
 //        
 //        $this->session->set_userdata($data['option']);
 
-        $this->load->view('ReservationInformation/thankYouNote');
+        $this->load->view('reservationInformation/thankYouNote');
     }
     
     function destroy_session()

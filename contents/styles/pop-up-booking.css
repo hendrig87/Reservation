@@ -80,7 +80,7 @@
 #popuptbl tr:nth-child(odd) {background: #e6e9f2}
 
 
-#closePopup
+#closePopup, #close
 {
     border-radius:45px;
     border:1px solid white;
