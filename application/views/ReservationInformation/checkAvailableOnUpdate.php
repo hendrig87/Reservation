@@ -1,4 +1,3 @@
-<script src="<?php echo base_url() . "contents/scripts/datepicker.js"; ?>"></script>
 <?php $this->load->helper('availableroom');
 $this->load->helper('currency');
 ?>
@@ -53,7 +52,9 @@ $this->load->helper('currency');
    var price = $(this).parent().prev().prev().prev('td').text();
    var roomprice = price.replace( /^\D+/g, '');;
    var rooms= $(this).parent().prev().prev('td').find('select').val();
-   var total= 'Rs.'+ parseFloat(rooms * roomprice);            
+   var total= 'Rs.'+ parseFloat(rooms * roomprice);  
+   var grandTotal= $('#total_price').text();
+   //var allSum= total + grandTotal;
 
  var data ='<tr style="border-bottom:1px solid #ccc;" id="' + room_id + '"><td><div style="float: left; margin-right: 10px;"><img src="'+ image + '" width="50px" height="50px"></div><div style="font-size: 16px;width: 60%; float: left;" id="room-name">' +
                         room_name + '</div><br></td><td>' +
@@ -76,6 +77,7 @@ $this->load->helper('currency');
             else
             {
     $('#mytableID > tbody:nth-last-child(2)').append(data); 
+    //$("#total_price").text(allSum);
    $(this).closest("tr").remove();}
  });
  
@@ -108,6 +110,7 @@ $this->load->helper('currency');
             }
     
     $('#mytablelow > tbody:last').append(data); 
+   
    $(this).closest("tr").remove();
  });
  
@@ -149,6 +152,36 @@ $this->load->helper('currency');
             }
         });
 
+function makeActiveLink()    //function to make the link deactive when no rooms number is selected.
+{
+    if (($("#total_price").text() == '.00') || ($("#total_price").text() == '0'))
+    {
+        $('#disablebtn').val('yes');
+        //$('#popupBtn').attr('disabled', 'disabled');
+    }
+    else
+    {
+        $('#disablebtn').val('no');
+        //$('#popupBtn').removeAttr('disabled');            
+    }
+
+}
+
+
+function calculateSum() {   //function to calculate the total price of the booked room.
+   
+    var sum = 0;
+// iterate through each td based on class and add the values
+    $(".subTotal").each(function() {
+    var value = $(this).text();
+    // add only if the value is number
+    if (!isNaN(value) && value.length != 0) {
+        sum += parseFloat(value);
+    }
+    });
+    $("#total_price").text(sum);
+
+}
 
 
 
@@ -309,8 +342,8 @@ foreach ($rooms as &$i) {
             </tr>
           
 <?php }
-}else{
-    echo '<h3>Sorry! Other rooms are unavailable.</h3>';
+}else{ ?> <table id="mytablelow" width="100%"><tbody><tr></tr></tbody></table>
+   <?php echo '<h3>Sorry! Other rooms are unavailable.</h3>';
 }
 ?>
     </table>
