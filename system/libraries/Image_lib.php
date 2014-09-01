@@ -31,8 +31,8 @@ class CI_Image_lib {
 	var $dynamic_output		= FALSE;	// Whether to send to browser or write to disk
 	var $source_image		= '';
 	var $new_image			= '';
-	var $width				= '';
-	var $height				= '';
+	var $width			= '';
+	var $height			= '';
 	var $quality			= '90';
 	var $create_thumb		= FALSE;
 	var $thumb_marker		= '_thumb';

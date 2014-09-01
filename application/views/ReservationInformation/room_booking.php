@@ -117,7 +117,7 @@ $this->load->helper('availableroom');
                 foreach ($query as $book) {
                     ?>
                 <tr id="<?php echo $book->id; ?>"> <td>
-                        <div style="float: left; margin-right: 10px;"><img src="<?php echo base_url() . 'uploads/' . $book->image; ?>" width="50px" height="50px"></div>
+                        <div style="float: left; margin-right: 10px;"><img src="<?php echo base_url() . 'uploads/thumb_' . $book->image; ?>" width="50px" height="50px"></div>
                         <div style="font-size: 16px;width: 60%; float: left;" id="room-name"><?php echo $book->room_name; ?></div><br>  
 
 
