@@ -781,9 +781,38 @@ function searchManagedBooking(){
         else {
             redirect('login', 'refresh');
         }
-
+        
+    }
+        public function checkroomshere()
+        {
+          if ($this->session->userdata('logged_in')) {  
+        $checkin= $_POST['checkin'];
+        $checkout = $_POST['checkout'];
+        $room= $_POST['roomname'];
+        $nnn = "0";
+        $this->load->helper('availableroom');
+        check_available_room_with_data( $checkin,  $checkout, $room, $nnn);      
+              
+              
+              }
+        else {
+            redirect('login', 'refresh');
+        }
+          }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }
     
     
     
-}
+

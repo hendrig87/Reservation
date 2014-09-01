@@ -82,7 +82,8 @@ $this->load->helper('currency');
  });
  
  $('body').on('click', 'img.remove', function() {
-   
+   var checkin = $("#fromDate").val();
+   var checkout = $("#toDate").val();
    var room_id = $(this).parent().prev().prev().prev('td').parent().attr('id');
     var image = $(this).parent().prev().prev().prev().prev().prev('td').find('img').attr('src');
    var room_name = $(this).parent().prev().prev().prev().prev().prev('td').text();
@@ -92,7 +93,23 @@ $this->load->helper('currency');
    var rooms= $(this).parent().prev().prev('td').find('select').val();
    var total= 'Rs.'+ parseFloat(rooms * roomprice);
   
-                      
+  //here ajax is called
+  $.ajax({
+                type: "POST",
+                url: "<?php echo base_url() . 'index.php/dashboard/checkroomshere'; ?>",
+                data: {
+                    'checkin': checkin,
+        'checkout': checkout,
+    'roomname': room_name},
+                success: function(msgs)
+                {
+                    alert(msgs);
+                    //$("#room_book").html(msgs);
+
+                }
+
+            });
+  
 
  var data ='<tr style="border-bottom:1px solid #ccc;" id="' + room_id + '"><td><div style="float: left; margin-right: 10px;"><img src="' +image +'" width="50px" height="50px"></div><div style="font-size: 16px;width: 60%; float: left;" id="room-name">' +
                         room_name + '</div><br></td><td>' +
