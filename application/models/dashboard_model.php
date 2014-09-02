@@ -21,6 +21,29 @@ class dashboard_model extends CI_Model {
         return $query->result();
     }
     
+    public function get_booking_id_by_primary_id($id, $hotelId)
+    {
+        $this->db->where('id', $id);
+        $this->db->where('hotel_id', $hotelId);
+         $query = $this->db->get('booking_info');
+        return $query->result();
+    }
+    public function update_checkin_checkout_on_edit($checkin, $checkout, $id, $hotelId)
+    {
+        $data = array(
+            'check_in_date' => $checkin,
+            'check_out_date' => $checkout);
+
+        $this->db->where('id', $id);
+        $this->db->where('hotel_id', $hotelId);
+        $this->db->update('booking_info', $data);
+    }
+    
+    public function delete_existing_booking_by_booking_id($bookingId)
+    {
+        $this->db->delete('booked_room_info', array('booking_id' => $bookingId));
+    }
+
     public function get_booked_room_info_by_booking_id($id)
     {
          $this->db->where('booking_id', $id);

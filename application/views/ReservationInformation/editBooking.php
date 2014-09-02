@@ -188,6 +188,7 @@ $(document).ready(function() {
       var updated_json =  JSON.stringify(txtnext);
         $('#updateBooking').append(updated_json);
         
+            var id= $('#hide').val();
             var oldcheckin=  $("#fromDate").attr("oldval");
              var checkin = $("#fromDate").val();
              var oldcheckout = $("#toDate").attr("oldval");
@@ -205,46 +206,46 @@ $(document).ready(function() {
             } 
            else if(checkin > oldcheckin && checkout > oldcheckout)
             {
-               roomnotadd(checkin, checkout, adult, child, hotelId, updated_json);
+               roomnotadd(id, checkin, checkout, adult, child, hotelId, updated_json);
             }
             else if(checkin < oldcheckin && checkout < oldcheckout)
             {
-                roomnotadd(checkin, checkout, adult, child, hotelId, updated_json);
+                roomnotadd(id, checkin, checkout, adult, child, hotelId, updated_json);
             }
             else if(checkin > oldcheckin && checkout == oldcheckout)
             {
-                roomnotadd(checkin, checkout, adult, child, hotelId, updated_json);
+                roomnotadd(id, checkin, checkout, adult, child, hotelId, updated_json);
             }
             else if(checkin == oldcheckin && checkout > oldcheckout)
             {
-                roomnotadd(checkin, checkout, adult, child, hotelId, updated_json);
+                roomnotadd(id, checkin, checkout, adult, child, hotelId, updated_json);
             }
             else if(checkin < oldcheckin && checkout == oldcheckout)
             {
-                roomnotadd(checkin, checkout, adult, child, hotelId, updated_json);
+                roomnotadd(id, checkin, checkout, adult, child, hotelId, updated_json);
             }
             else if(checkin == oldcheckin && checkout < oldcheckout)
             {
-                roomadd(checkin, checkout, adult, child, hotelId, updated_json);
+                roomadd(id, checkin, checkout, adult, child, hotelId, updated_json);
             }
             else if(checkin < oldcheckin && checkout > oldcheckout)
             {
-                roomnotadd(checkin, checkout, adult, child, hotelId, updated_json);
+                roomnotadd(id, checkin, checkout, adult, child, hotelId, updated_json);
             }
             else if(checkin > oldcheckin && checkout < oldcheckout)
             {
-                roomadd(checkin, checkout, adult, child, hotelId, updated_json);
+                roomadd(id, checkin, checkout, adult, child, hotelId, updated_json);
             }
             else if(checkin == oldcheckin && checkout == oldcheckout)
             {
-                   roomadd(checkin, checkout, adult, child, hotelId, updated_json); 
+                   roomadd(id, checkin, checkout, adult, child, hotelId, updated_json); 
             }
             
 
     
          });
          
-         function roomnotadd(checkin, checkout, adult, child, hotelId, updated_json){
+         function roomnotadd(id, checkin, checkout, adult, child, hotelId, updated_json){
          
           $.ajax({
         type: "POST",
@@ -255,7 +256,8 @@ $(document).ready(function() {
            'adults': adult,
            'childs': child,
            'hotelId': hotelId,
-           'update': updated_json
+           'update': updated_json,
+           'id': id
         },
         success: function(msgs)
         {
@@ -265,7 +267,7 @@ $(document).ready(function() {
     });
     }
       
-         function roomadd(checkin, checkout, adult, child, hotelId, updated_json){
+         function roomadd(id, checkin, checkout, adult, child, hotelId, updated_json){
          
           $.ajax({
         type: "POST",
@@ -276,7 +278,8 @@ $(document).ready(function() {
            'checkout': checkout,
            'adults': adult,
            'childs': child,
-           'hotelId': hotelId },
+           'hotelId': hotelId,
+            'id': id},
         success: function(msgs)
         {
            

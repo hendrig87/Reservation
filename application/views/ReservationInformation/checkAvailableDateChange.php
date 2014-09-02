@@ -55,18 +55,23 @@
             
             var updated_json = JSON.stringify(txtnext);
 
-
+            var id= $('#id').val();
             var checkin = $("#fromDate").val();
             var checkout = $("#toDate").val();
             var adult = $("#adults").val();
             var child = $("#childs").val();
-            var bookprimaryid = $("#hide").val();
             var hotelId = $("#hotelhide").val();
             $.ajax({
                 type: "POST",
                 url: "<?php echo base_url() . 'index.php/dashboard/updateBooking'; ?>",
                 data: {
-                    'json': updated_json},
+                    'json': updated_json,
+                    'checkin': checkin,
+                    'checkout': checkout,
+                    'adult': adult,
+                    'child': child,
+                    'hotelId': hotelId,
+                    'id': id},
                 success: function(msgs)
                 {
                     alert(msgs);
@@ -96,6 +101,7 @@ $children = 15;
 
 
 <input name="hotelid" id="hotelhide" type="hidden" value="<?php echo $abc['hotelId']; ?>" />
+<input name="id" id="id" type="hidden" value="<?php echo $abc['id']; ?>" />
 <table>
     <tr>
         <td><span>Check In Date:</span></td>

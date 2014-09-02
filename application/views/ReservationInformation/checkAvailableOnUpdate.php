@@ -11,7 +11,7 @@ $this->load->helper('currency');
 
 
     $(document).ready(function() {
-         makeActiveLink();
+         //makeActiveLink();
         $('.available-room').change(function() {            //action performs when no of  rooms is selected
             
             $("#disablebtnInfo").hide();
@@ -21,7 +21,7 @@ $this->load->helper('currency');
             var price = $(this).parent().prev('td').children('span.priceTag').text();
             var total = rooms * price;
             $(this).parent().next('td').children('span.subTotal').text(total);
-             calculateSum();
+            // calculateSum();
             makeActiveLink();
 
             // for updating the json data.
@@ -53,7 +53,6 @@ $this->load->helper('currency');
    var roomprice = price.replace( /^\D+/g, '');;
    var rooms= $(this).parent().prev().prev('td').find('select').val();
    var total= 'Rs.'+ parseFloat(rooms * roomprice);  
-   var grandTotal= $('#total_price').text();
    //var allSum= total + grandTotal;
 
  var data ='<tr style="border-bottom:1px solid #ccc;" id="' + room_id + '"><td><div style="float: left; margin-right: 10px;"><img src="'+ image + '" width="50px" height="50px"></div><div style="font-size: 16px;width: 60%; float: left;" id="room-name">' +
@@ -76,7 +75,7 @@ $this->load->helper('currency');
             }
             else
             {
-    $('#mytableID > tbody:nth-last-child(2)').append(data); 
+    $('#mytableID > tbody:last').append(data); 
     //$("#total_price").text(allSum);
    $(this).closest("tr").remove();}
  });
@@ -148,20 +147,25 @@ $this->load->helper('currency');
             else
             {
             var updated_json = JSON.stringify(txtnext);
-            alert(updated_json);
-            
+           
+            var id= $('#id').val();
             var checkin = $("#fromDate").val();
             var checkout = $("#toDate").val();
             var adult = $("#adults").val();
             var child = $("#childs").val();
-            var bookprimaryid = $("#hide").val();
             var hotelId = $("#hotelhide").val();
            
             $.ajax({
                 type: "POST",
                 url: "<?php echo base_url() . 'index.php/dashboard/updateBooking'; ?>",
                 data: {
-                    'json': updated_json},
+                    'json': updated_json,
+                    'checkin': checkin,
+                    'checkout': checkout,
+                    'adult': adult,
+                    'child': child,
+                    'hotelId': hotelId,
+                    'id': id},
                 success: function(msgs)
                 {
                     alert(msgs);
@@ -175,15 +179,14 @@ $this->load->helper('currency');
 
 function makeActiveLink()    //function to make the link deactive when no rooms number is selected.
 {
-    if (($("#total_price").text() == '.00') || ($("#total_price").text() == '0'))
-    {
-        $('#disablebtn').val('yes');
-        //$('#popupBtn').attr('disabled', 'disabled');
+   
+    if (($(".subTotal").text() == '.00') || ($(".subTotal").text() == '0'))
+    { 
+        $('#disablebtn').val('yes');    
     }
     else
     {
-        $('#disablebtn').val('no');
-        //$('#popupBtn').removeAttr('disabled');            
+        $('#disablebtn').val('no');          
     }
 
 }
@@ -219,6 +222,7 @@ $children = 15;
 
 
 <input name="hotelid" id="hotelhide" type="hidden" value="<?php echo $abc['hotelId']; ?>" />
+<input name="id" id="id" type="hidden" value="<?php echo $abc['id']; ?>" />
 <table>
     <tr>
         <td><span>Check In Date:</span></td>
@@ -311,11 +315,7 @@ foreach ($rooms as &$i) {
             </tr>
         </tbody>
 <?php } ?>
-            <tr>
-            <td colspan="3" style="text-align:right;"><td><b>Total</b></td>
-            <td><span>Rs.</span>
-                <span id="total_price">.00</span></td>
-        </tr>
+            
     </table>
    
    <h4>Other Available Room/s</h4>

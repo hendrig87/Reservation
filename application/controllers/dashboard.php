@@ -696,34 +696,35 @@ function searchManagedBooking(){
     {
         if ($this->session->userdata('logged_in')) {
             $data['username'] = Array($this->session->userdata('logged_in'));
+        
+            $id = $_POST['id'];
+            $hotelId = $_POST['hotelId'];
+            $checkin = $_POST['checkin'];
+            $checkout = $_POST['checkout'];
+            
+            $booking = $this->dashboard_model->get_booking_id_by_primary_id($id, $hotelId);
+            foreach ($booking as $books)
+            {
+                $bookingId = $books->booking_id;
+            }
+           
+            $this->dashboard_model->update_checkin_checkout_on_edit($checkin, $checkout, $id, $hotelId);
+            
+            $this->dashboard_model->delete_existing_booking_by_booking_id($bookingId);
             
         $jsondatas = $_POST['json'];
         $jsonDecode = json_decode($jsondatas, true);
         $jsonArray = $jsonDecode;
 
-        var_dump($jsonArray);
         foreach ($jsonArray as $item) {
-            if ($item['no_of_room'] != "0") {
-                $room = $item['room_name'];
-               // mysql_query("INSERT INTO `booking_info` (check_in_date, check_out_date, booking_id, hotel_id)
-      // VALUES ('" . $item['check_in_date'] . "', '" . $item['check_out_date'] . "','" . $bookId . "','" . $item['hotel_id'] . "' )");
-      //           mysql_query("INSERT INTO `booked_room_info` (booking_id, room_type, no_of_rooms_booked, check_in_date, check_out_date)
-      // VALUES ('" . $bookId . "','" . $item['room_name'] . "', '" . $item['no_of_room'] . "','" . $item['check_in_date'] . "', '" . $item['check_out_date'] . "')");
+            if ($item['no_of_room_booked'] != "0") {                
+                 mysql_query("INSERT INTO `booked_room_info` (booking_id, room_type, no_of_rooms_booked, check_in_date, check_out_date)
+       VALUES ('" . $bookingId . "','" . $item['room_name'] . "', '" . $item['no_of_room_booked'] . "','" . $checkin . "', '" . $checkout . "')");
             }
         }
        
             
-//            $id= $this->input->post('id');
-//            $checkIn= $this->input->post('CheckIn');
-//            $checkOut = $this->input->post('CheckOut');
-//            $adults = $this->input->post('adults');
-//            $childs = $this->input->post('children');
-//            $roomId = $this->input->post('roomId');
-//            $roomNo = $this->input->post('rooms');
-//            var_dump($roomNo);
-//            die($id);
- //           $this->session->set_flashdata('message', 'Data Updated Sucessfully');
-//            redirect('dashboard/bookingInfo', 'refresh');
+           redirect('dashboard/bookingInfo', 'refresh');
         } else {
             redirect('login', 'refresh');
         }
@@ -750,7 +751,8 @@ function searchManagedBooking(){
             'checkout' => $_POST['checkout'],
             'adult' => $_POST['adults'],
             'child' => $_POST['childs'],
-            'hotelId' => $_POST['hotelId']
+            'hotelId' => $_POST['hotelId'],
+                'id'=> $_POST['id']
         );
             $hotelId= $_POST['hotelId'];
           $data['room'] = $this->dashboard_model->get_rooms_by_hotel_id($hotelId);
@@ -775,7 +777,8 @@ function searchManagedBooking(){
             'adult' => $_POST['adults'],
             'child' => $_POST['childs'],
             'hotelId' => $_POST['hotelId'],
-                'update'=> $_POST['json']
+                'update'=> $_POST['json'],
+                'id'=> $_POST['id']
         );
             $hotelId= $_POST['hotelId'];
         $data['jsp'] = json_decode($_POST['json']);
