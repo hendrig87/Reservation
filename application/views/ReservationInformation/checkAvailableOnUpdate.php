@@ -92,6 +92,13 @@ $this->load->helper('currency');
    var roomprice = price.replace( /^\D+/g, '');;
    var rooms= $(this).parent().prev().prev('td').find('select').val();
    var total= 'Rs.'+ parseFloat(rooms * roomprice);
+   
+   var data ='<tr style="border-bottom:1px solid #ccc;" id="' + room_id + '"><td><div style="float: left; margin-right: 10px;"><img src="' +image +'" width="50px" height="50px"></div><div style="font-size: 16px;width: 60%; float: left;" id="room-name">' +
+                        room_name + '</div><br></td><td>' +
+                        desc + '</td><td>' +
+                        price + '</td><td>';
+                var nextdata = '</td><td>' +
+                        total +'</td><td><img class="add" src="<?php echo base_url() . 'contents/images/addition.png'; ?>" width="30" height="30"></td></tr>';
   
   //here ajax is called
   $.ajax({
@@ -103,21 +110,18 @@ $this->load->helper('currency');
     'roomname': room_name},
                 success: function(msgs)
                 {
-                    alert(msgs);
-                    //$("#room_book").html(msgs);
+                    //alert(msgs);
+                     $('#mytablelow > tbody:last').append(data + msgs + nextdata); 
 
                 }
 
             });
   
 
- var data ='<tr style="border-bottom:1px solid #ccc;" id="' + room_id + '"><td><div style="float: left; margin-right: 10px;"><img src="' +image +'" width="50px" height="50px"></div><div style="font-size: 16px;width: 60%; float: left;" id="room-name">' +
-                        room_name + '</div><br></td><td>' +
-                        desc + '</td><td>' +
-                        price + '</td><td><select id="roomToBook" class="available-room" style="width: 80px;"><option>' +
-                        rooms +'</option></td><td>' +
-                        total +'</td><td><img class="add" src="<?php echo base_url() . 'contents/images/addition.png'; ?>" width="30" height="30"></td></tr>';
-                for (var i = 0; i < txtnext.length; i++) {    
+ 
+               
+    
+    for (var i = 0; i < txtnext.length; i++) {    
                 if (txtnext[i].id == room_id) {
                   
                     txtnext[i].no_of_room_booked = "0";
@@ -126,7 +130,7 @@ $this->load->helper('currency');
                 }
             }
     
-    $('#mytablelow > tbody:last').append(data); 
+    //$('#mytablelow > tbody:last').append(data); 
    
    $(this).closest("tr").remove();
  });

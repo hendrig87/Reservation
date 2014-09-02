@@ -293,10 +293,11 @@ function record_count_all_booking_info($user_id)
     }
 
     function htotal_room($r_type) {
-
+        $room = trim($r_type);
         $this->db->select('no_of_room');
-        $this->db->where('room_name', $r_type);
+        $this->db->where('room_name', $room);
         $total_room = $this->db->get('room_registration');
+        
         return $total_room->result();
     }
 

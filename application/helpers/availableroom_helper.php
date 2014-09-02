@@ -56,13 +56,16 @@ function get_available_rooms($data)
      function check_available_room_with_data($first,$second,$r_type, $noOfRooms){
         $ci=& get_instance();
        $ci->load->database();
-           
+          
        
          $availableRoom = $ci->dashboard_model->havailableRoom($first,$second,$r_type);
+         
          $total_room = $ci->dashboard_model->htotal_room($r_type);
+        
          foreach ($total_room as $troom){
              $roomTotal = $troom->no_of_room;
             }
+           
          foreach ($availableRoom as $rooms){
         $roomAvailable =  $rooms->no_of_rooms_booked;
         }
