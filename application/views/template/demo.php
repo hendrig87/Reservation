@@ -354,3 +354,4 @@ $calendar->show(true);
     });
 
 </script>
+
