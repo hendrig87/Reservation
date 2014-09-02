@@ -735,7 +735,7 @@ function searchManagedBooking(){
             $data['username'] = Array($this->session->userdata('logged_in'));
             $this->dashboard_model->updateBooking($id);
             $this->session->set_flashdata('message', 'Data Deleted Sucessfully');
-            redirect('dashboard/bookingInfo', 'refresh');
+            
         } else {
             redirect('login', 'refresh');
         }

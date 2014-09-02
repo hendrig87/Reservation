@@ -61,6 +61,7 @@
             var adult = $("#adults").val();
             var child = $("#childs").val();
             var hotelId = $("#hotelhide").val();
+            var url = "<?php echo base_url() . 'index.php/dashboard/bookingInfo'; ?>";
             $.ajax({
                 type: "POST",
                 url: "<?php echo base_url() . 'index.php/dashboard/updateBooking'; ?>",
@@ -74,7 +75,8 @@
                     'id': id},
                 success: function(msgs)
                 {
-                    alert(msgs);
+                   
+                    window.location.href = url;
                     //$("#room_book").html(msgs);
 
                 }
