@@ -9,6 +9,7 @@
      
         <script src="<?php echo base_url() . "contents/scripts/jquery.js"; ?>"></script>
         <script src="<?php echo base_url() . "contents/scripts/jquery-ui.js"; ?>"></script>
+       
         <script src="<?php echo base_url() . "contents/scripts/jquery1.10.2.js"; ?>"></script>
         <script src="<?php echo base_url() . "contents/scripts/datepicker.js"; ?>"></script>
         <link rel="stylesheet" href="<?php echo base_url() . "contents/styles/tableStyles.css"; ?>"> 
@@ -22,6 +23,40 @@
         <link rel="stylesheet" href="/resources/demos/style.css" />
 
         <script>
+        var beforeload = (new Date()).getTime();
+       $(document).ready(function() {
+						
+				  var afterload = (new Date()).getTime();
+	 
+	        // now use the beforeload and afterload to calculate the seconds
+	 
+	        seconds = (afterload-beforeload) / 1000;
+				
+				
+				var progressbar = $('#progressbar'),
+					max = progressbar.attr('max'),
+					time = (seconds/max),	
+			        value = progressbar.val();
+
+			    var loading = function() {
+			        value += 1;
+			        addValue = progressbar.val(value);
+			        
+			        $('.progress-value').html(value + '%');
+
+			        if (value == max) {
+			            clearInterval(animate);
+						$('.progress-bar-wrapper').hide();
+						$('#full').show();
+			        }
+			    };
+
+			    var animate = setInterval(function() {
+			        loading();
+			    }, time);
+			
+		});
+
 
 
             $(document).ready(function() {
@@ -67,11 +102,28 @@
 });
     </script>
         <script src="<?php echo base_url() . "contents/scripts/apiCheckin.js"; ?>"></script>
+        <style>
+           progress {
+               margin: 20% auto auto 25%;
+  color: #0063a6;
+  font-size: .6em;
+  line-height: 1.5em;
+  text-indent: .5em;
+  width: 80em;
+  height: 5em;
+  border: 1px solid #0063a6;
+  background: #fff;
+}
+        </style>
     </head>
-    <body>
-
-<div id="full">
-        <div id="header">
+    <body >
+<div class="demo-wrapper html5-progress-bar">
+		<div class="progress-bar-wrapper">
+			<progress id="progressbar"  value="0" max="100"></progress>
+			<span class="progress-value">0%</span>
+		</div>
+<div id="full" style="display: none;">
+        <div id="header" >
 
 
 
