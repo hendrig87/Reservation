@@ -38,12 +38,14 @@ function payment()
      'securityNumber' : security},
   success: function(msgs) 
         {
-            $('#one').css({'background-color': '#0077b3'}); 
-            $('.first').css({'color': '#0077b3'}); 
-         $('.first').css({'font-weight': 'bold'});
-         $('#two').css({'background-color': '#999999'});
-                $('.second').css({'color': 'black'});
-                $('.second').css({'font-weight': 'normal'});
+//            $('#one').css({'background-color': '#0077b3'}); 
+//            $('.first').css({'color': '#0077b3'}); 
+//         $('.first').css({'font-weight': 'bold'});
+//         $('#two').css({'background-color': '#999999'});
+//                $('.second').css({'color': 'black'});
+//                $('.second').css({'font-weight': 'normal'});
+$(".trd").css({'display':'none'});
+              $(".fth").css({'display':'block'});
             $("#replaceMe").html(msgs);
             
         }
@@ -62,18 +64,20 @@ function payment()
      'securityNumber' : ""},
   success: function(msgs) 
         {
-            $('#one').css({'background-color': '#999999'});
-         $('.first').css({'color': 'black'}); 
-         $('.first').css({'font-weight': 'normal'}); 
-         $('#two').css({'background-color': '#999999'});
-         $('.second').css({'color': 'black'}); 
-         $('.second').css({'font-weight': 'normal'}); 
-         $('#three').css({'background-color': '#999999'});
-         $('.third').css({'color': 'black'}); 
-         $('.third').css({'font-weight': 'normal'}); 
-         $('#four').css({'background-color': '#0077b3'});
-         $('.fourth').css({'color': '#0077b3'}); 
-         $('.fourth').css({'font-weight': 'bold'}); 
+//            $('#one').css({'background-color': '#999999'});
+//         $('.first').css({'color': 'black'}); 
+//         $('.first').css({'font-weight': 'normal'}); 
+//         $('#two').css({'background-color': '#999999'});
+//         $('.second').css({'color': 'black'}); 
+//         $('.second').css({'font-weight': 'normal'}); 
+//         $('#three').css({'background-color': '#999999'});
+//         $('.third').css({'color': 'black'}); 
+//         $('.third').css({'font-weight': 'normal'}); 
+//         $('#four').css({'background-color': '#0077b3'});
+//         $('.fourth').css({'color': '#0077b3'}); 
+//         $('.fourth').css({'font-weight': 'bold'}); 
+$(".trd").css({'display':'none'});
+              $(".fth").css({'display':'block'});
             $("#replaceMe").html(msgs);
             
         }
