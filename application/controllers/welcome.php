@@ -15,12 +15,6 @@ class Welcome extends CI_Controller {
  
 	public function index()
 	{
-        // $this->load->library('user_agent');
-        // $a= $this->agent->browser();
-        //$b= $this->agent->version();
-        //$c = $this->agent->mobile();
-        //$d= array($a, $b, $c);
-        //var_dump($d);
       
              $this->load->library('session');
           
@@ -44,6 +38,3 @@ class Welcome extends CI_Controller {
        
         
 }
-
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */

@@ -27,8 +27,6 @@ $(".test a").click(function(){
    
         foreach($roomInfo as $book)
     {
-           // $room = $book->room_type;
-            //$noOfRooms = $book->no_of_rooms_booked;
             $checkIn= $book->check_in_date;
             $checkOut = $book->check_out_date;
             $bookingId= $book->booking_id;
@@ -86,7 +84,7 @@ $(".test a").click(function(){
         $totalPupil = $child + $adult;
         
         ?>
-<!--            <td><?php// if($days>1){ echo $days." days";}else{ echo $days." day";} ?></td>-->
+
             <td><?php if($remain>=1){ echo $remain." days";}else{ echo "currently running";} ?></td>
         <td> <?php echo $totalPupil; ?></td>
         <td> <?php echo $bookingName."<br>". $bookingEmail."<br>".$bookAddress."<br>".$contact; ?></td>

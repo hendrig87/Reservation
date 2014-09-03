@@ -9,20 +9,15 @@ function payment()
    var msg="Incomplete form, please fill the form correctly\n";
      
     if((fullName==null)||(fullName=="") || (!fullName.match( /^[a-z,0-9,A-Z_ ]{5,35}$/ )) ){
-    //msg+="You need to fill the name field in correct format!\n";
     valid = false;
    
     }
    
    if((cardNumber==null)||(cardNumber=="") || (!cardNumber.match( /^[a-z,0-9,A-Z_ ]{5,35}$/ )) ){  
-     
-    //msg+="You need to fill the card number field in correct format!\n";
     valid = false;
    }
    
    if((security==null)||(security=="") || (!security.match( /^[a-z,0-9,A-Z_ ]{5,35}$/ )) ){  
-     
-    //msg+="You need to fill the security number field in correct format!\n";
     valid = false;
    }
     

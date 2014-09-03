@@ -77,7 +77,7 @@
                 {
                    
                     window.location.href = url;
-                    //$("#room_book").html(msgs);
+                  
 
                 }
 
@@ -128,7 +128,7 @@ $children = 15;
             </select></td>
     </tr>
 </table>
-<?php //if (!empty($room)) { ?>
+
 <h4>Available Rooms from same hotel</h4>
     <table width="100%">
         <tr style="border-bottom:1px solid #ccc; text-align: left;">
@@ -177,9 +177,7 @@ $children = 15;
     <input type="submit" value="Update" id="updatedBooking" />
 
 <?php
-//} else {
-//    echo '<h3>Sorry ! rooms are not available.</h3>';
-//}
+
 
     
 

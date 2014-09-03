@@ -1,9 +1,6 @@
 <?php 
       
 class SimpleCalendar {
-
-
-
 	
 	public $wday_names = false;
 	private $now;

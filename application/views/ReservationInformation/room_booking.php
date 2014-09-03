@@ -76,18 +76,8 @@ $(document).ready(function(){
 <?php
  header("Access-Control-Allow-Origin: *");
 $this->load->helper('currency');
-$this->load->helper('availableroom');
+$this->load->helper('availableroom'); ?>
 
-//foreach ($total_room as $troom){
-// echo $troom->room_name." = ". $troom->no_of_room."<br/>";
-//   $roomTotal = $troom->no_of_room;
-//}
-//foreach ($availableRoom as $rooms){
-//   $roomAvailable =  $rooms->no_of_rooms_booked;
-//}
-//$available_room = $roomTotal - $roomAvailable;
-?>
-<!--      -->
 <table class="room-listing-tbl" style="width: 85%;">
     <tr id="checkinStyle">
     
@@ -124,23 +114,10 @@ $this->load->helper('availableroom');
                     </td> 
                     <td><?php echo $book->description; ?></td>
                     <td>
-        <?php get_currency($book->price); //======  <!-- Sending price of room to currency_helper -->
-        ?>
+        <?php get_currency($book->price); ?>
                     </td>
                     <td> 
-        <?php //$available_room = $book->no_of_room; 
-        check_available_room($abc['checkin'], $abc['checkout'], $book->room_name);
-        ?>
-
-                               <!-- <select class="available-room" style="width: 80px;" id="roomToBook">
-                                    <option value="0">Select</option>
-                        <?php
-                        // for ($i = 1; $i <= $available_room; $i++) {
-                        //    echo "<option value=" . $i . ">" . $i . "</option>";
-                        // }
-                        ?>
-
-                                </select> -->
+        <?php check_available_room($abc['checkin'], $abc['checkout'], $book->room_name);  ?>
 
                     </td>
 

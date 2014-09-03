@@ -58,12 +58,9 @@
 
 
 
-        if ((fullName == null) || (fullName == "") || (!fullName.match(/^[a-z,0-9,A-Z_ ]{5,35}$/))) {
-            //if (valid)//only receive focus if its the first error
+        if ((fullName == null) || (fullName == "") || (!fullName.match(/^[a-z,0-9,A-Z_ ]{5,35}$/))) {      
             document.myForm.fullname.focus();
-
-            document.myForm.fullname.style.border = "solid 1px red";
-            //msg="You need to fill the name field in correct format!\n";
+            document.myForm.fullname.style.border = "solid 1px red";     
             valid = false;
 
         }
@@ -71,35 +68,30 @@
         if ((address == null) || (address == "") || (!address.match(/^[a-z,0-9,A-Z_ ]{5,35}$/))) {
             document.myForm.address.focus();
             document.myForm.address.style.border = "solid 1px red";
-            //msg="You need to fill the address field in correct format!\n";
             valid = false;
         }
 
         if ((occupation == null) || (occupation == "") || (!occupation.match(/^[a-z,0-9,A-Z_ ]{5,35}$/))) {
             document.myForm.occupation.focus();
             document.myForm.occupation.style.border = "solid 1px red";
-            //msg="You need to fill the occupation field in correct format!\n";
             valid = false;
         }
 
         if ((nationality == null) || (nationality == "") || (!nationality.match(/^[a-z,0-9,A-Z_ ]{5,35}$/))) {
             document.myForm.nationality.focus();
             document.myForm.nationality.style.border = "solid 1px red";
-            //msg="You need to fill the nationality field in correct format!\n";
             valid = false;
         }
 
         if ((contactno == null) || (contactno == "") || (!contactno.match(/^[0-9]{5,35}$/))) {
             document.myForm.contactno.focus();
             document.myForm.contactno.style.border = "solid 1px red";
-            //msg="You need to fill the contact number field in correct format!\n";
             valid = false;
         }
 
         if ((email == null) || (email == "") || (!email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/))) {
             document.myForm.email.focus();
             document.myForm.email.style.border = "solid 1px red";
-            //msg="You need to fill the email field in correct format!\n";
             valid = false;
         }
 

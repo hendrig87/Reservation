@@ -2,10 +2,7 @@
   function changed() {
    var selectBox = document.getElementById("selectBox");
    var selectedValue = selectBox.options[selectBox.selectedIndex].value;
-   
    var dataString = 'id=' + selectedValue;
-  // $a= dataString;
-//alert($a);
   
 $.ajax({
 type: "POST",

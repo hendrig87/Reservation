@@ -41,8 +41,7 @@ $this->load->helper('currency'); ?>
           $childs = $booker->child;
          
       }
-  }  
- //echo form_open_multipart('dashboard/updateBooking'); ?>
+  }   ?>
     <input name="id" id="hide" type="hidden" value="<?php echo $id; ?>" />
     <input name="hotelid" id="hotelhide" type="hidden" value="<?php echo $hotelId; ?>" />
     <table>
@@ -115,11 +114,9 @@ $this->load->helper('currency'); ?>
             <td><?php echo $detail;  ?></td>
              <td><?php get_currency($price) ;  ?></td>
              <td> <?php echo $noOfRooms; ?>
-                   <?php //check_available_room_with_data( $checkInDate,  $checkOutDate, $roomNames, $noOfRooms); ?>
+                   
                 </td>
-                <td><?php 
-        calculate_sum($noOfRooms,  $price);
-        ?></td>
+                <td><?php calculate_sum($noOfRooms,  $price);   ?></td>
         </tr>
         <?php  } } } ?>
             </table>
@@ -157,14 +154,14 @@ $(document).ready(function() {
     
         $('.available-room').change(function() {            //action performs when no of  rooms is selected
 
-           // $("#disablebtnInfo").hide()                  //hides the information about disable button info.
+            //$("#disablebtnInfo").hide()                  //hides the information about disable button info.
 
             var rooms = $(this).val();
             
             var price = $(this).parent().prev('td').children('span.priceTag').text();
             var total = rooms * price;
             $(this).parent().next('td').children('span.subTotal').text(total);
-            //calculateSum();
+          
            
 
 

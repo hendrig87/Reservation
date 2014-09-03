@@ -1,8 +1,3 @@
-
-
-<!-- ------------------calling currency_modify helper for currency--------------------------------- -->
- 
-<!-- ------------------finish calling currency_modify helper for currency--------------------------------- -->
 <div class="right">
     
    <h2>Create New API&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url().'index.php/application/apiListing'; ?>">View All API's</a></h2><hr class="topLine" />

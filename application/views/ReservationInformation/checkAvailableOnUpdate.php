@@ -11,7 +11,7 @@ $this->load->helper('currency');
 
 
     $(document).ready(function() {
-         //makeActiveLink();
+         
         $('.available-room').change(function() {            //action performs when no of  rooms is selected
             
             $("#disablebtnInfo").hide();
@@ -21,7 +21,7 @@ $this->load->helper('currency');
             var price = $(this).parent().prev('td').children('span.priceTag').text();
             var total = rooms * price;
             $(this).parent().next('td').children('span.subTotal').text(total);
-            // calculateSum();
+            
             makeActiveLink();
 
             // for updating the json data.
@@ -53,7 +53,7 @@ $this->load->helper('currency');
    var roomprice = price.replace( /^\D+/g, '');;
    var rooms= $(this).parent().prev().prev('td').find('select').val();
    var total= 'Rs.'+ parseFloat(rooms * roomprice);  
-   //var allSum= total + grandTotal;
+   
 
  var data ='<tr style="border-bottom:1px solid #ccc;" id="' + room_id + '"><td><div style="float: left; margin-right: 10px;"><img src="'+ image + '" width="50px" height="50px"></div><div style="font-size: 16px;width: 60%; float: left;" id="room-name">' +
                         room_name + '</div><br></td><td>' +
@@ -76,7 +76,7 @@ $this->load->helper('currency');
             else
             {
     $('#mytableID > tbody:last').append(data); 
-    //$("#total_price").text(allSum);
+   
    $(this).closest("tr").remove();}
  });
  
@@ -109,7 +109,7 @@ $this->load->helper('currency');
     'roomname': room_name},
                 success: function(msgs)
                 {
-                    //alert(msgs);
+                   
                      $('#mytablelow > tbody:last').append(data + msgs + nextdata); 
 
                 }
@@ -128,8 +128,6 @@ $this->load->helper('currency');
                     break;
                 }
             }
-    
-    //$('#mytablelow > tbody:last').append(data); 
    
    $(this).closest("tr").remove();
  });
@@ -170,7 +168,6 @@ $this->load->helper('currency');
                 {
                     
                     window.location.href = url;
-                    //$("#room_book").html(msgs);
 
                 }
 

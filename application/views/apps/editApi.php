@@ -29,7 +29,7 @@
         <td id="alignright"> Name of hotel:</td>
         <td><input type="hidden" value="<?php echo $id; ?>" name="id">
             <input type="text" name="api_name" value="<?php echo $name; ?>" required /></td>
-        <!--<td><a href="" class="help1 r" id="help" onclick="return false;" style="cursor: default;">?</a></td> -->
+       
     </tr>
     
    

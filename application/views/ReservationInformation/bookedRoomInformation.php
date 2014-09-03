@@ -3,30 +3,7 @@
         <script src="<?php echo base_url() . "contents/scripts/jquery1.10.2.js"; ?>"></script>
         <script src="<?php echo base_url() . "contents/scripts/datepicker.js"; ?>"></script>
         
-<!--        <script type="text/javascript">
-  function changeFuncs() {
-   
-   var selectedValue = $("#selectBox").val();//selectBox.options[selectBox.selectedIndex].value;
-   var checkIn=$("#checkin").val();
-   var checkOut=$("#checkout").val();
-   
- $.ajax({
-type: "POST",
-url: "<?php //echo base_url().'index.php/dashboard/searchManagedBooking' ;?>",
-data: {
-     'hotel' : selectedValue,
-     'checkIn' : checkIn,
-     'checkOut' : checkOut},
-success: function(msgs) 
-      {
-  
-          $("#room_book").html(msgs);
-          
-      }
-});
-}
 
- </script>-->
 <script type="text/javascript">
   function changeFuncs() {
    
@@ -106,8 +83,7 @@ $( ".datepicker" ).datepicker();
    
         foreach($roomInfo as $book)
     {
-           // $room = $book->room_type;
-            //$noOfRooms = $book->no_of_rooms_booked;
+           
             $checkIn= $book->check_in_date;
             $checkOut = $book->check_out_date;
             $bookingId= $book->booking_id;
@@ -165,7 +141,7 @@ $( ".datepicker" ).datepicker();
         $totalPupil = $child + $adult;
         
         ?>
-<!--            <td><?php// if($days>1){ echo $days." days";}else{ echo $days." day";} ?></td>-->
+
             <td><?php if($remain>=1){ echo $remain." days";}else{ echo "currently running";} ?></td>
         <td> <?php echo $totalPupil; ?></td>
         <td> <?php echo $bookingName."<br>". $bookingEmail."<br>".$bookAddress."<br>".$contact; ?></td>

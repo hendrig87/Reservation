@@ -121,12 +121,7 @@ function record_count_all_booking_info($user_id)
          $this->db->where('check_in_date >=', $checkIn);}
          if($checkOut!="" && $checkOut!=NULL){
          $this->db->where('check_out_date <=', $checkOut);}
-//         $this->db->where('status','0');
-//        
-//        //$this->db->where('check_out_date >=', $today);
-//         $this->db->or_where('check_in_date >=',$checkin);
-//         $this->db->or_where('check_out_date <=',$checkout);
-//          $this->db->or_where('hotel_id', $hotelId);
+
         $this->db->from("booking_info");
         return $this->db->count_all_results();
     }
@@ -176,7 +171,7 @@ function record_count_all_booking_info($user_id)
     
     function get_event_info_this_month($year, $month)
     {   
-        // $this->db->where('user_id', $user_id);
+        
          $this->db->like('start_date', $year.'-'.$month);
          
         $query = $this->db->get('events');
@@ -243,8 +238,7 @@ function record_count_all_booking_info($user_id)
         $today= date("Y-m-d");
          $this->db->where('status', "0");
         $this->db->where('check_out_date >=', $today);
-        // $this->db->where('check_in_date >=',$checkin);
-        // $this->db->where('check_out_date <=',$checkout);
+    
         $this->db->where('user_id', $user_id);
         $this->db->from("booking_info");
         return $this->db->count_all_results();
@@ -350,14 +344,14 @@ function record_count_all_booking_info($user_id)
     //==================== find out total no. of available rooms===============================//
 
     function availableRoom($InDate, $OutDate) {
-        //die($InDate." ".$OutDate);
+      
 
         $this->db->select_sum('no_of_rooms_booked');
         $this->db->where('check_in_date <=', $OutDate);
         $this->db->where('check_out_date >=', $InDate);
         $this->db->where('room_type', 'Deluxe');
         $availableRoom = $this->db->get('booking_info');
-        //var_dump($availableRoom);
+      
         return $availableRoom->result();
     }
 

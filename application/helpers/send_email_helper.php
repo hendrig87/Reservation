@@ -1,11 +1,5 @@
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 function send_password_reset_email($to, $subject, $message) {
     $headers = 'From: admin<admin@tech.net.np>' . "\r\n";
     $headers .="CC: info@tech.net.np". "\r\n";

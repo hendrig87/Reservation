@@ -9,20 +9,15 @@ function payment()
    var msg="Incomplete form, please fill the form correctly\n";
      
     if((fullName==null)||(fullName=="") || (!fullName.match( /^[a-z,0-9,A-Z_ ]{5,35}$/ )) ){
-    //msg+="You need to fill the name field in correct format!\n";
     valid = false;
    
     }
    
    if((cardNumber==null)||(cardNumber=="") || (!cardNumber.match( /^[a-z,0-9,A-Z_ ]{5,35}$/ )) ){  
-     
-    //msg+="You need to fill the card number field in correct format!\n";
     valid = false;
    }
    
    if((security==null)||(security=="") || (!security.match( /^[a-z,0-9,A-Z_ ]{5,35}$/ )) ){  
-     
-    //msg+="You need to fill the security number field in correct format!\n";
     valid = false;
    }
     
@@ -123,19 +118,7 @@ $this->load->helper('availableRoom');
      
      $totalPrice = $value['0'];
  } ?>
-<!-- <table class="room-listing-tbl" style="width: 85%;">
-    <tr id="checkinStyle">
-    
-        <td><b>Checkin Date:</b><input type="text" id="checkin" value="<?php //echo $this->session->userdata('checkin'); ?>" readonly /></td>
-        <td><b>Checkout Date:</b><input type="text" id="checkout" value="<?php //echo $abc['checkout']; ?>" readonly style="border:none;"/></td>
-        <td><b>No. of Adults:</b><input type="text" id="adult" value="<?php //echo $abc['adult']; ?>" readonly style="border:none;"/></td>
-        <td><b>No. of Children:</b><input type="text" id="child" value="<?php //if ($abc['child'] == "Select") {
-   // echo "0";
-//} else {
- //   echo $abc['child'];
-//} ?>" readonly style="border:none;"/></td>
-    </tr>
-</table>-->
+
 <div id="replaceMe">
 <input type="hidden" id="title" value="<?php echo $this->session->userdata('title'); ?>" >
 <input type="hidden" id="selectedHotelId" value="<?php echo $this->session->userdata('hotelId'); ?>" >
