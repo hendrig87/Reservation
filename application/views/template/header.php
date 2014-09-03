@@ -25,6 +25,30 @@
         <script>
 //      
             $(document).ready(function() {
+                
+                // add or substract number of room.
+                 $("#adds").on("click",function(){
+                   
+                    var a = $("#noOfRoom").val();
+
+                    a++;
+                     if (a=>1) {
+                         $("#subs").removeAttr("disabled");
+                    }
+                    $("#noOfRoom").val(a); 
+                 });
+       
+                $("#subs").on("click",function(){
+                            var b = $("#noOfRoom").val();
+                    if (b<=1) {
+                        $("#subs").attr("disabled","disabled");
+                    }
+                    b--;
+                    $("#noOfRoom").val(b);
+                });
+                
+          // add or substract number of room.      
+                
 
                 var time = 2000,
                         timer;

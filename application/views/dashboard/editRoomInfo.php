@@ -38,7 +38,7 @@
     </tr>
     <tr>
         <td id="alignright"> Description:</td>
-        <td><textarea name="description"><?php echo $edit->description; ?></textarea></td>
+        <td><textarea name="description"  style="height: 100px;width: 205px;resize: none;"><?php echo $edit->description; ?></textarea></td>
        <!-- <td><label class="example4 r" id="help">?</label></td> -->
     </tr>
     <tr>
