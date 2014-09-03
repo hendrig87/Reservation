@@ -151,12 +151,13 @@ function roomBook()      // function to call for payment info view.
     var contactno = $('#contactno').val();
     var email = $('#email').val();
     var remarks = $('#remarks').val();
-    var checkin = $("#fromDate").val();
-    var checkout = $("#toDate").val();
+    var checkin = $("#CheckIn").val();
+    var checkout = $("#CheckOut").val();
     var adult = $("#adults").val();
     var child = $("#childs").val();
     var hotelId= $('#hotelId').val();
-    var title= "";
+    var title= $('#title').val();
+  
     $.ajax({
         type: "POST",
         url: base_url + 'index.php/room_booking/personal_info',

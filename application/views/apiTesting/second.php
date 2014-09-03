@@ -47,7 +47,7 @@
                     <div class="input-prepend input-append">
                                        
                         <select name="adults" id="adults" style="border-radius:0px 5px 5px 0px;">
-                               <option value="0" > Adults</option>   
+                                 
                             <?php
                             for ($i = 1; $i <= $adultsNumber; $i++) {
                                 echo "<option value=" . $i . ">" . $i . "</option>";
