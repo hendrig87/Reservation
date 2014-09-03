@@ -1,7 +1,7 @@
 
 <div class="right">
     
-    <h2>Edit Hotel</h2><hr class="topLine" />
+    <h2>Edit API</h2><hr class="topLine" />
     
     
     <div id="sucessmsg"> 

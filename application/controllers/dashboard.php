@@ -363,6 +363,7 @@ class dashboard extends CI_Controller {
     public function delete($id) {
         if ($this->session->userdata('logged_in')) {
             $data['username'] = Array($this->session->userdata('logged_in'));
+           
             $this->dashboard_model->deleteRoom($id);
             $this->session->set_flashdata('message', 'Data Deleted Sucessfully');
             redirect('dashboard/roomInfo', 'refresh');
@@ -712,9 +713,10 @@ function searchManagedBooking(){
         public function deleteBooking($id) {
         if ($this->session->userdata('logged_in')) {
             $data['username'] = Array($this->session->userdata('logged_in'));
+            
             $this->dashboard_model->updateBooking($id);
             $this->session->set_flashdata('message', 'Data Deleted Sucessfully');
-            
+           redirect('dashboard/bookingInfo', 'refresh');
         } else {
             redirect('login', 'refresh');
         }
