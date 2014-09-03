@@ -331,11 +331,6 @@ class Login extends CI_Controller {
         }
     }
 
-    public function emailTemplate() {
-
-        // $this->load->view('emailtemplates/testEmailTemplate');
-        $this->load->view('emailtemplates/bookingRoomEmail');
-        //  $this->load->view('emailtemplates/emailFooter');
-    }
+   
 
 }

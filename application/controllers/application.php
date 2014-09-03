@@ -29,8 +29,6 @@ class application extends CI_Controller {
         return $result;
     }
 
-    //
-
     public function index() {
         if ($this->session->userdata('logged_in')) {
 
@@ -49,8 +47,7 @@ class application extends CI_Controller {
          
             
  $cap = create_captcha($vals);
-//print_r($cap['word']);
-//echo $cap['image'];
+
             $this->load->view('template/header');
             $this->load->view("dashboard/reservationSystem");
 
@@ -84,8 +81,6 @@ class application extends CI_Controller {
                 $key = $this->getRandomStringForCoupen(10);
                 $apiName = $this->input->post('api_name');
 
-
-                // $this->addHotelEmail($username, $hotel_name);
                 $this->api_model->add_new_api($key, $apiName, $user_id);
 
 
@@ -209,7 +204,6 @@ class application extends CI_Controller {
         $payment = $_POST['payment'];
         $template = $_POST['template'];
         $base_url= base_url();
-        //$this->api_model->add_new_code_user($apiName, $api, $hotelId, $template);
 
        
         if($template==1){

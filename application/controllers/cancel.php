@@ -8,14 +8,9 @@ class cancel extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->load->library('session');
-      //  $this->load->model('dbmodel');
-      //   $this->load->model('api_model');
         $this->load->model('dashboard_model');
-       // $this->load->model('booking_room');
-       // $this->load->helper('url');
-
         $this->load->helper(array('form', 'url'));
-     //   $this->load->library("pagination");
+     
     }
 
     function getRandomStringForVerification($length) {
@@ -96,7 +91,6 @@ class cancel extends CI_Controller {
                 $userEmail = $users->email;
             }
              $this->cancellationEmail($userName, $userEmail);
-            //$this->load->view('cancelBooking/secondView');
         }
         else
         {

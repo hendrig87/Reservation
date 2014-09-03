@@ -107,10 +107,8 @@ class dashboard extends CI_Controller {
                     $image_thumb = dirname('thumb_'.$name.'/demo');   
                    
                         $config['image_library'] = 'gd2';
-                       // $config['source_image'] = 'uploads/'.$_FILES['room_img']['name'];
                         $config['source_image'] = 'uploads/'.$img_name;
                         $config['new_image']        = $image_thumb;
-                       // $config['create_thumb'] = TRUE;
                         $config['maintain_ratio'] = TRUE;
                         $config['width'] = 100;
                         $config['height'] = 75;
@@ -124,7 +122,6 @@ class dashboard extends CI_Controller {
                     }
                 }
 
-                // $this->session->set_flashdata('mess', 'Fill up the required field');
                 elseif (empty($img_name)) {
                     $img_name = "";
                 }
@@ -292,8 +289,6 @@ class dashboard extends CI_Controller {
             $this->load->view('template/header');
             $this->load->view('dashboard/reservationSystem');
             $this->load->view('dashboard/hotelSelection', $data);
-            //$this->load->view('dashboard/roomInformation', $data);
-
             $this->load->view('template/footer');
         } else {
             redirect('login', 'refresh');
@@ -305,12 +300,9 @@ class dashboard extends CI_Controller {
             $data['username'] = Array($this->session->userdata('logged_in'));
             $data['query'] = $this->dashboard_model->findroom($id);
 
-
-            //die($data['query']);
             $this->load->view('template/header');
             $this->load->view('dashboard/reservationSystem', $data);
             $this->load->view('dashboard/editRoomInfo', $data);
-
             $this->load->view('template/footer', $data);
         } else {
             redirect('login', 'refresh');
@@ -326,8 +318,6 @@ class dashboard extends CI_Controller {
 
                 $config['upload_path'] = 'uploads/';
                 $config['allowed_types'] = 'gif|jpg|png';
-
-
 
                 $this->upload->initialize($config);
 
@@ -382,7 +372,6 @@ class dashboard extends CI_Controller {
     }
 
     public function calender($year=NULL, $month=NULL) {
-       // die($year);
           if ($this->session->userdata('logged_in')) {
             $useremail = $this->session->userdata('useremail');
             $user = $this->dbmodel->get_user_info($useremail);
@@ -521,12 +510,7 @@ $checkOut = $_POST['checkOut'];
            if(($hid!=0 && $hid!=NULL && $hid!="") || ($checkIn!="" && $checkIn!=NULL) || ($checkOut!="" && $checkOut!=NULL) ){
         $roomInfo = $this->dashboard_model->pagination_query_test($hid,$checkIn,$checkOut);}
         else{  $roomInfo = $this->dashboard_model->query_test($user_id);}
-         // $roomInfo = $this->dashboard_model->query_test($user_id);
-        // var_dump($roomInfo);
-//        $previous_btn = true;
-//$next_btn = true;
-//$first_btn = true;
-//$last_btn = true;
+       
           $per_page = 9;
          $pages['pages'] = ceil($roomInfo/$per_page);
         
@@ -555,8 +539,7 @@ $hid = $_POST['hotel'];
 $checkIn = $_POST['checkin'];
 $checkOut = $_POST['checkout'];
 }
- //die($checkIn);
-//die($hid);
+
 $per_page = 9;
 $start = ($page-1)*$per_page;
 
@@ -591,12 +574,8 @@ function searchManagedBooking(){
                 $user_id = $id->id;
             }
             
-              $hotelId= $_POST['hotel'];
-            //$hotelId= '10';
-            
+              $hotelId= $_POST['hotel'];      
               $checkIn= $_POST['checkIn'];
-            
-            
               $checkOut = $_POST['checkOut'];     
            
             

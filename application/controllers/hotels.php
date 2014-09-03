@@ -16,11 +16,9 @@ class Hotels extends CI_Controller {
  
  public function index(){ 
           if ($this->session->userdata('logged_in')) {
-            //$data['username'] = Array($this->session->userdata('logged_in'));
         $this->load->view('template/header');
         $this->load->view('dashboard/reservationSystem');
         $this->load->view('hotel/addNewHotel');
-        
         $this->load->view('template/footer');
         
         }  

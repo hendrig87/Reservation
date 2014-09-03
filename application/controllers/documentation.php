@@ -14,15 +14,11 @@ class Documentation extends CI_Controller {
  }
  
  public function index(){ 
-          
-            
+                  
         $this->load->view('template/header');
         $this->load->view("dashboard/reservationSystem");
-        $this->load->view('documentations/document');
-        
-        $this->load->view('template/footer');
-       
-        
+        $this->load->view('documentations/document');    
+        $this->load->view('template/footer');      
             
   }
   
@@ -38,14 +34,10 @@ force_download($name, $data);
 
 
 exit;
-
-
         $this->load->view('template/header');
         $this->load->view("dashboard/reservationSystem");
-        $this->load->view('documentations/document');
-        
+        $this->load->view('documentations/document'); 
         $this->load->view('template/footer');
-
         
   }
   

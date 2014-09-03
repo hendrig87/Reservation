@@ -12,8 +12,7 @@ class Demo extends CI_Controller {
         $this->load->model('dashboard_model');
         $this->load->helper('url');
         $this->load->helper(array('form', 'url'));
-        $this->load->library("pagination");
-        $this->load->helper('captcha');
+      
     }
     function index(){
         
