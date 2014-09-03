@@ -45,7 +45,7 @@ function book()         //function to be calle for personal info view.
 {
     $('#loading').show();
      var hotelId= $('#selectedHotelId').val();
-    var title= "";
+    var title= $('#title').val();
 
     $.ajax({
         type: "POST",
