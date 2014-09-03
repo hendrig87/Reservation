@@ -23,7 +23,43 @@
         <link rel="stylesheet" href="/resources/demos/style.css" />
 
         <script>
-//      
+        var beforeload = (new Date()).getTime();
+        
+       $(document).ready(function() {
+						
+				  var afterload = (new Date()).getTime();
+	 
+	        // now use the beforeload and afterload to calculate the seconds
+	 
+	        seconds = (afterload-beforeload) / 1000;
+				
+				
+				var progressbar = $('#progressbar'),
+					max = progressbar.attr('max'),
+					time = (seconds/max),	
+			        value = progressbar.val();
+
+			    var loading = function() {
+			        value += 1;
+			        addValue = progressbar.val(value);
+			        
+			        $('.progress-value').html(value + '%');
+
+			        if (value == max) {
+			            clearInterval(animate);
+						$('.progress-bar-wrapper').hide();
+						$('#full').show();
+			        }
+			    };
+
+			    var animate = setInterval(function() {
+			        loading();
+			    }, time);
+			
+		});
+
+
+
             $(document).ready(function() {
 
                 var time = 2000,
@@ -81,8 +117,13 @@
 }
         </style>
     </head>
-    <body >
-<div id="full">
+    <body onload="load()" >
+<div class="demo-wrapper html5-progress-bar">
+		<div class="progress-bar-wrapper">
+			<progress id="progressbar"  value="0" max="100"></progress>
+			<span class="progress-value">0%</span>
+		</div>
+<div id="full" style="display: none;">
         <div id="header" >
 
 
