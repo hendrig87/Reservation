@@ -11,7 +11,7 @@
      foreach ($api as $tempInfo){
          $hotel= $tempInfo->hotel_id;
          $title = $tempInfo->title;
-         var_dump($hotel);
+        
      }
 } ?>
  <?php
@@ -124,11 +124,6 @@
  
 
 <div class="middleLayer" style="display:none"></div>
-
-
-
-
-
 
 <?php 
 if(isset($xyz))
