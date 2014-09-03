@@ -8,9 +8,11 @@
 function add() {
     var a = $("#noOfRoom").val();
     a++;
-     if (a>999) {
-        $("#adds").die();
+     if (a=>1) {
+         $("#subs").removeAttr("disabled");
     }
+    
+    
     $("#noOfRoom").val(a);
 };
 
@@ -19,8 +21,8 @@ function add() {
  
 function sub() {
     var b = $("#noOfRoom").val();
-    if (b<1) {
-        $("#subs").die();
+    if (b<=1) {
+        $("#subs").attr("disabled","disabled");
     }
     b--;
     $("#noOfRoom").val(b);
@@ -65,7 +67,7 @@ function sub() {
     </tr>
     <tr>
         <td id="alignright"> Description:</td>
-        <td><textarea name="description" value="<?php echo set_value('description'); ?>" required ></textarea></td>
+        <td><textarea name="description" value="<?php echo set_value('description'); ?>" required style="height: 100px;width: 205px;resize: none;"></textarea></td>
        <!-- <td><a href="" class="example4 r" id="help" onclick="return false;" style="cursor: default;">?</a></td> -->
     </tr>
     <tr>
