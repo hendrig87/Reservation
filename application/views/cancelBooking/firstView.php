@@ -9,16 +9,14 @@
          var email = $("#email").val();
          var valid = true;
         var msg = "Incomplete form, please fill the form correctly";
-       //alert(id); 
+       
         if ((id == null) || (id == "")) {
-            $("#bookId").focus();
-           // $("#bookId").style.border = "solid 1px red";          
+            $("#bookId").focus();         
             valid = false;
         }
         
         if ((email == null) || (email == "") || (!email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/))) {        
-            $("#email").focus();
-           // $("#email").style.border = "solid 1px red";           
+            $("#email").focus();          
             valid = false;
         }
        

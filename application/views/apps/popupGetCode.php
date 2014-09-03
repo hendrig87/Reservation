@@ -1,4 +1,3 @@
-<?php var_dump($abc) ?>
 <pre>
 <code>
     <textarea readonly  style="border: none;background-color:white; min-height:600px; width: 750px; margin:  0px ; padding: 0px;">

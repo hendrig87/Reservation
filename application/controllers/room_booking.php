@@ -261,7 +261,6 @@ VALUES ('" . $item['check_in_date'] . "', '" . $item['check_out_date'] . "','" .
     
     function destroy_session()
     {
-       // die($_POST['title']);
         $data['a']= array(
             'fullname'=>NULL,
             'address'=>NULL,

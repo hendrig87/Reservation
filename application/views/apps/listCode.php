@@ -1,9 +1,3 @@
-
-
-
-<!-- hotel selection complete -->
-
-
 <div class="right">
    <h2>Code Info</h2><hr class="topLine" />
    <div id="sucessmsg"> 

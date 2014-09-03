@@ -1,9 +1,3 @@
-
-
-
-<!-- hotel selection complete -->
-
-
 <div class="right">
    <h2>API's&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url().'index.php/application/index'; ?>">Add New API</a></h2><hr class="topLine" />
    <div id="sucessmsg"> 
@@ -35,10 +29,7 @@
                 <tr>
                     <td><?php echo $id; ?> </td> 
                     <td><?php echo $name; ?></td>
-                   
-                    
-                    
-                   
+                  
                     <td>    
                         <?php echo anchor('application/editApi/' . $apps->id, '<img src="' . base_url() . 'contents/images/edit.png" alt="Edit" class="edit_room">'); ?>&nbsp;&nbsp;&nbsp;
                         <?php echo anchor('application/deleteApi/' . $apps->id, '<img src="' . base_url() . 'contents/images/delete.png" alt="Delete" class="delete_room">'); ?>

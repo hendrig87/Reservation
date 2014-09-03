@@ -88,8 +88,6 @@
 			
             });
             $('.popup_box').css({"display":"Block"});
-			
-            //$('#pqr').fadeIn(3000);
             $('.detailsImage').css({"opacity":".3"});
 			
         });
@@ -155,8 +153,6 @@
             });
         }
 
-        /**********************************************************/
-
     });
 
 
@@ -174,38 +170,31 @@
         var template = $("input[type='radio'][name='temp']:checked").val();
    
 
-        if ((apiName == null) || (apiName == "") || (!apiName.match(/^[a-z,0-9,A-Z_ ]{5,35}$/))) {
-           
+        if ((apiName == null) || (apiName == "") || (!apiName.match(/^[a-z,0-9,A-Z_ ]{5,35}$/))) {     
             $("#apiName").focus();
             msg="You need to fill the title field in correct format!\n";
-           // $("#apiName").style.border = "solid 1px red";
-            
            valid = false;
           
         }
 
         if ((api == null) || (api == "0")) {
             $("#selectApi").focus();
-          // $("#selectApi").style.border = "solid 1px red";
            msg="You need to select the api!\n";
             valid = false;
         }
 
         if ((hotel == null) || (hotel == "0")) {
             $("#selectHotel").focus();
-          // $("#selectHotel").style.border = "solid 1px red";
            msg="You need to select the hotel!\n";
             valid = false;
         }
         if ((template == null) || (template == "")) {
             $(".radioButton").focus();
-         //  $(".radioButton").style.border = "solid 1px red";
           msg="You need to select template!\n";
             valid = false;
         }
         if ((payment == null) || (payment == "")) {
             $(".paymentButton").focus();
-         //  $(".radioButton").style.border = "solid 1px red";
           msg="You need to select payment option!\n";
             valid = false;
         }
@@ -400,10 +389,6 @@
 
 
 <div class="middleLayer" style="display:none"></div>
-
-
-
-
 
 
 <?php

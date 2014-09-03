@@ -30,10 +30,7 @@
         <td><input type="hidden" value="<?php echo $id; ?>" name="id">
             <input type="text" name="api_name" value="<?php echo $name; ?>" required /></td>
        
-    </tr>
-    
-   
-   
+    </tr>  
       <tr>
           
           <td><input type="submit" value="Update" name="submit" id="save"></td>
