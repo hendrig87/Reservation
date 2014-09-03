@@ -24,7 +24,7 @@
 
         <script>
         var beforeload = (new Date()).getTime();
-       $(document).ready(function() {
+       function load() {
 						
 				  var afterload = (new Date()).getTime();
 	 
@@ -55,7 +55,7 @@
 			        loading();
 			    }, time);
 			
-		});
+		};
 
 
 
@@ -116,7 +116,7 @@
 }
         </style>
     </head>
-    <body >
+    <body onload="load()" >
 <div class="demo-wrapper html5-progress-bar">
 		<div class="progress-bar-wrapper">
 			<progress id="progressbar"  value="0" max="100"></progress>
