@@ -77,7 +77,11 @@
     $(document).ready( function() {
         // When site loaded, load the Popupbox First
         $('.srcimage').click(function(){
-          
+         //alert('here'); 
+         $(this).prev('input').prop('checked', true)  ;
+     
+   
+  
             $('.popup_box').fadeIn(500);
             var srcimg = $(this).attr('src');
 		
@@ -169,6 +173,7 @@
         var payment = $("input[type='radio'][name='payment']:checked").val();
         var template = $("input[type='radio'][name='temp']:checked").val();
    
+   alert(template);
 
         if ((apiName == null) || (apiName == "") || (!apiName.match(/^[a-z,0-9,A-Z_ ]{5,35}$/))) {     
             $("#apiName").focus();
@@ -311,19 +316,19 @@
                 <td> 
 
                         <div class="container">
-                            <input type="radio" name='temp' value='1' class="radioButton"/><a href="#"><img class="srcimage" src="<?php echo base_url() . "contents/images/1.jpg"; ?>" height="150" width="150"/></a>
+                            <input type="radio" name='temp' value='1' class="radioButton"/><img class="srcimage" src="<?php echo base_url() . "contents/images/1.jpg"; ?>" height="150" width="150"/>
                         </div>
 
                         <div class="container">
-                            <input type="radio" name='temp' value='2' class="radioButton"/><a href="#"><img class="srcimage" src="<?php echo base_url() . "contents/images/2.jpg"; ?>" height="150" width="150"/></a>
+                            <input type="radio" name='temp' value='2' class="radioButton"/><img class="srcimage" src="<?php echo base_url() . "contents/images/2.jpg"; ?>" height="150" width="150"/>
                         </div>
 
                         <div class="container">
-                            <input type="radio" name='temp' value='3' class="radioButton"/><a href="#"><img class="srcimage" src="<?php echo base_url() . "contents/images/3.jpg"; ?>" height="150" width="150"/></a>
+                            <input type="radio" name='temp' value='3' class="radioButton"/><img class="srcimage" src="<?php echo base_url() . "contents/images/3.jpg"; ?>" height="150" width="150"/>
                         </div>
                     
                         <div class="container">
-                            <input type="radio" name='temp' value='4' class="radioButton"/><a href="#"><img class="srcimage" src="<?php echo base_url() . "contents/images/4.jpg"; ?>" height="150" width="150"/></a>
+                            <input type="radio" name='temp' value='4' class="radioButton"/><img class="srcimage" src="<?php echo base_url() . "contents/images/4.jpg"; ?>" height="150" width="150"/>
                         </div>
                     
                 </td>
