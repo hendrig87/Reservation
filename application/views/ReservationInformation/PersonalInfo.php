@@ -99,15 +99,17 @@
             $("#msg").html(msg);
         }
         else {
-            $('#one').css({'background-color': '#999999'});
-            $('.first').css({'color': 'black'});
-            $('.first').css({'font-weight': 'normal'});
-            $('#two').css({'background-color': '#999999'});
-            $('.second').css({'color': 'black'});
-            $('.second').css({'font-weight': 'normal'});
-            $('#three').css({'background-color': '#0077b3'});
-            $('.third').css({'color': '#0077b3'});
-            $('.third').css({'font-weight': 'bold'});
+//            $('#one').css({'background-color': '#999999'});
+//            $('.first').css({'color': 'black'});
+//            $('.first').css({'font-weight': 'normal'});
+//            $('#two').css({'background-color': '#999999'});
+//            $('.second').css({'color': 'black'});
+//            $('.second').css({'font-weight': 'normal'});
+//            $('#three').css({'background-color': '#0077b3'});
+//            $('.third').css({'color': '#0077b3'});
+//            $('.third').css({'font-weight': 'bold'});
+              $(".snd").css({'display':'none'});
+              $(".trd").css({'display':'block'});
             roomBook();
         }
     }

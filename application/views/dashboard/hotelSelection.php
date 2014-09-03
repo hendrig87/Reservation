@@ -86,7 +86,7 @@ success: function(msgs)
             
         <tr>
             <td>
-                <div style="float: left; margin-right: 10px;"><img src="<?php echo base_url().'uploads/'.$book->image; ?>" width="50px" height="50px"></div>
+                <div style="float: left; margin-right: 10px;"><img src="<?php echo base_url().'uploads/thumb_'.$book->image; ?>" width="50px" height="50px"></div>
                <h3 style="float: left; margin: 0px;"><?php echo $roomName; ?></h3><br/>  
                 <p style="float: left; margin: 0px;">( Total Rooms: <?php echo $totalRooms; ?> )</p>
                 

@@ -59,12 +59,14 @@ $(document).ready(function(){
             else
             {
 
-                $('#one').css({'background-color': '#999999'});
-                $('.first').css({'color': 'black'});
-                $('.first').css({'font-weight': 'normal'});
-                $('#two').css({'background-color': '#0077b3'});
-                $('.second').css({'color': '#0077b3'});
-                $('.second').css({'font-weight': 'bold'});
+               // $('#one').css({'background-color': '#999999'});
+              //  $('.first').css({'color': 'black'});
+               // $('.first').css({'font-weight': 'normal'});
+              //  $('#two').css({'background-color': '#0077b3'});
+              //  $('.second').css({'color': '#0077b3'});
+              //  $('.second').css({'font-weight': 'bold'});
+              $(".fst").css({'display':'none'});
+              $(".snd").css({'display':'block'});
                 book();
             }
         });

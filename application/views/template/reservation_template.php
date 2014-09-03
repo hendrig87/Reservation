@@ -91,15 +91,17 @@
     <div id="changePopup">
     <!-- Information from checkin - $abc -->
     <div id="path" style="display: none;">
-    <hr id="nav">
-    <div id="mainNav">
-        
-        
-        <div class="number" id="one">1</div><span id="nav_description" class="first">Select Plan</span>
+   
+        <div style="text-align: center;" class="fst" ><img src="<?php echo base_url().'contents/pbar/pbar1.png'; ?>"style="width: 90%;"></div>
+        <div style="text-align: center; display: none;" class="snd"><img src="<?php echo base_url().'contents/pbar/pbar2.png'; ?>"style="width: 90%;"></div>
+        <div style="text-align: center; display: none;" class="trd"><img src="<?php echo base_url().'contents/pbar/pbar3.png'; ?>"style="width: 90%;"></div>
+        <div style="text-align: center; display: none;" class="fth"><img src="<?php echo base_url().'contents/pbar/pbar4.png'; ?>"style="width: 90%;"></div>
+<!--        <div class="number" id="one">1</div><span id="nav_description" class="first">Select Plan</span>
         <div class="number" id="two" style="margin-left: 18%;">2</div><span id="nav_description" class="second" style="left: -70px;">Booking Summary</span>
         <div class="number" id="three" style="margin-left: 18%;">3</div><span id="nav_description" class="third">Billing & Payments</span>
-        <div class="number" id="four" style="margin-left: 10%;">4</div><span id="nav_description" class="fourth">Thank You</span>
-    </div>
+        <div class="number" id="four" style="margin-left: 10%;">4</div><span id="nav_description" class="fourth">Thank You</span>-->
+
+  
     <br/>
     <hr style="display: block; height: 1px;
     border: 0; border-top: 1px solid #ccc; padding: 0; margin-top: 18px;">

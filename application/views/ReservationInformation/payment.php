@@ -38,12 +38,14 @@ function payment()
      'securityNumber' : security},
   success: function(msgs) 
         {
-            $('#one').css({'background-color': '#0077b3'}); 
-            $('.first').css({'color': '#0077b3'}); 
-         $('.first').css({'font-weight': 'bold'});
-         $('#two').css({'background-color': '#999999'});
-                $('.second').css({'color': 'black'});
-                $('.second').css({'font-weight': 'normal'});
+//            $('#one').css({'background-color': '#0077b3'}); 
+//            $('.first').css({'color': '#0077b3'}); 
+//         $('.first').css({'font-weight': 'bold'});
+//         $('#two').css({'background-color': '#999999'});
+//                $('.second').css({'color': 'black'});
+//                $('.second').css({'font-weight': 'normal'});
+                $(".trd").css({'display':'none'});
+              $(".fth").css({'display':'block'});
             $("#replaceMe").html(msgs);
             
         }
