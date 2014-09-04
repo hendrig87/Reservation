@@ -131,12 +131,14 @@ function record_count_all_booking_info($user_id)
     function record_count_all_room_registration($user_id)
     {
         $this->db->where('hotel_id', $user_id);
+        $this->db->where('status', "1");
         $this->db->from('room_registration');
         return $this->db->count_all_results();
     }
     function record_count_all_room_registration_user($user_id)
     {
         $this->db->where('user_id', $user_id);
+        $this->db->where('status', "1");
         $this->db->from('room_registration');
         return $this->db->count_all_results();
     }
@@ -151,6 +153,7 @@ function record_count_all_booking_info($user_id)
     function get_all_rooms($limit, $start, $user_id) {
           $this->db->limit($limit, $start);
            $this->db->where('user_id', $user_id);
+           $this->db->where('status', "1");
         $this->db->order_by("hotel_id", "desc");
         $query = $this->db->get('room_registration');
         return $query->result();
@@ -374,10 +377,9 @@ function record_count_all_booking_info($user_id)
     }
 
     public function findroom($id) {
-        $this->db->select();
-        $this->db->from('room_registration');
         $this->db->where('id', $id);
-        $query = $this->db->get();
+        $this->db->where('status', "1");
+        $query = $this->db->get('room_registration');
         return $query->result();
     }
 
@@ -404,8 +406,8 @@ function record_count_all_booking_info($user_id)
             'no_of_room' => $noOfRoom,
             'price' => $price,
             'description' => $description,
-            'image' => $img_name
-        );
+            'image' => $img_name,
+            'status' => "1");
 
         $this->db->where('id', $id);
         $this->db->update('room_registration', $data);
