@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 03, 2014 at 07:02 AM
+-- Generation Time: Sep 04, 2014 at 07:27 AM
 -- Server version: 5.6.12-log
 -- PHP Version: 5.4.12
 
@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `booked_room_info` (
   `check_in_date` varchar(50) NOT NULL,
   `check_out_date` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=139 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=157 ;
 
 --
 -- Dumping data for table `booked_room_info`
@@ -109,7 +109,12 @@ INSERT INTO `booked_room_info` (`id`, `booking_id`, `room_type`, `no_of_rooms_bo
 (135, '120', 'sample room2', '4', '2014-09-17', '2014-09-19'),
 (136, '116', 'sample room1', '2', '2014-09-04', '2014-09-10'),
 (137, '116', 'sample room2', '2', '2014-09-04', '2014-09-10'),
-(138, '116', 'sample room3', '2', '2014-09-04', '2014-09-10');
+(138, '116', 'sample room3', '2', '2014-09-04', '2014-09-10'),
+(139, '123', 'sample room3', '2', '2014-09-03', '2014-09-04'),
+(140, '124', 'sample room3', '2', '2014-09-03', '2014-09-04'),
+(141, '125', 'dsjhhfds', '1', '', ''),
+(142, '126', 'dsjhhfds', '1', '', ''),
+(156, '127', 'new central palm', '1', '2014-09-03', '2014-09-04');
 
 -- --------------------------------------------------------
 
@@ -130,7 +135,7 @@ CREATE TABLE IF NOT EXISTS `booking_info` (
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `user_id_2` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=160 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=165 ;
 
 --
 -- Dumping data for table `booking_info`
@@ -162,13 +167,18 @@ INSERT INTO `booking_info` (`id`, `check_in_date`, `check_out_date`, `room_type`
 (150, '2014-08-28', '2014-08-29', NULL, NULL, '113', 9, 0, 15),
 (151, '2014-08-28', '2014-08-29', NULL, NULL, '114', 9, 0, 15),
 (152, '2014-09-08', '2014-09-10', NULL, NULL, '115', 9, 0, 15),
-(153, '2014-09-04', '2014-09-10', NULL, NULL, '116', 9, 0, 15),
+(153, '2014-09-04', '2014-09-10', NULL, NULL, '116', 9, 1, 15),
 (154, '2014-09-15', '2014-09-19', NULL, NULL, '117', 9, 0, 15),
 (155, '2014-09-17', '2014-09-19', NULL, NULL, '118', 9, 0, 15),
 (156, '2014-09-17', '2014-09-19', NULL, NULL, '119', 9, 0, 15),
 (157, '2014-09-17', '2014-09-19', NULL, NULL, '120', 9, 0, 15),
 (158, '2014-09-22', '2014-09-26', NULL, NULL, '121', 9, 0, 15),
-(159, '2014-09-24', '2014-10-07', NULL, NULL, '122', 3, 0, 15);
+(159, '2014-09-24', '2014-10-07', NULL, NULL, '122', 3, 1, 15),
+(160, '2014-09-03', '2014-09-04', NULL, NULL, '123', 9, 0, 15),
+(161, '2014-09-03', '2014-09-04', NULL, NULL, '124', 9, 1, 15),
+(162, '', '', NULL, NULL, '125', 3, 0, 15),
+(163, '', '', NULL, NULL, '126', 3, 0, 15),
+(164, '2014-09-03', '2014-09-04', NULL, NULL, '127', 3, 0, 15);
 
 -- --------------------------------------------------------
 
@@ -247,6 +257,7 @@ CREATE TABLE IF NOT EXISTS `hotel_info` (
   `address` varchar(200) CHARACTER SET utf8 NOT NULL,
   `contact` varchar(100) CHARACTER SET utf8 NOT NULL,
   `user_id` int(11) NOT NULL,
+  `status` varchar(10) NOT NULL,
   PRIMARY KEY (`id`,`user_id`),
   KEY `user_id` (`user_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
@@ -255,15 +266,15 @@ CREATE TABLE IF NOT EXISTS `hotel_info` (
 -- Dumping data for table `hotel_info`
 --
 
-INSERT INTO `hotel_info` (`id`, `name`, `address`, `contact`, `user_id`) VALUES
-(3, 'Central Palms Hotel', 'Lions Chowk, Chitwan', '+977-56-570050', 15),
-(4, 'Hotel Monalisha', 'Sauraha, Chitwan', '+977-56-581588', 15),
-(9, 'sample hotel', 'sample address', '056533977', 15),
-(10, 'asdf hotel', 'bdsahjfgyhsdg', '777777777', 17),
-(11, 'asdf hotel2', 'dfsdfdsfds', '3333333388', 17),
-(12, 'asdf hotel3', 'gdjhgfdsjhgfj', '999999999', 17),
-(13, 'naya user hotel', 'cxkhkjh', '9999999999', 18),
-(14, 'naya user hotel2', 'fhagfhgadhjghj', '5645736756765', 18);
+INSERT INTO `hotel_info` (`id`, `name`, `address`, `contact`, `user_id`, `status`) VALUES
+(3, 'Central Palms Hotel', 'Lions Chowk, Chitwan', '+977-56-570050', 15, '1'),
+(4, 'Hotel Monalisha', 'Sauraha, Chitwan', '+977-56-581588', 15, '1'),
+(9, 'sample hotel', 'sample address', '056533977', 15, '1'),
+(10, 'asdf hotel', 'bdsahjfgyhsdg', '777777777', 17, '1'),
+(11, 'asdf hotel2', 'dfsdfdsfds', '3333333388', 17, '1'),
+(12, 'asdf hotel3', 'gdjhgfdsjhgfj', '999999999', 17, '1'),
+(13, 'naya user hotel', 'cxkhkjh', '9999999999', 18, '1'),
+(14, 'naya user hotel2', 'fhagfhgadhjghj', '5645736756765', 18, '1');
 
 -- --------------------------------------------------------
 
@@ -286,7 +297,7 @@ CREATE TABLE IF NOT EXISTS `personal_info` (
   `adult` int(5) NOT NULL,
   `verification_code` varchar(15) CHARACTER SET utf8 DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=162 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=167 ;
 
 --
 -- Dumping data for table `personal_info`
@@ -355,7 +366,12 @@ INSERT INTO `personal_info` (`Id`, `full_name`, `address`, `occupation`, `nation
 (158, 'hgsjhhgfshj', 'gjhghjhghjh', 'gjhgjhgjh', 'gjhgjhgjhhg', '786786866876', 'asdf@asd.asd', '', 6000, 119, 0, 2, NULL),
 (159, 'jhdsghjgghjh', 'ghgsdhgsg', 'gghghgg', 'gguguguui', '6768686868', 'dsgafg@asd.asd', '', 4500, 120, 0, 2, NULL),
 (160, 'fdshjighfd', 'hiuhsduifhiu', 'jhghjghhhg', 'hkjhjkhkjhjk', '78789798789', 'asd@asd.asd', '', 10000, 121, 0, 2, NULL),
-(161, 'hsfdjkgjks', 'hskjdhgjkhsdkj', 'jhsdkjghkjsh', 'hjhsdkjghkj', '7987897987', 'bhomnath@salyani.com.np', '', 4000, 122, 0, 4, NULL);
+(161, 'hsfdjkgjks', 'hskjdhgjkhsdkj', 'jhsdkjghkjsh', 'hjhsdkjghkj', '7987897987', 'bhomnath@salyani.com.np', '', 4000, 122, 0, 4, NULL),
+(162, 'gsadhjfagjhg', 'gdhsjgfjhsg', 'gjhsgdjhfg', 'gjhsdgfsjh', '666666666', 'asdf@asd.asd', '', 4000, 123, 0, 0, NULL),
+(163, 'gsadhjfagjhg', 'gdhsjgfjhsg', 'gjhsgdjhfg', 'gjhsdgfsjh', '666666666', 'asdf@asd.asd', '', 4000, 124, 0, 0, NULL),
+(164, 'gsadhjfagjhg', 'gdhsjgfjhsg', 'gjhsgdjhfg', 'gjhsdgfsjh', '666666666', 'asdf@asd.asd', '', 4343, 125, 0, 1, NULL),
+(165, 'gsadhjfagjhg', 'gdhsjgfjhsg', 'gjhsgdjhfg', 'gjhsdgfsjh', '666666666', 'asdf@asd.asd', '', 4343, 126, 0, 1, NULL),
+(166, 'gsadhjfagjhg', 'gdhsjgfjhsg', 'gjhsgdjhfg', 'gjhsdgfsjh', '666666666', 'asdf@asd.asd', '', 4343, 127, 0, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -372,32 +388,35 @@ CREATE TABLE IF NOT EXISTS `room_registration` (
   `image` varchar(255) NOT NULL,
   `hotel_id` int(11) NOT NULL,
   `user_id` varchar(15) NOT NULL,
+  `status` varchar(15) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `hotel_id` (`hotel_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=112 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=114 ;
 
 --
 -- Dumping data for table `room_registration`
 --
 
-INSERT INTO `room_registration` (`id`, `room_name`, `no_of_room`, `price`, `description`, `image`, `hotel_id`, `user_id`) VALUES
-(83, 'Deluxe Room', 10, 2000, 'This room contains two beds and it has t.v.. The scenario of nature can be viewed very nice and bird watching is easy from this room', '', 4, '15'),
-(84, 'Economy Room', 15, 1500, 'This room normally contains two beds and has no attached bathroom and T.V.\r\nBut the natural scene is best viewed from here.', '', 4, '15'),
-(85, 'Super Luxury Room', 15, 3500, 'This room is best for couple with a.c in it. ', 'samart_Access_Services2.jpg', 4, '15'),
-(90, 'new central palm', 1, 2222, '22222', '', 3, '15'),
-(91, 'bibesh ko room', 100, 1000, 'bjhsfgcjdshbfkjvsd', '', 3, '15'),
-(92, 'sample room1', 10, 1000, 'this is for demo', '1.jpg', 9, '15'),
-(93, 'sample room2', 10, 1500, 'this is for demo', '2.jpg', 9, '15'),
-(94, 'sample room3', 10, 2000, 'this is for demo', '3.jpg', 9, '15'),
-(104, 'room1', 1, 111, 'sadsadsa', '', 10, '15'),
-(105, 'naya user room1', 3, 500, 'dsfsdfdsfsfds', '', 13, '18'),
-(106, 'fjhdgshjgfdsj', 5, 750, 'shygftedshghfyhu', '', 14, '18'),
-(107, 'naya user room2', 3, 100, 'dsjfkdsjfkd', '', 13, '18'),
-(108, 'naya user room3', 5, 1001, 'sjkfvhsdjkhjkfds', '', 13, '18'),
-(109, 'naya user room4', 3, 1500, 'dshfhjsgdhjf', '', 13, '18'),
-(110, 'naya user room5', 1, 100, 'wsghgfgh', '', 13, '18'),
-(111, 'gfdhgdfjhgj', 1, 9999, 'sdjhgfjhsgdh', '', 14, '18');
+INSERT INTO `room_registration` (`id`, `room_name`, `no_of_room`, `price`, `description`, `image`, `hotel_id`, `user_id`, `status`) VALUES
+(83, 'Deluxe Room', 10, 2000, 'This room contains two beds and it has t.v.. The scenario of nature can be viewed very nice and bird watching is easy from this room', '', 4, '15', '1'),
+(84, 'Economy Room', 15, 1500, 'This room normally contains two beds and has no attached bathroom and T.V.\r\nBut the natural scene is best viewed from here.', '', 4, '15', '1'),
+(85, 'Super Luxury Room', 15, 3500, 'This room is best for couple with a.c in it. ', 'samart_Access_Services2.jpg', 4, '15', '1'),
+(90, 'new central palm', 1, 2222, '22222', '', 3, '15', '1'),
+(91, 'bibesh ko room', 100, 1000, 'bjhsfgcjdshbfkjvsd', '', 3, '15', '1'),
+(92, 'sample room1', 10, 1000, 'this is for demo', '1.jpg', 9, '15', '1'),
+(93, 'sample room2', 10, 1500, 'this is for demo', '2.jpg', 9, '15', '1'),
+(94, 'sample room3', 10, 2000, 'this is for demo', '3.jpg', 9, '15', '1'),
+(104, 'room1', 1, 111, 'sadsadsa', '', 10, '15', '1'),
+(105, 'naya user room1', 3, 500, 'dsfsdfdsfsfds', '', 13, '18', '1'),
+(106, 'fjhdgshjgfdsj', 5, 750, 'shygftedshghfyhu', '', 14, '18', '1'),
+(107, 'naya user room2', 3, 100, 'dsjfkdsjfkd', '', 13, '18', '1'),
+(108, 'naya user room3', 5, 1001, 'sjkfvhsdjkhjkfds', '', 13, '18', '1'),
+(109, 'naya user room4', 3, 1500, 'dshfhjsgdhjf', '', 13, '18', '1'),
+(110, 'naya user room5', 1, 100, 'wsghgfgh', '', 13, '18', '1'),
+(111, 'gfdhgdfjhgj', 1, 9999, 'sdjhgfjhsgdh', '', 14, '18', '1'),
+(112, 'dsjhhfds', 1, 4343, 'sdfsdfsdf', '', 3, '15', '1'),
+(113, 'fdsfsdfsd', -3, 3443, 'dsfdscfds', '', 9, '15', '1');
 
 -- --------------------------------------------------------
 
