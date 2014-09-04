@@ -444,7 +444,7 @@ function record_count_all_booking_info($user_id)
 
         public function updateBooking($id) {
 
-        $data = array('status' => "1");
+        $data = array('status' => "0");
         $this->db->where('id', $id);
         $this->db->update('booking_info', $data);
     }

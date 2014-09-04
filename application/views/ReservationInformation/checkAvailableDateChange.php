@@ -53,35 +53,35 @@
             { 
             
             
-            var updated_json = JSON.stringify(txtnext);
-
-            var id= $('#id').val();
-            var checkin = $("#fromDate").val();
-            var checkout = $("#toDate").val();
-            var adult = $("#adults").val();
-            var child = $("#childs").val();
-            var hotelId = $("#hotelhide").val();
-            var url = "<?php echo base_url() . 'index.php/dashboard/bookingInfo'; ?>";
-            $.ajax({
-                type: "POST",
-                url: "<?php echo base_url() . 'index.php/dashboard/updateBooking'; ?>",
-                data: {
-                    'json': updated_json,
-                    'checkin': checkin,
-                    'checkout': checkout,
-                    'adult': adult,
-                    'child': child,
-                    'hotelId': hotelId,
-                    'id': id},
-                success: function(msgs)
-                {
-                   
-                    window.location.href = url;
-                  
-
-                }
-
-            });
+//            var updated_json = JSON.stringify(txtnext);
+//
+//            var id= $('#id').val();
+//            var checkin = $("#fromDate").val();
+//            var checkout = $("#toDate").val();
+//            var adult = $("#adults").val();
+//            var child = $("#childs").val();
+//            var hotelId = $("#hotelhide").val();
+//            var url = "<?php //echo base_url() . 'index.php/dashboard/bookingInfo'; ?>";
+//            $.ajax({
+//                type: "POST",
+//                url: "<?php //echo base_url() . 'index.php/dashboard/updateBooking'; ?>",
+//                data: {
+//                    'json': updated_json,
+//                    'checkin': checkin,
+//                    'checkout': checkout,
+//                    'adult': adult,
+//                    'child': child,
+//                    'hotelId': hotelId,
+//                    'id': id},
+//                success: function(msgs)
+//                {
+//                   
+//                    window.location.href = url;
+//                  
+//
+//                }
+//
+//            });
             }
         });
 
@@ -101,7 +101,7 @@ $this->load->helper('currency');
 $children = 15;
 ?>
 
-
+<?php echo form_open_multipart('dashboard/updateBooking'); ?>
 <input name="hotelid" id="hotelhide" type="hidden" value="<?php echo $abc['hotelId']; ?>" />
 <input name="id" id="id" type="hidden" value="<?php echo $abc['id']; ?>" />
 <table>
@@ -145,6 +145,7 @@ $children = 15;
        
         ?>
             <tr style="border-bottom:1px solid #ccc;" id="<?php echo $book->id; ?>"> <td>
+                    <input type="hidden" name="hidden[]" value="<?php echo $book->id; ?>" />
                     <div style="float: left; margin-right: 10px;"><img src="<?php echo base_url() . 'uploads/' . $book->image; ?>" width="50px" height="50px"></div>
                     <div style="font-size: 16px;width: 60%; float: left;" id="room-name"><?php echo $book->room_name; ?></div><br>  
 
@@ -155,7 +156,7 @@ $children = 15;
                     <?php get_currency($book->price); ?>
                 </td>
                 <td> 
-        <?php check_available_room($abc['checkin'], $abc['checkout'], $book->room_name); ?>
+        <?php check_available_room_user($abc['checkin'], $abc['checkout'], $book->room_name); ?>
 
                 </td>
 
@@ -175,7 +176,7 @@ $children = 15;
        <span id="disablebtnInfo"></span>
         <input type="hidden" name="disablebtn" id="disablebtn" value="yes"/>
     <input type="submit" value="Update" id="updatedBooking" />
-
+<?php echo form_close(); ?>
 <?php
 
 

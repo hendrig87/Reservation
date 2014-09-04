@@ -734,6 +734,7 @@ class dashboard extends CI_Controller {
                 $roomInfo = $this->dashboard_model->get_room_info_by_room_id($roomId);
                 $RoomInfos = array_merge($RoomInfos, $roomInfo);
             }
+           
 
             $noOfRooms = array();
             foreach ($this->input->post('selectMe') as $data) {

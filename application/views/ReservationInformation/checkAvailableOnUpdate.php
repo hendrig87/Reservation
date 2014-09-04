@@ -1,11 +1,10 @@
 <?php $this->load->helper('availableroom');
-$this->load->helper('currency');
-?>
-
+$this->load->helper('currency');   ?>
+<script src="<?php echo base_url() . "contents/scripts/jquery.js"; ?>"></script>
 <script>
     
     var txtnext;
-    txtnext = <?php // echo $json . ';'; ?>;
+    txtnext = <?php echo $json . ';'; ?>;
     for (var i = 0; i < txtnext.length; i++) {
         txtnext[i].no_of_room_booked = "0";
     }
@@ -14,7 +13,7 @@ $this->load->helper('currency');
     $(document).ready(function() {
          
         $('.available-room').change(function() {            //action performs when no of  rooms is selected
-            
+           
             $("#disablebtnInfo").hide();
 
             var rooms = $(this).val();
@@ -62,14 +61,7 @@ $this->load->helper('currency');
                         roomprice + '</td><td><select id="roomToBook" class="available-room" style="width: 80px;"><option>' +
                         rooms +'</option></td><td>' +
                         total +'</td><td><img class="remove" src="<?php // echo base_url() . 'contents/images/subtract.png'; ?>" width="30" height="30"></td></tr>';
-                for (var i = 0; i < txtnext.length; i++) {    
-                if (txtnext[i].id == room_id) {
-                  
-                    txtnext[i].no_of_room_booked = rooms;
-
-                    break;
-                }
-            }
+                
             if(rooms == 0){ 
                     $("#disablebtnInfo").html('<span class="error_sign">!</span>&nbsp;' + 'Please select the rooms');
                 $("#disablebtnInfo").fadeIn(1000);
@@ -98,12 +90,12 @@ $this->load->helper('currency');
                         desc + '</td><td>' +
                         price + '</td><td>';
                 var nextdata = '</td><td>' +
-                        total +'</td><td><img class="add" src="<?php // echo base_url() . 'contents/images/addition.png'; ?>" width="30" height="30"></td></tr>';
+                        total +'</td><td><img class="add" src="<?php echo base_url() . 'contents/images/addition.png'; ?>" width="30" height="30"></td></tr>';
   
   //here ajax is called
   $.ajax({
                 type: "POST",
-                url: "<?php // echo base_url() . 'index.php/dashboard/checkroomshere'; ?>",
+                url: "<?php echo base_url() . 'index.php/dashboard/checkroomshere'; ?>",
                 data: {
                     'checkin': checkin,
         'checkout': checkout,
@@ -116,19 +108,6 @@ $this->load->helper('currency');
                 }
 
             });
-  
-
- 
-               
-    
-    for (var i = 0; i < txtnext.length; i++) {    
-                if (txtnext[i].id == room_id) {
-                  
-                    txtnext[i].no_of_room_booked = "0";
-
-                    break;
-                }
-            }
    
    $(this).closest("tr").remove();
  });
@@ -173,7 +152,7 @@ $this->load->helper('currency');
 //                }
 //
 //            });
-//            }
+            }
         });
 
 function makeActiveLink()    //function to make the link deactive when no rooms number is selected.
@@ -309,7 +288,7 @@ foreach ($rooms as &$i) {
                 </td>
 
                 <td>    
-                    <span>Rs.</span> <span class="subTotal">.00</span>
+                    <span>Rs.</span> <span class="subTotal"><?php calculate_sum($nnn,  $price); ?></span>
                 </td>
                  <td><img class="remove" src="<?php echo base_url() . 'contents/images/subtract.png'; ?>" width="30" height="30"></td>
             </tr>
@@ -358,7 +337,7 @@ foreach ($rooms as &$i) {
                 </td>
 
                 <td>    
-                    <span>Rs.</span> <span class="subTotal">.00</span>
+                    <span>Rs.</span> <span class="subTotal"><?php calculate_sum($nnn,  $price); ?></span>
                 </td>
                  <td><img class="add" src="<?php echo base_url() . 'contents/images/addition.png'; ?>" width="30" height="30"></td>
             </tr>
