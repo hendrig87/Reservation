@@ -405,7 +405,7 @@ $start = ($page-1)*$per_page;
             $data['add_room'] = $this->dashboard_model->updateRoom($id, $room_type, $noOfRoom, $price, $description, $img_name);
 
             if ($data) {
-                $this->session->set_flashdata('message', 'Data sucessfully Added');
+                $this->session->set_flashdata('message', 'Data sucessfully Updated');
             } else {
                 $this->session->set_flashdata('mess', 'Fill up the required field');
             }
