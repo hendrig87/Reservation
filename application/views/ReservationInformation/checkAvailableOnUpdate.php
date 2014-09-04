@@ -1,7 +1,7 @@
 <?php $this->load->helper('availableroom');
 $this->load->helper('currency');
 ?>
-<!--
+
 <script>
     
     var txtnext;
@@ -145,35 +145,35 @@ $this->load->helper('currency');
             }
             else
             {
-            var updated_json = JSON.stringify(txtnext);
-           
-            var id= $('#id').val();
-            var checkin = $("#fromDate").val();
-            var checkout = $("#toDate").val();
-            var adult = $("#adults").val();
-            var child = $("#childs").val();
-            var hotelId = $("#hotelhide").val();
-            var url = "<?php // echo base_url() . 'index.php/dashboard/bookingInfo'; ?>";
-            $.ajax({
-                type: "POST",
-                url: "<?php // echo base_url() . 'index.php/dashboard/updateBooking'; ?>",
-                data: {
-                    'json': updated_json,
-                    'checkin': checkin,
-                    'checkout': checkout,
-                    'adult': adult,
-                    'child': child,
-                    'hotelId': hotelId,
-                    'id': id},
-                success: function(msgs)
-                {
-                    
-                    window.location.href = url;
-
-                }
-
-            });
-            }
+//            var updated_json = JSON.stringify(txtnext);
+//           
+//            var id= $('#id').val();
+//            var checkin = $("#fromDate").val();
+//            var checkout = $("#toDate").val();
+//            var adult = $("#adults").val();
+//            var child = $("#childs").val();
+//            var hotelId = $("#hotelhide").val();
+//            var url = "<?php // echo base_url() . 'index.php/dashboard/bookingInfo'; ?>";
+//            $.ajax({
+//                type: "POST",
+//                url: "<?php // echo base_url() . 'index.php/dashboard/updateBooking'; ?>",
+//                data: {
+//                    'json': updated_json,
+//                    'checkin': checkin,
+//                    'checkout': checkout,
+//                    'adult': adult,
+//                    'child': child,
+//                    'hotelId': hotelId,
+//                    'id': id},
+//                success: function(msgs)
+//                {
+//                    
+//                    window.location.href = url;
+//
+//                }
+//
+//            });
+//            }
         });
 
 function makeActiveLink()    //function to make the link deactive when no rooms number is selected.
@@ -210,7 +210,7 @@ function calculateSum() {   //function to calculate the total price of the booke
 
 
     });
-</script> -->
+</script> 
 
 
 <h2>Update Booking</h2><hr class="topLine" />
