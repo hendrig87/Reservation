@@ -129,6 +129,12 @@ function record_count_all_booking_info($user_id)
 
     function record_count_all_room_registration($user_id)
     {
+        $this->db->where('hotel_id', $user_id);
+        $this->db->from('room_registration');
+        return $this->db->count_all_results();
+    }
+    function record_count_all_room_registration_user($user_id)
+    {
         $this->db->where('user_id', $user_id);
         $this->db->from('room_registration');
         return $this->db->count_all_results();

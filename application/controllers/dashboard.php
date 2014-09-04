@@ -180,6 +180,68 @@ class dashboard extends CI_Controller {
 
         send_room_add_email($useremail, $subject, $message);
     }
+    function ajax_get_hotel_id()
+    {
+       if ($this->session->userdata('logged_in')) {  
+     $useremail = $this->session->userdata('useremail');
+            $user['uid'] = $this->dbmodel->get_user_info($useremail);
+           $hotel_id = $_POST['id'];
+          
+             foreach ($user['uid'] as $id) {
+                $user_id = $id->id;
+            }
+           
+           $data['hotelName'] = $this->dbmodel->get_user_hotel($user_id);
+           if($hotel_id!=0){$config = $this->dashboard_model->record_count_all_room_registration($hotel_id);}
+          else{$config = $this->dashboard_model->record_count_all_room_registration_user($user_id);}
+
+          $per_page = 9;
+         $pages['pages'] = ceil($config/$per_page);
+        
+        
+        $this->load->view('dashboard/hotelroom',$pages);
+        
+    }
+    else{
+        redirect('login', 'refresh');
+    }  
+    }
+    
+    function room_pagination()
+    {
+      
+        if ($this->session->userdata('logged_in')) {  
+    $useremail = $this->session->userdata('useremail');
+            $user['uid'] = $this->dbmodel->get_user_info($useremail);
+            foreach ($user['uid'] as $id) {
+                $user_id = $id->id;
+            }
+           
+    
+if($_GET)
+{
+$page=$_GET['page'];
+$hid = $_POST['i'];
+}
+$per_page = 9;
+$start = ($page-1)*$per_page;
+
+ if($hid!=0){
+                
+            $data['query'] = $this->dashboard_model->get_all_rooms_by_hotel($per_page, $start,$hid);
+        }
+        else
+        {        
+             $data['query'] = $this->dashboard_model->get_all_rooms($per_page, $start,$user_id);
+        }
+
+            
+    $this->load->view('dashboard/hotelRoomPagination',$data);
+}
+ else{
+        redirect('login', 'refresh');
+    } 
+    }
 
     public function get_hotel_id() {
         if ($this->session->userdata('logged_in')) {
