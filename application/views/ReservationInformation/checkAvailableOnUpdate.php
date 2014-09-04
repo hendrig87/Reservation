@@ -1,12 +1,13 @@
 <?php $this->load->helper('availableroom');
 $this->load->helper('currency');
 ?>
-<!--<script>
+<!--
+<script>
     
     var txtnext;
-    txtnext = <?php// echo $json . ';'; ?>;
+    txtnext = <?php // echo $json . ';'; ?>;
     for (var i = 0; i < txtnext.length; i++) {
-       // txtnext[i].no_of_room_booked = "0";
+        txtnext[i].no_of_room_booked = "0";
     }
 
 
@@ -145,7 +146,7 @@ $this->load->helper('currency');
             else
             {
             var updated_json = JSON.stringify(txtnext);
-           alert(updated_json);
+           
             var id= $('#id').val();
             var checkin = $("#fromDate").val();
             var checkout = $("#toDate").val();
@@ -177,15 +178,13 @@ $this->load->helper('currency');
 
 function makeActiveLink()    //function to make the link deactive when no rooms number is selected.
 {
-   var a = $(".subTotal").text();
-   alert(a);
+   
     if (($(".subTotal").text() == '.00') || ($(".subTotal").text() == '0'))
     { 
         $('#disablebtn').val('yes');    
     }
     else
     {
-        alert('here');
         $('#disablebtn').val('no');          
     }
 
@@ -220,7 +219,7 @@ function calculateSum() {   //function to calculate the total price of the booke
 $children = 15;
 ?>
 
-
+<?php echo form_open_multipart('dashboard/updateBooking'); ?>
 <input name="hotelid" id="hotelhide" type="hidden" value="<?php echo $abc['hotelId']; ?>" />
 <input name="id" id="id" type="hidden" value="<?php echo $abc['id']; ?>" />
 <table>
@@ -276,7 +275,7 @@ foreach ($rooms as &$i) {
     <table id="mytableID" width="100%">
         <tbody>
         <tr style="border-bottom:1px solid #ccc; text-align: left;">
-            <th width="20%">Room</th>
+            <th>Room</th>
             <th width="40%">Facility</th>
             <th>Price</th>
             <th>Select No. Of Rooms</th>
@@ -309,7 +308,7 @@ foreach ($rooms as &$i) {
                 </td>
 
                 <td>    
-                    <span>Rs.</span> <span class="subTotal"><?php calculate_sum($nnn, $price) ?></span>
+                    <span>Rs.</span> <span class="subTotal">.00</span>
                 </td>
                  <td><img class="remove" src="<?php echo base_url() . 'contents/images/subtract.png'; ?>" width="30" height="30"></td>
             </tr>
@@ -324,7 +323,7 @@ foreach ($rooms as &$i) {
 <?php if(!empty($rooms)){ ?>
     <table id="mytablelow" width="100%">
         <tr style="border-bottom:1px solid #ccc; text-align: left;">
-            <th width="20%">Room</th>
+            <th>Room</th>
             <th width="40%">Facility</th>
             <th>Price</th>
             <th>Select No. Of Rooms</th>
@@ -371,7 +370,7 @@ foreach ($rooms as &$i) {
         <span id="disablebtnInfo"></span>
     <input type="hidden" name="disablebtn" id="disablebtn" value="yes"/>
     <input type="submit" value="Update" id="updatedBooking" />
-
+<?php echo form_close(); ?>
 <?php 
 } else {
    echo '<h3>Sorry ! rooms are not available.</h3>';
