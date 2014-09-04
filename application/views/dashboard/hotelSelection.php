@@ -57,30 +57,6 @@ success: function(msgs)
             
 ?>
   
-<style type="text/css">
-	.TFtable{
-		width:100%; 
-		border-collapse:collapse; 
-	}
-	.TFtable td th{ 
-		padding:7px; border:#4e95f4 1px solid;
-                border: 0px;
-	}
-	/* provide some minimal visual accomodation for IE8 and below */
-	.TFtable tr{
-		background: #b8d1f3;
-	}
-	/*  Define the background color for all the ODD background rows  */
-	.TFtable tr:nth-child(odd){ 
-		background: #b8d1f3;
-	}
-	/*  Define the background color for all the EVEN background rows  */
-	.TFtable tr:nth-child(even){
-		background: #dae5f4;
-	}
-
-   
-     </style>
   
      <div id="room_book">
     <?php
@@ -108,7 +84,7 @@ success: function(msgs)
            
     ?>
             
-        <tr>
+        <tr class="hoverChange">
             <td>
                 <div style="float: left; margin-right: 10px;"><img src="<?php echo base_url().'uploads/thumb_'.$book->image; ?>" width="50px" height="50px"></div>
                <h3 style="float: left; margin: 0px;"><?php echo $roomName; ?></h3><br/>  

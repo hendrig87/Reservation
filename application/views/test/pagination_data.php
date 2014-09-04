@@ -29,16 +29,17 @@
          $bookedRoomInfo= $this->dashboard_model->get_all_booked_room_info($bookingId);
     if ($checkIn <= $currentDate && $checkOut >= $currentDate)
         { ?>
-        <tr class="current" style="border-bottom:1px solid #ccc;" >
+        <tr class="current hoverChange"  style="border-bottom:1px solid #ccc;" >
         <?php } else { ?>
-       <tr class="upcomming" style="border-bottom:1px solid #ccc;">
+       <tr class="upcomming hoverChange" style="border-bottom:1px solid #ccc;">
   <?php  }   ?>
         
-            <td>
+            <td> <b>
         <?php foreach ($bookedRoomInfo as $bookedRooms){
              $room= $bookedRooms->room_type;
              $noOfRooms = $bookedRooms->no_of_rooms_booked; ?>
         <?php echo $room;?> <br/> <?php }?> 
+                </b>
             </td> 
            <td>
         <?php foreach ($bookedRoomInfo as $bookedRooms){

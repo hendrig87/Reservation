@@ -62,29 +62,7 @@ $( ".datepicker" ).datepicker();
           <input type="submit" value="Search" onclick="changeFuncs()" />
          
       </div> 
-      <style>
-          .TFtable{
-		width:100%; 
-		border-collapse:collapse; 
-	}
-	.TFtable td{ 
-		padding:7px; border:#4e95f4 1px solid;
-                border: 0px;
-	}
-	/* provide some minimal visual accomodation for IE8 and below */
-	.TFtable tr{
-		background: #b8d1f3;
-	}
-	/*  Define the background color for all the ODD background rows  */
-	.TFtable tr:nth-child(odd){ 
-		background: #b8d1f3;
-	}
-	/*  Define the background color for all the EVEN background rows  */
-	.TFtable tr:nth-child(even){
-		background: #dae5f4;
-	}
      
-      </style>
      <div id="room_book">
    <?php
     if(!empty($roomInfo))
@@ -122,12 +100,12 @@ $( ".datepicker" ).datepicker();
                 
     if ($checkIn <= $currentDate && $checkOut >= $currentDate)
         { ?>
-        <tr class="current" style="border-bottom:1px solid #ccc;" >
+        <tr class="current hoverChange"  style="border-bottom:1px solid #ccc;" >
         <?php } else { ?>
-       <tr class="upcomming" style="border-bottom:1px solid #ccc;">
+       <tr class="upcomming hoverChange"  style="border-bottom:1px solid #ccc;">
   <?php  }   ?>
         
-            <td>
+            <td> <b>
         <?php foreach ($bookedRoomInfo as $bookedRooms){
              $room= $bookedRooms->room_type;
              $noOfRooms = $bookedRooms->no_of_rooms_booked; ?>
@@ -135,7 +113,7 @@ $( ".datepicker" ).datepicker();
                 
         <?php echo $room;?> <br/> <?php }?> 
                 
-                
+                </b>  
             </td> 
             
            <td>

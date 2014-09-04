@@ -58,7 +58,7 @@
                 $contact = $hotel->contact;
                 ?>
 
-                <tr>
+                <tr class="hoverChange">
                     <td><?php echo $name; ?> </td> 
                     <td><?php echo $address; ?></td>
                     <td><?php echo $contact; ?></td>
