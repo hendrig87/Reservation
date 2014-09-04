@@ -737,8 +737,26 @@ function searchManagedBooking(){
         if ($this->session->userdata('logged_in')) {
             $data['username'] = Array($this->session->userdata('logged_in'));
         
+                if(isset($_POST['hotelid'])){
+                    $hotelId = $_POST['hotelid'];
+                }
                 
-                
+                if(isset($_POST['id'])){
+                    $id = $_POST['id'];
+                }         
+            
+                if(isset($_POST['CheckIn'])){
+                    $checkin = $_POST['CheckIn'];
+                }
+                if(isset($_POST['CheckOut'])){
+                    $checkout = $_POST['CheckOut'];
+                }
+                if(isset($_POST['childs'])){
+                    $childs = $_POST['childs'];
+                }
+                if(isset($_POST['adults'])){
+                    $adults = $_POST['adults'];
+                }
                 
                 $RoomInfos =array();
                 foreach ($this->input->post('hidden') as $data1)
@@ -756,22 +774,13 @@ function searchManagedBooking(){
                 }
                      
          
+        foreach ($RoomInfos as &$i) {
+             $i->no_of_room_booked = "0";
+        }
+        unset($i);
         
-       $combined = array();
-
-foreach($RoomInfos as $index => $refNumber) {
-    if(!array_key_exists($index, $noOfRooms)) {
-        throw OutOfBoundsException();
-    }
-
-    $combined[] = array(
-         $RoomInfos,
-         $noOfRooms[$index]
-    );
-}
-
-var_dump($combined);
-        
+         var_dump($noOfRooms);
+        var_dump($RoomInfos);
        
         
           //  var_dump($noOfRooms);
