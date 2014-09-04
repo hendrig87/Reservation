@@ -3,7 +3,7 @@
     <?php
     if(isset($query))
     { ?>
-    <table width="100%">
+    <table width="100%" style="border-collapse: collapse;">
         <tr>
             <th width="25%">Room</th>
             <th width="30%">Facilities</th>

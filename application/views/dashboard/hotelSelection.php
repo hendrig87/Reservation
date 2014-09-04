@@ -56,13 +56,18 @@ success: function(msgs)
             $this->load->helper('currency'); 
             
 ?>
-  
+  <style>
+    #room_book table tr{
+          border-bottom: thin solid #ccc;
+    text-align: left;
+      }
+     </style>
   
      <div id="room_book">
     <?php
     if(isset($query))
     { ?>
-    <table width="100%">
+    <table width="100%" style="border-collapse: collapse;">
         <tr>
             <th width="25%">Room</th>
             <th width="30%">Facilities</th>
