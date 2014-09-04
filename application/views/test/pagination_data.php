@@ -1,5 +1,4 @@
-      
-     <div id="room_book">
+  <div id="room_book">
    <?php
     if(!empty($roomInfo))
     { ?>
@@ -18,9 +17,7 @@
     <?php
    
         foreach($roomInfo as $book)
-    {
-           // $room = $book->room_type;
-            //$noOfRooms = $book->no_of_rooms_booked;
+    {  
             $checkIn= $book->check_in_date;
             $checkOut = $book->check_out_date;
             $bookingId= $book->booking_id;
@@ -29,12 +26,7 @@
             $currentDate = date("Y-m-d");
     $days = floor( ( strtotime( $checkOut ) - strtotime(  $checkIn ) ) / 86400 );
     $remain = floor( ( strtotime( $checkIn ) - strtotime(  $currentDate ) ) / 86400 );
-            
-
-            
          $bookedRoomInfo= $this->dashboard_model->get_all_booked_room_info($bookingId);
-     
-                
     if ($checkIn <= $currentDate && $checkOut >= $currentDate)
         { ?>
         <tr class="current" style="border-bottom:1px solid #ccc;" >
@@ -46,26 +38,16 @@
         <?php foreach ($bookedRoomInfo as $bookedRooms){
              $room= $bookedRooms->room_type;
              $noOfRooms = $bookedRooms->no_of_rooms_booked; ?>
-        
-                
         <?php echo $room;?> <br/> <?php }?> 
-                
-                
             </td> 
-            
            <td>
         <?php foreach ($bookedRoomInfo as $bookedRooms){
              $room= $bookedRooms->room_type;
              $noOfRooms = $bookedRooms->no_of_rooms_booked; ?>
-        
-                
         <?php echo $noOfRooms;?> <br/> <?php }?> </td>
-            
             <td>
                 <?php echo $checkIn.' to '.$checkOut.'<br/>('.$days.' days)'; ?>
             </td>
-            
-            
             <?php $personalInfo = $this->dashboard_model->get_booking_personal_info($bookingId);
     if(!empty($personalInfo))
     {        foreach ($personalInfo as $bookPerson){
@@ -78,13 +60,10 @@
         $totalPupil = $child + $adult;
         
         ?>
-<!--            <td><?php// if($days>1){ echo $days." days";}else{ echo $days." day";} ?></td>-->
             <td><?php if($remain>=1){ echo $remain." days";}else{ echo "currently running";} ?></td>
         <td> <?php echo $totalPupil; ?></td>
         <td> <?php echo $bookingName."<br>". $bookingEmail."<br>".$bookAddress."<br>".$contact; ?></td>
        
-        
-        
     <?php }} ?>
         <?php $hotelInfo = $this->dashboard_model->get_hotel_info($hotelId);
         if(!empty($hotelInfo))
