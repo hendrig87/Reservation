@@ -314,7 +314,7 @@ $start = ($page-1)*$per_page;
 /*for pagination*/
             $config = array();
         $config["base_url"] = base_url() . "index.php/dashboard/roomInfo";
-        $config["total_rows"] = $this->dashboard_model->record_count_all_room_registration($user_id);
+        $config["total_rows"] = $this->dashboard_model->record_count_all_room_registration_user($user_id);        
         $config["per_page"] = 8;
         $this->pagination->initialize($config);
         $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
@@ -737,31 +737,42 @@ function searchManagedBooking(){
         if ($this->session->userdata('logged_in')) {
             $data['username'] = Array($this->session->userdata('logged_in'));
         
-            $id = $_POST['id'];
-            $hotelId = $_POST['hotelId'];
-            $checkin = $_POST['checkin'];
-            $checkout = $_POST['checkout'];
-            
-            $booking = $this->dashboard_model->get_booking_id_by_primary_id($id, $hotelId);
-            foreach ($booking as $books)
-            {
-                $bookingId = $books->booking_id;
-            }
-           
-            $this->dashboard_model->update_checkin_checkout_on_edit($checkin, $checkout, $id, $hotelId);
-            
-            $this->dashboard_model->delete_existing_booking_by_booking_id($bookingId);
-            
-        $jsondatas = $_POST['json'];
-        $jsonDecode = json_decode($jsondatas, true);
-        $jsonArray = $jsonDecode;
+     
+                foreach ($this->input->post('selectMe') as $data)
+                {
+                var_dump($data);
+                }
+                die;
 
-        foreach ($jsonArray as $item) {
-            if ($item['no_of_room_booked'] != "0") {                
-                 mysql_query("INSERT INTO `booked_room_info` (booking_id, room_type, no_of_rooms_booked, check_in_date, check_out_date)
-       VALUES ('" . $bookingId . "','" . $item['room_name'] . "', '" . $item['no_of_room_booked'] . "','" . $checkin . "', '" . $checkout . "')");
-            }
-        }
+
+
+
+
+           // $id = $_POST['id'];
+          //  $hotelId = $_POST['hotelId'];
+         //   $checkin = $_POST['checkin'];
+         //   $checkout = $_POST['checkout'];
+            
+          //  $booking = $this->dashboard_model->get_booking_id_by_primary_id($id, $hotelId);
+          //  foreach ($booking as $books)
+         //   {
+         //       $bookingId = $books->booking_id;
+         //   }
+           
+          //  $this->dashboard_model->update_checkin_checkout_on_edit($checkin, $checkout, $id, $hotelId);
+            
+          //  $this->dashboard_model->delete_existing_booking_by_booking_id($bookingId);
+            
+       // $jsondatas = $_POST['json'];
+       // $jsonDecode = json_decode($jsondatas, true);
+      //  $jsonArray = $jsonDecode;
+
+//        foreach ($jsonArray as $item) {
+//            if ($item['no_of_room_booked'] != "0") {                
+//                 mysql_query("INSERT INTO `booked_room_info` (booking_id, room_type, no_of_rooms_booked, check_in_date, check_out_date)
+//       VALUES ('" . $bookingId . "','" . $item['room_name'] . "', '" . $item['no_of_room_booked'] . "','" . $checkin . "', '" . $checkout . "')");
+//            }
+//        }
        
             
            redirect('dashboard/bookingInfo', 'refresh');
