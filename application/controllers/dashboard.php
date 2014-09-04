@@ -208,15 +208,13 @@ class dashboard extends CI_Controller {
     }
     
     function room_pagination()
-    {
-      
+    {      
         if ($this->session->userdata('logged_in')) {  
     $useremail = $this->session->userdata('useremail');
             $user['uid'] = $this->dbmodel->get_user_info($useremail);
             foreach ($user['uid'] as $id) {
                 $user_id = $id->id;
-            }
-           
+            }          
     
 if($_GET)
 {
