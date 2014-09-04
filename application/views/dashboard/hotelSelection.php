@@ -56,18 +56,37 @@ success: function(msgs)
             $this->load->helper('currency'); 
             
 ?>
-  <style>
-    #room_book table tr{
-          border-bottom: thin solid #ccc;
-    text-align: left;
-      }
+  
+<style type="text/css">
+	.TFtable{
+		width:100%; 
+		border-collapse:collapse; 
+	}
+	.TFtable td th{ 
+		padding:7px; border:#4e95f4 1px solid;
+                border: 0px;
+	}
+	/* provide some minimal visual accomodation for IE8 and below */
+	.TFtable tr{
+		background: #b8d1f3;
+	}
+	/*  Define the background color for all the ODD background rows  */
+	.TFtable tr:nth-child(odd){ 
+		background: #b8d1f3;
+	}
+	/*  Define the background color for all the EVEN background rows  */
+	.TFtable tr:nth-child(even){
+		background: #dae5f4;
+	}
+
+   
      </style>
   
      <div id="room_book">
     <?php
     if(isset($query))
     { ?>
-    <table width="100%" style="border-collapse: collapse;">
+    <table width="100%" class="TFtable" style="border-collapse: collapse;">
         <tr>
             <th width="25%">Room</th>
             <th width="30%">Facilities</th>

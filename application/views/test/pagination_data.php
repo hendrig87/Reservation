@@ -2,7 +2,7 @@
    <?php
     if(!empty($roomInfo))
     { ?>
-    <table width="100%" style="border-collapse: collapse">
+    <table width="100%" class="TFtable" style="border-collapse: collapse">
         <tr>
             <th width="17%">Room</th>
             <th width="7%">No. of room</th>

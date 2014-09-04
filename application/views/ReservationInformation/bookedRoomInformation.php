@@ -62,12 +62,34 @@ $( ".datepicker" ).datepicker();
           <input type="submit" value="Search" onclick="changeFuncs()" />
          
       </div> 
-      
+      <style>
+          .TFtable{
+		width:100%; 
+		border-collapse:collapse; 
+	}
+	.TFtable td{ 
+		padding:7px; border:#4e95f4 1px solid;
+                border: 0px;
+	}
+	/* provide some minimal visual accomodation for IE8 and below */
+	.TFtable tr{
+		background: #b8d1f3;
+	}
+	/*  Define the background color for all the ODD background rows  */
+	.TFtable tr:nth-child(odd){ 
+		background: #b8d1f3;
+	}
+	/*  Define the background color for all the EVEN background rows  */
+	.TFtable tr:nth-child(even){
+		background: #dae5f4;
+	}
+     
+      </style>
      <div id="room_book">
    <?php
     if(!empty($roomInfo))
     { ?>
-    <table width="100%" style="border-collapse: collapse">
+    <table width="100%" class="TFtable" style="border-collapse: collapse">
         <tr>
             <th width="17%">Room</th>
             <th width="7%">No. of room</th>
