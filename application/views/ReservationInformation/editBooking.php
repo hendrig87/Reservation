@@ -110,7 +110,7 @@ $this->load->helper('currency'); ?>
         ?>
         <tr style="border-bottom:1px solid #ccc;" id="<?php echo $roomId; ?>">
        
-            <td><div style="float: left; margin-right: 10px;"><img src="<?php echo base_url() . 'uploads/' .$image; ?>" width="50px" height="50px"></div>
+            <td><div style="float: left; margin-right: 10px;"><img src="<?php echo base_url() . 'uploads/thumb_' .$image; ?>" width="50px" height="50px"></div>
                     <div style="font-size: 16px;width: 60%; float: left;" id="room-name"><?php echo $roomNames; ?></div><br>  </td>
             <td><?php echo $detail;  ?></td>
              <td><?php get_currency($price) ;  ?></td>
