@@ -773,11 +773,24 @@ function searchManagedBooking(){
                    $noOfRooms = array_merge($noOfRooms, $rooms);  
                 }
                      
-         
-        foreach ($RoomInfos as &$i) {
-             $i->no_of_room_booked = "0";
-        }
-        unset($i);
+        
+          foreach($RoomInfos as $key1=>$value1)
+{
+  foreach( $noOfRooms as $key2=>$value2)
+  {
+     if($value1['row_id']==$value2['row_id'])
+     {
+         $value1['vote'] = $value2['vote'];
+         $result[$key1][]=$value1;
+     }
+ }
+}
+          
+//                
+//        foreach ($RoomInfos as &$i) {
+//             $i->no_of_room_booked = "0";
+//        }
+//        unset($i);
         
          var_dump($noOfRooms);
         var_dump($RoomInfos);

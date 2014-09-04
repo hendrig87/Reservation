@@ -415,7 +415,7 @@ function record_count_all_booking_info($user_id)
     }
 
     public function deleteRoom($id) {
-            $data = array('ststus'=>"0");
+            $data = array('status'=>"0");
         $this->db->where('id', $id);
         $this->db->update('room_registration', $data);
     }
