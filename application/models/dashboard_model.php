@@ -63,7 +63,8 @@ class dashboard_model extends CI_Model {
             'description' => $description,
             'image' => $img_name,
             'hotel_id' => $hotel_id,
-            'user_id'=> $user_id);
+            'user_id'=> $user_id,
+            'ststus' =>"1");
 
         $this->db->insert('room_registration', $data);
     }
@@ -381,9 +382,9 @@ function record_count_all_booking_info($user_id)
     }
 
     public function find_hotel($id) {
-        $this->db->from('hotel_info');
         $this->db->where('id', $id);
-        $query = $this->db->get();
+        $this->db->where('status', "1");
+        $query = $this->db->get('hotel_info');
         return $query->result();
     }
 
@@ -411,13 +412,16 @@ function record_count_all_booking_info($user_id)
     }
 
     public function deleteRoom($id) {
-
-        $this->db->delete('room_registration', array('id' => $id));
+            $data = array('ststus'=>"0");
+        $this->db->where('id', $id);
+        $this->db->update('room_registration', $data);
     }
 
     public function delete_hotel($id) {
-
-        $this->db->delete('hotel_info', array('id' => $id));
+        $data = array('status'=>"0");
+        $this->db->where('id', $id);
+         $this->db->update('hotel_info', $data);
+       
     }
     
     public function findbooking($id) {

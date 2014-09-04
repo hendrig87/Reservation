@@ -143,13 +143,15 @@ class Dbmodel extends CI_Model {
             'name' => $hotel_name,
             'address'=> $address,
             'contact'=> $contact,
-            'user_id'=> $user_id);
+            'user_id'=> $user_id,
+            'ststus' => "1");
         
          $this->db->insert('hotel_info', $data);
  }
  
  public function get_user_hotel($user_id){
      $this->db->where('user_id', $user_id);
+     $this->db->where('status', "1");
         $query = $this->db->get('hotel_info');
         return $query->result();
      
