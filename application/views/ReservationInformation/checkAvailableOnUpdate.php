@@ -293,6 +293,7 @@ foreach ($rooms as &$i) {
             $totalRooms = $ups->no_of_room;
             ?>
         <tr style="border-bottom:1px solid #ccc;" id="<?php echo $roomId; ?>"> <td>
+                <input type="hidden" name="hidden[]" value="<?php echo $roomId; ?>" />
                     <div style="float: left; margin-right: 10px;"><img src="<?php echo base_url() . 'uploads/' . $image; ?>" width="50px" height="50px"></div>
                     <div style="font-size: 16px;width: 60%; float: left;" id="room-name"><?php echo $roomNames; ?></div><br>  
 
@@ -341,6 +342,7 @@ foreach ($rooms as &$i) {
             $totalRooms = $ups->no_of_room;
             ?>
         <tr style="border-bottom:1px solid #ccc;" id="<?php echo $roomId; ?>"> <td>
+                <input type="hidden" name="hidden[]" value="<?php echo $roomId; ?>" />
                     <div style="float: left; margin-right: 10px;"><img src="<?php echo base_url() . 'uploads/' . $image; ?>" width="50px" height="50px"></div>
                     <div style="font-size: 16px;width: 60%; float: left;" id="room-name"><?php echo $roomNames; ?></div><br>  
 

@@ -737,11 +737,47 @@ function searchManagedBooking(){
         if ($this->session->userdata('logged_in')) {
             $data['username'] = Array($this->session->userdata('logged_in'));
         
-     
+                
+                
+                
+                $RoomInfos =array();
+                foreach ($this->input->post('hidden') as $data1)
+                {
+                   $roomId = $data1;
+                   $roomInfo = $this->dashboard_model->get_room_info_by_room_id($roomId);
+                   $RoomInfos= array_merge($RoomInfos, $roomInfo);
+                }
+                
+                $noOfRooms= array();
                 foreach ($this->input->post('selectMe') as $data)
                 {
-                var_dump($data);
+                   $rooms = array($data);
+                   $noOfRooms = array_merge($noOfRooms, $rooms);  
                 }
+                     
+         
+        
+       $combined = array();
+
+foreach($RoomInfos as $index => $refNumber) {
+    if(!array_key_exists($index, $noOfRooms)) {
+        throw OutOfBoundsException();
+    }
+
+    $combined[] = array(
+         $RoomInfos,
+         $noOfRooms[$index]
+    );
+}
+
+var_dump($combined);
+        
+       
+        
+          //  var_dump($noOfRooms);
+          //  var_dump($RoomInfos);
+        
+        
                 die;
 
 
