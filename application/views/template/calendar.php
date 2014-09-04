@@ -1,6 +1,5 @@
 <script src="<?php echo base_url() . "contents/scripts/jquery.js"; ?>"></script>
-<script src="<?php echo base_url() . "contents/scripts/jquery-ui.js"; ?>"></script>
-<script src="<?php echo base_url() . "contents/scripts/jquery1.10.2.js"; ?>"></script>
+
 <style>
 
     table.SimpleCalendar {
@@ -68,9 +67,14 @@
         top: 100%;
         left: 50%;
         border: solid transparent;
-        content: " "; height: 0; width: 0; position: absolute;
-        pointer-events: none; border-top-color: #f0f0f0; 
-        border-width: 10px; margin-left: -20px; 
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-top-color: #f0f0f0; 
+        border-width: 10px;
+        margin-left: -20px; 
     }
 
 </style>
@@ -127,7 +131,7 @@ $mthYr = $monthName.' '.$year;
 </div>
 <div id="clear"></div>      
 
-<div class="event-popup" style="display: none; border: 1px solid #000; padding: 5px 10px 5px 5px; width: 300px; position: absolute; z-index: 10; height: 250px; top:200px; left: 600px; z-index: 100; background-color: #f0f0f0;">
+<div class="event-popup" tabindex="-1" style="display: none; border: 1px solid #000; padding: 5px 10px 5px 5px; width: 300px; position: absolute; z-index: 10; height: 250px; top:200px; left: 600px; z-index: 100; background-color: #f0f0f0;">
    <a href="#" id="popUpClose" style="text-decoration: none; color: red; font-size: 20px; font-weight: bolder; float: right;">X</a>
    <div id='replacable' style="padding: 15px;"></div>
 </div>
@@ -140,6 +144,7 @@ $mthYr = $monthName.' '.$year;
     
     $(document).ready(function() {
         $('.SimpleCalendar .event').click(function(e) {
+            e.preventDefault();
             //getting height and width of the message box
   var height = $('.event-popup').height();
   var width = $('.event-popup').width();
@@ -147,7 +152,7 @@ $mthYr = $monthName.' '.$year;
   leftVal=e.pageX-(width/2)+"px";
   topVal=e.pageY-(height)-20+"px";
  
-  $('.event-popup').css({left:leftVal,top:topVal}).show();
+  $('.event-popup').css({left:leftVal,top:topVal}).show(function(){$(this).focus();});
             //$(".event-popup").show();
              var bookId =   $(this).attr('name');
             var day =  $(this).parent('.asdf').find("#dateTime").text();
@@ -176,6 +181,12 @@ $mthYr = $monthName.' '.$year;
             $(".event-popup").hide();
             
         });
+        
+        $(".event-popup").on('blur',function(){
+    $(this).hide();
+});
+        
+        
     });
     
     

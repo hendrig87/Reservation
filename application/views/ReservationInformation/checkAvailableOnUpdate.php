@@ -1,12 +1,12 @@
 <?php $this->load->helper('availableroom');
 $this->load->helper('currency');
 ?>
-<script>
+<!--<script>
     
     var txtnext;
-    txtnext = <?php echo $json . ';'; ?>;
+    txtnext = <?php// echo $json . ';'; ?>;
     for (var i = 0; i < txtnext.length; i++) {
-        txtnext[i].no_of_room_booked = "0";
+       // txtnext[i].no_of_room_booked = "0";
     }
 
 
@@ -60,7 +60,7 @@ $this->load->helper('currency');
                         desc + '</td><td>' +
                         roomprice + '</td><td><select id="roomToBook" class="available-room" style="width: 80px;"><option>' +
                         rooms +'</option></td><td>' +
-                        total +'</td><td><img class="remove" src="<?php echo base_url() . 'contents/images/subtract.png'; ?>" width="30" height="30"></td></tr>';
+                        total +'</td><td><img class="remove" src="<?php // echo base_url() . 'contents/images/subtract.png'; ?>" width="30" height="30"></td></tr>';
                 for (var i = 0; i < txtnext.length; i++) {    
                 if (txtnext[i].id == room_id) {
                   
@@ -97,12 +97,12 @@ $this->load->helper('currency');
                         desc + '</td><td>' +
                         price + '</td><td>';
                 var nextdata = '</td><td>' +
-                        total +'</td><td><img class="add" src="<?php echo base_url() . 'contents/images/addition.png'; ?>" width="30" height="30"></td></tr>';
+                        total +'</td><td><img class="add" src="<?php // echo base_url() . 'contents/images/addition.png'; ?>" width="30" height="30"></td></tr>';
   
   //here ajax is called
   $.ajax({
                 type: "POST",
-                url: "<?php echo base_url() . 'index.php/dashboard/checkroomshere'; ?>",
+                url: "<?php // echo base_url() . 'index.php/dashboard/checkroomshere'; ?>",
                 data: {
                     'checkin': checkin,
         'checkout': checkout,
@@ -145,17 +145,17 @@ $this->load->helper('currency');
             else
             {
             var updated_json = JSON.stringify(txtnext);
-           
+           alert(updated_json);
             var id= $('#id').val();
             var checkin = $("#fromDate").val();
             var checkout = $("#toDate").val();
             var adult = $("#adults").val();
             var child = $("#childs").val();
             var hotelId = $("#hotelhide").val();
-            var url = "<?php echo base_url() . 'index.php/dashboard/bookingInfo'; ?>";
+            var url = "<?php // echo base_url() . 'index.php/dashboard/bookingInfo'; ?>";
             $.ajax({
                 type: "POST",
-                url: "<?php echo base_url() . 'index.php/dashboard/updateBooking'; ?>",
+                url: "<?php // echo base_url() . 'index.php/dashboard/updateBooking'; ?>",
                 data: {
                     'json': updated_json,
                     'checkin': checkin,
@@ -177,13 +177,15 @@ $this->load->helper('currency');
 
 function makeActiveLink()    //function to make the link deactive when no rooms number is selected.
 {
-   
+   var a = $(".subTotal").text();
+   alert(a);
     if (($(".subTotal").text() == '.00') || ($(".subTotal").text() == '0'))
     { 
         $('#disablebtn').val('yes');    
     }
     else
     {
+        alert('here');
         $('#disablebtn').val('no');          
     }
 
@@ -209,7 +211,7 @@ function calculateSum() {   //function to calculate the total price of the booke
 
 
     });
-</script>
+</script> -->
 
 
 <h2>Update Booking</h2><hr class="topLine" />
@@ -274,7 +276,7 @@ foreach ($rooms as &$i) {
     <table id="mytableID" width="100%">
         <tbody>
         <tr style="border-bottom:1px solid #ccc; text-align: left;">
-            <th>Room</th>
+            <th width="20%">Room</th>
             <th width="40%">Facility</th>
             <th>Price</th>
             <th>Select No. Of Rooms</th>
@@ -302,12 +304,12 @@ foreach ($rooms as &$i) {
                     <?php get_currency($price); ?>
                 </td>
                 <td> 
-        <?php check_available_room_with_data( $abc['checkin'],  $abc['checkout'], $roomNames, $nnn); ?>
+        <?php check_available_room_with_data_rooms( $abc['checkin'],  $abc['checkout'], $roomNames, $nnn); ?>
 
                 </td>
 
                 <td>    
-                    <span>Rs.</span> <span class="subTotal">.00</span>
+                    <span>Rs.</span> <span class="subTotal"><?php calculate_sum($nnn, $price) ?></span>
                 </td>
                  <td><img class="remove" src="<?php echo base_url() . 'contents/images/subtract.png'; ?>" width="30" height="30"></td>
             </tr>
@@ -322,7 +324,7 @@ foreach ($rooms as &$i) {
 <?php if(!empty($rooms)){ ?>
     <table id="mytablelow" width="100%">
         <tr style="border-bottom:1px solid #ccc; text-align: left;">
-            <th>Room</th>
+            <th width="20%">Room</th>
             <th width="40%">Facility</th>
             <th>Price</th>
             <th>Select No. Of Rooms</th>
