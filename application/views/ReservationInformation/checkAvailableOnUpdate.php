@@ -14,7 +14,7 @@ $this->load->helper('currency');   ?>
     $(document).ready(function() {
          
         $('.available-room').change(function() {            //action performs when no of  rooms is selected
-           
+           alert('here');
             $("#disablebtnInfo").hide();
 
             var rooms = $(this).val();
@@ -68,7 +68,7 @@ $this->load->helper('currency');   ?>
    var rooms= $(this).parent().prev().prev('td').find('select').val();
    var total= 'Rs. 0.00';
    
-   var data ='<tr style="border-bottom:1px solid #ccc;" id="' + room_id + '"><td><div style="float: left; margin-right: 10px;"><img src="' +image +'" width="50px" height="50px"></div><div style="font-size: 16px;width: 60%; float: left;" id="room-name">' +
+   var data ='<tr style="border-bottom:1px solid #ccc;" id="' + room_id + '"><input type="hidden" name="hidden[]" value="' + room_id + '" /><td><div style="float: left; margin-right: 10px;"><img src="' +image +'" width="50px" height="50px"></div><div style="font-size: 16px;width: 60%; float: left;" id="room-name">' +
                         room_name + '</div><br></td><td>' +
                         desc + '</td><td>' +
                         price + '</td><td>';
