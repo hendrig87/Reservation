@@ -19,6 +19,7 @@
             var price = $(this).parent().prev('td').children('span.priceTag').text();
             var total = rooms * price;
             $(this).parent().next('td').children('span.subTotal').text(total);
+            $(this).parent().next('td').children('input.val').val(total);
             calculateSum();
             makeActiveLink();
         });
@@ -107,6 +108,7 @@ $children = 15;
 
                 <td>    
                     <span>Rs.</span> <span class="subTotal">.00</span>
+                    <input type="hidden" class="val" name="subtotal[]" value="0" />
                 </td>
 
             </tr>
