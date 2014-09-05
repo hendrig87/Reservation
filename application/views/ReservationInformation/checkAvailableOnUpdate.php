@@ -1,6 +1,7 @@
 <?php $this->load->helper('availableroom');
 $this->load->helper('currency');   ?>
 <script src="<?php echo base_url() . "contents/scripts/jquery.js"; ?>"></script>
+<script src="<?php echo base_url() . "contents/scripts/datepicker.js"; ?>"></script>
 <script>
     
     var txtnext;
@@ -11,7 +12,7 @@ $this->load->helper('currency');   ?>
 
 
     $(document).ready(function() {
-         
+         makeActiveLink();
         $('.available-room').change(function() {            //action performs when no of  rooms is selected
            
             $("#disablebtnInfo").hide();
@@ -21,27 +22,8 @@ $this->load->helper('currency');   ?>
             var price = $(this).parent().prev('td').children('span.priceTag').text();
             var total = rooms * price;
             $(this).parent().next('td').children('span.subTotal').text(total);
-            
+             calculateSum();
             makeActiveLink();
-
-            // for updating the json data.
-            var room_id;
-            
-            room_id = $(this).parent().prev().prev().prev('td').parent().attr('id');
-           
-            var booked = $(this).val();
-                    for (var i = 0; i < txtnext.length; i++) {    
-                if (txtnext[i].id == room_id) {
-                  
-                    txtnext[i].no_of_room_booked = booked;
-
-                    break;
-                }
-            }
-            
-
-            
-
         });
 
  $('body').on('click', 'img.add', function() {
@@ -116,77 +98,13 @@ $this->load->helper('currency');   ?>
         $("#updatedBooking").click(function(e) {
             if ($('#disablebtn').val() == 'yes')
             {
-
                 e.preventDefault();
                 $("#disablebtnInfo").html('<span class="error_sign">!</span>&nbsp;' + 'Please select the rooms');
                 $("#disablebtnInfo").fadeIn(1000);
                 return false;
             }
-            else
-            {
-//            var updated_json = JSON.stringify(txtnext);
-//           
-//            var id= $('#id').val();
-//            var checkin = $("#fromDate").val();
-//            var checkout = $("#toDate").val();
-//            var adult = $("#adults").val();
-//            var child = $("#childs").val();
-//            var hotelId = $("#hotelhide").val();
-//            var url = "<?php // echo base_url() . 'index.php/dashboard/bookingInfo'; ?>";
-//            $.ajax({
-//                type: "POST",
-//                url: "<?php // echo base_url() . 'index.php/dashboard/updateBooking'; ?>",
-//                data: {
-//                    'json': updated_json,
-//                    'checkin': checkin,
-//                    'checkout': checkout,
-//                    'adult': adult,
-//                    'child': child,
-//                    'hotelId': hotelId,
-//                    'id': id},
-//                success: function(msgs)
-//                {
-//                    
-//                    window.location.href = url;
-//
-//                }
-//
-//            });
-            }
+            
         });
-
-function makeActiveLink()    //function to make the link deactive when no rooms number is selected.
-{
-   
-    if (($(".subTotal").text() == '.00') || ($(".subTotal").text() == '0'))
-    { 
-        $('#disablebtn').val('yes');    
-    }
-    else
-    {
-        $('#disablebtn').val('no');          
-    }
-
-}
-
-
-function calculateSum() {   //function to calculate the total price of the booked room.
-   
-    var sum = 0;
-// iterate through each td based on class and add the values
-    $(".subTotal").each(function() {
-    var value = $(this).text();
-    // add only if the value is number
-    if (!isNaN(value) && value.length != 0) {
-        sum += parseFloat(value);
-    }
-    });
-    $("#total_price").text(sum);
-
-}
-
-
-
 
     });
 </script> 
