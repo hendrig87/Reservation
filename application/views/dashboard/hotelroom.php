@@ -8,15 +8,9 @@ $(document).ready(function()
 
 var url = "<?php echo base_url(); ?>";
 
-//alert('here');
-//Display Loading Image
-
-
-//Default Starting Page Results
 $("#pagination li:first")
 .css({'color' : '#474747'}).css({'border-radius' : '3px'});
-//Display_Load();
-//alert('here');
+
  var i = '<?php echo $hid; ?>';
    $.ajax({
 type: "POST",
@@ -29,16 +23,11 @@ success: function(msgs)
       {
   
           $("#content").html(msgs);
-         // Hide_Load()
       }
 });
 
-
-
-//Pagination Click
 $("#pagination li").click(function(){
-//Display_Load();
-//CSS Styles
+
 $("#pagination li")
 .css({'border-radius' : '3px'})
 .css({'color' : '#474747'});
@@ -59,9 +48,7 @@ data: {
     },
 success: function(msgs) 
       {
-  
           $("#content").html(msgs);
-         // Hide_Load()
       }
 });
 
@@ -109,11 +96,9 @@ cursor: pointer;
 
 <ul id="pagination">
 <?php
-//var_dump($pages);
-//Pagination Numbers
 
 if($pages!=1 && $pages!=0){
-   // echo '<li class="ajax_pagination" id="1">First</li>';
+ 
 for($i=1; $i<=$pages; $i++)
 {
 echo '<li class="ajax_pagination" id="'.$i.'">'.$i.'</li>';

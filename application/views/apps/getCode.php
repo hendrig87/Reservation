@@ -3,17 +3,16 @@
        
 <script src="<?php echo base_url() . 'contents/scripts/jquery.js'; ?>" type="text/javascript"></script>
 <style type="text/css">
-    /* popup_box DIV-Styles*/
     .popup_box { 
-        display:none; /* Hide the DIV */
+        display:none; 
         position:absolute;  
-        _position:absolute; /* hack for internet explorer 6 */  
+        _position:absolute;   
         height:200px;  
         width:800px;  
         background:#FFFFFF;  
         left: 300px;
         top: 50px;
-        z-index:100; /* Layering ( on-top of others), if you have lots of layers: I just maximized, you can change it yourself */
+        z-index:100;  
         margin-left: 15px;  
 
         /* additional features, can be omitted */
@@ -49,15 +48,15 @@
         font-weight:500;  	
     }
     #popup_box_get_code { 
-        display:none; /* Hide the DIV */
+        display:none;
         position:absolute;  
-        _position:absolute; /* hack for internet explorer 6 */  
+        _position:absolute; 
         height:200px;  
         width:800px;  
         background:#FFFFFF;  
         left: 255px;
         top: 50px;
-        z-index:100; /* Layering ( on-top of others), if you have lots of layers: I just maximized, you can change it yourself */
+        z-index:100; 
         margin-left: 15px;  
 
         /* additional features, can be omitted */
@@ -77,15 +76,10 @@
     $(document).ready( function() {
         // When site loaded, load the Popupbox First
         $('.srcimage').click(function(){
-         //alert('here'); 
+         
          $(this).prev('input').prop('checked', true)  ;
-     
-   
-  
             $('.popup_box').fadeIn(500);
-            var srcimg = $(this).attr('src');
-		
-                
+            var srcimg = $(this).attr('src');               
                
             $("#pqr").attr({
                 src: srcimg
@@ -124,9 +118,6 @@
          $('#one').css({'background-color': '#0077b3'}); 
          $('.first').css({'color': '#0077b3'}); 
          $('.first').css({'font-weight': 'bold'});
-         
-      
-        // function show popup
                     }, 1000); // .1 second
         });	
 	
@@ -204,7 +195,6 @@
             valid = false;
         }
         if (valid === false) {
-            //alert('msg');
             $("#msgs").html(msg);
         }
         else {
@@ -362,7 +352,7 @@
 
     <div>
         <div id="popupTitleBox" style="width:100%;">
-            <span class="back" style="float:left;width:40%;text-align: left;">&nbsp; <!--<a href="" id="back"> < </a>--></span>
+            <span class="back" style="float:left;width:40%;text-align: left;">&nbsp;</span>
             <span class="popupTitleText" style="float:left;width:10%;color: white;margin-top: 5px;">Booking</span>
             <span style="float:right;width:40%;text-align: right; color: white;"><a href="#" id="closePopup" > X </a></span>
         </div> 

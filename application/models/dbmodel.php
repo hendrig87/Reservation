@@ -188,6 +188,18 @@ class Dbmodel extends CI_Model {
         return $query->result();
  }
  
+ function search($value){
+        $this->db->like('name', $value);
+        $this->db->or_like('address', $value);
+        $this->db->or_like('contact', $value);
+       $result = $this->db->get('hotel_info');
+       
+       return $result->result();  
+    }
+ 
+ 
+ 
+ 
  function count_page($hid)
  {
     

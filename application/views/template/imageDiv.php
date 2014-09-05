@@ -94,7 +94,7 @@
                     source: function(request, response) {
                         $.ajax({
                             type: "POST",
-                            url: "<?php echo base_url() . 'index.php/search_con/user'; ?>",
+                            url: "<?php echo base_url() . 'index.php/dashboard/search'; ?>",
                             dataType: "json",
                             data: {'userA': request.term},
                             success: function(msgs)

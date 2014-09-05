@@ -4,8 +4,6 @@
    var selectedValue = selectBox.options[selectBox.selectedIndex].value;
    
    var dataString = 'id=' + selectedValue;
-  // $a= dataString;
-//alert($a);
   
 $.ajax({
 type: "POST",
@@ -21,16 +19,11 @@ success: function(msgs)
 }
 
  </script>
-<!-- ------------------calling currency_modify helper for currency--------------------------------- -->
 
-<!-- ------------------finish calling currency_modify helper for currency--------------------------------- -->
 <div class="right">
    
    <h2>Rooms&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url().'index.php/dashboard/addNewRoomForm'; ?>">Add New Room</a></h2><hr class="topLine" />
-   
-  <!-- hotel selection -->
-  
- 
+
    
 <select name="selectMenu"  id="selectBox" onchange="changeFunc();">
             <option value="0" selected="selected"> All Hotels                    
@@ -47,10 +40,7 @@ success: function(msgs)
                ?>
          
            </select>
-  
 
-
-  <!-- hotel selection complete -->
     
     <?php
             $this->load->helper('currency'); 

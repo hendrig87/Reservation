@@ -30,10 +30,7 @@
                 <span onclick="movecursor()" class="add-on" style="width:auto; cursor:pointer; "><img src='<?php echo base_url().'contents/images/ParkReserve.png' ;?>' alt="" width="15" height="20" ></span>
                 </div> 
                    
-                    
                   
-                    
-                   
                         <div class="input-prepend input-append">
                      <span class="add-on">Adults</span> 
                                        
@@ -70,14 +67,8 @@
                        <input type="hidden" id="hotelId" value="4"/>
                        
                         <input type ="button" value="Check availability" class="checkinbtn" id="checkinbtn">
-                      
-                   
-        </form>
-               
-             
-        
-               
-        
+                          
+        </form>    
        
 </div>
 
@@ -92,7 +83,7 @@
    
     <div>
         <div id="popupTitleBox" style="width:100%;">
-            <span class="back" style="float:left;width:40%;text-align: left;">&nbsp; <!--<a href="" id="back"> < </a>--></span>
+            <span class="back" style="float:left;width:40%;text-align: left;">&nbsp;</span>
         <span class="popupTitleText" style="float:left;width:10%;color: white;margin-top: 5px;">Booking</span>
         <span style="float:right;width:40%;text-align: right; color: white;"><a href="#" id="closePopup" > X </a></span>
     </div> 

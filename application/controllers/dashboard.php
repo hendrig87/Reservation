@@ -36,6 +36,26 @@ class dashboard extends CI_Controller {
             redirect('login', 'refresh');
         }
     }
+    
+    public function search(){
+     
+        $userPart = $_POST['userA'];
+        
+        
+        $result = $this->dbmodel->search($userPart) ;
+      
+     $list = array();
+  
+     foreach ($result as $finaldata)
+     {
+         $data= $finaldata->name;
+         array_push($list, $data);
+        
+     }
+   
+     echo json_encode($list);
+   
+ } 
 
     function addNewRoomForm() {
         if ($this->session->userdata('logged_in')) {

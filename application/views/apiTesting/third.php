@@ -3,7 +3,7 @@
 <script src="<?php echo base_url() . "contents/scripts/jquery.js"; ?>"></script>
         <script src="<?php echo base_url() . "contents/scripts/apiused.js"; ?>"></script>
 <?php
- header("Access-Control-Allow-Origin: *");
+ 
  if(!empty($api)){
      foreach ($api as $tempInfo){
          $hotel= $tempInfo->hotel_id;
@@ -81,20 +81,18 @@
 <!-- ================================================================================================
 =============================================================================================== -->
 
-<!-- booking -->
-
 <div class="popup" id="pop_up"style="display: none">
    
     <div>
         <div id="popupTitleBox" style="width:100%;">
-            <span class="back" style="float:left;width:40%;text-align: left;">  <!--<a href="" id="back"> < </a>--></span>
+            <span class="back" style="float:left;width:40%;text-align: left;"></span>
         <span class="popupTitleText" style="float:left;width:10%;color: white;margin-top: 5px;">Booking</span>
         <span style="float:right;width:40%;text-align: right; color: white;"><a href="#" id="closePopup" > X </a></span>
     </div> 
     </div><br/>
     
     <div id="changePopup">
-    <!-- Information from checkin - $abc -->
+        
     <div id="path" style="display: none;">
     <hr id="nav">
     <div id="mainNav">

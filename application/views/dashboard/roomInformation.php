@@ -1,8 +1,4 @@
-
-
-
-  <!-- hotel selection complete -->
-    
+   
     <?php
             $this->load->helper('currency'); 
             
