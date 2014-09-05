@@ -19,8 +19,8 @@ $this->load->helper('currency');   ?>
             var rooms = $(this).val();
 
             var price = $(this).parent().prev('td').children('span.priceTag').text();
-            var total = "Rs." + rooms * price;
-            $(this).parent().next('td').text(total);
+            var total = rooms * price;
+            $(this).parent().next('td').children('span').text(total);
             
         });
 
@@ -32,6 +32,7 @@ $this->load->helper('currency');   ?>
    var price = $(this).parent().prev().prev().prev('td').text();
    var roomprice = price.replace( /^\D+/g, '');;
    var rooms= $(this).parent().prev().prev('td').find('select').val();
+   var inputTotal = parseFloat(rooms * roomprice); 
    var total= 'Rs.'+ parseFloat(rooms * roomprice);  
     $("#disablebtnInfo").hide();
 
@@ -40,7 +41,7 @@ $this->load->helper('currency');   ?>
                         desc + '</td><td>' +
                         roomprice + '</td><td><select name="selectMe[]" id="roomToBook" class="available-room" style="width: 80px;"><option>' +
                         rooms +'</option></td><td><span class="subTotal">' +
-                        total +'</span></td><td><img class="remove" src="<?php echo base_url() . 'contents/images/subtract.png'; ?>" width="30" height="30"></td></tr>';
+                        total +'</span><input type="hidden" name="subtotal[]" value="' + inputTotal + '" /></td><td><img class="remove" src="<?php echo base_url() . 'contents/images/subtract.png'; ?>" width="30" height="30"></td></tr>';
                 
             if(rooms == 0){ 
                     $("#disablebtnInfo").html('<span class="error_sign">!</span>&nbsp;' + 'Please select the rooms & click +');
@@ -72,7 +73,7 @@ $this->load->helper('currency');   ?>
                         desc + '</td><td>' +
                         price + '</td><td>';
                 var nextdata = '</td><td>' +
-                        total +'</td><td><img class="add" src="<?php echo base_url() . 'contents/images/addition.png'; ?>" width="30" height="30"></td></tr>';
+                        total +'<input type="hidden" name="subtotal[]" value="0" /></td><td><img class="add" src="<?php echo base_url() . 'contents/images/addition.png'; ?>" width="30" height="30"></td></tr>';
   
   //here ajax is called
   $.ajax({
@@ -97,7 +98,7 @@ $this->load->helper('currency');   ?>
  
         $("#updatedBooking").click(function(e) {
         var a =  $(".subTotal").text();  
-        alert(a);
+      
             if ( a == 0)
             {
                 e.preventDefault();
@@ -231,6 +232,7 @@ foreach ($rooms as &$i) {
 
                 <td>    
                     <span>Rs.</span> <span class="subTotal"><?php calculate_sum($nnn,  $price); ?></span>
+                    <input type="hidden" name="subtotal[]" value="<?php calculate_sum($nnn,  $price); ?>" />
                 </td>
                  <td><img class="remove" src="<?php echo base_url() . 'contents/images/subtract.png'; ?>" width="30" height="30"></td>
             </tr>
@@ -279,7 +281,8 @@ foreach ($rooms as &$i) {
                 </td>
 
                 <td>    
-                    <span>Rs.</span> <span class="subTotal"><?php calculate_sum($nnn,  $price); ?></span>
+                    <span>Rs. 0</span>
+                    <input type="hidden" name="subtotal[]" value="0" />
                 </td>
                  <td><img class="add" src="<?php echo base_url() . 'contents/images/addition.png'; ?>" width="30" height="30"></td>
             </tr>

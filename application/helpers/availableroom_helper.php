@@ -139,7 +139,7 @@ function get_available_rooms($data)
      function calculate_sum($noOfRooms,  $price){
         
         
-       $predata = '<span class="subTotal">'.$noOfRooms*$price.'</span>';
+       $predata = $noOfRooms*$price;
                       $totalview= $predata;
                       echo $totalview;                               
     }

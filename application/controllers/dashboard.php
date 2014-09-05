@@ -735,6 +735,12 @@ class dashboard extends CI_Controller {
                 $RoomInfos = array_merge($RoomInfos, $roomInfo);
             }
            
+            $totals = array();
+            foreach ($this->input->post('subtotal') as $data) {
+                $grand = array($data);
+                $totals = array_merge($totals, $grand);
+            }
+                        
 
             $noOfRooms = array();
             foreach ($this->input->post('selectMe') as $data) {
@@ -751,9 +757,14 @@ class dashboard extends CI_Controller {
                 }
             }
             
+            foreach ($RoomInfos as $key1 => $value1) {
+                foreach ($totals as $key2 => $value2) {
+                    if ($key1 == $key2) {
+                        $value1->total = $value2;
+                    }
+                }
+            }
             
-            var_dump($RoomInfos);     
-die;
 
             $booking = $this->dashboard_model->get_booking_id_by_primary_id($id, $hotelId);
             foreach ($booking as $books) {
@@ -767,7 +778,7 @@ die;
             foreach ($RoomInfos as $data) {
              
                 
-                if ($data->no_of_room_booked != "0" && $data->no_of_room_booked != "") {
+                if ($data->no_of_room_booked != "0" && $data->no_of_room_booked != "" && $data->total != "" && $data->total != "0") {
 
                     
                     mysql_query("INSERT INTO `booked_room_info` (booking_id, room_type, no_of_rooms_booked, check_in_date, check_out_date)
