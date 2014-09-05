@@ -7,24 +7,21 @@
 		padding:7px; border:#4e95f4 1px solid;
                 border: 0px;
 	}
-	/* provide some minimal visual accomodation for IE8 and below */
+	
 	.TFtable tr{
 		background: #b8d1f3;
 	}
-	/*  Define the background color for all the ODD background rows  */
+	
 	.TFtable tr:nth-child(odd){ 
 		background: #b8d1f3;
 	}
-	/*  Define the background color for all the EVEN background rows  */
+	
 	.TFtable tr:nth-child(even){
 		background: #dae5f4;
 	}
 
    
      </style>
-
-
-<!-- hotel selection complete -->
 
 
 <div class="right">

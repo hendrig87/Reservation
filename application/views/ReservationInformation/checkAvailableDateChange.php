@@ -124,13 +124,3 @@ $children = 15;
         <input type="hidden" name="disablebtn" id="disablebtn" value="yes"/>
     <input type="submit" value="Update" id="updatedBooking" />
 <?php echo form_close(); ?>
-<?php
-
-
-    
-
-
-
-
-
-

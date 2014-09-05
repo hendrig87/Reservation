@@ -1,3 +1,5 @@
+<link type="text/css" rel="stylesheet" href="<?php echo base_url() . "contents/styles/jquery-ui.css"; ?>"/>                
+<script src="<?php echo base_url() . "contents/scripts/jquery-ui.js"; ?>"></script>
 <script src="<?php echo base_url() . 'contents/scripts/datepicker.js' ?>"></script>
 <script>
     var currenttime = "Apr 28, 2014 2:41:06 PM";
@@ -73,8 +75,6 @@
 </style>
 
 
-
-
 <div id="topNavigationWithSlider">
     <div class="centerDiv">
         <div id="reservation_temp">
@@ -83,18 +83,8 @@
                     <li class="has-active"><a href="#">Hotels</a></li>
 
                 </ul>
-
-
-
             </div>
-
-            <!-- from here-->                  
-
-
-                <link type="text/css" rel="stylesheet" href="<?php echo base_url() . "contents/styles/jquery-ui.css"; ?>"/>
-                <script src="<?php echo base_url() . "contents/scripts/jquery1.10.2.js"; ?>"></script>
-                <script src="<?php echo base_url() . "contents/scripts/jquery-ui.js"; ?>"></script>
-                <link rel="stylesheet" href="/resources/demos/style.css">
+            
                 <script>
 
 
@@ -124,21 +114,15 @@
 
                 <script>
                     function openPopUp() {
-                  
-    
                          $('#loading').show();
                          
                         var checkin = $("#fromDate").val();
-                        var checkout = $("#toDate").val();
-                        
-                         
-                        
+                        var checkout = $("#toDate").val();                       
                         var adult = $("#adults").val();
                         var child = $("#childs").val();
                         var hotelId = $("#tags").val();
                         var title = "";
                         
-                        // alert( adult);
                         $.ajax({
                             type: "POST",
                             url: "<?php echo base_url() . 'index.php/room_booking/post_action'; ?>",
@@ -156,10 +140,7 @@
 
             $("#replaceMe").html(msg);
           x=$(".search").position();
-         // var topvalue = x.top;
-        
-        // var leftvalue = x.left;
-  //calculating offset for displaying popup message
+  
   leftVal="5"+"%";
   topVal=x.top+"px";
              $('.popup').css({left:leftVal,top:topVal}).show();
@@ -288,21 +269,12 @@ $("#path").show();
                 $adultsNumber = 15;
                 $children = 15;
                 ?>
-<span class="errormsgs"><span class="error_sign">!</span>&nbsp;Please select hotel, from, to date and no of person. </span>
+                    <span class="errormsgs"><span class="error_sign">!</span>&nbsp;Please select hotel, from, to date and no of person. </span>
                 <div class="ui-widget">
                     <label for="tags">Search by hotel name, address or contact.</label>
                     <input placeholder="Select a Hotel..." id="tags" >
                 </div>
-                <!-- till here-->
-
-         <!--   <span>Request the reservation we will come back to you shortly.</span>-->
-
-
-
-
-
-
-
+              
                 <input name="CheckIn" type="text" placeholder="From" required="required" id="fromDate" >
 
 

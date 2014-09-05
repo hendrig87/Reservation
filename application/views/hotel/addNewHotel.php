@@ -19,18 +19,15 @@
         <?php echo form_open_multipart('hotels/addNewHotel'); ?>
         <td id="alignright"> Name of hotel:</td>
         <td><input type="text" name="hotelName" value="<?php echo set_value('hotelName'); ?>" placeholder="Name of hotel" required /></td>
-     <!--   <td><a href="" class="help1 r" id="help" onclick="return false;" style="cursor: default;">?</a></td> -->
     </tr>
     
     <tr>
         <td id="alignright"> Address:</td>
-        <td><input type="text" name="address" value="<?php echo set_value('address');  ?>" placeholder="Full address" required /></td>
-      <!--  <td><a href="" class="help2 r" id="help" onclick="return false;" style="cursor: default;">?</a></td> -->
+        <td><input type="text" name="address" value="<?php echo set_value('address');  ?>" placeholder="Full address" required /></td> 
     </tr>
     <tr>
         <td id="alignright"> Contact No.:</td>
         <td><input type="text" name="contact" value="<?php echo set_value('contact'); ?>" placeholder="Contact number" required /></td>
-      <!--  <td><a href="" class="help3 r" id="help" onclick="return false;" style="cursor: default;">?</a></td> -->
     </tr>
    
       <tr>

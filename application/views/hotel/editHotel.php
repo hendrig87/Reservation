@@ -30,18 +30,15 @@
         <td id="alignright"> Name of hotel:</td>
         <td><input type="hidden" value="<?php echo $id; ?>" name="id">
             <input type="text" name="hotelName" value="<?php echo $name; ?>" required /></td>
-        <!--<td><a href="" class="help1 r" id="help" onclick="return false;" style="cursor: default;">?</a></td> -->
     </tr>
     
     <tr>
         <td id="alignright"> Address:</td>
         <td><input type="text" name="address" value="<?php echo $address ?>" required /></td>
-       <!-- <td><a href="" class="help2 r" id="help" onclick="return false;" style="cursor: default;">?</a></td> -->
     </tr>
     <tr>
         <td id="alignright"> Contact No.:</td>
         <td><input type="text" name="contact" value="<?php echo $contact; ?>" required /></td>
-        <!-- <td><a href="" class="help3 r" id="help" onclick="return false;" style="cursor: default;">?</a></td> -->
     </tr>
    
       <tr>

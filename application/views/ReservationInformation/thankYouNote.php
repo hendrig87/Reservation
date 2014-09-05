@@ -1,27 +1,20 @@
-
-
 <link rel="stylesheet" href="<?php echo base_url().'contents/styles/pop-up-booking.css'; ?>">
-<link rel="stylesheet" type="text/css" href="<?php echo base_url().'contents/styles/test.css';?> " />
+
 <script src="<?php echo base_url().'contents/scripts/jquery.js' ?>"></script>
 <script>
  $(document).ready(function(){   
         //close popup.
-        var base_url = "http://localhost/reservation/";
+       
         $("#close").click(function(){
           
             var title = '1';
         
              $.ajax({
         type: "POST",
-        url: base_url + 'index.php/room_booking/destroy_session',
-        data: {
-            
-            
-            'title':title
-        },
+        url: "<?php echo base_url(). 'index.php/room_booking/destroy_session'; ?>",
+        data: {'title':title},
         success: function(msgs)
         {
-
            $("#pop_up").hide();
         $(".middleLayer").fadeOut(300);
         }          

@@ -786,14 +786,6 @@ class dashboard extends CI_Controller {
                 }
             }
 
-//        foreach ($jsonArray as $item) {
-//            if ($item['no_of_room_booked'] != "0") {                
-//                 mysql_query("INSERT INTO `booked_room_info` (booking_id, room_type, no_of_rooms_booked, check_in_date, check_out_date)
-//       VALUES ('" . $bookingId . "','" . $item['room_name'] . "', '" . $item['no_of_room_booked'] . "','" . $checkin . "', '" . $checkout . "')");
-//            }
-//        }
-
-
             redirect('dashboard/bookingInfo', 'refresh');
         } else {
             redirect('login', 'refresh');

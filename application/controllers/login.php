@@ -294,7 +294,7 @@ class Login extends CI_Controller {
             $a = $_GET['resetPassword'];
 
         $data['query'] = $this->dbmodel->get_user_email($a);
-        //var_dump($data);
+        
         if ($data['query']) {
             $this->load->view('template/header');
             $this->load->view("login/resetPassword", $data);

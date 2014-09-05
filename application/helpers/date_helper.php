@@ -76,7 +76,6 @@ class SimpleCalendar {
          
           $date= $this->now['year'].'-'.$this->now['mon'];      
                 
-          //      $date = "1998-08";
 $predate = strtotime ( '-1 month' , strtotime ( $date ) ) ;
 $prevdate = date ( 'Y/m' , $predate );
 

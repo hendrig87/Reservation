@@ -1,7 +1,6 @@
 <?php
 $id = $_GET['resetPassword'];
 
-//echo $id;
 foreach ($query as $data){
                    $useremail= $data->user_email;
                    $userKey = $data->user_auth_key;

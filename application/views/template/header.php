@@ -3,27 +3,19 @@
     <head>
         
         <meta charset="utf-8">
-        <title>Welcome to Online Reservation System</title>  
-
-        
-     
+        <title>Welcome to Online Reservation System</title>       
         <script src="<?php echo base_url() . "contents/scripts/jquery.js"; ?>"></script>
-        <script src="<?php echo base_url() . "contents/scripts/jquery-ui.js"; ?>"></script>
-       
+        <script src="<?php echo base_url() . "contents/scripts/jquery-ui.js"; ?>"></script>    
         <script src="<?php echo base_url() . "contents/scripts/jquery1.10.2.js"; ?>"></script>
         <script src="<?php echo base_url() . "contents/scripts/datepicker.js"; ?>"></script>
         <link rel="stylesheet" href="<?php echo base_url() . "contents/styles/tableStyles.css"; ?>"> 
         <link rel="stylesheet" href="<?php echo base_url() . "contents/styles/pop-up-booking.css"; ?>"> 
         <link rel="shortcut icon" href="<?php echo base_url() . "contents/images/favicon1.jpg"; ?>" type="image/x-icon"> 
-        <link rel="stylesheet" href="<?php echo base_url() . "contents/styles/dashboardStyle.css"; ?>"> 
-       
-       
-        <link type="text/css" rel="stylesheet" href="<?php echo base_url() . "contents/styles/styles.css"; ?>"/>
-        <link type="text/css" rel="stylesheet" href="<?php echo base_url() . "contents/styles/reservation_style.css"; ?>"/>
-        <link rel="stylesheet" href="/resources/demos/style.css" />
+        <link rel="stylesheet" href="<?php echo base_url() . "contents/styles/dashboardStyle.css"; ?>">        
+        <link type="text/css" rel="stylesheet" href="<?php echo base_url() . "contents/styles/styles.css"; ?>"/>    
 
         <script>
-//      
+      
             $(document).ready(function() {
                 
                 // add or substract number of room.
@@ -130,11 +122,7 @@
                         <li id="loggin" ><a  href="<?Php echo base_url() . 'index.php/login/loginForm' ?>">LOGIN</a></li>
                     </ul>
 
-                    <?php
-                } else {
-                    ?>
-                    <script src="<?php echo base_url() . "contents/scripts/dashboard.js"; ?>"></script>
-
+                    <?php } else { ?>
 
                     <ul>
                         <li><a href="<?Php echo base_url() . 'index.php' ?>">HOME</a></li>
@@ -142,13 +130,7 @@
                         <li><a href="<?Php echo base_url() . 'index.php/dashboard/bookingInfo' ?>">DEVELOPER TOOLS</a></li>
                         <li><a id="loginLink" href="<?Php echo base_url() . 'index.php/login/logout' ?>">LOG OUT</a></li>
                     </ul> 
-                <?php }
-                ?>
-
-
-
-
-
+                <?php }  ?>
 
             </div>
 

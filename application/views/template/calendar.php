@@ -79,7 +79,6 @@
 
 </style>
 
-<!-- here the tab starts-->
 
 <div class="right">
     
@@ -95,9 +94,6 @@
               ?>
             
     </div>
-
-
-
 
        
             <?php
@@ -123,8 +119,6 @@ $mthYr = $monthName.' '.$year;
                 }
             }
 
-
-
             $calendar->show(true); ?>
  </div>
 
@@ -135,9 +129,6 @@ $mthYr = $monthName.' '.$year;
    <a href="#" id="popUpClose" style="text-decoration: none; color: red; font-size: 20px; font-weight: bolder; float: right;">X</a>
    <div id='replacable' style="padding: 15px;"></div>
 </div>
-
-
-
 
 
 <script type="text/javascript">
@@ -157,7 +148,7 @@ $mthYr = $monthName.' '.$year;
              var bookId =   $(this).attr('name');
             var day =  $(this).parent('.asdf').find("#dateTime").text();
             var monthyr = $('#mthName').text();
-             //alert(bookId);
+             
             $.ajax({
                 type: "POST",
                 url: "<?php echo base_url().'index.php/dashboard/getBookingDetails' ;?>",
@@ -189,10 +180,4 @@ $mthYr = $monthName.' '.$year;
         
     });
     
-    
-    
-     
-
-
-
 </script>
