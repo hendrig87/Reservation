@@ -741,7 +741,7 @@ class dashboard extends CI_Controller {
                 $rooms = array($data);
                 $noOfRooms = array_merge($noOfRooms, $rooms);
             }
-
+            
 
             foreach ($RoomInfos as $key1 => $value1) {
                 foreach ($noOfRooms as $key2 => $value2) {
@@ -750,7 +750,10 @@ class dashboard extends CI_Controller {
                     }
                 }
             }
-
+            
+            
+            var_dump($RoomInfos);     
+die;
 
             $booking = $this->dashboard_model->get_booking_id_by_primary_id($id, $hotelId);
             foreach ($booking as $books) {

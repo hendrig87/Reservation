@@ -12,7 +12,7 @@ $this->load->helper('currency');   ?>
 
 
     $(document).ready(function() {
-         makeActiveLink();
+         
         $('.available-room').change(function() {            //action performs when no of  rooms is selected
            
             $("#disablebtnInfo").hide();
@@ -22,8 +22,7 @@ $this->load->helper('currency');   ?>
             var price = $(this).parent().prev('td').children('span.priceTag').text();
             var total = rooms * price;
             $(this).parent().next('td').children('span.subTotal').text(total);
-             calculateSum();
-            makeActiveLink();
+            // makeActiveLink();
         });
 
  $('body').on('click', 'img.add', function() {
@@ -35,21 +34,23 @@ $this->load->helper('currency');   ?>
    var roomprice = price.replace( /^\D+/g, '');;
    var rooms= $(this).parent().prev().prev('td').find('select').val();
    var total= 'Rs.'+ parseFloat(rooms * roomprice);  
-   
+    $("#disablebtnInfo").hide();
 
- var data ='<tr style="border-bottom:1px solid #ccc;" id="' + room_id + '"><td><div style="float: left; margin-right: 10px;"><img src="'+ image + '" width="50px" height="50px"></div><div style="font-size: 16px;width: 60%; float: left;" id="room-name">' +
+ var data ='<tr style="border-bottom:1px solid #ccc;" id="' + room_id + '"><input type="hidden" name="hidden[]" value="' + room_id + '" /><td><div style="float: left; margin-right: 10px;"><img src="'+ image + '" width="50px" height="50px"></div><div style="font-size: 16px;width: 60%; float: left;" id="room-name">' +
                         room_name + '</div><br></td><td>' +
                         desc + '</td><td>' +
-                        roomprice + '</td><td><select id="roomToBook" class="available-room" style="width: 80px;"><option>' +
+                        roomprice + '</td><td><select name="selectMe[]" id="roomToBook" class="available-room" style="width: 80px;"><option>' +
                         rooms +'</option></td><td>' +
-                        total +'</td><td><img class="remove" src="<?php // echo base_url() . 'contents/images/subtract.png'; ?>" width="30" height="30"></td></tr>';
+                        total +'</td><td><img class="remove" src="<?php echo base_url() . 'contents/images/subtract.png'; ?>" width="30" height="30"></td></tr>';
                 
             if(rooms == 0){ 
-                    $("#disablebtnInfo").html('<span class="error_sign">!</span>&nbsp;' + 'Please select the rooms');
+                    $("#disablebtnInfo").html('<span class="error_sign">!</span>&nbsp;' + 'Please select the rooms & click +');
                 $("#disablebtnInfo").fadeIn(1000);
             }
             else
             {
+                $("#disablebtnInfo").hide();
+                 makeActiveLink();
     $('#mytableID > tbody:last').append(data); 
    
    $(this).closest("tr").remove();}
@@ -65,7 +66,7 @@ $this->load->helper('currency');   ?>
    var price = $(this).parent().prev().prev().prev('td').text();
    var roomprice = price.replace( /^\D+/g, '');;
    var rooms= $(this).parent().prev().prev('td').find('select').val();
-   var total= 'Rs.'+ parseFloat(rooms * roomprice);
+   var total= 'Rs. 0.00';
    
    var data ='<tr style="border-bottom:1px solid #ccc;" id="' + room_id + '"><td><div style="float: left; margin-right: 10px;"><img src="' +image +'" width="50px" height="50px"></div><div style="font-size: 16px;width: 60%; float: left;" id="room-name">' +
                         room_name + '</div><br></td><td>' +
@@ -99,7 +100,7 @@ $this->load->helper('currency');   ?>
             if ($('#disablebtn').val() == 'yes')
             {
                 e.preventDefault();
-                $("#disablebtnInfo").html('<span class="error_sign">!</span>&nbsp;' + 'Please select the rooms');
+                $("#disablebtnInfo").html('<span class="error_sign">!</span>&nbsp;' + 'Please select the rooms & click +');
                 $("#disablebtnInfo").fadeIn(1000);
                 return false;
             }
