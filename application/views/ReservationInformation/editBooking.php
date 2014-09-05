@@ -21,7 +21,7 @@ $this->load->helper('currency'); ?>
             
     </div>
     <div id="error_dateFormate"></div
-    <h4>Please select check in and check out date to change dates, or click on Next button to change rooms only.</h4>
+    <h4 id="sucessmsg">Please select check in and check out date and click next to change dates, or click on Next button to change rooms only.</h4>
   <?php
                 $adultsNumber = 15;
                 $children = 15;         

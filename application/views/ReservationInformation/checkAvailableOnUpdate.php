@@ -22,7 +22,7 @@ $this->load->helper('currency');   ?>
             var price = $(this).parent().prev('td').children('span.priceTag').text();
             var total = rooms * price;
             $(this).parent().next('td').children('span.subTotal').text(total);
-            // makeActiveLink();
+            
         });
 
  $('body').on('click', 'img.add', function() {
@@ -50,7 +50,7 @@ $this->load->helper('currency');   ?>
             else
             {
                 $("#disablebtnInfo").hide();
-                 makeActiveLink();
+                
     $('#mytableID > tbody:last').append(data); 
    
    $(this).closest("tr").remove();}
@@ -87,7 +87,7 @@ $this->load->helper('currency');   ?>
                 {
                    
                      $('#mytablelow > tbody:last').append(data + msgs + nextdata); 
-
+                     
                 }
 
             });
@@ -97,7 +97,7 @@ $this->load->helper('currency');   ?>
  
  
         $("#updatedBooking").click(function(e) {
-            if ($('#disablebtn').val() == 'yes')
+            if (('#disablebtn').val() == 'yes')
             {
                 e.preventDefault();
                 $("#disablebtnInfo").html('<span class="error_sign">!</span>&nbsp;' + 'Please select the rooms & click +');
@@ -108,6 +108,28 @@ $this->load->helper('currency');   ?>
         });
 
     });
+    
+    function calculateSum() {   
+   
+    var sum = 0;
+// iterate through each td based on class and add the values
+    $(".subTotal").each(function() {
+    var value = $(this).text();
+    // add only if the value is number
+    if (!isNaN(sum) && sum.length != 0) {
+        sum += parseFloat(value);
+         $('#disablebtn').val('no');
+    }
+    else{
+         $('#disablebtn').val('yes'); }
+    });
+
+}
+    
+    
+    
+    
+    
 </script> 
 
 
