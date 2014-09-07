@@ -408,7 +408,7 @@ function record_count_all_booking_info($user_id)
             'price' => $price,
             'description' => $description,
             'image' => $img_name,
-            'status' => "0");
+            'status' => "1");
 
         $this->db->where('id', $id);
         $this->db->update('room_registration', $data);

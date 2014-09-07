@@ -397,6 +397,21 @@ class dashboard extends CI_Controller {
                 if ($this->upload->do_upload('room_img')) {
                     $data = $this->upload->data();
                     $img_name = $data['file_name'];
+                     $name = $img_name;
+
+                        $image_thumb = dirname('thumb_' . $name . '/demo');
+
+                        $config['image_library'] = 'gd2';
+                        $config['source_image'] = 'uploads/' . $img_name;
+                        $config['new_image'] = $image_thumb;
+                        $config['maintain_ratio'] = TRUE;
+                        $config['width'] = 100;
+                        $config['height'] = 75;
+
+                        $this->load->library('image_lib', $config);
+
+                        $this->image_lib->resize();
+                    
                 } else {
                     echo $this->upload->display_errors();
                 }
