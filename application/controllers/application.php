@@ -218,7 +218,7 @@ class application extends CI_Controller {
         <div id="api-data-reserve" name="'.$apiName.'" data="'.$api.'"></div></textarea></code></pre>';            
         $b= '<pre>
 <code>
-    <textarea readonly  style="border: none; min-height:170px; width: 400px; margin:  0px ; padding: 0px;">
+    <textarea readonly  style="border: none; min-height:100px; width: 400px; margin:  0px ; padding: 0px;">
         <link rel="stylesheet" type="text/css" href="'.$base_url.'apiTesting/styles/first.css" />
        <script src="'.$base_url.'contents/scripts/jquery.js" ></script>
            <script src="'.$base_url.'contents/scripts/pickdate.js" ></script>
@@ -239,7 +239,7 @@ class application extends CI_Controller {
            
            $b= '<pre>
 <code>
-    <textarea readonly  style="border: none; min-height:170px; width: 400px; margin:  0px ; padding: 0px;">
+    <textarea readonly  style="border: none; min-height:100px; width: 400px; margin:  0px ; padding: 0px;">
         <link rel="stylesheet" type="text/css" href="'.$base_url.'apiTesting/styles/second.css" />
        <script src="'.$base_url.'contents/scripts/jquery.js" ></script>
            <script src="'.$base_url.'contents/scripts/pickdate.js" ></script>
@@ -260,7 +260,7 @@ class application extends CI_Controller {
             
             $b= '<pre>
 <code>
-    <textarea readonly  style="border: none; min-height:170px; width: 400px; margin:  0px ; padding: 0px;">
+    <textarea readonly  style="border: none; min-height:100px; width: 400px; margin:  0px ; padding: 0px;">
         <link rel="stylesheet" type="text/css" href="'.$base_url.'apiTesting/styles/third.css" />
        <script src="'.$base_url.'contents/scripts/jquery.js" ></script>
            <script src="'.$base_url.'contents/scripts/pickdate.js" ></script>
@@ -280,7 +280,7 @@ class application extends CI_Controller {
         <div id="api-data-reserve" name="'.$apiName.'" data="'.$api.'"></div></textarea></code></pre>';           
             $b= '<pre>
 <code>
-    <textarea readonly  style="border: none; min-height:170px; width: 400px; margin:  0px ; padding: 0px;">
+    <textarea readonly  style="border: none; min-height:100px; width: 400px; margin:  0px ; padding: 0px;">
         <link rel="stylesheet" type="text/css" href="'.$base_url.'apiTesting/styles/fourth.css" />
        <script src="'.$base_url.'contents/scripts/jquery.js" ></script>
            <script src="'.$base_url.'contents/scripts/pickdate.js" ></script>

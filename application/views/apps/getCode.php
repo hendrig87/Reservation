@@ -163,8 +163,6 @@
         var hotel = $("#selectHotel").val();
         var payment = $("input[type='radio'][name='payment']:checked").val();
         var template = $("input[type='radio'][name='temp']:checked").val();
-   
-   alert(template);
 
         if ((apiName == null) || (apiName == "") || (!apiName.match(/^[a-z,0-9,A-Z_ ]{5,35}$/))) {     
             $("#apiName").focus();

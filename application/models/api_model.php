@@ -59,6 +59,7 @@ class Api_model extends CI_Model {
     
     public function get_user_hotel($user_id){
      $this->db->where('user_id', $user_id);
+      $this->db->where('status', '1');
         $query = $this->db->get('hotel_info');
         return $query->result();
      
