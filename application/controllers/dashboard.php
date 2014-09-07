@@ -95,7 +95,7 @@ class dashboard extends CI_Controller {
 
             $this->form_validation->set_rules('room_type', 'Room Type', 'trim|regex_match[/^[a-z,0-9,A-Z_ ]{5,35}$/]|required|xss_clean');
             $this->form_validation->set_rules('price', 'Price', 'trim|regex_match[/^[0-9]{3,5}$/]|required|xss_clean');
-            $this->form_validation->set_rules('description', 'Description', 'trim|regex_match[/^[A-Za-z0-9\-\\,._ ]{2,35}$/]|required|xss_clean');
+            $this->form_validation->set_rules('description', 'Description', 'trim|regex_match[/^[A-Za-z0-9\-\\,. _ ]{2,200}$/]|required|xss_clean');
             $this->form_validation->set_rules('selectHotel', 'Price', 'trim|required|xss_clean');
 
             if ($this->form_validation->run() == FALSE) {
@@ -516,8 +516,8 @@ class dashboard extends CI_Controller {
 
         $editUrl = base_url() . 'index.php/dashboard/editBooking/' . $bookId;
         $deleteUrl = base_url() . 'index.php/dashboard/deleteBooking/' . $bookId;
-        $view = '<h4 style="margin:0px; float:left; color:#0092b4;">' . $day . '-' . $monthyr . '</h4><div style="clear:both;"></div><h3 style="margin:5px;"> Name: ' . $name . '</h3><p style="margin:5px;">' . $from . ' to ' . $to . '<br/>Address: ' . $address . '<br/>Conatct No: ' . $contactNo . '<br/>Adults: ' . $adult . '<br/>Childs: ' . $child . '<br/>Rooms: ' . implode('<br/>', $array) . '</p>'
-                . '<a href="' . $editUrl . '">Edit entry</a>' . '<a style="float:right;" href="' . $deleteUrl . '">Delete entry</a>';
+        $view = '<h4 style="margin:0px; float:left; color:#0092b4;">' . $day . '-' . $monthyr . '</h4><div style="clear:both;"></div><h3 style="margin:5px;"> Name: ' . $name . '</h3><p style="margin:5px;">' . $from . ' to ' . $to . '<br/>Address: ' . $address . '<br/>Conatct No: ' . $contactNo . '<br/>Adults: ' . $adult . '<br/>Childs: ' . $child . '<br/>Rooms: ' . implode('<br/>', $array) . '</p>';
+                // '<a href="' . $editUrl . '">Edit entry</a>' . '<a style="float:right;" href="' . $deleteUrl . '">Delete entry</a>';
         echo $view;
     }
 

@@ -3,8 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/Reservation/contents/scripts/dashboard.js</file>
-            <file>file:/C:/wamp/www/Reservation/application/views/dashboard/editRoomInfo.php</file>
+            <file>file:/C:/wamp/www/Reservation/application/controllers/dashboard.php</file>
+            <file>file:/C:/wamp/www/Reservation/application/views/login/loginOnHover.php</file>
+            <file>file:/C:/wamp/www/Reservation/application/views/demo/demo.php</file>
+            <file>file:/C:/wamp/www/Reservation/application/views/dashboard/addNewRoom.php</file>
+            <file>file:/C:/wamp/www/Reservation/contents/styles/styles.css</file>
+            <file>file:/C:/wamp/www/Reservation/application/views/template/header.php</file>
+            <file>file:/C:/wamp/www/Reservation/application/models/dashboard_model.php</file>
+            <file>file:/C:/wamp/www/Reservation/contents/styles/tableStyles.css</file>
         </group>
     </open-files>
 </project-private>

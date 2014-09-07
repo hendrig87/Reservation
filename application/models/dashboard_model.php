@@ -64,7 +64,7 @@ class dashboard_model extends CI_Model {
             'image' => $img_name,
             'hotel_id' => $hotel_id,
             'user_id'=> $user_id,
-            'ststus' =>"1");
+            'status' =>"1");
 
         $this->db->insert('room_registration', $data);
     }

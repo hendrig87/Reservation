@@ -73,7 +73,7 @@ color: #fff;}
 #full
 {
     margin: 0px;
-    paddding:0px;
+    padding:0px;
     width: 100%;
 }
 
@@ -145,15 +145,15 @@ color: #fff;}
 		padding:7px; border:#4e95f4 1px solid;
                 border: 0px;
 	}
-	/* provide some minimal visual accomodation for IE8 and below */
+	
 	.TFtable tr{
 		background: #b8d1f3;
 	}
-	/*  Define the background color for all the ODD background rows  */
+	
 	.TFtable tr:nth-child(odd){ 
 		background: #b8d1f3;
 	}
-	/*  Define the background color for all the EVEN background rows  */
+	
 	.TFtable tr:nth-child(even){
 		background: #dae5f4;
 	}
@@ -235,9 +235,6 @@ color: #fff;}
 }
 
 
-
-//applicable for menu
-/* Starter CSS for Flyout Menu */
 #cssmenu {
   padding: 0;
   margin: 0;
@@ -291,7 +288,7 @@ color: #fff;}
 #cssmenu ul li {
   float: none;
 }
-/* Custom Stuff */
+
 #cssmenu span,
 #cssmenu a {
   display: inline-block;
@@ -344,7 +341,7 @@ color: #fff;}
 #cssmenu ul ul a span {
   font-size: 14px;
 }
-// now navigation css ends here
+
 .topLine
 {
    display: block; 
@@ -422,7 +419,6 @@ color: #fff;}
 		margin: 0%;
                 padding: 2% 0% 0% 10%;
 		background-color: rgb(111, 150, 216);
-		-webkit-box-shadow: 0 0 8px #D0D0D0;
                 font-weight:bold;
             font-size: 18px;
             min-height: 120px;
@@ -436,7 +432,7 @@ color: #fff;}
                 width: 100%;
                 height: 507px;
                margin-top: 1px;
-                 -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;
+               background-size: cover;
                 
             }
            
@@ -479,7 +475,6 @@ color: #fff;}
             {
                 margin: 10px;
 		border: 1px solid #D0D0D0;
-		-webkit-box-shadow: 0 0 8px #D0D0D0;
                 width: 98.3%;
                 float: left;
             }
@@ -536,9 +531,7 @@ color: #fff;}
             }
             hr.hr-gradient
 {
-    background: -webkit-linear-gradient(to right, #FFFFFF, #6A6868 50%, #FFFFFF);
-    background: -o-linear-gradient(to right, #FFFFFF, #6A6868 50%, #FFFFFF);
-    background: -moz-linear-gradient(to right, #FFFFFF, #6A6868 50%, #FFFFFF);
+   
     background:  linear-gradient(to right, #FFFFFF, #6A6868 50%, #FFFFFF);
     background-repeat: no-repeat;
     border: 0 none;
@@ -549,7 +542,6 @@ color: #fff;}
 #login
 {
     margin: 0 auto 0 auto;
-    -webkit-box-shadow: 0 0 8px #D0D0D0;
     width: 100%; 
     padding: 0px;
     background-color: #D0D0D0;
@@ -557,10 +549,8 @@ color: #fff;}
 #loginHover
 {
     margin: 0 auto 0 auto;
-    -webkit-box-shadow: 0 0 8px #D0D0D0;
     width: 100%;
     z-index: 100;
-    //position: absolute;
     padding: 0px;
     background-color: #D0D0D0;
 }
@@ -575,7 +565,7 @@ color: #fff;}
 #EmailSentMessage
 {
     margin: 0 auto 0 auto;
-    -webkit-box-shadow: 0 0 8px #D0D0D0;
+   
     width: 690px;
     alignment-adjust: central;
     padding-top: 55px;
@@ -583,8 +573,6 @@ color: #fff;}
 }
 .myButton {
 	background-color:#768d87;
-	-moz-border-radius:30px;
-	-webkit-border-radius:30px;
 	border-radius:30px;
 	border:1px solid #566963;
 	display:inline-block;
@@ -612,7 +600,7 @@ color: #fff;}
 
 
 
-/* for login view*/
+
 .textbox
 {
     width: 250px;
@@ -620,7 +608,7 @@ color: #fff;}
     border-radius: 5px;
 }
 
- //for popup
+ 
  pre
  { 
      font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
@@ -629,8 +617,6 @@ color: #fff;}
      width: auto;
      padding: 0px;
      background-color: #eee; 
-    // width: 650px!ie7;
-    // padding-bottom: 20px!ie7; 
     max-height: 100px;
  }
 
@@ -638,8 +624,7 @@ color: #fff;}
     min-height: 400px;
     background-color:white;
     box-shadow: 0px 0px 20px 1px #161616;
-    position:absolute;
-    
+    position:absolute; 
     z-index: 1002;
 }
 #room_book table tr th {
@@ -1137,7 +1122,7 @@ color: #fff;}
     min-height: 250px;
     
 }
-/* from reservation style */
+
 
 #title
 {
@@ -1210,8 +1195,3 @@ color: #fff;}
     padding:10px 0px;
     border-radius:3px;
 }
-
-::-webkit-input-placeholder { color: #999; padding-left:5px; font-size:12px;}
-::-moz-placeholder { color:#999; } /* firefox 19+ */
-:-ms-input-placeholder { color:#999; } /* ie */
-input:-moz-placeholder { color:#999; }

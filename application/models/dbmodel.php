@@ -144,7 +144,7 @@ class Dbmodel extends CI_Model {
             'address'=> $address,
             'contact'=> $contact,
             'user_id'=> $user_id,
-            'ststus' => "1");
+            'status' => "1");
         
          $this->db->insert('hotel_info', $data);
  }
