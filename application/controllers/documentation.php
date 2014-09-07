@@ -16,7 +16,7 @@ class Documentation extends CI_Controller {
  public function index(){ 
                   
         $this->load->view('template/header');
-        $this->load->view("dashboard/reservationSystem");
+       // $this->load->view("dashboard/reservationSystem");
         $this->load->view('documentations/document');    
         $this->load->view('template/footer');      
             

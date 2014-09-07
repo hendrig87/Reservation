@@ -55,7 +55,7 @@ class Hotels extends CI_Controller {
        
                 $this->form_validation->set_rules('hotelName', 'Name of Hotel', 'trim|regex_match[/^[a-z,0-9,A-Z_ ]{5,35}$/]|required|xss_clean');
                 $this->form_validation->set_rules('address', 'Address', 'trim|regex_match[/^[A-Za-z0-9\-\\,._ ]{2,35}$/]|required|xss_clean');
-                $this->form_validation->set_rules('contact', 'Contact Number', 'trim|regex_match[/^[0-9]{9,15}$/]|required|xss_clean');
+                $this->form_validation->set_rules('contact', 'Contact Number', 'trim|regex_match[/^[0-9\-\\,._ +]{9,15}$/]|required|xss_clean');
                 
                 if($this->form_validation->run() == FALSE)
                      {

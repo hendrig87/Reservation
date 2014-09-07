@@ -80,7 +80,7 @@
         <div id="reservation_temp">
             <div id="title">
                 <ul>
-                    <li class="has-active"><a href="#">Hotels</a></li>
+                    <li class="has-active"><a style="color: #fff;" href="#">Hotels</a></li>
 
                 </ul>
             </div>

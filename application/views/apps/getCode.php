@@ -14,8 +14,6 @@
         top: 50px;
         z-index:100;  
         margin-left: 15px;  
-
-        /* additional features, can be omitted */
         border:1px solid black;  	
         padding:25px;  
         font-size:15px;  
@@ -29,7 +27,6 @@
         text-decoration:none;  
     } 
 
-    /* This is for the positioning of the Close Link */
     #popupBoxClose {
         font-size:20px;  
         line-height:15px;  
@@ -58,8 +55,6 @@
         top: 50px;
         z-index:100; 
         margin-left: 15px;  
-
-        /* additional features, can be omitted */
         border:1px solid black;  	
         padding:25px;  
         font-size:15px;  
@@ -72,21 +67,18 @@
 .radioButton { position: absolute; bottom: 0px; right: 0px; }
 </style>
 <script type="text/javascript">
-
     $(document).ready( function() {
-        // When site loaded, load the Popupbox First
         $('.srcimage').click(function(){
          
          $(this).prev('input').prop('checked', true)  ;
-            $('.popup_box').fadeIn(500);
+           // $('.popup_box').fadeIn(500);
             var srcimg = $(this).attr('src');               
                
             $("#pqr").attr({
-                src: srcimg
-			
+                src: srcimg		
             });
-            $('.popup_box').css({"display":"Block"});
-            $('.detailsImage').css({"opacity":".3"});
+           // $('.popup_box').css({"display":"Block"});
+          //  $('.detailsImage').css({"opacity":".3"});
 			
         });
 		
@@ -120,7 +112,6 @@
          $('.first').css({'font-weight': 'bold'});
                     }, 1000); // .1 second
         });	
-	
         function openPopUp() {
                         
                          $('#loading').show();
@@ -138,9 +129,7 @@
                 },
                 success: function(msg)
                 {
-
                     $("#replaceMe").html(msg);
-
                 },
                 complete: function() {
                     $('#loading').hide();
@@ -167,10 +156,8 @@
         if ((apiName == null) || (apiName == "") || (!apiName.match(/^[a-z,0-9,A-Z_ ]{5,35}$/))) {     
             $("#apiName").focus();
             msg="You need to fill the title field in correct format!\n";
-           valid = false;
-          
+           valid = false;      
         }
-
         if ((api == null) || (api == "0")) {
             $("#selectApi").focus();
            msg="You need to select the api!\n";
@@ -210,18 +197,15 @@
                 {
                     $("#popup_box_get_code").show();
                     $("#replaceable").html(msg);
-
                 }
             });
         }
     }
-
     $(document).ready(function() {
         $('#popUpClose').click(function() {
             var location = window.location;   
                 location.reload(true);
-            $("#popup_box_get_code").hide();
-            
+            $("#popup_box_get_code").hide();        
         });
     });
 </script>
