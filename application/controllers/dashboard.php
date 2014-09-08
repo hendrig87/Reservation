@@ -95,7 +95,7 @@ class dashboard extends CI_Controller {
 
             $this->form_validation->set_rules('room_type', 'Room Type', 'trim|regex_match[/^[a-z,0-9,A-Z_ ]{5,35}$/]|required|xss_clean');
             $this->form_validation->set_rules('price', 'Price', 'trim|regex_match[/^[0-9]{3,5}$/]|required|xss_clean');
-            $this->form_validation->set_rules('description', 'Description', 'trim|regex_match[/^[A-Za-z0-9\-\\,. _ ]{2,1000}$/]|required|xss_clean');
+            $this->form_validation->set_rules('description', 'Description', 'trim|regex_match[/^[a-zA-Z0-9 \n\r _ -]{2,1000}$/]|required|xss_clean');
             $this->form_validation->set_rules('selectHotel', 'Price', 'trim|required|xss_clean');
 
             if ($this->form_validation->run() == FALSE) {
