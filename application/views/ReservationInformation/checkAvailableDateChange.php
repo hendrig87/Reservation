@@ -76,7 +76,7 @@ $children = 15;
 </table>
 
 <h4>Available Rooms from same hotel</h4>
-    <table width="100%">
+    <table width="100%" class="TFtable">
         <tr style="border-bottom:1px solid #ccc; text-align: left;">
             <th>Room</th>
             <th width="40%">Facility</th>
@@ -90,7 +90,7 @@ $children = 15;
             
        
         ?>
-            <tr style="border-bottom:1px solid #ccc;" id="<?php echo $book->id; ?>"> <td>
+            <tr class="hoverChange" style="border-bottom:1px solid #ccc;" id="<?php echo $book->id; ?>"> <td>
                     <input type="hidden" name="hidden[]" value="<?php echo $book->id; ?>" />
                     <div style="float: left; margin-right: 10px;"><img src="<?php echo base_url() . 'uploads/' . $book->image; ?>" width="50px" height="50px"></div>
                     <div style="font-size: 16px;width: 60%; float: left;" id="room-name"><?php echo $book->room_name; ?></div><br>  

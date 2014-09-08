@@ -13,7 +13,7 @@
     <?php
     if (!empty($api)) {
         ?>
-        <table width="100%">
+        <table width="100%" class="TFtable">
             <tr>
                 <th> API ID</th>
                 <th>API Name</th>
@@ -26,7 +26,7 @@
                 
                 ?>
 
-                <tr>
+                <tr class="hoverChange">
                     <td><?php echo $id; ?> </td> 
                     <td><?php echo $name; ?></td>
                   

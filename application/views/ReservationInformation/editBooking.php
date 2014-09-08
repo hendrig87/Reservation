@@ -45,7 +45,7 @@ $this->load->helper('currency'); ?>
   }   ?>
     <input name="id" id="hide" type="hidden" value="<?php echo $id; ?>" />
     <input name="hotelid" id="hotelhide" type="hidden" value="<?php echo $hotelId; ?>" />
-    <table>
+    <table >
         <tr>
             <td><span>Check In Date:</span></td>
             <td><input class="datepicker" oldval="<?php echo $checkInDate;  ?>" name="CheckIn" type="text" placeholder="From" required="required" id="fromDate" value="<?php echo $checkInDate; ?>" ></td>
@@ -80,7 +80,7 @@ $this->load->helper('currency'); ?>
     </table>
     <br/>
     <h3>Booked room info</h3>
-    <table width="100%" style="border-collapse: collapse">
+    <table width="100%" class="TFtable" style="border-collapse: collapse">
         <tr style="border-bottom:1px solid #ccc; text-align: left;">
             <th width="20%">Room</th>
             <th width="40%">Facility</th>

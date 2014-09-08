@@ -355,7 +355,7 @@ class dashboard extends CI_Controller {
 
 
             $data['query'] = $this->dashboard_model->get_all_rooms($config["per_page"], $page, $user_id);
-
+           
             $config['display_pages'] = FALSE;
             $data["links"] = $this->pagination->create_links();
             $this->load->view('template/header');

@@ -13,7 +13,7 @@
     <?php
     if (!empty($code)) {
         ?>
-        <table width="100%">
+        <table width="100%" class="TFtable">
             <tr>
                 <th width="20%"> API ID</th>
                 <th width="20%">API Title</th>
@@ -29,7 +29,7 @@
                 
                 ?>
 
-                <tr>
+                <tr class="hoverChange">
                     <td><?php echo $apiId; ?> </td> 
                     <td><?php echo $apiTitle; ?></td>
                    <td><?php echo $hotelName; ?> </td> 

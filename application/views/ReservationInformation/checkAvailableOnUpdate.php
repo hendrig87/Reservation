@@ -194,7 +194,7 @@ foreach ($rooms as &$i) {
 
     ?>
 
-    <table id="mytableID" width="100%">
+    <table id="mytableID" width="100%" class="TFtable">
         <tbody>
         <tr style="border-bottom:1px solid #ccc; text-align: left;">
             <th>Room</th>
@@ -214,7 +214,7 @@ foreach ($rooms as &$i) {
             $price = $ups->price;
             $totalRooms = $ups->no_of_room;
             ?>
-        <tr style="border-bottom:1px solid #ccc;" id="<?php echo $roomId; ?>"> <td>
+        <tr class="hoverChange" style="border-bottom:1px solid #ccc;" id="<?php echo $roomId; ?>"> <td>
                 <input type="hidden" name="hidden[]" value="<?php echo $roomId; ?>" />
                     <div style="float: left; margin-right: 10px;"><img src="<?php echo base_url() . 'uploads/' . $image; ?>" width="50px" height="50px"></div>
                     <div style="font-size: 16px;width: 60%; float: left;" id="room-name"><?php echo $roomNames; ?></div><br>  
@@ -245,7 +245,7 @@ foreach ($rooms as &$i) {
    <hr class="topLine" />
 <!-- for other rooms -->
 <?php if(!empty($rooms)){ ?>
-    <table id="mytablelow" width="100%">
+    <table id="mytablelow" width="100%" class="TFtable">
         <tr style="border-bottom:1px solid #ccc; text-align: left;">
             <th>Room</th>
             <th width="40%">Facility</th>
@@ -264,7 +264,7 @@ foreach ($rooms as &$i) {
             $price = $ups->price;
             $totalRooms = $ups->no_of_room;
             ?>
-        <tr style="border-bottom:1px solid #ccc;" id="<?php echo $roomId; ?>"> <td>
+        <tr class="hoverChange" style="border-bottom:1px solid #ccc;" id="<?php echo $roomId; ?>"> <td>
                 <input type="hidden" name="hidden[]" value="<?php echo $roomId; ?>" />
                     <div style="float: left; margin-right: 10px;"><img src="<?php echo base_url() . 'uploads/' . $image; ?>" width="50px" height="50px"></div>
                     <div style="font-size: 16px;width: 60%; float: left;" id="room-name"><?php echo $roomNames; ?></div><br>  
