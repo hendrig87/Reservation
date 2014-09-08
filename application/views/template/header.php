@@ -3,7 +3,8 @@
     <head>
         
         <meta charset="utf-8">
-        <title>Welcome to Online Reservation System</title>       
+        <title>Welcome to Online Reservation System</title>  
+        <meta name=viewport content="width=device-width, initial-scale=1">
         <script src="<?php echo base_url() . "contents/scripts/jquery.js"; ?>"></script>
         <script src="<?php echo base_url() . "contents/scripts/jquery-ui.js"; ?>"></script>    
         <script src="<?php echo base_url() . "contents/scripts/jquery1.10.2.js"; ?>"></script>
@@ -118,7 +119,7 @@
                         <li><a href="<?Php echo base_url() . 'index.php/documentation/index' ?>">DOCUMENTATION</a></li>
                         <li><a href="<?Php echo base_url() . 'index.php/login/loginForm' ?>">DEVELOPER TOOLS</a></li>
                         <li id="log_in"><a href="<?Php echo base_url() . 'index.php/login/registrationForm' ?>" >SIGN UP</a></li>
-                        <li id="loggin" ><a  href="<?Php echo base_url() . 'index.php/login/loginForm' ?>">LOGIN</a></li>
+                        <li id="loggin"><a  href="<?Php echo base_url() . 'index.php/login/loginForm' ?>">LOGIN</a></li>
                     </ul>
 
                     <?php } else { ?>
