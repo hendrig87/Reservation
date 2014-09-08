@@ -85,7 +85,7 @@ $(".test a").click(function(){
         
         ?>
 
-            <td><?php if($remain>=1){ echo $remain." days";}else{ echo "currently running";} ?></td>
+           <td><?php if($remain>=1){ echo $remain." days";}else if($remain=0){ echo "currently running";} else {echo "Booking Expired";} ?></td>
         <td> <?php echo $totalPupil; ?></td>
         <td> <?php echo $bookingName."<br>". $bookingEmail."<br>".$bookAddress."<br>".$contact; ?></td>
        

@@ -179,6 +179,7 @@ public function deleteHotel($id) {
         if ($this->session->userdata('logged_in')) {
             
             $this->dashboard_model->delete_hotel($id);
+            $this->dashboard_model->deleteRoom_id($id);
             $this->session->set_flashdata('message', 'Data Deleted Sucessfully');
             redirect('hotels/hotelListing', 'refresh');
         } else {

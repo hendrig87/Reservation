@@ -154,7 +154,7 @@ function record_count_all_booking_info($user_id)
           $this->db->limit($limit, $start);
            $this->db->where('user_id', $user_id);
            $this->db->where('status', "1");
-        $this->db->order_by("hotel_id", "desc");
+           $this->db->order_by("hotel_id", "desc");
         $query = $this->db->get('room_registration');
         return $query->result();
     }
@@ -417,6 +417,12 @@ function record_count_all_booking_info($user_id)
     public function deleteRoom($id) {
             $data = array('status'=>"0");
         $this->db->where('id', $id);
+        $this->db->update('room_registration', $data);
+    }
+    
+     public function deleteRoom_id($id) {
+            $data = array('status'=>"0");
+        $this->db->where('hotel_id', $id);
         $this->db->update('room_registration', $data);
     }
 
