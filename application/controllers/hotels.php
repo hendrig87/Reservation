@@ -124,7 +124,7 @@ public function hotelListing(){
       }   
    }
 
-  function editHotel($id) {
+  function editHotel($id=NULL) {
         if ($this->session->userdata('logged_in')) {
             $data['username'] = Array($this->session->userdata('logged_in'));
             $data['query'] = $this->dashboard_model->find_hotel($id);

@@ -367,7 +367,7 @@ class dashboard extends CI_Controller {
         }
     }
 
-    function edit($id) {
+    function edit($id=NULL) {
         if ($this->session->userdata('logged_in')) {
             $data['username'] = Array($this->session->userdata('logged_in'));
             $data['query'] = $this->dashboard_model->findroom($id);
@@ -729,7 +729,8 @@ class dashboard extends CI_Controller {
                 }
                 $json['json'] = json_encode($array);
             }
-            $this->load->view('template/header', $json);
+            if(isset($json)){$this->load->view('template/header', $json);}else{$this->load->view('template/header');}
+            
             $this->load->view('dashboard/reservationSystem');
             $this->load->view('reservationInformation/editBooking', $data);
             $this->load->view('template/footer');

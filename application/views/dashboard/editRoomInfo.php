@@ -13,7 +13,7 @@
             
     </div>
     <div id="form">
-       
+       <?php if(!empty($query)){ ?>
         
     <table>
     <tr>
@@ -49,6 +49,9 @@
 </table>
         <?php
         }
+        
+       }
+       else { echo "<b>Sorry ! Edit not available. </b>" ;}
         ?>
     </div>
 </div>

@@ -22,7 +22,7 @@
             $address= $data->address;
             $contact= $data->contact;
         }
-    }
+    
         ?>
     <table>
     <tr>
@@ -48,6 +48,8 @@
           
     </tr>
 </table>
+        <?php }
+        else {echo "<b> Sorry ! Edit not available. </b>"  ;}?>
     </div>
    
 </div>
