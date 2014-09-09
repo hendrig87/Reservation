@@ -1,254 +1,48 @@
-/* 
-    Document   : styles
-    Created on : Apr 23, 2014, 12:09:06 PM
-    Author     : salyani
-    Description:
-        Purpose of the stylesheet follows.
-this file is called by welcome_message in view
-folder login inside view filder also uses these styles
-*/
-
-
-/*for pagination*/
- ul.tsc_pagination { margin:4px 0; padding:0px; overflow:hidden; font:12px 'Tahoma'; list-style-type:none; }
+ul.tsc_pagination { margin:4px 0; padding:0px; overflow:hidden; font:12px 'Tahoma'; list-style-type:none; }
 ul.tsc_pagination li { float:left; margin:0px; padding:0px; margin-left:5px; }
- 
 ul.tsc_pagination li a { color:black; display:block; text-decoration:none; padding:7px 10px 7px 10px; }
- 
- 
 ul.tsc_paginationA li a { color:#FFFFFF; border-radius:3px; -moz-border-radius:3px; -webkit-border-radius:3px; }
- 
 ul.tsc_paginationA01 li a { color:#474747; border:solid 1px #B6B6B6; padding:6px 9px 6px 9px; background:#E6E6E6; background:-moz-linear-gradient(top, #FFFFFF 1px, #F3F3F3 1px, #E6E6E6); background:-webkit-gradient(linear, 0 0, 0 100%, color-stop(0.02, #FFFFFF), color-stop(0.02, #F3F3F3), color-stop(1, #E6E6E6)); }
-ul.tsc_paginationA01 li:hover a,
-ul.tsc_paginationA01 li.current a { background:#FFFFFF; }
-.pagination
-{
-    margin: 0px; color: #3399ff; width:100%;
-}
-/*pagination css ends up*/
+ul.tsc_paginationA01 li:hover a,ul.tsc_paginationA01 li.current a {background:#FFFFFF; }
+.pagination{margin: 0px;color: #3399ff;width:100%;}
 ::selection{ background-color: #E13300; color: white; }
-	::moz-selection{ background-color: #E13300; color: white; }
-	::webkit-selection{ background-color: #E13300; color: white; }
-
-	body {
-		background-color: #fff;
-		margin: 0px;
-                padding: 0px;
-		font: 13px/20px normal Helvetica, Arial, sans-serif;
-		color: #4F5155;
-	}
-
-	a {
-		color: #003399;
-		background-color: transparent;
-		font-weight: normal;
-	}
-
-	h1 {
-		color: #444;
-		background-color: transparent;
-		border-bottom: 1px solid #D0D0D0;
-		font-size: 19px;
-		font-weight: normal;
-		margin: 0 0 14px 0;
-		padding: 14px 15px 10px 15px;
-	}
-
-	#code {
-		font-family: Consolas, Monaco, Courier New, Courier, monospace;
-		background-color: #f9f9f9;
-		color: #002166;
-		display: block;
-		margin: 0px;
-		padding: 0px 5px 0px 15px;
-                width: 95%;
-	}
-#tbl th{background-color: #444;
-color: #fff;}
+::moz-selection{ background-color: #E13300; color: white; }
+::webkit-selection{ background-color: #E13300; color: white; }
+body {background-color: #fff;margin: 0px;padding: 0px;font: 13px/20px normal Helvetica, Arial, sans-serif;color: #4F5155;}
+a {color: #003399;background-color: transparent;font-weight: normal;}
+h1 {color: #444;background-color: transparent;border-bottom: 1px solid #D0D0D0;font-size: 19px;font-weight: normal;margin: 0 0 14px 0;padding: 14px 15px 10px 15px;}
+#code {font-family: Consolas, Monaco, Courier New, Courier, monospace;background-color: #f9f9f9;color: #002166;display: block;margin: 0px;padding: 0px 5px 0px 15px;width: 95%;}
+#tbl th{background-color: #444;color: #fff;}
 #tbl tr:nth-child(even) {background: #CCC}
 #tbl tr:nth-child(odd) {background: #FFF}
-
-
-
-#full
-{
-    margin: 0px;
-    padding:0px;
-    width: 100%;
-}
-
-#main
-{
-   padding-top: 1px;
-   min-height: 400px;
-   float: left;
-   width: 100%;
-   background-color: #525252;
-}
-#left
-{
-      float: left;
-      width: 20%;
-      min-height: 100%;
-      background-color: #ccc;
-      margin: 0px;
-      padding: 0px;
-     
-}
-.right
-{
-    float: left;
-    width: 77%;
-    padding: 0% 1% 1% 2%;
-    min-height: 400px;
-    background: url('../images/background.jpg'); 
-    color: #000;
-   
-}
-
-#right table tr td
-{
-   padding: 10px;
-}
-#right input[type="text"] 
-{
-    width: 250px;
-   
-    
-}
-
-#right textarea
-{
-    height: 100px;
-    width: 255px;
-    resize: none;
-   
-}
-
-
-#form
-{
-    font-size:14px; 
-     margin-left: 20px;
-}
-
-#alignright
-{
-    text-align: right;
-    font-size: 16px;
-}
-.TFtable{
-		width:100%; 
-		border-collapse:collapse; 
-	}
-	.TFtable td{ 
-		padding:7px; border:#4e95f4 1px solid;
-                border: 0px;
-	}
-	
-	.TFtable tr{
-		background: #b8d1f3;
-	}
-	
-	.TFtable tr:nth-child(odd){ 
-		background: #b8d1f3;
-	}
-	
-	.TFtable tr:nth-child(even){
-		background: #dae5f4;
-	}
-        
-         .TFtable .hoverChange:hover{
-            background: #7eb4fd;}
-        
-
-#help{
-    font-weight: bolder;
-   
-    text-decoration: none;
-    padding: 0px 7px;
-    border-bottom-left-radius:10px; 
-    border-bottom-right-radius:10px;
-    background: #666666;
-    border-top-left-radius:10px; 
-    border-top-right-radius:10px;
-    color: white;
-}
-
-#adds, #subs
-{
-    width: 20px;
-    text-align: center;
-    padding-bottom: 3px;
-}
-
-#sucess
-{
- 
-    font-weight: bold;
-    padding: 5px;
-    
-}
-
-#clear
-{
-    clear: both;
-}
-
-#room_book
-{
- margin: 0px; 
-
-}
-
-#room_book th
-{
-  text-align: left;
-  border-bottom: solid thin #ccc;
-}
-
-
-#room_book table tr td
-{
-   text-align: left;
-}
-
-.edit_room:hover 
-{
-    background-color: #bbb;
-}
-.edit_room
-{
-   border: solid thin #ccc;
-  height:20px;
-  width:20px; 
-}
-.delete_room
-{
-    border: solid thin #ccc;
-    height:20px;
-    width:20px;
-}
-.delete_room:hover
-{
-    background-color: #bbb;
-}
-
-
-#cssmenu {
-  padding: 0;
-  margin: 0;
-  border: 0;
-  font-weight: 600;
-  width: 100%;
-  min-height: 100%;
-}
-#cssmenu ul, #cssmenu li {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  
-}
+#full{margin: 0px;padding:0px;width: 100%;}
+#main{padding-top: 1px;min-height: 400px;float: left;width: 100%;background-color: #525252;}
+#left{float: left;width: 20%;min-height: 100%;background-color: #ccc;margin: 0px;padding: 0px;}
+.right{float: left;width: 77%;padding: 0% 1% 1% 2%;min-height: 400px;background: url('../images/background.jpg');color: #000;}
+#right table tr td{padding: 10px;}
+#right input[type="text"]{width: 250px;}
+#right textarea{height: 100px;width: 255px;resize: none;}
+#form{font-size:14px;margin-left: 20px;}
+#alignright{text-align: right;font-size: 16px;}
+.TFtable{width:100%;border-collapse:collapse;}
+.TFtable td{padding:7px; border:#4e95f4 1px solid;border: 0px;}
+.TFtable tr{background: #b8d1f3;}
+.TFtable tr:nth-child(odd){background: #b8d1f3;}
+.TFtable tr:nth-child(even){background: #dae5f4;	}
+.TFtable .hoverChange:hover{background: #7eb4fd;}
+#help{font-weight: bolder;text-decoration: none;padding: 0px 7px;border-bottom-left-radius:10px;border-bottom-right-radius:10px;background: #666666;border-top-left-radius:10px;border-top-right-radius:10px;color: white;}
+#adds, #subs{width: 20px;text-align: center;padding-bottom: 3px;}
+#sucess{font-weight: bold;padding: 5px;}
+#clear{clear: both;}
+#room_book{margin: 0px;}
+#room_book th{text-align: left;border-bottom: solid thin #ccc;}
+#room_book table tr td{text-align: left;}
+.edit_room:hover{background-color: #bbb;}
+.edit_room{border: solid thin #ccc;height:20px;width:20px;}
+.delete_room{border: solid thin #ccc;height:20px;width:20px;}
+.delete_room:hover{background-color: #bbb;}
+#cssmenu {padding: 0;margin: 0;border: 0;font-weight: 600;width: 100%;min-height: 100%;}
+#cssmenu ul, #cssmenu li {list-style: none;margin: 0;padding: 0;}
 #cssmenu ul {
   position: relative;
   z-index: 597;
@@ -873,31 +667,11 @@ color: #fff;}
 
 
 @media only screen and (max-width : 640px)
-{
-    #menuImage
-    {
-        position: relative;
-    }
-    
-    #left
-    {
-        display: none;
-        width: 100%;
-        z-index: 1;
-        position:unset;
-       opacity: 0.9;
-    }
-    
-    #cssmenu ul {
-  position: unset;
-    }
-    #cssmenu ul li{
-        width: 100%;
-        display: inline-block;
-        float: left;
-    }
-    
-    #cssmenu ul li.hover,
+{#menuImage{position: relative;}
+#left{display: none;width: 100%;z-index: 1;position:unset;opacity: 0.9;}
+#cssmenu ul {position: unset;}
+#cssmenu ul li{width: 100%;display: inline-block;float: left;}  
+#cssmenu ul li.hover,
 #cssmenu ul li:hover {
   position: relative;
   z-index: 599;
@@ -998,10 +772,7 @@ color: #fff;}
     {
         width: 300px;
     }
-   #fromDate, #toDate
-    {
-        width: 290px;
-        cursor:pointer;
+   #fromDate, #toDate{width: 290px;cursor:pointer;
     }
     
     
@@ -1059,139 +830,25 @@ color: #fff;}
   position: inherit;
 }
 
-#cssmenu ul li {
-  float: none;
-}
-#full
-    {
-        width: 363px;
-        padding: 0px;
-    }
-    .right, #code
-    {
-        width: 100%;
-        padding: 0%;
-        border-left: 0px;
-    }
-   
-    #cssmenu a
-    {
-        width: 70%;
-    }
-    .sitemap
-    {
-        width: 42%;
-    }
-    #chechinbtn
-    {
-        width: 310px;
-    }
-    #container
-    {
-        padding: 2% 0% 0% 4%;
-        width: 96%;
-    }
-    .centerDiv
-    {
-       right: 0px;
-       padding: 0px;
-    }
-    #reservation_temp
-    {
-        width: 300px;
-        padding: 10px;
-    }
-    .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button, #tags, .search, #adults, #childs
-    {
-        width: 300px;
-    }
-    #fromDate, #toDate
-    {
-        width: 290px;
-    }
-}
-
-#reservation_temp
-{
-
-    font-size:12px;
-    color: #666;
-    border-top: 3px solid red;
-    font-weight:bold;
-    background-color: #333;
-    min-height: 250px;
-    
-}
-
-
-#title
-{
-    color: #666;	
-    font-size:24px;
-    font-weight:bold;
-    margin-bottom:10px;
-}
-#title ul
-{
-    margin: 0px;
-    padding: 0px;
-}
-#title ul li
-{
-    display: inline-block;
-    list-style-type: none;
-    margin: 0px;
-    color: #ccc; 
-}
-#title ul li a:link
-{
-     color: #ccc; 
-     text-decoration: none;
-     padding: 0px 10px 0px 10px;
-}
-#title ul li a:hover
-{
-   
-     color: #fff; 
-     text-decoration: none;
-     padding: 0px 10px 0px 10px;
-}
-#title ul li.has-active
-{
-     color: #fff; 
-     text-decoration: none;
-     padding: 0px 10px 0px 10px;
-}
-.selectHotel
-{
-    height:25px;
-    margin:20px 0px ; 
-    border:thin solid #CCC;
-}
-
-
-.to
-{
-    margin-left:6px;
-}
-
-.from, .to
-{
-    width: 170px;
-    height:25px;
-    margin-bottom:20px;
-    border:thin solid #CCC;
-    border-radius: 3px;
-}
-
-
-#bookingBtn
-{
-    width:230px;
-    background:#FD8615;
-    border:none;
-    color:#FFF;
-    font-weight: bolder;
-    padding:10px 0px;
-    border-radius:3px;
-}
+#cssmenu ul li {float: none;}
+#full{width: 363px;padding: 0px;}
+.right, #code{width: 100%;padding: 0%;border-left: 0px;}
+#cssmenu a{width: 70%;}
+.sitemap{width: 42%;}
+#chechinbtn{width: 310px;}
+#container{padding: 2% 0% 0% 4%;width: 96%;}
+.centerDiv{right: 0px;padding: 0px;}
+#reservation_temp{width: 300px;padding: 10px;}
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button, #tags, .search, #adults, #childs{width: 300px;}
+#fromDate, #toDate{width: 290px;}}
+#reservation_temp{font-size:12px;color: #666;border-top: 3px solid red;font-weight:bold;background-color: #333;min-height: 250px;}
+#title{color: #666;font-size:24px;font-weight:bold;margin-bottom:10px;}
+#title ul{margin: 0px;padding: 0px;}
+#title ul li{display: inline-block;list-style-type: none;margin: 0px;color: #ccc;}
+#title ul li a:link{color: #ccc;text-decoration: none;padding: 0px 10px 0px 10px;}
+#title ul li a:hover{color: #fff;text-decoration: none;padding: 0px 10px 0px 10px;}
+#title ul li.has-active{color: #fff;text-decoration: none;padding: 0px 10px 0px 10px;}
+.selectHotel{height:25px;margin:20px 0px;border:thin solid #CCC;}
+.to{margin-left:6px;}
+.from, .to{width: 170px;height:25px;margin-bottom:20px;border:thin solid #CCC;border-radius: 3px;}
+#bookingBtn{width:230px;background:#FD8615;border:none;color:#FFF;font-weight: bolder;padding:10px 0px;border-radius:3px;}
