@@ -84,45 +84,49 @@
 
                 </ul>
             </div>
-            
-                <script>
+
+            <script>
 
 
-            $(function() {
+                $(function() {
 
-                $("#tags").autocomplete({
-                    source: function(request, response) {
-                        $.ajax({
-                            type: "POST",
-                            url: "<?php echo base_url() . 'index.php/dashboard/search'; ?>",
-                            dataType: "json",
-                            data: {'userA': request.term},
-                            success: function(msgs)
-                            { 
-                                response(msgs);
-                               
-                            }
-                        });
-                    }
+                    $("#tags").autocomplete({
+                        source: function(request, response) {
+                            $.ajax({
+                                type: "POST",
+                                url: "<?php echo base_url() . 'index.php/dashboard/search'; ?>",
+                                dataType: "json",
+                                data: {'userA': request.term},
+                                success: function(msgs)
+                                {
+                                    response(msgs);
+
+                                }
+                            });
+                        }
+
+                    });
 
                 });
 
-            });
 
+            </script>
 
-                </script>
+            <script>
+                function openPopUp() {
+                    $('#loading').show();
 
-                <script>
-                    function openPopUp() {
-                         $('#loading').show();
-                         
-                        var checkin = $("#fromDate").val();
-                        var checkout = $("#toDate").val();                       
-                        var adult = $("#adults").val();
-                        var child = $("#childs").val();
-                        var hotelId = $("#tags").val();
-                        var title = "";
-                        
+                    var checkin = $("#fromDate").val();
+                    var checkout = $("#toDate").val();
+                    var adult = $("#adults").val();
+                    var child = $("#childs").val();
+                    var hotelId = $("#tags").val();
+                    var title = "";
+
+                    if ((checkin == "" || checkin == null) || (checkout == "" || checkout == null) || (adult == "" || adult == null) || (hotelId == "" || hotelId == null)) {
+                        $('.errormsgs').fadeIn(1500);
+                    }
+                    else {
                         $.ajax({
                             type: "POST",
                             url: "<?php echo base_url() . 'index.php/room_booking/post_action'; ?>",
@@ -132,175 +136,172 @@
                                 'adult': adult,
                                 'child': child,
                                 'hotelId': hotelId,
-                                'title':title
+                                'title': title
                             },
-                            
-                                success: function(msg)
-        {
+                            success: function(msg)
+                            {
+                                $("#replaceMe").html(msg);
+                                x = $(".search").position();
 
-            $("#replaceMe").html(msg);
-          x=$(".search").position();
-  
-  leftVal="5"+"%";
-  topVal=x.top+"px";
-             $('.popup').css({left:leftVal,top:topVal}).show();
-        },
-         complete: function(){
-        $('#loading').hide();
-      }
-    });
-}
-
-$(document).ready(function(event){
-      
-                   $('#search').click(function (){
-                       var checkin = $("#fromDate").val();
-                        var checkout = $("#toDate").val();
-     var stDate = new Date(checkin);
-                          var enDate = new Date(checkout);
-            var compDate = enDate - stDate;
-            if(compDate >= 0)
-                {
-              $('.errormsgs').hide();
+                                leftVal = "5" + "%";
+                                topVal = x.top + "px";
+                                $('.popup').css({left: leftVal, top: topVal}).show();
+                            },
+                            complete: function() {
+                                $('#loading').hide();
+                            }
+                        });
+                    }
                 }
-            else 
-            {
-                $('.errormsgs').fadeIn(1500);
-     event.preventDefault();
-            } 
-                   });
-    $("#fromDate").click(function(){
-        $(".errormsgs").fadeOut(2000);
-    });
-    
-     $("#toDate").click(function(){
-        $(".errormsgs").fadeOut(2000);
-    });
-    
-    $("#tags").click(function(){
-        $(".errormsgs").fadeOut(2000);
-    });
-    
-    
-     var replaced = $("#changePopup").html();
-         $("#search").click(function(){
-             
-      // checks for valid date code part
-     
-   var dtVal=$('#fromDate').val();
-   if(ValidateDate(dtVal))   //calling ValidateDate function
-   {
-      $('.errormsgs').hide();
-   }
-   else
-   {
-     $('.errormsgs').fadeIn(1500);
-     event.preventDefault();
-   }
-             
-             
-              var dtVal=$('#toDate').val();
-   if(ValidateDate(dtVal))   //calling ValidateDate function
-   {
-      $('.errormsgs').fadeOut(1500);
-   }
-   else
-   {
-     $('.errormsgs').fadeIn(1500);
-     event.preventDefault();
-   }
-   
-   var hotel=$('#tags').val();
-   if(hotel!=="")   //calling ValidateDate function
-   {
-      $('.errormsgs').fadeOut(1500);
-   }
-   else
-   {
-     $('.errormsgs').fadeIn(1500);
-     event.preventDefault();
-   }
-   
-   var adult=$('#adults').val();
-   if(adult > "0")   //calling ValidateDate function
-   {
-      $('.errormsgs').fadeOut(1500);
-   }
-   else
-   {
-     $('.errormsgs').fadeIn(1500);
-     event.preventDefault();
-   }
-    // end for checks for valid date code part         
-             
-             
-      $("#changePopup").html(replaced); 
-$(".middleLayer").fadeToggle(1000);
-        $(".popup").fadeToggle(1300);
-                path();
-                $('#one').css({'background-color': '#0077b3'});
-                $('.first').css({'color': '#0077b3'});
-                $('.first').css({'font-weight': 'bold'});
-                openPouUp(); // function show popup
-    });
-});
+
+                $(document).ready(function(event) {
 
 
-$(document).keydown(function(e){
-if (e.keyCode == 27)
-{
-$(".popup").hide();
-        $(".middleLayer").fadeOut(300);
-}
-});
+                    $("#fromDate").click(function() {
+                        $(".errormsgs").fadeOut(2000);
+                    });
+
+                    $("#toDate").click(function() {
+                        $(".errormsgs").fadeOut(2000);
+                    });
+
+                    $("#tags").click(function() {
+                        $(".errormsgs").fadeOut(2000);
+                    });
+
+                    var replaced = $("#changePopup").html();
+
+                    $("#search").click(function() {
+
+                        var checkin = $("#fromDate").val();
+                        var checkout = $("#toDate").val();
+                        var stDate = new Date(checkin);
+                        var enDate = new Date(checkout);
+                        var compDate = enDate - stDate;
+                        if (compDate >= 0)
+                        {
+                            $('.errormsgs').hide();
+                        }
+                        else
+                        {
+                            $('.errormsgs').fadeIn(1500);
+                            event.preventDefault();
+                        }
+                        // checks for valid date code part
+
+                        var dtVal = $('#fromDate').val();
+                        if (ValidateDate(dtVal))   //calling ValidateDate function
+                        {
+                            $('.errormsgs').hide();
+                        }
+                        else
+                        {
+                            $('.errormsgs').fadeIn(1500);
+                            event.preventDefault();
+                        }
+
+
+                        var dtVal = $('#toDate').val();
+                        if (ValidateDate(dtVal))   //calling ValidateDate function
+                        {
+                            $('.errormsgs').hide();
+                        }
+                        else
+                        {
+                            $('.errormsgs').fadeIn(1500);
+                            event.preventDefault();
+                        }
+
+                        var hotel = $('#tags').val();
+                        if (hotel !== "")   //calling ValidateDate function
+                        {
+                            $('.errormsgs').hide();
+                        }
+                        else
+                        {
+                            $('.errormsgs').fadeIn(1500);
+                            event.preventDefault();
+                        }
+
+                        var adult = $('#adults').val();
+                        if (adult > "0")   //calling ValidateDate function
+                        {
+                            $('.errormsgs').hide();
+                        }
+                        else
+                        {
+                            $('.errormsgs').fadeIn(1500);
+                            event.preventDefault();
+                        }
+                        // end for checks for valid date code part         
+
+
+                        $("#changePopup").html(replaced);
+                        $(".middleLayer").fadeToggle(1000);
+                        $(".popup").fadeToggle(1300);
+                        path();
+                        $('#one').css({'background-color': '#0077b3'});
+                        $('.first').css({'color': '#0077b3'});
+                        $('.first').css({'font-weight': 'bold'});
+                        openPouUp(); // function show popup
+                    });
+                });
+
+                $(document).keydown(function(e) {
+                    if (e.keyCode == 27)
+                    {
+                        $(".popup").hide();
+                        $(".middleLayer").fadeOut(300);
+                    }
+                });
 
 
 
-function path() {
-$("#path").show();
-}
+                function path() {
+                    $("#path").show();
+                }
 
-                </script>         
-
-
+            </script>         
 
 
+
+
+            <?php
+            $adultsNumber = 15;
+            $children = 15;
+            ?>
+            <span class="errormsgs"><span class="error_sign">!</span>&nbsp;Please select hotel, from, to date and no of person. </span>
+            <div class="ui-widget">
+                <label for="tags">Search by hotel name, address or contact.</label>
+                <input placeholder="Select a Hotel..." id="tags" >
+            </div>
+
+            <input name="CheckIn" type="text" placeholder="From" required="required" id="fromDate" >
+
+
+
+            <input name="CheckOut" type="text" placeholder="To"  value="" id="toDate"  required="required">
+
+
+
+            <select name="adults" id="adults">
+                <option value="0" > Select no. of adult</option> 
                 <?php
-                $adultsNumber = 15;
-                $children = 15;
+                for ($i = 1; $i <= $adultsNumber; $i++) {
+                    echo "<option value=" . $i . ">" . $i . "</option>";
+                }
                 ?>
-                    <span class="errormsgs"><span class="error_sign">!</span>&nbsp;Please select hotel, from, to date and no of person. </span>
-                <div class="ui-widget">
-                    <label for="tags">Search by hotel name, address or contact.</label>
-                    <input placeholder="Select a Hotel..." id="tags" >
-                </div>
-              
-                <input name="CheckIn" type="text" placeholder="From" required="required" id="fromDate" >
+            </select>
+            <select name="children" required id="childs">
+                <option value="0" > Select no. of child</option>
+                <?php
+                for ($i = 1; $i <= $children; $i++) {
+                    echo "<option value=" . $i . ">" . $i . "</option>";
+                }
+                ?>
+            </select>
 
-
-
-                <input name="CheckOut" type="text" placeholder="To"  value="" id="toDate"  required="required">
-
-
-
-                <select name="adults" id="adults">
-                    <option value="0" > Select no. of adult</option> 
-                    <?php
-                    for ($i = 1; $i <= $adultsNumber; $i++) {
-                        echo "<option value=" . $i . ">" . $i . "</option>";
-                    }
-                    ?>
-                </select>
-                <select name="children" required id="childs">
-                    <option value="0" > Select no. of child</option>
-                    <?php
-                    for ($i = 1; $i <= $children; $i++) {
-                        echo "<option value=" . $i . ">" . $i . "</option>";
-                    }
-                    ?>
-                </select>
-
-                <input type ="button" id="search" class="search" onclick="openPopUp()"  value="PROCEED TO BOOKING" />
+            <input type ="button" id="search" class="search" onclick="openPopUp()"  value="PROCEED TO BOOKING" />
         </div>
 
     </div>
