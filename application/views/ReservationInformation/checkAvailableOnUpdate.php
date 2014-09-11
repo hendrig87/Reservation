@@ -20,7 +20,7 @@ $this->load->helper('currency');   ?>
 
             var price = $(this).parent().prev('td').children('span.priceTag').text();
             var total = rooms * price;
-            $(this).parent().next('td').children('span').text(total);
+            $(this).parent().next('td').children('span.subTotal').text(total);
             
         });
 
