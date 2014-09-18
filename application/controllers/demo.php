@@ -1,8 +1,5 @@
-<?php
-
-if (!defined('BASEPATH'))
+<?php if (!defined('BASEPATH'))
     exit('No direct script access allowed');
-
 class Demo extends CI_Controller {
      function __construct() {
         parent::__construct();
@@ -11,12 +8,9 @@ class Demo extends CI_Controller {
         $this->load->model('dbmodel');
         $this->load->model('dashboard_model');
         $this->load->helper('url');
-        $this->load->helper(array('form', 'url'));
-      
+        $this->load->helper(array('form', 'url'));      
     }
-    function index(){
-        
+    function index(){        
         $this->load->view('demo/demo');
-    }
-    
+    }    
 }

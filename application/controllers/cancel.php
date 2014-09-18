@@ -1,35 +1,26 @@
-<?php
-
-if (!defined('BASEPATH'))
+<?php if (!defined('BASEPATH'))
     exit('No direct script access allowed');
-
 class cancel extends CI_Controller {
-
     function __construct() {
         parent::__construct();
         $this->load->library('session');
         $this->load->model('dashboard_model');
-        $this->load->helper(array('form', 'url'));
-     
+        $this->load->helper(array('form', 'url'));     
     }
-
     function getRandomStringForVerification($length) {
         $validCharacters = "ABCDEFGHIJKLMNPQRSTUXYVWZabcdefghijklmnopqrstuvwxyz123456789";
         $validCharNumber = strlen($validCharacters);
         $result = "";
-
         for ($i = 0; $i < $length; $i++) {
             $index = mt_rand(0, $validCharNumber - 1);
             $result .= $validCharacters[$index];
         }
         return $result;
-    }
-    
+    }    
     public function index()
     {
          $this->load->view('cancelBooking/firstView');
-    }
-    
+    }    
     public function postBooking()
     {
         if(isset($_POST['bookingId']))
@@ -40,10 +31,8 @@ class cancel extends CI_Controller {
          if(isset($_POST['email']))
         {
             $email = $_POST['email'];
-        }
-        
-        $user = $this->dashboard_model->get_user_verified($bookId, $email);
-       
+        }        
+        $user = $this->dashboard_model->get_user_verified($bookId, $email);       
         if(!empty($user))
         {
             foreach ($user as $users)
@@ -61,28 +50,22 @@ class cancel extends CI_Controller {
         else
         {
             echo "<h3>Sorry! email or booking id did not match.";
-        }
-        
-    }
-    
+        }        
+    }    
      public function verificationEmail($userName, $userEmail, $key) {
         $this->load->helper('send_email_helper');
         $subject = "Verification Code";
         $imglink = base_url() . "contents/images/ParkReserve.png";
         $message = cancel_email($userName, $imglink, $key);
-
         send_verification_code($userEmail, $subject, $message);
-    }
-    
+    }    
     public function cancelBooking()
     {
         if(isset($_POST['code']))
         {
             $code = $_POST['code'];
-        }
-        
-         $user = $this->dashboard_model->get_user_verified_by_verification_code($code);
-       
+        }        
+         $user = $this->dashboard_model->get_user_verified_by_verification_code($code);       
         if(!empty($user))
         {
             foreach ($user as $users)
@@ -95,21 +78,13 @@ class cancel extends CI_Controller {
         else
         {
             echo "<h3>Sorry! email or booking id did not match.";
-        }
-           
-    }
-    
+        }           
+    }    
      public function cancellationEmail($userName, $userEmail) {
         $this->load->helper('send_email_helper');
         $subject = "Booking Cancelled";
         $imglink = base_url() . "contents/images/ParkReserve.png";
         $message = cancel_notification_email($userName, $imglink);
-
         send_cancellation_email($userEmail, $subject, $message);
-    }
-    
-    
-    
-    
-    
+    }    
 }

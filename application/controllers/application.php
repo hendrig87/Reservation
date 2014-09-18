@@ -1,10 +1,6 @@
-<?php
-
-if (!defined('BASEPATH'))
+<?php if (!defined('BASEPATH'))
     exit('No direct script access allowed');
-
 class application extends CI_Controller {
-
     function __construct() {
         parent::__construct();
         $this->load->library('session');
@@ -16,22 +12,18 @@ class application extends CI_Controller {
         $this->load->library("pagination");
         $this->load->helper('captcha');
     }
-
     function getRandomStringForCoupen($length) {
         $validCharacters = "ABCDEFGHIJKLMNPQRSTUXYVWZabcdefghijklmnopqrstuvwxyz123456789";
         $validCharNumber = strlen($validCharacters);
         $result = "";
-
         for ($i = 0; $i < $length; $i++) {
             $index = mt_rand(0, $validCharNumber - 1);
             $result .= $validCharacters[$index];
         }
         return $result;
     }
-
     public function index() {
         if ($this->session->userdata('logged_in')) {
-
             $useremail = $this->session->userdata('useremail');
             $user = $this->dbmodel->get_user_info($useremail);
             foreach ($user as $id) {
@@ -43,23 +35,16 @@ class application extends CI_Controller {
 'img_width' => 150,
 'img_height' => '50',
 'expiration' => 7200
-);
-         
-            
+);           
  $cap = create_captcha($vals);
-
             $this->load->view('template/header');
             $this->load->view("dashboard/reservationSystem");
-
             $this->load->view("apps/createApi");
-
             $this->load->view('template/footer');
         } else {
-
             redirect('login', 'refresh');
         }
     }
-
     public function addApi() {
         if ($this->session->userdata('logged_in')) {
             $useremail = $this->session->userdata('useremail');
@@ -68,10 +53,7 @@ class application extends CI_Controller {
                 $user_id = $data->id;
             }
             $this->load->library('form_validation');
-
             $this->form_validation->set_rules('api_name', 'API Name', 'trim|regex_match[/^[a-z,0-9,A-Z_ ]{5,35}$/]|required|xss_clean');
-
-
             if ($this->form_validation->run() == FALSE) {
                 $this->load->view('template/header');
                 $this->load->view("dashboard/reservationSystem");
@@ -80,10 +62,7 @@ class application extends CI_Controller {
             } else {
                 $key = $this->getRandomStringForCoupen(10);
                 $apiName = $this->input->post('api_name');
-
                 $this->api_model->add_new_api($key, $apiName, $user_id);
-
-
                 $this->session->set_flashdata('message', 'One app added sucessfully');
                 redirect('application/apiListing', 'refresh');
             }
@@ -91,7 +70,6 @@ class application extends CI_Controller {
             redirect('login', 'refresh');
         }
     }
-
     public function apiListing() {
         if ($this->session->userdata('logged_in')) {
             $useremail = $this->session->userdata('useremail');
@@ -99,9 +77,7 @@ class application extends CI_Controller {
             foreach ($user as $id) {
                 $user_id = $id->id;
             }
-
             $data['api'] = $this->api_model->get_all_app_by_user($user_id);
-
             $this->load->view('template/header');
             $this->load->view("dashboard/reservationSystem");
             $this->load->view("apps/listApi", $data);
@@ -110,42 +86,32 @@ class application extends CI_Controller {
             redirect('login', 'refresh');
         }
     }
-
     function editApi($id) {
         if ($this->session->userdata('logged_in')) {
             $data['username'] = Array($this->session->userdata('logged_in'));
             $data['query'] = $this->api_model->find_api($id);
-
             $this->load->view('template/header');
             $this->load->view('dashboard/reservationSystem');
             $this->load->view('apps/editApi', $data);
-
             $this->load->view('template/footer');
         } else {
             redirect('login', 'refresh');
         }
     }
-
     function updateApi() {
         if ($this->session->userdata('logged_in')) {
             $useremail = $this->session->userdata('useremail');
             $id = $this->input->post('id');
             $data['query'] = $this->api_model->find_api($id);
-
             $this->load->library('form_validation');
-
             $this->form_validation->set_rules('api_name', 'API Name', 'trim|regex_match[/^[a-z,0-9,A-Z_ ]{5,35}$/]|required|xss_clean');
-
-
             if ($this->form_validation->run() == FALSE) {
                 $this->load->view('template/header');
                 $this->load->view('dashboard/reservationSystem');
                 $this->load->view('apps/editApi', $data);
                 $this->load->view('template/footer');
             } else {
-
                 $api_name = $this->input->post('api_name');
-
                 $this->api_model->update_api($api_name, $id);
                 $this->session->set_flashdata('message', 'Data Updated sucessfully');
                 redirect('application/apiListing', 'refresh');
@@ -154,10 +120,8 @@ class application extends CI_Controller {
             redirect('login', 'refresh');
         }
     }
-
     public function deleteApi($id) {
         if ($this->session->userdata('logged_in')) {
-
             $this->api_model->delete_api($id);
             $this->session->set_flashdata('message', 'Data Deleted Sucessfully');
             redirect('application/apiListing', 'refresh');
@@ -165,10 +129,8 @@ class application extends CI_Controller {
             redirect('login', 'refresh');
         }
     }
-
     public function getCode() {
         if ($this->session->userdata('logged_in')) {
-
             $useremail = $this->session->userdata('useremail');
             $user = $this->dbmodel->get_user_info($useremail);
             foreach ($user as $id) {
@@ -187,25 +149,20 @@ class application extends CI_Controller {
             redirect('login', 'refresh');
         }
     }
-
     function requestCode() {
         if ($this->session->userdata('logged_in')) {
-
             $useremail = $this->session->userdata('useremail');
             $user = $this->dbmodel->get_user_info($useremail);
             foreach ($user as $id) {
                 $user_id = $id->id;
             }
         $this->load->helper('availableroom');
-
         $apiName = $_POST['apiName'];
         $api = $_POST['api'];
         $hotelId = $_POST['hotel'];
         $payment = $_POST['payment'];
         $template = $_POST['template'];
-        $base_url= base_url();
-
-       
+        $base_url= base_url();       
         if($template==1){
             $a= '<pre>
 <code>
@@ -213,8 +170,7 @@ class application extends CI_Controller {
         <link rel="stylesheet" type="text/css" href="'.$base_url.'apiTesting/styles/first.css" />
        <script src="'.$base_url.'contents/scripts/jquery.js" ></script>
            <script src="'.$base_url.'contents/scripts/pickdate.js" ></script>
-       <script src="'.$base_url.'apiTesting/scripts/common.js" ></script>
-         
+       <script src="'.$base_url.'apiTesting/scripts/common.js" ></script>         
         <div id="api-data-reserve" name="'.$apiName.'" data="'.$api.'"></div></textarea></code></pre>';            
         $b= '<pre>
 <code>
@@ -222,8 +178,7 @@ class application extends CI_Controller {
         <link rel="stylesheet" type="text/css" href="'.$base_url.'apiTesting/styles/first.css" />
        <script src="'.$base_url.'contents/scripts/jquery.js" ></script>
            <script src="'.$base_url.'contents/scripts/pickdate.js" ></script>
-       <script src="'.$base_url.'apiTesting/scripts/common.js" ></script>
-         
+       <script src="'.$base_url.'apiTesting/scripts/common.js" ></script>         
         <div id="api-data-reserve" name="'.$apiName.'" data="'.$api.'"></div></textarea></code></pre>';
         }
  if($template==2){
@@ -233,18 +188,15 @@ class application extends CI_Controller {
         <link rel="stylesheet" type="text/css" href="'.$base_url.'apiTesting/styles/second.css" />
        <script src="'.$base_url.'contents/scripts/jquery.js" ></script>
            <script src="'.$base_url.'contents/scripts/pickdate.js" ></script>
-       <script src="'.$base_url.'apiTesting/scripts/common.js" ></script>
-         
-        <div id="api-data-reserve" name="'.$apiName.'" data="'.$api.'"></div></textarea></code></pre>';
-           
+       <script src="'.$base_url.'apiTesting/scripts/common.js" ></script>         
+        <div id="api-data-reserve" name="'.$apiName.'" data="'.$api.'"></div></textarea></code></pre>';           
            $b= '<pre>
 <code>
     <textarea readonly  style="border: none; min-height:100px; width: 400px; margin:  0px ; padding: 0px;">
         <link rel="stylesheet" type="text/css" href="'.$base_url.'apiTesting/styles/second.css" />
        <script src="'.$base_url.'contents/scripts/jquery.js" ></script>
            <script src="'.$base_url.'contents/scripts/pickdate.js" ></script>
-       <script src="'.$base_url.'apiTesting/scripts/common.js" ></script>
-         
+       <script src="'.$base_url.'apiTesting/scripts/common.js" ></script>         
         <div id="api-data-reserve" name="'.$apiName.'" data="'.$api.'"></div></textarea></code></pre>';
         }
  if($template==3){
@@ -254,18 +206,15 @@ class application extends CI_Controller {
         <link rel="stylesheet" type="text/css" href="'.$base_url.'apiTesting/styles/third.css" />
        <script src="'.$base_url.'contents/scripts/jquery.js" ></script>
            <script src="'.$base_url.'contents/scripts/pickdate.js" ></script>
-       <script src="'.$base_url.'apiTesting/scripts/common.js" ></script>
-         
-        <div id="api-data-reserve" name="'.$apiName.'" data="'.$api.'"></div></textarea></code></pre>';
-            
+       <script src="'.$base_url.'apiTesting/scripts/common.js" ></script>         
+        <div id="api-data-reserve" name="'.$apiName.'" data="'.$api.'"></div></textarea></code></pre>';            
             $b= '<pre>
 <code>
     <textarea readonly  style="border: none; min-height:100px; width: 400px; margin:  0px ; padding: 0px;">
         <link rel="stylesheet" type="text/css" href="'.$base_url.'apiTesting/styles/third.css" />
        <script src="'.$base_url.'contents/scripts/jquery.js" ></script>
            <script src="'.$base_url.'contents/scripts/pickdate.js" ></script>
-       <script src="'.$base_url.'apiTesting/scripts/common.js" ></script>
-         
+       <script src="'.$base_url.'apiTesting/scripts/common.js" ></script>         
         <div id="api-data-reserve" name="'.$apiName.'" data="'.$api.'"></div></textarea></code></pre>';
         }
          if($template==4){
@@ -275,8 +224,7 @@ class application extends CI_Controller {
         <link rel="stylesheet" type="text/css" href="'.$base_url.'apiTesting/styles/fourth.css" />
        <script src="'.$base_url.'contents/scripts/jquery.js" ></script>
            <script src="'.$base_url.'contents/scripts/pickdate.js" ></script>
-       <script src="'.$base_url.'apiTesting/scripts/common.js" ></script>
-         
+       <script src="'.$base_url.'apiTesting/scripts/common.js" ></script>         
         <div id="api-data-reserve" name="'.$apiName.'" data="'.$api.'"></div></textarea></code></pre>';           
             $b= '<pre>
 <code>
@@ -284,31 +232,23 @@ class application extends CI_Controller {
         <link rel="stylesheet" type="text/css" href="'.$base_url.'apiTesting/styles/fourth.css" />
        <script src="'.$base_url.'contents/scripts/jquery.js" ></script>
            <script src="'.$base_url.'contents/scripts/pickdate.js" ></script>
-       <script src="'.$base_url.'apiTesting/scripts/common.js" ></script>
-         
+       <script src="'.$base_url.'apiTesting/scripts/common.js" ></script>         
         <div id="api-data-reserve" name="'.$apiName.'" data="'.$api.'"></div></textarea></code></pre>';
             }
 $this->api_model->add_new_code_user($apiName, $api, $hotelId, $template, $payment, $b, $user_id);
 echo $a;  
  } else {
-
             redirect('login', 'refresh');
-        }
-        
-    }
-    
+        }       
+    }    
     public function viewSender()
-    {
-       
+    {       
          $apiName = $_POST['apiName'];
-         $api = $_POST['api'];
-        
-         $data['api']= $this->api_model->get_api_detail( $apiName, $api);
-       
+         $api = $_POST['api'];        
+         $data['api']= $this->api_model->get_api_detail( $apiName, $api);       
       foreach($data['api'] as $temps){
           $template = $temps->template_id;
-      }
-    
+      }    
       if($template =="1"){
       $this->load->view('apiTesting/first', $data);}
        if($template =="2"){
@@ -317,9 +257,7 @@ echo $a;
       $this->load->view('apiTesting/third', $data);}
        if($template =="4"){
       $this->load->view('apiTesting/fourth', $data);}
-    }
-    
-    
+    }    
     public function codeListing()
     {
          if ($this->session->userdata('logged_in')) {
@@ -328,24 +266,13 @@ echo $a;
             foreach ($user as $id) {
                 $user_id = $id->id;
             }
-
             $data['code'] = $this->api_model->get_all_code_by_user($user_id);
-
             $this->load->view('template/header');
             $this->load->view("dashboard/reservationSystem");
             $this->load->view("apps/listCode", $data);
             $this->load->view('template/footer');
         } else {
             redirect('login', 'refresh');
-        }
-    
-    }
-    
-    
-    
-    
-    
-    
-    
-    
+        }    
+    } 
 }
