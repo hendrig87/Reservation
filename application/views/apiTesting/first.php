@@ -26,7 +26,7 @@
                  
                       <div class="input-prepend input-append">
                 <span class="add-on">Check In</span>
-                <input name="CheckIn" type="text" required="required" style="width:185px; cursor:pointer;" id="CheckIn">
+                <input name="CheckIn" type="text" required="required" style="height: 20px;width:185px; cursor:pointer;" id="CheckIn">
                 <span onclick="movecursor()" class="add-on" style="width:auto; cursor:pointer; "><img src="<?php echo base_url()."contents/images/ParkReserve.png" ;?>" alt="" width="15" height="20" ></span>
                 </div> 
                    
@@ -50,7 +50,7 @@
                        <div class="clear"></div>
                 <div class="input-prepend input-append">
                 <span class="add-on">Check Out</span>
-                <input name="CheckOut" type="text" style="width:185px; cursor:pointer;" id="CheckOut" value=""  required="required">
+                <input name="CheckOut" type="text" style="height: 20px;width:185px; cursor:pointer;" id="CheckOut" value=""  required="required">
                 <span onclick="movecursornext()" class="add-on" style="width:auto; cursor:pointer;"><img src="<?php echo base_url()."contents/images/ParkReserve.png" ;?>" alt="" width="15" height="20" ></span>
                 </div>
                   
