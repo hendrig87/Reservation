@@ -123,8 +123,8 @@
                     var hotelId = $("#tags").val();
                     var title = "";
 
-                    if ((checkin == "" || checkin == null) || (checkout == "" || checkout == null) || (adult == "" || adult == null) || (hotelId == "" || hotelId == null)) {
-                        $('.errormsgs').fadeIn(1500);
+                    if ((checkin =="" || checkin == null) || (checkout =="" || checkout == null) || (adult =="" || adult == null || adult =="0") || (hotelId == "" || hotelId == null)) {
+                      $('.errormsgs').fadeIn(500);
                     }
                     else {
                         $.ajax({
@@ -166,6 +166,9 @@
                     });
 
                     $("#tags").click(function() {
+                        $(".errormsgs").fadeOut(2000);
+                    });
+                    $("#adults").click(function() {
                         $(".errormsgs").fadeOut(2000);
                     });
 
@@ -226,6 +229,7 @@
                         var adult = $('#adults').val();
                         if (adult > "0")   //calling ValidateDate function
                         {
+                             
                             $('.errormsgs').hide();
                         }
                         else
