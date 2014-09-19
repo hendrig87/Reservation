@@ -14,7 +14,7 @@ class application extends CI_Controller {
         $this->load->helper('url');
         $this->load->helper(array('form', 'url'));
         $this->load->library("pagination");
-        $this->load->helper('captcha');
+        
     }
 
     function getRandomStringForCoupen($length) {
@@ -37,16 +37,6 @@ class application extends CI_Controller {
             foreach ($user as $id) {
                 $user_id = $id->id;
             }
-     $vals = array(
-'img_path' => './captcha/',
-'img_url' => base_url().'/captcha/',
-'img_width' => 150,
-'img_height' => '50',
-'expiration' => 7200
-);
-         
-            
- $cap = create_captcha($vals);
 
             $this->load->view('template/header');
             $this->load->view("dashboard/reservationSystem");
