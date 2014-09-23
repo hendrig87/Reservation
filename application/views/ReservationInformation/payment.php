@@ -147,7 +147,7 @@ $this->load->helper('availableRoom');
                 <td style="width:400px;">
                 <div id="personsInfo">
                     <legend style="border-bottom: solid thin #CCC;width: 80%;">Other Payment Method</legend>
-              <form action = "http://esewa.f1dev.com/epay/main" method="POST">
+              <form action = "https://esewa.com.np/epay/main" method="POST">
 <input value="<?php echo $totalPrice; ?>" name="tAmt" type="hidden">
 <input value="<?php echo $totalPrice; ?>" name="amt" type="hidden">
 <input value="0" name="txAmt" type="hidden">
